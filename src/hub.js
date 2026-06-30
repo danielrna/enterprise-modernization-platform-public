@@ -39,8 +39,8 @@ function renderHubIndex(benchmarks) {
 
 function renderMigrationPage(benchmarks) {
   const springBootBenchmarks = benchmarks.filter((benchmark) => benchmark.pack === 'spring-boot-3-readiness');
-  const validatedBenchmark = springBootBenchmarks.find((benchmark) => benchmark.validation?.status === 'passed');
-  const validatedBlock = renderValidatedBenchmark(validatedBenchmark);
+  const validatedBenchmarks = springBootBenchmarks.filter((benchmark) => benchmark.validation?.status === 'passed');
+  const validatedBlock = renderValidatedBenchmarks(validatedBenchmarks);
   const benchmarkRows = springBootBenchmarks.map((benchmark) => `<tr><td><a href="../benchmarks/${escapeHtml(benchmark.slug)}/index.html">${escapeHtml(benchmark.name)}</a></td><td><a href="${escapeHtml(benchmark.repository)}">${escapeHtml(shortRepository(benchmark.repository))}</a></td><td>${escapeHtml(benchmark.springBootVersion)}</td><td>${escapeHtml(formatReadiness(benchmark.readiness))}</td><td>${escapeHtml(benchmark.findings.total)}</td><td>${escapeHtml(benchmark.source)}</td><td>${escapeHtml(benchmark.validation.status)}</td><td><a href="../benchmarks/${escapeHtml(benchmark.slug)}/report.json">JSON</a></td></tr>`).join('');
 
   return page('Spring Boot 2 to 3 Migration', `
@@ -169,22 +169,32 @@ jobs:
   `);
 }
 
-function renderValidatedBenchmark(benchmark) {
-  if (!benchmark) return '';
+function renderValidatedBenchmarks(benchmarks) {
+  if (!benchmarks.length) return '';
+  const cards = benchmarks.map((benchmark) => `
+      <div class="proof-card">
+        <strong><a href="../benchmarks/${escapeHtml(benchmark.slug)}/index.html">${escapeHtml(benchmark.name)}</a></strong>
+        <span>${escapeHtml(shortRepository(benchmark.repository))}</span>
+        <div class="mini-metrics">
+          <small>${escapeHtml(benchmark.springBootVersion)} Spring Boot</small>
+          <small>${escapeHtml(formatReadiness(benchmark.readiness))} readiness</small>
+          <small>${escapeHtml(benchmark.validation.confidence)}% confidence</small>
+        </div>
+      </div>`).join('');
   return `
-    <h2>Validated Benchmark</h2>
+    <h2>Validated Benchmarks</h2>
     <section class="proof">
       <div>
-        <strong><a href="../benchmarks/${escapeHtml(benchmark.slug)}/index.html">${escapeHtml(benchmark.name)}</a></strong>
-        <p>Real checkout evidence from <a href="${escapeHtml(benchmark.repository)}">${escapeHtml(shortRepository(benchmark.repository))}</a>.</p>
+        <strong>${escapeHtml(benchmarks.length)} checkout-backed benchmark${benchmarks.length === 1 ? '' : 's'} passed compile and test validation.</strong>
+        <p>Each green benchmark is generated from a real repository checkout with captured compilation and test evidence.</p>
       </div>
       <div class="metrics">
-        <span><strong>${escapeHtml(benchmark.springBootVersion)}</strong><small>Spring Boot</small></span>
-        <span><strong>${escapeHtml(formatReadiness(benchmark.readiness))}</strong><small>Readiness</small></span>
-        <span><strong>${escapeHtml(benchmark.validation.status)}</strong><small>Compile + tests</small></span>
-        <span><strong>${escapeHtml(benchmark.validation.confidence)}%</strong><small>Confidence</small></span>
+        <span><strong>${escapeHtml(benchmarks.length)}</strong><small>Validated</small></span>
+        <span><strong>passed</strong><small>Compile + tests</small></span>
+        <span><strong>${escapeHtml(Math.round(benchmarks.reduce((sum, item) => sum + Number(item.validation.confidence || 0), 0) / benchmarks.length))}%</strong><small>Avg confidence</small></span>
       </div>
     </section>
+    <section class="validated">${cards}</section>
   `;
 }
 
@@ -225,9 +235,13 @@ function page(title, body) {
     .tile span { color:var(--muted); }
     .proof { display:grid; grid-template-columns:minmax(0, 1fr) auto; gap:18px; align-items:center; padding:18px; background:var(--panel); border:1px solid var(--line); border-left:4px solid #217a45; border-radius:8px; }
     .proof p { margin:6px 0 0; }
-    .metrics { display:grid; grid-template-columns:repeat(4, minmax(92px, 1fr)); gap:10px; }
+    .metrics { display:grid; grid-template-columns:repeat(3, minmax(92px, 1fr)); gap:10px; }
     .metrics span { display:flex; flex-direction:column; gap:2px; padding:10px 12px; background:#f8fafc; border:1px solid var(--line); border-radius:6px; }
     .metrics small { color:var(--muted); font-size:12px; }
+    .validated { display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:10px; margin:12px 0 24px; }
+    .proof-card { display:flex; flex-direction:column; gap:6px; padding:14px; background:var(--panel); border:1px solid var(--line); border-radius:8px; }
+    .proof-card span,.mini-metrics small { color:var(--muted); }
+    .mini-metrics { display:flex; flex-wrap:wrap; gap:8px; }
     .steps { display:grid; grid-template-columns:repeat(5, minmax(0, 1fr)); gap:10px; }
     .steps div,.promise div { display:flex; flex-direction:column; gap:5px; padding:14px; background:var(--panel); border:1px solid var(--line); border-radius:8px; }
     .steps span,.promise span { color:var(--muted); }
@@ -240,8 +254,8 @@ function page(title, body) {
     th,td { text-align:left; padding:10px 12px; border-bottom:1px solid var(--line); vertical-align:top; }
     th { font-size:12px; color:var(--muted); text-transform:uppercase; }
     li { margin:6px 0; }
-    @media (max-width: 900px) { .steps,.promise { grid-template-columns:1fr 1fr; } }
-    @media (max-width: 720px) { .layout,.proof,.steps,.promise { grid-template-columns:1fr; } .metrics { grid-template-columns:1fr 1fr; } h1 { font-size:27px; } }
+    @media (max-width: 900px) { .steps,.promise,.validated { grid-template-columns:1fr 1fr; } }
+    @media (max-width: 720px) { .layout,.proof,.steps,.promise,.validated { grid-template-columns:1fr; } .metrics { grid-template-columns:1fr; } h1 { font-size:27px; } }
   </style>
 </head>
 <body><main>${body}</main></body>

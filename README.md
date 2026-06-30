@@ -14,7 +14,11 @@ Sample smoke-test report: https://github.com/danielrna/enterprise-modernization-
 
 Spring Boot 2 to 3 Migration Hub: https://danielrna.github.io/enterprise-modernization-platform-public/migration-hub/spring-boot-2-to-3.html
 
-Validated benchmark reference: https://danielrna.github.io/enterprise-modernization-platform-public/benchmarks/gs-spring-boot-27/index.html
+Validated benchmark references:
+
+- https://danielrna.github.io/enterprise-modernization-platform-public/benchmarks/gs-spring-boot-27/index.html
+- https://danielrna.github.io/enterprise-modernization-platform-public/benchmarks/gs-rest-service-27/index.html
+- https://danielrna.github.io/enterprise-modernization-platform-public/benchmarks/gs-serving-web-content-27/index.html
 
 Editions: https://danielrna.github.io/enterprise-modernization-platform-public/editions.html
 
@@ -125,7 +129,7 @@ Use the platform to turn a mandatory upgrade into a client-ready evidence report
 4. Validate compilation and tests.
 5. Sell migration confidence, not a generic migration script.
 
-The first public validated benchmark proves the reference flow: Spring Boot `2.7.6`, readiness `85%`, compile `passed`, tests `passed`, validation confidence `95%`.
+The public validation set now proves the reference flow on 3 real checkouts: Spring Boot `2.7.6`, readiness `85%`, compile `passed`, tests `passed`, validation confidence `95%`.
 
 ## Editions
 
@@ -212,8 +216,8 @@ Implemented v0.1 scope:
 - Jakarta readiness pack.
 - Enterprise rules.
 - Trust evidence and static HTML/JSON reports.
-- 21 Spring Boot benchmark reports plus Jakarta readiness evidence.
-- Validation status in benchmark reports and the Migration Hub, including one checkout benchmark with passing compile/test evidence.
+- 23 Spring Boot benchmark reports plus Jakarta readiness evidence.
+- Validation status in benchmark reports and the Migration Hub, including 3 checkout benchmarks with passing compile/test evidence.
 - Spring Boot 2 to 3 Migration Hub published through GitHub Pages.
 
 Still intentionally out of scope:

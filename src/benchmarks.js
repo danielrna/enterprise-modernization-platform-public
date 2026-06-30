@@ -251,6 +251,46 @@ export const BENCHMARKS = [
     ]
   }),
   benchmark({
+    slug: 'gs-rest-service-27',
+    name: 'Spring Guide REST Service 2.7 Sample',
+    repository: 'https://github.com/spring-guides/gs-rest-service',
+    ref: 'boot-2.7',
+    checkoutSubdir: 'complete',
+    pack: 'spring-boot-3-readiness',
+    buildTool: 'Maven',
+    javaVersion: '1.8',
+    springBootVersion: '2.7.6',
+    fileCount: 18,
+    javaFileCount: 5,
+    jakartaDetected: false,
+    javaxDetected: false,
+    hibernateDetected: false,
+    springSecurityDetected: false,
+    findings: [
+      finding('spring-boot-2', 'warning', 'Spring Boot 2.7.6 detected', 'Run OpenRewrite Boot 3 recipes in dry-run mode.')
+    ]
+  }),
+  benchmark({
+    slug: 'gs-serving-web-content-27',
+    name: 'Spring Guide Serving Web Content 2.7 Sample',
+    repository: 'https://github.com/spring-guides/gs-serving-web-content',
+    ref: 'boot-2.7',
+    checkoutSubdir: 'complete',
+    pack: 'spring-boot-3-readiness',
+    buildTool: 'Maven',
+    javaVersion: '1.8',
+    springBootVersion: '2.7.6',
+    fileCount: 18,
+    javaFileCount: 5,
+    jakartaDetected: false,
+    javaxDetected: false,
+    hibernateDetected: false,
+    springSecurityDetected: false,
+    findings: [
+      finding('spring-boot-2', 'warning', 'Spring Boot 2.7.6 detected', 'Run OpenRewrite Boot 3 recipes in dry-run mode.')
+    ]
+  }),
+  benchmark({
     slug: 'spring-batch',
     name: 'Spring Batch',
     repository: 'https://github.com/spring-projects/spring-batch',
@@ -532,8 +572,40 @@ export async function publishBenchmarks({ outDir, source = 'catalog', only = nul
       localRoot: useLocalCheckout ? localRoot : null
     });
   }
-  await generateBenchmarkIndex({ outDir, reports });
+  await generateBenchmarkIndex({ outDir, reports: await loadPublishedReportsForIndex(outDir, reports) });
   return { count: reports.length, reports, source };
+}
+
+async function loadPublishedReportsForIndex(outDir, fallbackReports) {
+  const entries = await fs.readdir(outDir, { withFileTypes: true }).catch(() => []);
+  const reports = [];
+  for (const entry of entries) {
+    if (!entry.isDirectory()) continue;
+    const slug = entry.name;
+    const report = await readJson(path.join(outDir, slug, 'report.json'));
+    if (!report) continue;
+    reports.push({
+      slug,
+      name: report.project?.name || slug,
+      repository: report.project?.source || `https://github.com/${slug}`,
+      readiness: report.readiness?.overall ?? null,
+      source: report.benchmark?.source || 'catalog',
+      validation: report.benchmark?.validation || { status: 'not_requested' }
+    });
+  }
+  return reports.length ? reports.sort(comparePublishedReports) : fallbackReports;
+}
+
+async function readJson(file) {
+  try {
+    return JSON.parse(await fs.readFile(file, 'utf8'));
+  } catch {
+    return null;
+  }
+}
+
+function comparePublishedReports(left, right) {
+  return left.name.localeCompare(right.name);
 }
 
 async function isDirectory(directory) {
