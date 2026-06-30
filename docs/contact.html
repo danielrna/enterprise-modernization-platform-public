@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Enterprise Modernization Platform Contact</title>
+  <style>
+    :root { --ink:#17202a; --muted:#64748b; --line:#d8dee8; --bg:#f7f9fb; --panel:#fff; --accent:#1769aa; --ok:#217a45; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; color:var(--ink); background:var(--bg); }
+    main { max-width:1080px; margin:0 auto; padding:32px 24px; }
+    h1 { margin:0 0 8px; font-size:34px; letter-spacing:0; }
+    h2 { margin:0; font-size:21px; letter-spacing:0; }
+    p { max-width:760px; color:var(--muted); }
+    a { color:var(--accent); text-decoration:none; }
+    a:hover { text-decoration:underline; }
+    .nav { display:flex; flex-wrap:wrap; gap:12px; margin:0 0 28px; }
+    .nav a { color:var(--muted); }
+    .grid { display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:14px; margin:24px 0; }
+    .request { display:flex; flex-direction:column; gap:12px; min-height:310px; padding:18px; background:var(--panel); border:1px solid var(--line); border-radius:8px; }
+    .request.featured { border-top:4px solid var(--ok); }
+    .price { font-size:22px; font-weight:700; color:var(--ink); }
+    .price small { display:block; margin-top:2px; font-size:12px; font-weight:500; color:var(--muted); }
+    ul { margin:0; padding-left:18px; color:var(--muted); }
+    li { margin:6px 0; }
+    .cta { display:inline-flex; align-items:center; justify-content:center; min-height:40px; margin-top:auto; padding:8px 12px; background:#f8fafc; border:1px solid var(--line); border-radius:6px; color:var(--accent); text-align:center; }
+    .cta.primary { background:var(--accent); border-color:var(--accent); color:#fff; }
+    .note { margin-top:24px; padding:16px; background:var(--panel); border:1px solid var(--line); border-left:4px solid var(--accent); border-radius:8px; }
+    @media (max-width: 860px) { .grid { grid-template-columns:1fr; } h1 { font-size:27px; } }
+  </style>
+</head>
+<body>
+  <main>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="editions.html">Editions</a>
+      <a href="migration-hub/spring-boot-2-to-3.html">Spring Boot 2 to 3</a>
+      <a href="benchmarks/index.html">Benchmarks</a>
+    </nav>
+
+    <section>
+      <h1>Request Access</h1>
+      <p>Use this page to request Professional, Consultant, or Organization access. The first useful reply should include the target migration, repository context, and whether validation evidence is required.</p>
+    </section>
+
+    <section class="grid">
+      <article class="request featured">
+        <h2>Professional</h2>
+        <div class="price">599 CHF/year<small>1 developer</small></div>
+        <ul>
+          <li>All migration packs</li>
+          <li>Validation evidence</li>
+          <li>Trust Engine report</li>
+          <li>Repeatable benchmark pack</li>
+        </ul>
+        <a class="cta primary" href="mailto:daniel.roina@gmail.com?subject=Professional%20access%20request&body=Edition%3A%20Professional%0ARepository%20or%20organization%3A%20%0ATarget%20migration%3A%20Spring%20Boot%202%20to%203%0AValidation%20needed%3A%20yes%2Fno%0AContext%3A%20">Request Professional access</a>
+      </article>
+
+      <article class="request">
+        <h2>Consultant</h2>
+        <div class="price">1490 CHF/year<small>Repeated client work</small></div>
+        <ul>
+          <li>Unlimited client usage</li>
+          <li>Enterprise rules workflow</li>
+          <li>Reusable reporting assets</li>
+          <li>Client-ready evidence flow</li>
+        </ul>
+        <a class="cta" href="mailto:daniel.roina@gmail.com?subject=Consultant%20license%20request&body=Edition%3A%20Consultant%0AClient%20type%3A%20%0ATarget%20migration%3A%20Spring%20Boot%202%20to%203%0AExpected%20repositories%3A%20%0AEnterprise%20rules%20needed%3A%20yes%2Fno%0AContext%3A%20">Request Consultant license</a>
+      </article>
+
+      <article class="request">
+        <h2>Organization</h2>
+        <div class="price">4990 CHF/year<small>Team usage</small></div>
+        <ul>
+          <li>Organization usage</li>
+          <li>Shared rules workflow</li>
+          <li>CI-ready evidence reports</li>
+          <li>Internal modernization standards</li>
+        </ul>
+        <a class="cta" href="mailto:daniel.roina@gmail.com?subject=Organization%20license%20request&body=Edition%3A%20Organization%0AOrganization%3A%20%0ATarget%20migration%3A%20%0AExpected%20repositories%3A%20%0ACI%20platform%3A%20GitHub%2FGitLab%2FAzure%20DevOps%2FJenkins%0AContext%3A%20">Request Organization access</a>
+      </article>
+    </section>
+
+    <section class="note">
+      <p>No hosted backend, login, CRM, or tracking is required. The request opens an email draft with the minimum context needed to qualify the access request.</p>
+    </section>
+  </main>
+</body>
+</html>

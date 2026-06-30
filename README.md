@@ -18,6 +18,8 @@ Validated benchmark reference: https://danielrna.github.io/enterprise-modernizat
 
 Editions: https://danielrna.github.io/enterprise-modernization-platform-public/editions.html
 
+Contact: https://danielrna.github.io/enterprise-modernization-platform-public/contact.html
+
 Run the analyzer on any Java or Spring repository:
 
 ```bash
@@ -131,6 +133,8 @@ The first public validated benchmark proves the reference flow: Spring Boot `2.7
 - Professional: validation evidence, Trust Engine report, repeatable benchmark pack, and stronger confidence trail.
 - Consultant: repeated client usage, enterprise rules workflow, and reusable reporting assets.
 - Organization: team usage, shared rules workflow, and CI-ready evidence reports.
+
+Access requests are handled through the static contact page: https://danielrna.github.io/enterprise-modernization-platform-public/contact.html
 
 ## Enterprise Rules
 
