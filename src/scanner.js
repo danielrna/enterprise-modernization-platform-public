@@ -114,7 +114,7 @@ function detectDependencies(contents) {
   const joined = contents.map((entry) => entry.content).join('\n');
   return {
     springBootVersion:
-      findFirst(joined, /spring-boot-starter-parent[\s\S]{0,300}<version>([^<]+)<\/version>/) ||
+      findFirst(joined, /spring-boot-starter-parent[\s\S]{0,300}?<version>([^<]+)<\/version>/) ||
       findFirst(joined, /org\.springframework\.boot['"]:spring-boot-gradle-plugin['"]?\s+version\s+['"]([^'"]+)/) ||
       findFirst(joined, /id ['"]org\.springframework\.boot['"] version ['"]([^'"]+)/) ||
       'unknown',

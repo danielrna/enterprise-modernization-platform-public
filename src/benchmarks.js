@@ -231,6 +231,26 @@ export const BENCHMARKS = [
     ]
   }),
   benchmark({
+    slug: 'gs-spring-boot-27',
+    name: 'Spring Guide Boot 2.7 Sample',
+    repository: 'https://github.com/spring-guides/gs-spring-boot',
+    ref: 'boot-2.7',
+    checkoutSubdir: 'complete',
+    pack: 'spring-boot-3-readiness',
+    buildTool: 'Maven',
+    javaVersion: '1.8',
+    springBootVersion: '2.7.6',
+    fileCount: 16,
+    javaFileCount: 4,
+    jakartaDetected: false,
+    javaxDetected: false,
+    hibernateDetected: false,
+    springSecurityDetected: false,
+    findings: [
+      finding('spring-boot-2', 'warning', 'Spring Boot 2.7.6 detected', 'Run OpenRewrite Boot 3 recipes in dry-run mode.')
+    ]
+  }),
+  benchmark({
     slug: 'spring-batch',
     name: 'Spring Batch',
     repository: 'https://github.com/spring-projects/spring-batch',
@@ -444,14 +464,17 @@ export async function publishBenchmarks({ outDir, source = 'catalog', only = nul
   const selected = selectBenchmarks({ only, limit });
   for (const item of selected) {
     const localRoot = path.resolve(reposDir, item.slug);
+    const analysisRoot = path.join(localRoot, item.checkoutSubdir || '');
     const hasLocalCheckout = await isDirectory(localRoot);
     const benchmarkEvidence = {
       slug: item.slug,
       name: item.name,
       repository: item.repository,
+      ref: item.ref || null,
       requestedSource: source,
       source: 'catalog',
       checkoutPath: null,
+      analysisPath: null,
       gitRevision: null,
       commands: [],
       validation: {
@@ -474,6 +497,7 @@ export async function publishBenchmarks({ outDir, source = 'catalog', only = nul
     if (useLocalCheckout) {
       benchmarkEvidence.source = 'checkout';
       benchmarkEvidence.checkoutPath = path.relative(process.cwd(), localRoot);
+      benchmarkEvidence.analysisPath = path.relative(process.cwd(), analysisRoot);
       benchmarkEvidence.gitRevision = await getGitRevision(localRoot);
       if (source === 'clone' && hasLocalCheckout) {
         benchmarkEvidence.commands.push({
@@ -485,15 +509,15 @@ export async function publishBenchmarks({ outDir, source = 'catalog', only = nul
       }
     }
     const scan = await analyzeProject({
-      root: useLocalCheckout ? localRoot : item.repository,
+      root: useLocalCheckout ? analysisRoot : item.repository,
       pack: item.pack,
       benchmarkMetadata: useLocalCheckout ? null : item
     });
     scan.project.name = item.name;
-    scan.project.root = useLocalCheckout ? benchmarkEvidence.checkoutPath : item.repository;
+    scan.project.root = useLocalCheckout ? benchmarkEvidence.analysisPath : item.repository;
     scan.project.source = item.repository;
     if (validate && useLocalCheckout) {
-      benchmarkEvidence.validation = await validateBenchmarkCheckout({ root: localRoot, timeoutMs: Number(validationTimeoutMs) || DEFAULT_VALIDATION_TIMEOUT_MS });
+      benchmarkEvidence.validation = await validateBenchmarkCheckout({ root: analysisRoot, timeoutMs: Number(validationTimeoutMs) || DEFAULT_VALIDATION_TIMEOUT_MS });
     }
     scan.benchmark = benchmarkEvidence;
     const readiness = scoreReadiness(scan);
@@ -532,16 +556,17 @@ function selectBenchmarks({ only, limit }) {
 
 async function cloneBenchmark(item, localRoot) {
   await fs.mkdir(path.dirname(localRoot), { recursive: true });
-  const args = ['git', 'clone', '--depth', '1', item.repository, localRoot];
+  const branchArgs = item.ref ? ['--branch', item.ref] : [];
+  const args = ['git', 'clone', '--depth', '1', ...branchArgs, item.repository, localRoot];
   const result = await runCommand(args);
   if (result.exitCode !== 0) {
     throw new Error(`Failed to clone ${item.slug}: ${result.output.trim()}`);
   }
   return {
-    command: ['git', 'clone', '--depth', '1', item.repository, path.relative(process.cwd(), localRoot)].join(' '),
+    command: ['git', 'clone', '--depth', '1', ...branchArgs, item.repository, path.relative(process.cwd(), localRoot)].join(' '),
     exitCode: result.exitCode,
     status: 'passed',
-    output: result.output.trim()
+    output: sanitizeCommandOutput(result.output).trim()
   };
 }
 
@@ -707,11 +732,13 @@ function killProcessTree(child) {
   }
 }
 
-function benchmark({ slug, name, repository, pack, buildTool, javaVersion, springBootVersion, fileCount, javaFileCount, jakartaDetected, javaxDetected, hibernateDetected, springSecurityDetected, findings }) {
+function benchmark({ slug, name, repository, ref = null, checkoutSubdir = null, pack, buildTool, javaVersion, springBootVersion, fileCount, javaFileCount, jakartaDetected, javaxDetected, hibernateDetected, springSecurityDetected, findings }) {
   return {
     slug,
     name,
     repository,
+    ref,
+    checkoutSubdir,
     pack,
     buildTools: [buildTool],
     javaVersion,

@@ -265,7 +265,9 @@ function renderBenchmarkEvidence(benchmark) {
     : '<tr><td colspan="3">No external command was needed for this benchmark source.</td></tr>';
   const validation = renderBenchmarkValidation(benchmark.validation);
   const details = [
+    benchmark.ref ? `<div class="label">Git ref: ${escapeHtml(benchmark.ref)}</div>` : null,
     benchmark.checkoutPath ? `<div class="label">Checkout: ${escapeHtml(benchmark.checkoutPath)}</div>` : null,
+    benchmark.analysisPath && benchmark.analysisPath !== benchmark.checkoutPath ? `<div class="label">Analyzed path: ${escapeHtml(benchmark.analysisPath)}</div>` : null,
     benchmark.gitRevision ? `<div class="label">Git revision: ${escapeHtml(benchmark.gitRevision)}</div>` : null
   ].filter(Boolean).join('\n      ');
   const detailsBlock = details ? `\n      ${details}` : '';

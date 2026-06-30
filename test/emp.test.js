@@ -93,10 +93,11 @@ public class Demo {
 test('validated local benchmark reports include compile and test evidence', async () => {
   const root = await fs.mkdtemp(path.join(os.tmpdir(), 'emp-benchmark-validation-'));
   const reposDir = path.join(root, 'repos');
-  const checkout = path.join(reposDir, 'spring-petclinic');
+  const checkout = path.join(reposDir, 'gs-spring-boot-27');
+  const projectRoot = path.join(checkout, 'complete');
   const outDir = path.join(root, 'benchmarks');
-  await fs.mkdir(path.join(checkout, 'src/main/java/com/example'), { recursive: true });
-  await fs.writeFile(path.join(checkout, 'pom.xml'), `<?xml version="1.0" encoding="UTF-8"?>
+  await fs.mkdir(path.join(projectRoot, 'src/main/java/com/example'), { recursive: true });
+  await fs.writeFile(path.join(projectRoot, 'pom.xml'), `<?xml version="1.0" encoding="UTF-8"?>
 <project>
   <parent>
     <groupId>org.springframework.boot</groupId>
@@ -108,12 +109,12 @@ test('validated local benchmark reports include compile and test evidence', asyn
   </properties>
 </project>
 `);
-  await fs.writeFile(path.join(checkout, 'mvnw'), `#!/bin/sh
+  await fs.writeFile(path.join(projectRoot, 'mvnw'), `#!/bin/sh
 echo "fake maven $*"
 exit 0
 `);
-  await fs.chmod(path.join(checkout, 'mvnw'), 0o755);
-  await fs.writeFile(path.join(checkout, 'src/main/java/com/example/Demo.java'), `package com.example;
+  await fs.chmod(path.join(projectRoot, 'mvnw'), 0o755);
+  await fs.writeFile(path.join(projectRoot, 'src/main/java/com/example/Demo.java'), `package com.example;
 
 import javax.persistence.Entity;
 
@@ -125,15 +126,18 @@ public class Demo {
   const result = await publishBenchmarks({
     outDir,
     source: 'local',
-    only: 'spring-petclinic',
+    only: 'gs-spring-boot-27',
     reposDir,
     validate: true,
     validationTimeoutMs: 5000
   });
-  const report = JSON.parse(await fs.readFile(path.join(outDir, 'spring-petclinic', 'report.json'), 'utf8'));
-  const html = await fs.readFile(path.join(outDir, 'spring-petclinic', 'index.html'), 'utf8');
+  const report = JSON.parse(await fs.readFile(path.join(outDir, 'gs-spring-boot-27', 'report.json'), 'utf8'));
+  const html = await fs.readFile(path.join(outDir, 'gs-spring-boot-27', 'index.html'), 'utf8');
 
   assert.equal(result.reports[0].validation.status, 'passed');
+  assert.equal(report.project.name, 'Spring Guide Boot 2.7 Sample');
+  assert.equal(report.benchmark.ref, 'boot-2.7');
+  assert.equal(report.benchmark.analysisPath.endsWith('gs-spring-boot-27/complete'), true);
   assert.equal(report.benchmark.validation.status, 'passed');
   assert.equal(report.benchmark.validation.checks.length, 2);
   assert.equal(report.benchmark.validation.checks.every((check) => check.status === 'passed'), true);
