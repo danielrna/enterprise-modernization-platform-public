@@ -1,0 +1,1557 @@
+{
+  "schemaVersion": "emp.report.v1",
+  "generatedAt": "2026-06-30T22:56:01.241Z",
+  "project": {
+    "name": "XXL-JOB",
+    "root": "benchmark-repos/xxl-job",
+    "source": "https://github.com/xuxueli/xxl-job",
+    "buildTools": [
+      "Maven"
+    ],
+    "javaVersion": "unknown",
+    "springBootVersion": "unknown",
+    "fileCount": 386,
+    "javaFileCount": 168
+  },
+  "pack": "spring-boot-3-readiness",
+  "packApplicability": {
+    "applicable": false,
+    "confidence": 0.9,
+    "reason": "Spring Boot 2.x was not detected. This pack targets Spring Boot 2.x to 3.x migrations.",
+    "recommendedPack": "jakarta-readiness"
+  },
+  "readiness": {
+    "overall": null,
+    "categories": {},
+    "summary": "Pack mismatch: Spring Boot 2.x was not detected. This pack targets Spring Boot 2.x to 3.x migrations.",
+    "status": "not_applicable",
+    "counts": {
+      "critical": 1,
+      "warning": 5,
+      "info": 57
+    }
+  },
+  "productionFindings": [
+    {
+      "code": "spring-boot-version-unknown",
+      "severity": "warning",
+      "title": "Spring Boot version unknown",
+      "recommendation": "Declare Spring Boot version explicitly in Maven or Gradle metadata.",
+      "file": null,
+      "line": null,
+      "scope": "production"
+    },
+    {
+      "code": "javax-usage",
+      "severity": "critical",
+      "title": "javax namespace usage detected",
+      "recommendation": "Migrate Java EE imports to Jakarta equivalents for Spring Boot 3.",
+      "file": null,
+      "line": null,
+      "scope": "production"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "xxl-job-admin/src/main/java/com/xxl/job/admin/business/controller/JobCodeController.java",
+      "line": 25,
+      "scope": "production"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "xxl-job-admin/src/main/java/com/xxl/job/admin/business/controller/JobInfoController.java",
+      "line": 33,
+      "scope": "production"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "xxl-job-admin/src/main/java/com/xxl/job/admin/business/controller/JobLogController.java",
+      "line": 37,
+      "scope": "production"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "xxl-job-admin/src/main/java/com/xxl/job/admin/business/controller/JobLogController.java",
+      "line": 58,
+      "scope": "production"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "xxl-job-admin/src/main/java/com/xxl/job/admin/business/mapper/XxlJobLogMapper.java",
+      "line": 7,
+      "scope": "production"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "xxl-job-admin/src/main/java/com/xxl/job/admin/business/mapper/XxlJobLogReportMapper.java",
+      "line": 7,
+      "scope": "production"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "xxl-job-admin/src/main/java/com/xxl/job/admin/business/mapper/XxlJobRegistryMapper.java",
+      "line": 7,
+      "scope": "production"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "xxl-job-admin/src/main/java/com/xxl/job/admin/business/model/XxlJobGroup.java",
+      "line": 7,
+      "scope": "production"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "xxl-job-admin/src/main/java/com/xxl/job/admin/business/model/XxlJobInfo.java",
+      "line": 3,
+      "scope": "production"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "xxl-job-admin/src/main/java/com/xxl/job/admin/business/model/XxlJobLog.java",
+      "line": 3,
+      "scope": "production"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "xxl-job-admin/src/main/java/com/xxl/job/admin/business/model/XxlJobLogGlue.java",
+      "line": 3,
+      "scope": "production"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "xxl-job-admin/src/main/java/com/xxl/job/admin/business/model/XxlJobLogReport.java",
+      "line": 3,
+      "scope": "production"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "xxl-job-admin/src/main/java/com/xxl/job/admin/business/model/XxlJobRegistry.java",
+      "line": 3,
+      "scope": "production"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "xxl-job-admin/src/main/java/com/xxl/job/admin/business/scheduler/alarm/JobAlarmer.java",
+      "line": 22,
+      "scope": "production"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "xxl-job-admin/src/main/java/com/xxl/job/admin/business/scheduler/cron/CronExpression.java",
+      "line": 24,
+      "scope": "production"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "xxl-job-admin/src/main/java/com/xxl/job/admin/business/scheduler/thread/JobCompleteHelper.java",
+      "line": 14,
+      "scope": "production"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "xxl-job-admin/src/main/java/com/xxl/job/admin/business/scheduler/thread/JobLogReportHelper.java",
+      "line": 10,
+      "scope": "production"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "xxl-job-admin/src/main/java/com/xxl/job/admin/business/scheduler/trigger/JobTrigger.java",
+      "line": 25,
+      "scope": "production"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "xxl-job-admin/src/main/java/com/xxl/job/admin/business/scheduler/type/ScheduleType.java",
+      "line": 5,
+      "scope": "production"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "xxl-job-admin/src/main/java/com/xxl/job/admin/business/scheduler/type/strategy/CronScheduleType.java",
+      "line": 7,
+      "scope": "production"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "xxl-job-admin/src/main/java/com/xxl/job/admin/business/scheduler/type/strategy/FixRateScheduleType.java",
+      "line": 7,
+      "scope": "production"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "xxl-job-admin/src/main/java/com/xxl/job/admin/business/scheduler/type/strategy/NoneScheduleType.java",
+      "line": 6,
+      "scope": "production"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "xxl-job-admin/src/main/java/com/xxl/job/admin/business/service/XxlJobService.java",
+      "line": 8,
+      "scope": "production"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "xxl-job-admin/src/main/java/com/xxl/job/admin/framework/model/dto/XxlBootResourceDTO.java",
+      "line": 4,
+      "scope": "production"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "xxl-job-admin/src/main/java/com/xxl/job/admin/framework/util/I18nUtil.java",
+      "line": 41,
+      "scope": "production"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "xxl-job-admin/src/main/java/com/xxl/job/admin/framework/util/XssUtil.java",
+      "line": 93,
+      "scope": "production"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "xxl-job-admin/src/main/java/com/xxl/job/admin/framework/util/XssUtil.java",
+      "line": 94,
+      "scope": "production"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "xxl-job-admin/src/main/java/com/xxl/job/admin/framework/util/XssUtil.java",
+      "line": 95,
+      "scope": "production"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "xxl-job-admin/src/main/java/com/xxl/job/admin/framework/util/XssUtil.java",
+      "line": 96,
+      "scope": "production"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "xxl-job-admin/src/main/java/com/xxl/job/admin/framework/util/XssUtil.java",
+      "line": 98,
+      "scope": "production"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "xxl-job-admin/src/main/java/com/xxl/job/admin/framework/util/XssUtil.java",
+      "line": 99,
+      "scope": "production"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "xxl-job-admin/src/main/java/com/xxl/job/admin/framework/util/old/XxlJobDynamicScheduler.java",
+      "line": 32,
+      "scope": "production"
+    },
+    {
+      "code": "reflection-usage",
+      "severity": "info",
+      "title": "Reflection usage",
+      "recommendation": "Review Reflection usage before modernization.",
+      "file": "xxl-job-admin/src/main/java/com/xxl/job/admin/framework/util/old/XxlJobDynamicScheduler.java",
+      "line": 219,
+      "scope": "production"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "xxl-job-core/src/main/java/com/xxl/job/core/context/XxlJobHelper.java",
+      "line": 12,
+      "scope": "production"
+    },
+    {
+      "code": "reflection-usage",
+      "severity": "info",
+      "title": "Reflection usage",
+      "recommendation": "Review Reflection usage before modernization.",
+      "file": "xxl-job-core/src/main/java/com/xxl/job/core/executor/XxlJobExecutor.java",
+      "line": 365,
+      "scope": "production"
+    },
+    {
+      "code": "reflection-usage",
+      "severity": "info",
+      "title": "Reflection usage",
+      "recommendation": "Review Reflection usage before modernization.",
+      "file": "xxl-job-core/src/main/java/com/xxl/job/core/executor/XxlJobExecutor.java",
+      "line": 373,
+      "scope": "production"
+    },
+    {
+      "code": "reflection-usage",
+      "severity": "info",
+      "title": "Reflection usage",
+      "recommendation": "Review Reflection usage before modernization.",
+      "file": "xxl-job-core/src/main/java/com/xxl/job/core/executor/impl/XxlJobSimpleExecutor.java",
+      "line": 59,
+      "scope": "production"
+    },
+    {
+      "code": "reflection-usage",
+      "severity": "info",
+      "title": "Reflection usage",
+      "recommendation": "Review Reflection usage before modernization.",
+      "file": "xxl-job-core/src/main/java/com/xxl/job/core/glue/impl/SpringGlueFactory.java",
+      "line": 38,
+      "scope": "production"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "xxl-job-core/src/main/java/com/xxl/job/core/log/XxlJobFileAppender.java",
+      "line": 12,
+      "scope": "production"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "xxl-job-core/src/main/java/com/xxl/job/core/openapi/executor/impl/ExecutorBizImpl.java",
+      "line": 19,
+      "scope": "production"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "xxl-job-core/src/main/java/com/xxl/job/core/thread/JobLogFileCleanThreadHelper.java",
+      "line": 12,
+      "scope": "production"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "xxl-job-core/src/main/java/com/xxl/job/core/thread/JobThread.java",
+      "line": 16,
+      "scope": "production"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "xxl-job-core/src/main/java/com/xxl/job/core/thread/TriggerCallbackThreadHelper.java",
+      "line": 27,
+      "scope": "production"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "xxl-job-core/src/main/java/com/xxl/job/core/util/deprecated/DateUtil.java",
+      "line": 10,
+      "scope": "production"
+    }
+  ],
+  "testFindings": [
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "xxl-job-admin/src/test/java/com/xxl/job/admin/business/controller/AbstractSpringMvcTest.java",
+      "line": 13,
+      "scope": "test"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "xxl-job-admin/src/test/java/com/xxl/job/admin/business/core/util/CronExpressionTest.java",
+      "line": 8,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "xxl-job-admin/src/test/java/com/xxl/job/admin/business/core/util/CronExpressionTest.java",
+      "line": 18,
+      "scope": "test"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "xxl-job-admin/src/test/java/com/xxl/job/admin/business/mapper/XxlJobGroupMapperTest.java",
+      "line": 8,
+      "scope": "test"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "xxl-job-admin/src/test/java/com/xxl/job/admin/business/mapper/XxlJobInfoMapperTest.java",
+      "line": 16,
+      "scope": "test"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "xxl-job-admin/src/test/java/com/xxl/job/admin/business/mapper/XxlJobLogGlueMapperTest.java",
+      "line": 8,
+      "scope": "test"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "xxl-job-admin/src/test/java/com/xxl/job/admin/business/mapper/XxlJobLogMapperTest.java",
+      "line": 8,
+      "scope": "test"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "xxl-job-admin/src/test/java/com/xxl/job/admin/business/mapper/XxlJobLogReportMapperTest.java",
+      "line": 11,
+      "scope": "test"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "xxl-job-admin/src/test/java/com/xxl/job/admin/business/mapper/XxlJobRegistryMapperTest.java",
+      "line": 10,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "xxl-job-admin/src/test/java/com/xxl/job/admin/business/mapper/XxlJobRegistryMapperTest.java",
+      "line": 38,
+      "scope": "test"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "xxl-job-admin/src/test/java/com/xxl/job/admin/business/schedule/JobScheduleTest.java",
+      "line": 12,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "xxl-job-executor-samples/xxl-job-executor-sample-springboot/src/test/java/com/xxl/job/executor/test/XxlJobExecutorExampleBootApplicationTests.java",
+      "line": 11,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "xxl-job-executor-samples/xxl-job-executor-sample-springboot-ai/src/test/java/com/xxl/job/executor/test/BaseTests.java",
+      "line": 11,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "xxl-job-executor-samples/xxl-job-executor-sample-springboot-ai/src/test/java/com/xxl/job/executor/test/ollama/OllamaTest.java",
+      "line": 87,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "xxl-job-executor-samples/xxl-job-executor-sample-springboot-ai/src/test/java/com/xxl/job/executor/test/ollama/OllamaTest.java",
+      "line": 89,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "xxl-job-executor-samples/xxl-job-executor-sample-springboot-ai/src/test/java/com/xxl/job/executor/test/openclaw/OpenClawTest.java",
+      "line": 88,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "xxl-job-executor-samples/xxl-job-executor-sample-springboot-ai/src/test/java/com/xxl/job/executor/test/openclaw/OpenClawTest.java",
+      "line": 90,
+      "scope": "test"
+    }
+  ],
+  "findingSummary": {
+    "production": {
+      "critical": 1,
+      "warning": 4,
+      "info": 41
+    },
+    "test": {
+      "critical": 0,
+      "warning": 1,
+      "info": 16
+    },
+    "byCode": {
+      "spring-boot-version-unknown": {
+        "code": "spring-boot-version-unknown",
+        "title": "Spring Boot version unknown",
+        "severity": "warning",
+        "total": 1,
+        "production": 1,
+        "test": 0,
+        "topModules": [
+          {
+            "name": "project",
+            "count": 1
+          }
+        ],
+        "examples": [
+          {
+            "code": "spring-boot-version-unknown",
+            "severity": "warning",
+            "title": "Spring Boot version unknown",
+            "recommendation": "Declare Spring Boot version explicitly in Maven or Gradle metadata.",
+            "file": null,
+            "line": null,
+            "scope": "production"
+          }
+        ]
+      },
+      "javax-usage": {
+        "code": "javax-usage",
+        "title": "javax namespace usage detected",
+        "severity": "critical",
+        "total": 1,
+        "production": 1,
+        "test": 0,
+        "topModules": [
+          {
+            "name": "project",
+            "count": 1
+          }
+        ],
+        "examples": [
+          {
+            "code": "javax-usage",
+            "severity": "critical",
+            "title": "javax namespace usage detected",
+            "recommendation": "Migrate Java EE imports to Jakarta equivalents for Spring Boot 3.",
+            "file": null,
+            "line": null,
+            "scope": "production"
+          }
+        ]
+      },
+      "java-util-date": {
+        "code": "java-util-date",
+        "title": "java.util.Date usage",
+        "severity": "info",
+        "total": 38,
+        "production": 30,
+        "test": 8,
+        "topModules": [
+          {
+            "name": "xxl-job-admin",
+            "count": 31
+          },
+          {
+            "name": "xxl-job-core",
+            "count": 7
+          }
+        ],
+        "examples": [
+          {
+            "code": "java-util-date",
+            "severity": "info",
+            "title": "java.util.Date usage",
+            "recommendation": "Review java.util.Date usage before modernization.",
+            "file": "xxl-job-admin/src/main/java/com/xxl/job/admin/business/controller/JobCodeController.java",
+            "line": 25,
+            "scope": "production"
+          },
+          {
+            "code": "java-util-date",
+            "severity": "info",
+            "title": "java.util.Date usage",
+            "recommendation": "Review java.util.Date usage before modernization.",
+            "file": "xxl-job-admin/src/main/java/com/xxl/job/admin/business/controller/JobInfoController.java",
+            "line": 33,
+            "scope": "production"
+          },
+          {
+            "code": "java-util-date",
+            "severity": "info",
+            "title": "java.util.Date usage",
+            "recommendation": "Review java.util.Date usage before modernization.",
+            "file": "xxl-job-admin/src/main/java/com/xxl/job/admin/business/controller/JobLogController.java",
+            "line": 37,
+            "scope": "production"
+          },
+          {
+            "code": "java-util-date",
+            "severity": "info",
+            "title": "java.util.Date usage",
+            "recommendation": "Review java.util.Date usage before modernization.",
+            "file": "xxl-job-admin/src/main/java/com/xxl/job/admin/business/mapper/XxlJobLogMapper.java",
+            "line": 7,
+            "scope": "production"
+          },
+          {
+            "code": "java-util-date",
+            "severity": "info",
+            "title": "java.util.Date usage",
+            "recommendation": "Review java.util.Date usage before modernization.",
+            "file": "xxl-job-admin/src/main/java/com/xxl/job/admin/business/mapper/XxlJobLogReportMapper.java",
+            "line": 7,
+            "scope": "production"
+          }
+        ]
+      },
+      "field-injection": {
+        "code": "field-injection",
+        "title": "Spring field injection",
+        "severity": "warning",
+        "total": 4,
+        "production": 3,
+        "test": 1,
+        "topModules": [
+          {
+            "name": "xxl-job-admin",
+            "count": 4
+          }
+        ],
+        "examples": [
+          {
+            "code": "field-injection",
+            "severity": "warning",
+            "title": "Spring field injection",
+            "recommendation": "Review Spring field injection before modernization.",
+            "file": "xxl-job-admin/src/main/java/com/xxl/job/admin/business/controller/JobLogController.java",
+            "line": 58,
+            "scope": "production"
+          },
+          {
+            "code": "field-injection",
+            "severity": "warning",
+            "title": "Spring field injection",
+            "recommendation": "Review Spring field injection before modernization.",
+            "file": "xxl-job-admin/src/main/java/com/xxl/job/admin/business/scheduler/alarm/JobAlarmer.java",
+            "line": 22,
+            "scope": "production"
+          },
+          {
+            "code": "field-injection",
+            "severity": "warning",
+            "title": "Spring field injection",
+            "recommendation": "Review Spring field injection before modernization.",
+            "file": "xxl-job-admin/src/main/java/com/xxl/job/admin/framework/util/I18nUtil.java",
+            "line": 41,
+            "scope": "production"
+          },
+          {
+            "code": "field-injection",
+            "severity": "warning",
+            "title": "Spring field injection",
+            "recommendation": "Review Spring field injection before modernization.",
+            "file": "xxl-job-admin/src/test/java/com/xxl/job/admin/business/controller/AbstractSpringMvcTest.java",
+            "line": 13,
+            "scope": "test"
+          }
+        ]
+      },
+      "system-out": {
+        "code": "system-out",
+        "title": "System.out logging",
+        "severity": "info",
+        "total": 14,
+        "production": 6,
+        "test": 8,
+        "topModules": [
+          {
+            "name": "xxl-job-admin",
+            "count": 8
+          },
+          {
+            "name": "xxl-job-executor-sample-springboot-ai",
+            "count": 5
+          },
+          {
+            "name": "xxl-job-executor-sample-springboot",
+            "count": 1
+          }
+        ],
+        "examples": [
+          {
+            "code": "system-out",
+            "severity": "info",
+            "title": "System.out logging",
+            "recommendation": "Review System.out logging before modernization.",
+            "file": "xxl-job-admin/src/main/java/com/xxl/job/admin/framework/util/XssUtil.java",
+            "line": 93,
+            "scope": "production"
+          },
+          {
+            "code": "system-out",
+            "severity": "info",
+            "title": "System.out logging",
+            "recommendation": "Review System.out logging before modernization.",
+            "file": "xxl-job-admin/src/main/java/com/xxl/job/admin/framework/util/XssUtil.java",
+            "line": 94,
+            "scope": "production"
+          },
+          {
+            "code": "system-out",
+            "severity": "info",
+            "title": "System.out logging",
+            "recommendation": "Review System.out logging before modernization.",
+            "file": "xxl-job-admin/src/main/java/com/xxl/job/admin/framework/util/XssUtil.java",
+            "line": 95,
+            "scope": "production"
+          },
+          {
+            "code": "system-out",
+            "severity": "info",
+            "title": "System.out logging",
+            "recommendation": "Review System.out logging before modernization.",
+            "file": "xxl-job-admin/src/main/java/com/xxl/job/admin/framework/util/XssUtil.java",
+            "line": 96,
+            "scope": "production"
+          },
+          {
+            "code": "system-out",
+            "severity": "info",
+            "title": "System.out logging",
+            "recommendation": "Review System.out logging before modernization.",
+            "file": "xxl-job-admin/src/main/java/com/xxl/job/admin/framework/util/XssUtil.java",
+            "line": 98,
+            "scope": "production"
+          }
+        ]
+      },
+      "reflection-usage": {
+        "code": "reflection-usage",
+        "title": "Reflection usage",
+        "severity": "info",
+        "total": 5,
+        "production": 5,
+        "test": 0,
+        "topModules": [
+          {
+            "name": "xxl-job-core",
+            "count": 4
+          },
+          {
+            "name": "xxl-job-admin",
+            "count": 1
+          }
+        ],
+        "examples": [
+          {
+            "code": "reflection-usage",
+            "severity": "info",
+            "title": "Reflection usage",
+            "recommendation": "Review Reflection usage before modernization.",
+            "file": "xxl-job-admin/src/main/java/com/xxl/job/admin/framework/util/old/XxlJobDynamicScheduler.java",
+            "line": 219,
+            "scope": "production"
+          },
+          {
+            "code": "reflection-usage",
+            "severity": "info",
+            "title": "Reflection usage",
+            "recommendation": "Review Reflection usage before modernization.",
+            "file": "xxl-job-core/src/main/java/com/xxl/job/core/executor/XxlJobExecutor.java",
+            "line": 365,
+            "scope": "production"
+          },
+          {
+            "code": "reflection-usage",
+            "severity": "info",
+            "title": "Reflection usage",
+            "recommendation": "Review Reflection usage before modernization.",
+            "file": "xxl-job-core/src/main/java/com/xxl/job/core/executor/XxlJobExecutor.java",
+            "line": 373,
+            "scope": "production"
+          },
+          {
+            "code": "reflection-usage",
+            "severity": "info",
+            "title": "Reflection usage",
+            "recommendation": "Review Reflection usage before modernization.",
+            "file": "xxl-job-core/src/main/java/com/xxl/job/core/executor/impl/XxlJobSimpleExecutor.java",
+            "line": 59,
+            "scope": "production"
+          },
+          {
+            "code": "reflection-usage",
+            "severity": "info",
+            "title": "Reflection usage",
+            "recommendation": "Review Reflection usage before modernization.",
+            "file": "xxl-job-core/src/main/java/com/xxl/job/core/glue/impl/SpringGlueFactory.java",
+            "line": 38,
+            "scope": "production"
+          }
+        ]
+      }
+    }
+  },
+  "findings": [
+    {
+      "code": "spring-boot-version-unknown",
+      "severity": "warning",
+      "title": "Spring Boot version unknown",
+      "recommendation": "Declare Spring Boot version explicitly in Maven or Gradle metadata.",
+      "file": null,
+      "line": null,
+      "scope": "production"
+    },
+    {
+      "code": "javax-usage",
+      "severity": "critical",
+      "title": "javax namespace usage detected",
+      "recommendation": "Migrate Java EE imports to Jakarta equivalents for Spring Boot 3.",
+      "file": null,
+      "line": null,
+      "scope": "production"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "xxl-job-admin/src/main/java/com/xxl/job/admin/business/controller/JobCodeController.java",
+      "line": 25,
+      "scope": "production"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "xxl-job-admin/src/main/java/com/xxl/job/admin/business/controller/JobInfoController.java",
+      "line": 33,
+      "scope": "production"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "xxl-job-admin/src/main/java/com/xxl/job/admin/business/controller/JobLogController.java",
+      "line": 37,
+      "scope": "production"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "xxl-job-admin/src/main/java/com/xxl/job/admin/business/controller/JobLogController.java",
+      "line": 58,
+      "scope": "production"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "xxl-job-admin/src/main/java/com/xxl/job/admin/business/mapper/XxlJobLogMapper.java",
+      "line": 7,
+      "scope": "production"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "xxl-job-admin/src/main/java/com/xxl/job/admin/business/mapper/XxlJobLogReportMapper.java",
+      "line": 7,
+      "scope": "production"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "xxl-job-admin/src/main/java/com/xxl/job/admin/business/mapper/XxlJobRegistryMapper.java",
+      "line": 7,
+      "scope": "production"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "xxl-job-admin/src/main/java/com/xxl/job/admin/business/model/XxlJobGroup.java",
+      "line": 7,
+      "scope": "production"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "xxl-job-admin/src/main/java/com/xxl/job/admin/business/model/XxlJobInfo.java",
+      "line": 3,
+      "scope": "production"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "xxl-job-admin/src/main/java/com/xxl/job/admin/business/model/XxlJobLog.java",
+      "line": 3,
+      "scope": "production"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "xxl-job-admin/src/main/java/com/xxl/job/admin/business/model/XxlJobLogGlue.java",
+      "line": 3,
+      "scope": "production"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "xxl-job-admin/src/main/java/com/xxl/job/admin/business/model/XxlJobLogReport.java",
+      "line": 3,
+      "scope": "production"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "xxl-job-admin/src/main/java/com/xxl/job/admin/business/model/XxlJobRegistry.java",
+      "line": 3,
+      "scope": "production"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "xxl-job-admin/src/main/java/com/xxl/job/admin/business/scheduler/alarm/JobAlarmer.java",
+      "line": 22,
+      "scope": "production"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "xxl-job-admin/src/main/java/com/xxl/job/admin/business/scheduler/cron/CronExpression.java",
+      "line": 24,
+      "scope": "production"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "xxl-job-admin/src/main/java/com/xxl/job/admin/business/scheduler/thread/JobCompleteHelper.java",
+      "line": 14,
+      "scope": "production"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "xxl-job-admin/src/main/java/com/xxl/job/admin/business/scheduler/thread/JobLogReportHelper.java",
+      "line": 10,
+      "scope": "production"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "xxl-job-admin/src/main/java/com/xxl/job/admin/business/scheduler/trigger/JobTrigger.java",
+      "line": 25,
+      "scope": "production"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "xxl-job-admin/src/main/java/com/xxl/job/admin/business/scheduler/type/ScheduleType.java",
+      "line": 5,
+      "scope": "production"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "xxl-job-admin/src/main/java/com/xxl/job/admin/business/scheduler/type/strategy/CronScheduleType.java",
+      "line": 7,
+      "scope": "production"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "xxl-job-admin/src/main/java/com/xxl/job/admin/business/scheduler/type/strategy/FixRateScheduleType.java",
+      "line": 7,
+      "scope": "production"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "xxl-job-admin/src/main/java/com/xxl/job/admin/business/scheduler/type/strategy/NoneScheduleType.java",
+      "line": 6,
+      "scope": "production"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "xxl-job-admin/src/main/java/com/xxl/job/admin/business/service/XxlJobService.java",
+      "line": 8,
+      "scope": "production"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "xxl-job-admin/src/main/java/com/xxl/job/admin/framework/model/dto/XxlBootResourceDTO.java",
+      "line": 4,
+      "scope": "production"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "xxl-job-admin/src/main/java/com/xxl/job/admin/framework/util/I18nUtil.java",
+      "line": 41,
+      "scope": "production"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "xxl-job-admin/src/main/java/com/xxl/job/admin/framework/util/XssUtil.java",
+      "line": 93,
+      "scope": "production"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "xxl-job-admin/src/main/java/com/xxl/job/admin/framework/util/XssUtil.java",
+      "line": 94,
+      "scope": "production"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "xxl-job-admin/src/main/java/com/xxl/job/admin/framework/util/XssUtil.java",
+      "line": 95,
+      "scope": "production"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "xxl-job-admin/src/main/java/com/xxl/job/admin/framework/util/XssUtil.java",
+      "line": 96,
+      "scope": "production"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "xxl-job-admin/src/main/java/com/xxl/job/admin/framework/util/XssUtil.java",
+      "line": 98,
+      "scope": "production"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "xxl-job-admin/src/main/java/com/xxl/job/admin/framework/util/XssUtil.java",
+      "line": 99,
+      "scope": "production"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "xxl-job-admin/src/main/java/com/xxl/job/admin/framework/util/old/XxlJobDynamicScheduler.java",
+      "line": 32,
+      "scope": "production"
+    },
+    {
+      "code": "reflection-usage",
+      "severity": "info",
+      "title": "Reflection usage",
+      "recommendation": "Review Reflection usage before modernization.",
+      "file": "xxl-job-admin/src/main/java/com/xxl/job/admin/framework/util/old/XxlJobDynamicScheduler.java",
+      "line": 219,
+      "scope": "production"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "xxl-job-admin/src/test/java/com/xxl/job/admin/business/controller/AbstractSpringMvcTest.java",
+      "line": 13,
+      "scope": "test"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "xxl-job-admin/src/test/java/com/xxl/job/admin/business/core/util/CronExpressionTest.java",
+      "line": 8,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "xxl-job-admin/src/test/java/com/xxl/job/admin/business/core/util/CronExpressionTest.java",
+      "line": 18,
+      "scope": "test"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "xxl-job-admin/src/test/java/com/xxl/job/admin/business/mapper/XxlJobGroupMapperTest.java",
+      "line": 8,
+      "scope": "test"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "xxl-job-admin/src/test/java/com/xxl/job/admin/business/mapper/XxlJobInfoMapperTest.java",
+      "line": 16,
+      "scope": "test"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "xxl-job-admin/src/test/java/com/xxl/job/admin/business/mapper/XxlJobLogGlueMapperTest.java",
+      "line": 8,
+      "scope": "test"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "xxl-job-admin/src/test/java/com/xxl/job/admin/business/mapper/XxlJobLogMapperTest.java",
+      "line": 8,
+      "scope": "test"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "xxl-job-admin/src/test/java/com/xxl/job/admin/business/mapper/XxlJobLogReportMapperTest.java",
+      "line": 11,
+      "scope": "test"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "xxl-job-admin/src/test/java/com/xxl/job/admin/business/mapper/XxlJobRegistryMapperTest.java",
+      "line": 10,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "xxl-job-admin/src/test/java/com/xxl/job/admin/business/mapper/XxlJobRegistryMapperTest.java",
+      "line": 38,
+      "scope": "test"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "xxl-job-admin/src/test/java/com/xxl/job/admin/business/schedule/JobScheduleTest.java",
+      "line": 12,
+      "scope": "test"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "xxl-job-core/src/main/java/com/xxl/job/core/context/XxlJobHelper.java",
+      "line": 12,
+      "scope": "production"
+    },
+    {
+      "code": "reflection-usage",
+      "severity": "info",
+      "title": "Reflection usage",
+      "recommendation": "Review Reflection usage before modernization.",
+      "file": "xxl-job-core/src/main/java/com/xxl/job/core/executor/XxlJobExecutor.java",
+      "line": 365,
+      "scope": "production"
+    },
+    {
+      "code": "reflection-usage",
+      "severity": "info",
+      "title": "Reflection usage",
+      "recommendation": "Review Reflection usage before modernization.",
+      "file": "xxl-job-core/src/main/java/com/xxl/job/core/executor/XxlJobExecutor.java",
+      "line": 373,
+      "scope": "production"
+    },
+    {
+      "code": "reflection-usage",
+      "severity": "info",
+      "title": "Reflection usage",
+      "recommendation": "Review Reflection usage before modernization.",
+      "file": "xxl-job-core/src/main/java/com/xxl/job/core/executor/impl/XxlJobSimpleExecutor.java",
+      "line": 59,
+      "scope": "production"
+    },
+    {
+      "code": "reflection-usage",
+      "severity": "info",
+      "title": "Reflection usage",
+      "recommendation": "Review Reflection usage before modernization.",
+      "file": "xxl-job-core/src/main/java/com/xxl/job/core/glue/impl/SpringGlueFactory.java",
+      "line": 38,
+      "scope": "production"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "xxl-job-core/src/main/java/com/xxl/job/core/log/XxlJobFileAppender.java",
+      "line": 12,
+      "scope": "production"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "xxl-job-core/src/main/java/com/xxl/job/core/openapi/executor/impl/ExecutorBizImpl.java",
+      "line": 19,
+      "scope": "production"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "xxl-job-core/src/main/java/com/xxl/job/core/thread/JobLogFileCleanThreadHelper.java",
+      "line": 12,
+      "scope": "production"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "xxl-job-core/src/main/java/com/xxl/job/core/thread/JobThread.java",
+      "line": 16,
+      "scope": "production"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "xxl-job-core/src/main/java/com/xxl/job/core/thread/TriggerCallbackThreadHelper.java",
+      "line": 27,
+      "scope": "production"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "xxl-job-core/src/main/java/com/xxl/job/core/util/deprecated/DateUtil.java",
+      "line": 10,
+      "scope": "production"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "xxl-job-executor-samples/xxl-job-executor-sample-springboot/src/test/java/com/xxl/job/executor/test/XxlJobExecutorExampleBootApplicationTests.java",
+      "line": 11,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "xxl-job-executor-samples/xxl-job-executor-sample-springboot-ai/src/test/java/com/xxl/job/executor/test/BaseTests.java",
+      "line": 11,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "xxl-job-executor-samples/xxl-job-executor-sample-springboot-ai/src/test/java/com/xxl/job/executor/test/ollama/OllamaTest.java",
+      "line": 87,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "xxl-job-executor-samples/xxl-job-executor-sample-springboot-ai/src/test/java/com/xxl/job/executor/test/ollama/OllamaTest.java",
+      "line": 89,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "xxl-job-executor-samples/xxl-job-executor-sample-springboot-ai/src/test/java/com/xxl/job/executor/test/openclaw/OpenClawTest.java",
+      "line": 88,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "xxl-job-executor-samples/xxl-job-executor-sample-springboot-ai/src/test/java/com/xxl/job/executor/test/openclaw/OpenClawTest.java",
+      "line": 90,
+      "scope": "test"
+    }
+  ],
+  "evidence": [
+    {
+      "name": "Build metadata",
+      "status": "passed"
+    },
+    {
+      "name": "Spring Boot version detection",
+      "status": "warning"
+    },
+    {
+      "name": "Jakarta namespace readiness",
+      "status": "failed"
+    },
+    {
+      "name": "Static source checks",
+      "status": "warning"
+    },
+    {
+      "name": "OpenRewrite dry-run readiness",
+      "status": "pending",
+      "note": "OpenRewrite execution is available through transform --engine openrewrite when Maven or Gradle execution is available."
+    }
+  ],
+  "dependencies": {
+    "springBootVersion": "unknown",
+    "jakartaDetected": true,
+    "javaxDetected": true,
+    "hibernateDetected": false,
+    "springSecurityDetected": false
+  },
+  "benchmark": {
+    "slug": "xxl-job",
+    "name": "XXL-JOB",
+    "repository": "https://github.com/xuxueli/xxl-job",
+    "ref": null,
+    "requestedSource": "local",
+    "source": "checkout",
+    "checkoutPath": "benchmark-repos/xxl-job",
+    "analysisPath": "benchmark-repos/xxl-job",
+    "gitRevision": "128dd678962b8918b9abf2e82928818b0072ac50",
+    "commands": [],
+    "validation": {
+      "requested": true,
+      "status": "passed",
+      "confidence": 95,
+      "checks": [
+        {
+          "name": "Compilation",
+          "status": "passed",
+          "command": "mvn -q -DskipTests compile",
+          "durationMs": 59675,
+          "exitCode": 0,
+          "output": "",
+          "timedOut": false
+        },
+        {
+          "name": "Tests",
+          "status": "passed",
+          "command": "mvn -q test",
+          "durationMs": 23354,
+          "exitCode": 0,
+          "output": "",
+          "timedOut": false
+        }
+      ],
+      "summary": "Compilation and tests completed successfully."
+    }
+  }
+}
