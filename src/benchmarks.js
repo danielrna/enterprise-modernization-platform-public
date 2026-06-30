@@ -443,19 +443,47 @@ export async function publishBenchmarks({ outDir, source = 'catalog', only = nul
   for (const item of selected) {
     const localRoot = path.resolve(reposDir, item.slug);
     const hasLocalCheckout = await isDirectory(localRoot);
+    const benchmarkEvidence = {
+      slug: item.slug,
+      name: item.name,
+      repository: item.repository,
+      requestedSource: source,
+      source: 'catalog',
+      checkoutPath: null,
+      gitRevision: null,
+      commands: []
+    };
     if (source === 'clone' && !hasLocalCheckout) {
-      await cloneBenchmark(item, localRoot);
+      const clone = await cloneBenchmark(item, localRoot);
+      benchmarkEvidence.commands.push(clone);
     }
     const hasCheckoutAfterClone = await isDirectory(localRoot);
     if (source === 'clone' && !hasCheckoutAfterClone) {
       throw new Error(`Clone mode could not create checkout for ${item.slug}`);
     }
     const useLocalCheckout = source === 'clone' ? hasCheckoutAfterClone : source === 'local' && hasLocalCheckout;
+    if (useLocalCheckout) {
+      benchmarkEvidence.source = 'checkout';
+      benchmarkEvidence.checkoutPath = path.relative(process.cwd(), localRoot);
+      benchmarkEvidence.gitRevision = await getGitRevision(localRoot);
+      if (source === 'clone' && hasLocalCheckout) {
+        benchmarkEvidence.commands.push({
+          command: `reuse checkout ${benchmarkEvidence.checkoutPath}`,
+          exitCode: 0,
+          status: 'passed',
+          output: 'Existing checkout reused.'
+        });
+      }
+    }
     const scan = await analyzeProject({
       root: useLocalCheckout ? localRoot : item.repository,
       pack: item.pack,
       benchmarkMetadata: useLocalCheckout ? null : item
     });
+    scan.project.name = item.name;
+    scan.project.root = useLocalCheckout ? benchmarkEvidence.checkoutPath : item.repository;
+    scan.project.source = item.repository;
+    scan.benchmark = benchmarkEvidence;
     const readiness = scoreReadiness(scan);
     const reportDir = path.join(outDir, item.slug);
     const bundle = await writeReportBundle({ outDir: reportDir, scan, readiness });
@@ -463,7 +491,7 @@ export async function publishBenchmarks({ outDir, source = 'catalog', only = nul
       ...item,
       readiness: readiness.overall,
       reportPath: path.relative(outDir, bundle.htmlPath),
-      source: useLocalCheckout ? 'checkout' : 'catalog',
+      source: benchmarkEvidence.source,
       localRoot: useLocalCheckout ? localRoot : null
     });
   }
@@ -491,15 +519,27 @@ function selectBenchmarks({ only, limit }) {
 
 async function cloneBenchmark(item, localRoot) {
   await fs.mkdir(path.dirname(localRoot), { recursive: true });
-  const result = await runCommand(['git', 'clone', '--depth', '1', item.repository, localRoot]);
+  const args = ['git', 'clone', '--depth', '1', item.repository, localRoot];
+  const result = await runCommand(args);
   if (result.exitCode !== 0) {
     throw new Error(`Failed to clone ${item.slug}: ${result.output.trim()}`);
   }
+  return {
+    command: ['git', 'clone', '--depth', '1', item.repository, path.relative(process.cwd(), localRoot)].join(' '),
+    exitCode: result.exitCode,
+    status: 'passed',
+    output: result.output.trim()
+  };
 }
 
-function runCommand(args) {
+async function getGitRevision(root) {
+  const result = await runCommand(['git', 'rev-parse', 'HEAD'], { cwd: root });
+  return result.exitCode === 0 ? result.output.trim() : null;
+}
+
+function runCommand(args, options = {}) {
   return new Promise((resolve) => {
-    const child = spawn(args[0], args.slice(1));
+    const child = spawn(args[0], args.slice(1), { cwd: options.cwd });
     let output = '';
     child.stdout.on('data', (chunk) => { output += chunk.toString(); });
     child.stderr.on('data', (chunk) => { output += chunk.toString(); });

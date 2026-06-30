@@ -18,13 +18,14 @@ export async function writeReportBundle({ outDir, scan, readiness, transformatio
     evidence: scan.evidence,
     dependencies: scan.dependencies
   };
+  if (scan.benchmark) report.benchmark = scan.benchmark;
   if (transformation) report.transformation = transformation;
   if (transformation) report.trust = buildTrustEvidence({ scan, transformation });
   if (rules?.loaded) report.rules = rules;
   const jsonPath = path.join(outDir, 'report.json');
   const htmlPath = path.join(outDir, 'index.html');
   await fs.writeFile(jsonPath, `${JSON.stringify(report, null, 2)}\n`);
-  await fs.writeFile(htmlPath, renderReport(report));
+  await fs.writeFile(htmlPath, normalizeHtml(renderReport(report)));
   return { jsonPath, htmlPath, report };
 }
 
@@ -41,6 +42,7 @@ export function renderReport(report) {
   const transformation = renderTransformation(report.transformation);
   const trust = renderTrust(report.trust);
   const rules = renderRules(report.rules);
+  const benchmarkEvidence = renderBenchmarkEvidence(report.benchmark);
 
   return `<!doctype html>
 <html lang="en">
@@ -101,6 +103,7 @@ export function renderReport(report) {
     <h2>Evidence</h2>
     <table><thead><tr><th>Evidence</th><th>Status</th><th>Note</th></tr></thead><tbody>${evidence}</tbody></table>
 
+    ${benchmarkEvidence}
     ${transformation}
     ${trust}
     ${rules}
@@ -255,6 +258,26 @@ function renderTransformation(transformation) {
   `;
 }
 
+function renderBenchmarkEvidence(benchmark) {
+  if (!benchmark) return '';
+  const commands = benchmark.commands?.length
+    ? benchmark.commands.map((item) => `<tr><td>${escapeHtml(item.command)}</td><td><span class="pill ${escapeHtml(item.status || statusFromExitCode(item.exitCode))}">${escapeHtml(item.status || statusFromExitCode(item.exitCode))}</span></td><td>${escapeHtml(trimOutput(item.output))}</td></tr>`).join('')
+    : '<tr><td colspan="3">No external command was needed for this benchmark source.</td></tr>';
+  const details = [
+    benchmark.checkoutPath ? `<div class="label">Checkout: ${escapeHtml(benchmark.checkoutPath)}</div>` : null,
+    benchmark.gitRevision ? `<div class="label">Git revision: ${escapeHtml(benchmark.gitRevision)}</div>` : null
+  ].filter(Boolean).join('\n      ');
+  const detailsBlock = details ? `\n      ${details}` : '';
+
+  return `
+    <h2>Benchmark Evidence</h2>
+    <div class="panel">
+      <strong>${escapeHtml(benchmark.source)}</strong> · ${escapeHtml(benchmark.repository)}${detailsBlock}
+    </div>
+    <table><thead><tr><th>Command</th><th>Status</th><th>Output</th></tr></thead><tbody>${commands}</tbody></table>
+  `;
+}
+
 function renderTrust(trust) {
   if (!trust) return '';
   const checks = trust.checks.length
@@ -296,6 +319,19 @@ function location(finding) {
 
 function formatScore(score) {
   return Number.isFinite(score) ? `${score}%` : 'N/A';
+}
+
+function statusFromExitCode(exitCode) {
+  return exitCode === 0 ? 'passed' : 'failed';
+}
+
+function trimOutput(output) {
+  const value = String(output || '').trim();
+  return value.length > 240 ? `${value.slice(0, 237)}...` : value;
+}
+
+function normalizeHtml(html) {
+  return html.replace(/[ \t]+$/gm, '');
 }
 
 function escapeHtml(value) {

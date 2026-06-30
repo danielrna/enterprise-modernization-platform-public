@@ -51,6 +51,45 @@ test('publishes the benchmark catalog and migration hub', async () => {
   assert.match(hub, /Findings/);
 });
 
+test('local benchmark reports include checkout evidence', async () => {
+  const root = await fs.mkdtemp(path.join(os.tmpdir(), 'emp-benchmark-local-'));
+  const reposDir = path.join(root, 'repos');
+  const checkout = path.join(reposDir, 'spring-petclinic');
+  const outDir = path.join(root, 'benchmarks');
+  await fs.mkdir(path.join(checkout, 'src/main/java/com/example'), { recursive: true });
+  await fs.writeFile(path.join(checkout, 'pom.xml'), `<?xml version="1.0" encoding="UTF-8"?>
+<project>
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>2.7.18</version>
+  </parent>
+  <properties>
+    <java.version>17</java.version>
+  </properties>
+</project>
+`);
+  await fs.writeFile(path.join(checkout, 'src/main/java/com/example/Demo.java'), `package com.example;
+
+import javax.persistence.Entity;
+
+@Entity
+public class Demo {
+}
+`);
+
+  const result = await publishBenchmarks({ outDir, source: 'local', only: 'spring-petclinic', reposDir });
+  const report = JSON.parse(await fs.readFile(path.join(outDir, 'spring-petclinic', 'report.json'), 'utf8'));
+  const html = await fs.readFile(path.join(outDir, 'spring-petclinic', 'index.html'), 'utf8');
+
+  assert.equal(result.reports[0].source, 'checkout');
+  assert.equal(report.project.name, 'Spring Petclinic');
+  assert.equal(report.project.source, 'https://github.com/spring-projects/spring-petclinic');
+  assert.equal(report.benchmark.source, 'checkout');
+  assert.equal(report.benchmark.repository, 'https://github.com/spring-projects/spring-petclinic');
+  assert.match(html, /Benchmark Evidence/);
+});
+
 test('Pack mismatch suppresses readiness score for non-applicable Spring Boot report', async () => {
   const root = await makeSpringProject();
   const pom = path.join(root, 'pom.xml');
