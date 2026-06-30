@@ -10,6 +10,7 @@ COPY bin ./bin
 COPY src ./src
 COPY scripts ./scripts
 COPY test ./test
+COPY benchmarks ./benchmarks
 COPY packs ./packs
 COPY schemas ./schemas
 COPY docs ./docs

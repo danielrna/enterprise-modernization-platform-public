@@ -1,0 +1,457 @@
+{
+  "schemaVersion": "emp.report.v1",
+  "generatedAt": "2026-06-30T23:00:10.224Z",
+  "project": {
+    "name": "Spring Cloud CircuitBreaker",
+    "root": "benchmark-repos/spring-cloud-circuitbreaker",
+    "source": "https://github.com/spring-cloud/spring-cloud-circuitbreaker",
+    "buildTools": [
+      "Maven"
+    ],
+    "javaVersion": "unknown",
+    "springBootVersion": "unknown",
+    "fileCount": 114,
+    "javaFileCount": 53
+  },
+  "pack": "spring-boot-3-readiness",
+  "packApplicability": {
+    "applicable": false,
+    "confidence": 0.9,
+    "reason": "Spring Boot 2.x was not detected. This pack targets Spring Boot 2.x to 3.x migrations.",
+    "recommendedPack": "java-17-to-21-readiness"
+  },
+  "readiness": {
+    "overall": null,
+    "categories": {},
+    "summary": "Pack mismatch: Spring Boot 2.x was not detected. This pack targets Spring Boot 2.x to 3.x migrations.",
+    "status": "not_applicable",
+    "counts": {
+      "critical": 0,
+      "warning": 11,
+      "info": 1
+    }
+  },
+  "productionFindings": [
+    {
+      "code": "spring-boot-version-unknown",
+      "severity": "warning",
+      "title": "Spring Boot version unknown",
+      "recommendation": "Declare Spring Boot version explicitly in Maven or Gradle metadata.",
+      "file": null,
+      "line": null,
+      "scope": "production"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-circuitbreaker-resilience4j/src/main/java/org/springframework/cloud/circuitbreaker/resilience4j/ReactiveResilience4JAutoConfiguration.java",
+      "line": 120,
+      "scope": "production"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-circuitbreaker-resilience4j/src/main/java/org/springframework/cloud/circuitbreaker/resilience4j/Resilience4JAutoConfiguration.java",
+      "line": 140,
+      "scope": "production"
+    }
+  ],
+  "testFindings": [
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-circuitbreaker-framework-retry/src/test/java/org/springframework/cloud/circuitbreaker/retry/FrameworkRetryCircuitBreakerIntegrationTest.java",
+      "line": 45,
+      "scope": "test"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-circuitbreaker-framework-retry/src/test/java/org/springframework/cloud/circuitbreaker/retry/FrameworkRetryCircuitBreakerIntegrationTest.java",
+      "line": 48,
+      "scope": "test"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-circuitbreaker-resilience4j/src/test/java/org/springframework/cloud/circuitbreaker/resilience4j/ReactiveResilience4jBulkheadIntegrationTest.java",
+      "line": 71,
+      "scope": "test"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-circuitbreaker-resilience4j/src/test/java/org/springframework/cloud/circuitbreaker/resilience4j/Resilience4JBulkheadIntegrationTest.java",
+      "line": 91,
+      "scope": "test"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-circuitbreaker-resilience4j/src/test/java/org/springframework/cloud/circuitbreaker/resilience4j/Resilience4JCircuitBreakerIntegrationTest.java",
+      "line": 98,
+      "scope": "test"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-circuitbreaker-resilience4j/src/test/java/org/springframework/cloud/circuitbreaker/resilience4j/Resilience4JDefaultSemaphoreBulkheadIntegrationTest.java",
+      "line": 82,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "spring-cloud-circuitbreaker-spring-retry/src/test/java/org/springframework/cloud/circuitbreaker/springretry/SpringRetryAutoConfigurationTests.java",
+      "line": 133,
+      "scope": "test"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-circuitbreaker-spring-retry/src/test/java/org/springframework/cloud/circuitbreaker/springretry/SpringRetryCircuitBreakerIntegrationTest.java",
+      "line": 57,
+      "scope": "test"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-circuitbreaker-spring-retry/src/test/java/org/springframework/cloud/circuitbreaker/springretry/SpringRetryCircuitBreakerIntegrationTest.java",
+      "line": 60,
+      "scope": "test"
+    }
+  ],
+  "findingSummary": {
+    "production": {
+      "critical": 0,
+      "warning": 3,
+      "info": 0
+    },
+    "test": {
+      "critical": 0,
+      "warning": 8,
+      "info": 1
+    },
+    "byCode": {
+      "spring-boot-version-unknown": {
+        "code": "spring-boot-version-unknown",
+        "title": "Spring Boot version unknown",
+        "severity": "warning",
+        "total": 1,
+        "production": 1,
+        "test": 0,
+        "topModules": [
+          {
+            "name": "project",
+            "count": 1
+          }
+        ],
+        "examples": [
+          {
+            "code": "spring-boot-version-unknown",
+            "severity": "warning",
+            "title": "Spring Boot version unknown",
+            "recommendation": "Declare Spring Boot version explicitly in Maven or Gradle metadata.",
+            "file": null,
+            "line": null,
+            "scope": "production"
+          }
+        ]
+      },
+      "field-injection": {
+        "code": "field-injection",
+        "title": "Spring field injection",
+        "severity": "warning",
+        "total": 10,
+        "production": 2,
+        "test": 8,
+        "topModules": [
+          {
+            "name": "spring-cloud-circuitbreaker-resilience4j",
+            "count": 6
+          },
+          {
+            "name": "spring-cloud-circuitbreaker-framework-retry",
+            "count": 2
+          },
+          {
+            "name": "spring-cloud-circuitbreaker-spring-retry",
+            "count": 2
+          }
+        ],
+        "examples": [
+          {
+            "code": "field-injection",
+            "severity": "warning",
+            "title": "Spring field injection",
+            "recommendation": "Review Spring field injection before modernization.",
+            "file": "spring-cloud-circuitbreaker-framework-retry/src/test/java/org/springframework/cloud/circuitbreaker/retry/FrameworkRetryCircuitBreakerIntegrationTest.java",
+            "line": 45,
+            "scope": "test"
+          },
+          {
+            "code": "field-injection",
+            "severity": "warning",
+            "title": "Spring field injection",
+            "recommendation": "Review Spring field injection before modernization.",
+            "file": "spring-cloud-circuitbreaker-framework-retry/src/test/java/org/springframework/cloud/circuitbreaker/retry/FrameworkRetryCircuitBreakerIntegrationTest.java",
+            "line": 48,
+            "scope": "test"
+          },
+          {
+            "code": "field-injection",
+            "severity": "warning",
+            "title": "Spring field injection",
+            "recommendation": "Review Spring field injection before modernization.",
+            "file": "spring-cloud-circuitbreaker-resilience4j/src/main/java/org/springframework/cloud/circuitbreaker/resilience4j/ReactiveResilience4JAutoConfiguration.java",
+            "line": 120,
+            "scope": "production"
+          },
+          {
+            "code": "field-injection",
+            "severity": "warning",
+            "title": "Spring field injection",
+            "recommendation": "Review Spring field injection before modernization.",
+            "file": "spring-cloud-circuitbreaker-resilience4j/src/main/java/org/springframework/cloud/circuitbreaker/resilience4j/Resilience4JAutoConfiguration.java",
+            "line": 140,
+            "scope": "production"
+          },
+          {
+            "code": "field-injection",
+            "severity": "warning",
+            "title": "Spring field injection",
+            "recommendation": "Review Spring field injection before modernization.",
+            "file": "spring-cloud-circuitbreaker-resilience4j/src/test/java/org/springframework/cloud/circuitbreaker/resilience4j/ReactiveResilience4jBulkheadIntegrationTest.java",
+            "line": 71,
+            "scope": "test"
+          }
+        ]
+      },
+      "system-out": {
+        "code": "system-out",
+        "title": "System.out logging",
+        "severity": "info",
+        "total": 1,
+        "production": 0,
+        "test": 1,
+        "topModules": [
+          {
+            "name": "spring-cloud-circuitbreaker-spring-retry",
+            "count": 1
+          }
+        ],
+        "examples": [
+          {
+            "code": "system-out",
+            "severity": "info",
+            "title": "System.out logging",
+            "recommendation": "Review System.out logging before modernization.",
+            "file": "spring-cloud-circuitbreaker-spring-retry/src/test/java/org/springframework/cloud/circuitbreaker/springretry/SpringRetryAutoConfigurationTests.java",
+            "line": 133,
+            "scope": "test"
+          }
+        ]
+      }
+    }
+  },
+  "findings": [
+    {
+      "code": "spring-boot-version-unknown",
+      "severity": "warning",
+      "title": "Spring Boot version unknown",
+      "recommendation": "Declare Spring Boot version explicitly in Maven or Gradle metadata.",
+      "file": null,
+      "line": null,
+      "scope": "production"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-circuitbreaker-framework-retry/src/test/java/org/springframework/cloud/circuitbreaker/retry/FrameworkRetryCircuitBreakerIntegrationTest.java",
+      "line": 45,
+      "scope": "test"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-circuitbreaker-framework-retry/src/test/java/org/springframework/cloud/circuitbreaker/retry/FrameworkRetryCircuitBreakerIntegrationTest.java",
+      "line": 48,
+      "scope": "test"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-circuitbreaker-resilience4j/src/main/java/org/springframework/cloud/circuitbreaker/resilience4j/ReactiveResilience4JAutoConfiguration.java",
+      "line": 120,
+      "scope": "production"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-circuitbreaker-resilience4j/src/main/java/org/springframework/cloud/circuitbreaker/resilience4j/Resilience4JAutoConfiguration.java",
+      "line": 140,
+      "scope": "production"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-circuitbreaker-resilience4j/src/test/java/org/springframework/cloud/circuitbreaker/resilience4j/ReactiveResilience4jBulkheadIntegrationTest.java",
+      "line": 71,
+      "scope": "test"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-circuitbreaker-resilience4j/src/test/java/org/springframework/cloud/circuitbreaker/resilience4j/Resilience4JBulkheadIntegrationTest.java",
+      "line": 91,
+      "scope": "test"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-circuitbreaker-resilience4j/src/test/java/org/springframework/cloud/circuitbreaker/resilience4j/Resilience4JCircuitBreakerIntegrationTest.java",
+      "line": 98,
+      "scope": "test"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-circuitbreaker-resilience4j/src/test/java/org/springframework/cloud/circuitbreaker/resilience4j/Resilience4JDefaultSemaphoreBulkheadIntegrationTest.java",
+      "line": 82,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "spring-cloud-circuitbreaker-spring-retry/src/test/java/org/springframework/cloud/circuitbreaker/springretry/SpringRetryAutoConfigurationTests.java",
+      "line": 133,
+      "scope": "test"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-circuitbreaker-spring-retry/src/test/java/org/springframework/cloud/circuitbreaker/springretry/SpringRetryCircuitBreakerIntegrationTest.java",
+      "line": 57,
+      "scope": "test"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-circuitbreaker-spring-retry/src/test/java/org/springframework/cloud/circuitbreaker/springretry/SpringRetryCircuitBreakerIntegrationTest.java",
+      "line": 60,
+      "scope": "test"
+    }
+  ],
+  "evidence": [
+    {
+      "name": "Build metadata",
+      "status": "passed"
+    },
+    {
+      "name": "Spring Boot version detection",
+      "status": "warning"
+    },
+    {
+      "name": "Jakarta namespace readiness",
+      "status": "passed"
+    },
+    {
+      "name": "Static source checks",
+      "status": "warning"
+    },
+    {
+      "name": "OpenRewrite dry-run readiness",
+      "status": "pending",
+      "note": "OpenRewrite execution is available through transform --engine openrewrite when Maven or Gradle execution is available."
+    }
+  ],
+  "dependencies": {
+    "springBootVersion": "unknown",
+    "jakartaDetected": true,
+    "javaxDetected": false,
+    "hibernateDetected": false,
+    "springSecurityDetected": false
+  },
+  "benchmark": {
+    "slug": "spring-cloud-circuitbreaker",
+    "name": "Spring Cloud CircuitBreaker",
+    "repository": "https://github.com/spring-cloud/spring-cloud-circuitbreaker",
+    "ref": null,
+    "requestedSource": "local",
+    "source": "checkout",
+    "checkoutPath": "benchmark-repos/spring-cloud-circuitbreaker",
+    "analysisPath": "benchmark-repos/spring-cloud-circuitbreaker",
+    "gitRevision": "74e76be1efcc458351b2367e52372fbfef4cf77b",
+    "commands": [],
+    "validation": {
+      "requested": true,
+      "status": "failed",
+      "confidence": 25,
+      "checks": [
+        {
+          "name": "Compilation",
+          "status": "failed",
+          "command": "./mvnw -q -DskipTests compile",
+          "durationMs": 60079,
+          "exitCode": 143,
+          "output": "Warning: JAVA_HOME environment variable is not set.\nRunning version check\nThe found version is [5.0.3-SNAPSHOT]\nDeactivating \"milestone\" profile for version=\"5.0.3-SNAPSHOT\"\nDeactivating \"central\" profile for version=\"5.0.3-SNAPSHOT\"\nCommand timed out after 60000 ms.",
+          "timedOut": true
+        },
+        {
+          "name": "Tests",
+          "status": "failed",
+          "command": "./mvnw -q test",
+          "durationMs": 60196,
+          "exitCode": 143,
+          "output": "Warning: JAVA_HOME environment variable is not set.\nRunning version check\nThe found version is [5.0.3-SNAPSHOT]\nDeactivating \"milestone\" profile for version=\"5.0.3-SNAPSHOT\"\nDeactivating \"central\" profile for version=\"5.0.3-SNAPSHOT\"\nCommand timed out after 60000 ms.",
+          "timedOut": true
+        }
+      ],
+      "summary": "2 validation check(s) failed."
+    }
+  }
+}

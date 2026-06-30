@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+- Moved benchmark catalog data to `benchmarks/catalog.json`.
+- Added `npm run benchmarks:publish` to regenerate the Migration Hub from published benchmark evidence and enforce benchmark report counts.
+- Expanded the public benchmark catalog to 50 reports, including 49 Spring Boot readiness reports and one Jakarta readiness report.
+- Promoted XXL-JOB, Spring Cloud Bus, and Spring Cloud CircuitBreaker from catalog-only reports to checkout-backed benchmark evidence; XXL-JOB passes Docker compile/test validation.
 - Added Spring Boot RealWorld Example App as a checkout-backed Spring Boot 2.6.3 benchmark with passing Gradle compile/test validation.
 - Added benchmark validation support for project-specific Java runtime requirements through `EMP_JAVA_<major>_HOME`.
 

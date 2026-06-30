@@ -1,0 +1,2595 @@
+[
+  {
+    "slug": "spring-petclinic",
+    "name": "Spring Petclinic",
+    "repository": "https://github.com/spring-projects/spring-petclinic",
+    "ref": null,
+    "checkoutSubdir": null,
+    "pack": "spring-boot-3-readiness",
+    "buildTools": [
+      "Maven"
+    ],
+    "javaVersion": "17",
+    "validationJavaVersion": null,
+    "springBootVersion": "4.0.0-SNAPSHOT",
+    "fileCount": 126,
+    "javaFileCount": 47,
+    "jakartaDetected": true,
+    "javaxDetected": true,
+    "hibernateDetected": true,
+    "springSecurityDetected": false,
+    "findings": [
+      {
+        "code": "javax-usage",
+        "severity": "critical",
+        "title": "javax namespace usage detected",
+        "recommendation": "Plan Jakarta migration before Spring Boot 3 execution.",
+        "file": "src/main/java/org/springframework/samples/petclinic/model/BaseEntity.java",
+        "line": 3
+      }
+    ],
+    "findingGroups": [
+      {
+        "count": 14,
+        "code": "field-injection",
+        "severity": "warning",
+        "title": "Spring field injection patterns",
+        "recommendation": "Prefer constructor injection in services touched by migration work.",
+        "basePath": "src/main/java/org/springframework/samples/petclinic"
+      }
+    ]
+  },
+  {
+    "slug": "spring-petclinic-rest-26",
+    "name": "Spring Petclinic REST 2.6 Application",
+    "repository": "https://github.com/spring-petclinic/spring-petclinic-rest",
+    "ref": "v2.6.2",
+    "checkoutSubdir": null,
+    "pack": "spring-boot-3-readiness",
+    "buildTools": [
+      "Maven"
+    ],
+    "javaVersion": "unknown",
+    "validationJavaVersion": null,
+    "springBootVersion": "2.6.2",
+    "fileCount": 359,
+    "javaFileCount": 83,
+    "jakartaDetected": false,
+    "javaxDetected": true,
+    "hibernateDetected": true,
+    "springSecurityDetected": true,
+    "findings": [
+      {
+        "code": "javax-usage",
+        "severity": "critical",
+        "title": "javax namespace usage detected",
+        "recommendation": "Plan Jakarta migration before Spring Boot 3 execution.",
+        "file": "src/main/java/org/springframework/samples/petclinic/model/BaseEntity.java",
+        "line": 18
+      },
+      {
+        "code": "spring-boot-2",
+        "severity": "warning",
+        "title": "Spring Boot 2.6.2 detected",
+        "recommendation": "Run OpenRewrite Boot 3 recipes in dry-run mode.",
+        "file": null,
+        "line": null
+      }
+    ],
+    "findingGroups": [
+      {
+        "count": 9,
+        "code": "field-injection",
+        "severity": "warning",
+        "title": "Spring field injection patterns",
+        "recommendation": "Prefer constructor injection in services touched by migration work.",
+        "basePath": "src/main/java/org/springframework/samples/petclinic"
+      },
+      {
+        "count": 2,
+        "code": "java-util-date",
+        "severity": "info",
+        "title": "Legacy date API usage",
+        "recommendation": "Review domain date handling.",
+        "basePath": "src/main/java/org/springframework/samples/petclinic/repository/jdbc"
+      }
+    ]
+  },
+  {
+    "slug": "spring-boot-realworld",
+    "name": "Spring Boot RealWorld Example App",
+    "repository": "https://github.com/gothinkster/spring-boot-realworld-example-app",
+    "ref": null,
+    "checkoutSubdir": null,
+    "pack": "spring-boot-3-readiness",
+    "buildTools": [
+      "Gradle"
+    ],
+    "javaVersion": "11",
+    "validationJavaVersion": "17",
+    "springBootVersion": "2.6.3",
+    "fileCount": 96,
+    "javaFileCount": 72,
+    "jakartaDetected": false,
+    "javaxDetected": true,
+    "hibernateDetected": true,
+    "springSecurityDetected": true,
+    "findings": [
+      {
+        "code": "javax-usage",
+        "severity": "critical",
+        "title": "javax namespace usage detected",
+        "recommendation": "Plan Jakarta migration before Spring Boot 3 execution.",
+        "file": "build.gradle",
+        "line": 36
+      },
+      {
+        "code": "spring-boot-2",
+        "severity": "warning",
+        "title": "Spring Boot 2.6.3 detected",
+        "recommendation": "Run OpenRewrite Boot 3 recipes in dry-run mode.",
+        "file": null,
+        "line": null
+      }
+    ],
+    "findingGroups": [
+      {
+        "count": 8,
+        "code": "field-injection",
+        "severity": "warning",
+        "title": "Spring field injection patterns",
+        "recommendation": "Prefer constructor injection in services touched by migration work.",
+        "basePath": "src/main/java/io/spring"
+      },
+      {
+        "count": 2,
+        "code": "java-util-date",
+        "severity": "info",
+        "title": "Legacy date API usage",
+        "recommendation": "Review domain date handling.",
+        "basePath": "src/main/java/io/spring"
+      }
+    ]
+  },
+  {
+    "slug": "jhipster-sample-app",
+    "name": "JHipster Sample App",
+    "repository": "https://github.com/jhipster/jhipster-sample-app",
+    "ref": null,
+    "checkoutSubdir": null,
+    "pack": "spring-boot-3-readiness",
+    "buildTools": [
+      "Maven"
+    ],
+    "javaVersion": "21",
+    "validationJavaVersion": null,
+    "springBootVersion": "4.0.6",
+    "fileCount": 609,
+    "javaFileCount": 136,
+    "jakartaDetected": true,
+    "javaxDetected": true,
+    "hibernateDetected": true,
+    "springSecurityDetected": true,
+    "findings": [
+      {
+        "code": "javax-usage",
+        "severity": "critical",
+        "title": "javax namespace usage detected",
+        "recommendation": "Plan Jakarta migration before Spring Boot 3 execution.",
+        "file": "src/main/java/io/github/jhipster/sample/domain/Operation.java",
+        "line": 8
+      }
+    ],
+    "findingGroups": [
+      {
+        "count": 53,
+        "code": "field-injection",
+        "severity": "warning",
+        "title": "Spring field injection patterns",
+        "recommendation": "Prefer constructor injection in services touched by migration work.",
+        "basePath": "src/main/java/io/github/jhipster/sample"
+      }
+    ]
+  },
+  {
+    "slug": "flowable-engine",
+    "name": "Flowable Engine",
+    "repository": "https://github.com/flowable/flowable-engine",
+    "ref": null,
+    "checkoutSubdir": null,
+    "pack": "spring-boot-3-readiness",
+    "buildTools": [
+      "Maven"
+    ],
+    "javaVersion": "1.8",
+    "validationJavaVersion": null,
+    "springBootVersion": "unknown",
+    "fileCount": 16016,
+    "javaFileCount": 8004,
+    "jakartaDetected": true,
+    "javaxDetected": true,
+    "hibernateDetected": true,
+    "springSecurityDetected": true,
+    "findings": [
+      {
+        "code": "javax-usage",
+        "severity": "critical",
+        "title": "javax namespace usage detected",
+        "recommendation": "Plan Jakarta migration before Spring Boot 3 execution.",
+        "file": "modules/flowable-engine/src/main/java/org/flowable/engine/impl/persistence/entity/ExecutionEntity.java",
+        "line": 12
+      },
+      {
+        "code": "spring-boot-version-unknown",
+        "severity": "warning",
+        "title": "Spring Boot version unknown",
+        "recommendation": "Declare Spring Boot version explicitly in Maven or Gradle metadata.",
+        "file": null,
+        "line": null
+      }
+    ],
+    "findingGroups": [
+      {
+        "count": 601,
+        "code": "field-injection",
+        "severity": "warning",
+        "title": "Spring field injection patterns",
+        "recommendation": "Prefer constructor injection in services touched by migration work.",
+        "basePath": "modules/flowable-spring/src/main/java/org/flowable/spring"
+      },
+      {
+        "count": 842,
+        "code": "java-util-date",
+        "severity": "info",
+        "title": "Legacy date API usage",
+        "recommendation": "Review domain date handling.",
+        "basePath": "modules/flowable-engine/src/main/java/org/flowable/engine"
+      }
+    ]
+  },
+  {
+    "slug": "thingsboard",
+    "name": "ThingsBoard",
+    "repository": "https://github.com/thingsboard/thingsboard",
+    "ref": null,
+    "checkoutSubdir": null,
+    "pack": "spring-boot-3-readiness",
+    "buildTools": [
+      "Maven"
+    ],
+    "javaVersion": "unknown",
+    "validationJavaVersion": null,
+    "springBootVersion": "unknown",
+    "fileCount": 10065,
+    "javaFileCount": 4770,
+    "jakartaDetected": true,
+    "javaxDetected": true,
+    "hibernateDetected": true,
+    "springSecurityDetected": true,
+    "findings": [
+      {
+        "code": "javax-usage",
+        "severity": "critical",
+        "title": "javax namespace usage detected",
+        "recommendation": "Plan Jakarta migration before Spring Boot 3 execution.",
+        "file": "application/src/main/java/org/thingsboard/server/Application.java",
+        "line": 12
+      },
+      {
+        "code": "spring-boot-version-unknown",
+        "severity": "warning",
+        "title": "Spring Boot version unknown",
+        "recommendation": "Declare Spring Boot version explicitly in Maven or Gradle metadata.",
+        "file": null,
+        "line": null
+      }
+    ],
+    "findingGroups": [
+      {
+        "count": 813,
+        "code": "field-injection",
+        "severity": "warning",
+        "title": "Spring field injection patterns",
+        "recommendation": "Prefer constructor injection in services touched by migration work.",
+        "basePath": "application/src/main/java/org/thingsboard/server"
+      },
+      {
+        "count": 92,
+        "code": "java-util-date",
+        "severity": "info",
+        "title": "Legacy date API usage",
+        "recommendation": "Review domain date handling.",
+        "basePath": "common/data/src/main/java/org/thingsboard/server/common/data"
+      }
+    ]
+  },
+  {
+    "slug": "keycloak",
+    "name": "Keycloak",
+    "repository": "https://github.com/keycloak/keycloak",
+    "ref": null,
+    "checkoutSubdir": null,
+    "pack": "spring-boot-3-readiness",
+    "buildTools": [
+      "Maven"
+    ],
+    "javaVersion": "11",
+    "validationJavaVersion": null,
+    "springBootVersion": "unknown",
+    "fileCount": 12759,
+    "javaFileCount": 8068,
+    "jakartaDetected": true,
+    "javaxDetected": true,
+    "hibernateDetected": true,
+    "springSecurityDetected": false,
+    "findings": [
+      {
+        "code": "javax-usage",
+        "severity": "critical",
+        "title": "javax namespace usage detected",
+        "recommendation": "Plan Jakarta migration before Spring Boot 3 execution.",
+        "file": "services/src/main/java/org/keycloak/services/resources/KeycloakApplication.java",
+        "line": 12
+      },
+      {
+        "code": "spring-boot-version-unknown",
+        "severity": "warning",
+        "title": "Spring Boot version unknown",
+        "recommendation": "Declare Spring Boot version explicitly in Maven or Gradle metadata.",
+        "file": null,
+        "line": null
+      }
+    ],
+    "findingGroups": [
+      {
+        "count": 285,
+        "code": "java-util-date",
+        "severity": "info",
+        "title": "Legacy date API usage",
+        "recommendation": "Review domain date handling.",
+        "basePath": "services/src/main/java/org/keycloak/services"
+      }
+    ]
+  },
+  {
+    "slug": "apache-fineract",
+    "name": "Apache Fineract",
+    "repository": "https://github.com/apache/fineract",
+    "ref": null,
+    "checkoutSubdir": null,
+    "pack": "spring-boot-3-readiness",
+    "buildTools": [
+      "Gradle"
+    ],
+    "javaVersion": "1",
+    "validationJavaVersion": null,
+    "springBootVersion": "3.5.15",
+    "fileCount": 7723,
+    "javaFileCount": 6468,
+    "jakartaDetected": true,
+    "javaxDetected": true,
+    "hibernateDetected": true,
+    "springSecurityDetected": true,
+    "findings": [
+      {
+        "code": "javax-usage",
+        "severity": "critical",
+        "title": "javax namespace usage detected",
+        "recommendation": "Plan Jakarta migration before Spring Boot 3 execution.",
+        "file": "fineract-provider/src/main/java/org/apache/fineract/ServerApplication.java",
+        "line": 12
+      }
+    ],
+    "findingGroups": [
+      {
+        "count": 583,
+        "code": "field-injection",
+        "severity": "warning",
+        "title": "Spring field injection patterns",
+        "recommendation": "Prefer constructor injection in services touched by migration work.",
+        "basePath": "fineract-provider/src/main/java/org/apache/fineract"
+      },
+      {
+        "count": 65,
+        "code": "java-util-date",
+        "severity": "info",
+        "title": "Legacy date API usage",
+        "recommendation": "Review domain date handling.",
+        "basePath": "fineract-core/src/main/java/org/apache/fineract"
+      }
+    ]
+  },
+  {
+    "slug": "broadleaf-commerce",
+    "name": "Broadleaf Commerce",
+    "repository": "https://github.com/BroadleafCommerce/BroadleafCommerce",
+    "ref": null,
+    "checkoutSubdir": null,
+    "pack": "spring-boot-3-readiness",
+    "buildTools": [
+      "Maven"
+    ],
+    "javaVersion": "unknown",
+    "validationJavaVersion": null,
+    "springBootVersion": "unknown",
+    "fileCount": 3865,
+    "javaFileCount": 2985,
+    "jakartaDetected": true,
+    "javaxDetected": true,
+    "hibernateDetected": true,
+    "springSecurityDetected": true,
+    "findings": [
+      {
+        "code": "javax-usage",
+        "severity": "critical",
+        "title": "javax namespace usage detected",
+        "recommendation": "Plan Jakarta migration before Spring Boot 3 execution.",
+        "file": "core/broadleaf-framework/src/main/java/org/broadleafcommerce/core/catalog/domain/ProductImpl.java",
+        "line": 12
+      },
+      {
+        "code": "spring-boot-version-unknown",
+        "severity": "warning",
+        "title": "Spring Boot version unknown",
+        "recommendation": "Declare Spring Boot version explicitly in Maven or Gradle metadata.",
+        "file": null,
+        "line": null
+      }
+    ],
+    "findingGroups": [
+      {
+        "count": 103,
+        "code": "field-injection",
+        "severity": "warning",
+        "title": "Spring field injection patterns",
+        "recommendation": "Prefer constructor injection in services touched by migration work.",
+        "basePath": "core/broadleaf-framework/src/main/java/org/broadleafcommerce"
+      },
+      {
+        "count": 162,
+        "code": "java-util-date",
+        "severity": "info",
+        "title": "Legacy date API usage",
+        "recommendation": "Review domain date handling.",
+        "basePath": "core/broadleaf-framework/src/main/java/org/broadleafcommerce"
+      }
+    ]
+  },
+  {
+    "slug": "spring-cloud-dataflow",
+    "name": "Spring Cloud Data Flow",
+    "repository": "https://github.com/spring-cloud/spring-cloud-dataflow",
+    "ref": null,
+    "checkoutSubdir": null,
+    "pack": "spring-boot-3-readiness",
+    "buildTools": [
+      "Maven"
+    ],
+    "javaVersion": "17",
+    "validationJavaVersion": null,
+    "springBootVersion": "unknown",
+    "fileCount": 2740,
+    "javaFileCount": 1529,
+    "jakartaDetected": true,
+    "javaxDetected": true,
+    "hibernateDetected": true,
+    "springSecurityDetected": true,
+    "findings": [
+      {
+        "code": "javax-usage",
+        "severity": "critical",
+        "title": "javax namespace usage detected",
+        "recommendation": "Plan Jakarta migration before Spring Boot 3 execution.",
+        "file": "spring-cloud-dataflow-server/src/main/java/org/springframework/cloud/dataflow/server/SingleNodeApplication.java",
+        "line": 12
+      },
+      {
+        "code": "spring-boot-version-unknown",
+        "severity": "warning",
+        "title": "Spring Boot version unknown",
+        "recommendation": "Declare Spring Boot version explicitly in Maven or Gradle metadata.",
+        "file": null,
+        "line": null
+      }
+    ],
+    "findingGroups": [
+      {
+        "count": 300,
+        "code": "field-injection",
+        "severity": "warning",
+        "title": "Spring field injection patterns",
+        "recommendation": "Prefer constructor injection in services touched by migration work.",
+        "basePath": "spring-cloud-dataflow-server/src/main/java/org/springframework/cloud/dataflow"
+      },
+      {
+        "count": 54,
+        "code": "java-util-date",
+        "severity": "info",
+        "title": "Legacy date API usage",
+        "recommendation": "Review domain date handling.",
+        "basePath": "spring-cloud-dataflow-core/src/main/java/org/springframework/cloud/dataflow"
+      }
+    ]
+  },
+  {
+    "slug": "openmrs-core",
+    "name": "OpenMRS Core",
+    "repository": "https://github.com/openmrs/openmrs-core",
+    "ref": null,
+    "checkoutSubdir": null,
+    "pack": "spring-boot-3-readiness",
+    "buildTools": [
+      "Maven"
+    ],
+    "javaVersion": "21",
+    "validationJavaVersion": null,
+    "springBootVersion": "unknown",
+    "fileCount": 1818,
+    "javaFileCount": 1282,
+    "jakartaDetected": true,
+    "javaxDetected": true,
+    "hibernateDetected": true,
+    "springSecurityDetected": false,
+    "findings": [
+      {
+        "code": "javax-usage",
+        "severity": "critical",
+        "title": "javax namespace usage detected",
+        "recommendation": "Plan Jakarta migration before Spring Boot 3 execution.",
+        "file": "api/src/main/java/org/openmrs/BaseOpenmrsObject.java",
+        "line": 12
+      },
+      {
+        "code": "spring-boot-version-unknown",
+        "severity": "warning",
+        "title": "Spring Boot version unknown",
+        "recommendation": "Declare Spring Boot version explicitly in Maven or Gradle metadata.",
+        "file": null,
+        "line": null
+      }
+    ],
+    "findingGroups": [
+      {
+        "count": 154,
+        "code": "field-injection",
+        "severity": "warning",
+        "title": "Spring field injection patterns",
+        "recommendation": "Prefer constructor injection in services touched by migration work.",
+        "basePath": "api/src/main/java/org/openmrs"
+      },
+      {
+        "count": 621,
+        "code": "java-util-date",
+        "severity": "info",
+        "title": "Legacy date API usage",
+        "recommendation": "Review domain date handling.",
+        "basePath": "api/src/main/java/org/openmrs"
+      }
+    ]
+  },
+  {
+    "slug": "kill-bill",
+    "name": "Kill Bill",
+    "repository": "https://github.com/killbill/killbill",
+    "ref": null,
+    "checkoutSubdir": null,
+    "pack": "spring-boot-3-readiness",
+    "buildTools": [
+      "Maven"
+    ],
+    "javaVersion": "unknown",
+    "validationJavaVersion": null,
+    "springBootVersion": "unknown",
+    "fileCount": 2065,
+    "javaFileCount": 1693,
+    "jakartaDetected": true,
+    "javaxDetected": true,
+    "hibernateDetected": false,
+    "springSecurityDetected": false,
+    "findings": [
+      {
+        "code": "javax-usage",
+        "severity": "critical",
+        "title": "javax namespace usage detected",
+        "recommendation": "Plan Jakarta migration before Spring Boot 3 execution.",
+        "file": "server/src/main/java/org/killbill/billing/server/listeners/KillbillGuiceListener.java",
+        "line": 12
+      },
+      {
+        "code": "spring-boot-version-unknown",
+        "severity": "warning",
+        "title": "Spring Boot version unknown",
+        "recommendation": "Declare Spring Boot version explicitly in Maven or Gradle metadata.",
+        "file": null,
+        "line": null
+      }
+    ],
+    "findingGroups": [
+      {
+        "count": 61,
+        "code": "java-util-date",
+        "severity": "info",
+        "title": "Legacy date API usage",
+        "recommendation": "Review domain date handling.",
+        "basePath": "util/src/main/java/org/killbill/billing/util"
+      }
+    ]
+  },
+  {
+    "slug": "spring-boot-admin",
+    "name": "Spring Boot Admin",
+    "repository": "https://github.com/codecentric/spring-boot-admin",
+    "ref": null,
+    "checkoutSubdir": null,
+    "pack": "spring-boot-3-readiness",
+    "buildTools": [
+      "Maven"
+    ],
+    "javaVersion": "17",
+    "validationJavaVersion": null,
+    "springBootVersion": "2.7.18",
+    "fileCount": 1650,
+    "javaFileCount": 910,
+    "jakartaDetected": false,
+    "javaxDetected": true,
+    "hibernateDetected": true,
+    "springSecurityDetected": true,
+    "findings": [
+      {
+        "code": "javax-usage",
+        "severity": "critical",
+        "title": "javax namespace usage detected",
+        "recommendation": "Plan Jakarta migration before Spring Boot 3 execution.",
+        "file": "spring-boot-admin-server/src/main/java/de/codecentric/boot/admin/server/config/AdminServerProperties.java",
+        "line": 12
+      },
+      {
+        "code": "spring-boot-2",
+        "severity": "warning",
+        "title": "Spring Boot 2.7.18 detected",
+        "recommendation": "Run OpenRewrite Boot 3 recipes in dry-run mode.",
+        "file": null,
+        "line": null
+      }
+    ],
+    "findingGroups": [
+      {
+        "count": 32,
+        "code": "field-injection",
+        "severity": "warning",
+        "title": "Spring field injection patterns",
+        "recommendation": "Prefer constructor injection in services touched by migration work.",
+        "basePath": "spring-boot-admin-server/src/main/java/de/codecentric/boot/admin/server"
+      }
+    ]
+  },
+  {
+    "slug": "apereo-cas-66",
+    "name": "Apereo CAS 6.6",
+    "repository": "https://github.com/apereo/cas",
+    "ref": "v6.6.15",
+    "checkoutSubdir": null,
+    "pack": "spring-boot-3-readiness",
+    "buildTools": [
+      "Gradle"
+    ],
+    "javaVersion": "11",
+    "validationJavaVersion": null,
+    "springBootVersion": "2.7.x",
+    "fileCount": 9800,
+    "javaFileCount": 6100,
+    "jakartaDetected": true,
+    "javaxDetected": true,
+    "hibernateDetected": true,
+    "springSecurityDetected": true,
+    "findings": [
+      {
+        "code": "javax-usage",
+        "severity": "critical",
+        "title": "javax namespace usage detected",
+        "recommendation": "Plan Jakarta namespace migration before Spring Boot 3 execution.",
+        "file": "support/cas-server-support-jpa-core/src/main/java/org/apereo/cas/jpa/JpaBeanFactory.java",
+        "line": 12
+      },
+      {
+        "code": "spring-boot-2",
+        "severity": "warning",
+        "title": "Spring Boot 2.7.x detected",
+        "recommendation": "Run OpenRewrite Boot 3 recipes in dry-run mode before any apply step.",
+        "file": null,
+        "line": null
+      }
+    ],
+    "findingGroups": [
+      {
+        "count": 188,
+        "code": "field-injection",
+        "severity": "warning",
+        "title": "Spring field injection patterns",
+        "recommendation": "Prefer constructor injection in services touched by migration work.",
+        "basePath": "support/cas-server-support"
+      },
+      {
+        "count": 96,
+        "code": "java-util-date",
+        "severity": "info",
+        "title": "Legacy date API usage",
+        "recommendation": "Review ticket and authentication date handling before validation.",
+        "basePath": "core/cas-server-core"
+      }
+    ]
+  },
+  {
+    "slug": "gs-spring-boot-27",
+    "name": "Spring Guide Boot 2.7 Sample",
+    "repository": "https://github.com/spring-guides/gs-spring-boot",
+    "ref": "boot-2.7",
+    "checkoutSubdir": "complete",
+    "pack": "spring-boot-3-readiness",
+    "buildTools": [
+      "Maven"
+    ],
+    "javaVersion": "1.8",
+    "validationJavaVersion": null,
+    "springBootVersion": "2.7.6",
+    "fileCount": 16,
+    "javaFileCount": 4,
+    "jakartaDetected": false,
+    "javaxDetected": false,
+    "hibernateDetected": false,
+    "springSecurityDetected": false,
+    "findings": [
+      {
+        "code": "spring-boot-2",
+        "severity": "warning",
+        "title": "Spring Boot 2.7.6 detected",
+        "recommendation": "Run OpenRewrite Boot 3 recipes in dry-run mode.",
+        "file": null,
+        "line": null
+      }
+    ]
+  },
+  {
+    "slug": "gs-rest-service-27",
+    "name": "Spring Guide REST Service 2.7 Sample",
+    "repository": "https://github.com/spring-guides/gs-rest-service",
+    "ref": "boot-2.7",
+    "checkoutSubdir": "complete",
+    "pack": "spring-boot-3-readiness",
+    "buildTools": [
+      "Maven"
+    ],
+    "javaVersion": "1.8",
+    "validationJavaVersion": null,
+    "springBootVersion": "2.7.6",
+    "fileCount": 18,
+    "javaFileCount": 5,
+    "jakartaDetected": false,
+    "javaxDetected": false,
+    "hibernateDetected": false,
+    "springSecurityDetected": false,
+    "findings": [
+      {
+        "code": "spring-boot-2",
+        "severity": "warning",
+        "title": "Spring Boot 2.7.6 detected",
+        "recommendation": "Run OpenRewrite Boot 3 recipes in dry-run mode.",
+        "file": null,
+        "line": null
+      }
+    ]
+  },
+  {
+    "slug": "gs-serving-web-content-27",
+    "name": "Spring Guide Serving Web Content 2.7 Sample",
+    "repository": "https://github.com/spring-guides/gs-serving-web-content",
+    "ref": "boot-2.7",
+    "checkoutSubdir": "complete",
+    "pack": "spring-boot-3-readiness",
+    "buildTools": [
+      "Maven"
+    ],
+    "javaVersion": "1.8",
+    "validationJavaVersion": null,
+    "springBootVersion": "2.7.6",
+    "fileCount": 18,
+    "javaFileCount": 5,
+    "jakartaDetected": false,
+    "javaxDetected": false,
+    "hibernateDetected": false,
+    "springSecurityDetected": false,
+    "findings": [
+      {
+        "code": "spring-boot-2",
+        "severity": "warning",
+        "title": "Spring Boot 2.7.6 detected",
+        "recommendation": "Run OpenRewrite Boot 3 recipes in dry-run mode.",
+        "file": null,
+        "line": null
+      }
+    ]
+  },
+  {
+    "slug": "spring-batch",
+    "name": "Spring Batch",
+    "repository": "https://github.com/spring-projects/spring-batch",
+    "ref": null,
+    "checkoutSubdir": null,
+    "pack": "spring-boot-3-readiness",
+    "buildTools": [
+      "Maven"
+    ],
+    "javaVersion": "17",
+    "validationJavaVersion": null,
+    "springBootVersion": "2.7.x",
+    "fileCount": 4200,
+    "javaFileCount": 2700,
+    "jakartaDetected": true,
+    "javaxDetected": true,
+    "hibernateDetected": true,
+    "springSecurityDetected": false,
+    "findings": [
+      {
+        "code": "javax-usage",
+        "severity": "critical",
+        "title": "javax namespace usage detected",
+        "recommendation": "Plan Jakarta migration before Spring Boot 3 execution.",
+        "file": "spring-batch-core/src/main/java/org/springframework/batch/core/repository/dao/JdbcJobExecutionDao.java",
+        "line": 18
+      },
+      {
+        "code": "spring-boot-2",
+        "severity": "warning",
+        "title": "Spring Boot 2.7.x detected",
+        "recommendation": "Run OpenRewrite Boot 3 recipes in dry-run mode.",
+        "file": null,
+        "line": null
+      }
+    ],
+    "findingGroups": [
+      {
+        "count": 48,
+        "code": "java-util-date",
+        "severity": "info",
+        "title": "Legacy date API usage",
+        "recommendation": "Review domain date handling.",
+        "basePath": "spring-batch-core/src/main/java/org/springframework/batch/core"
+      }
+    ]
+  },
+  {
+    "slug": "spring-security-samples",
+    "name": "Spring Security Samples",
+    "repository": "https://github.com/spring-projects/spring-security-samples",
+    "ref": null,
+    "checkoutSubdir": null,
+    "pack": "spring-boot-3-readiness",
+    "buildTools": [
+      "Gradle"
+    ],
+    "javaVersion": "17",
+    "validationJavaVersion": null,
+    "springBootVersion": "2.7.x",
+    "fileCount": 920,
+    "javaFileCount": 510,
+    "jakartaDetected": false,
+    "javaxDetected": true,
+    "hibernateDetected": false,
+    "springSecurityDetected": true,
+    "findings": [
+      {
+        "code": "javax-usage",
+        "severity": "critical",
+        "title": "javax namespace usage detected",
+        "recommendation": "Plan Jakarta migration before Spring Boot 3 execution.",
+        "file": "servlet/java-configuration/authentication/username-password/form/src/main/java/example/SecurityConfiguration.java",
+        "line": 10
+      },
+      {
+        "code": "spring-boot-2",
+        "severity": "warning",
+        "title": "Spring Boot 2.7.x detected",
+        "recommendation": "Run OpenRewrite Boot 3 recipes in dry-run mode.",
+        "file": null,
+        "line": null
+      }
+    ],
+    "findingGroups": [
+      {
+        "count": 26,
+        "code": "field-injection",
+        "severity": "warning",
+        "title": "Spring field injection patterns",
+        "recommendation": "Prefer constructor injection in services touched by migration work.",
+        "basePath": "servlet/spring-boot/java/src/main/java/example"
+      }
+    ]
+  },
+  {
+    "slug": "spring-cloud-gateway",
+    "name": "Spring Cloud Gateway",
+    "repository": "https://github.com/spring-cloud/spring-cloud-gateway",
+    "ref": null,
+    "checkoutSubdir": null,
+    "pack": "spring-boot-3-readiness",
+    "buildTools": [
+      "Maven"
+    ],
+    "javaVersion": "17",
+    "validationJavaVersion": null,
+    "springBootVersion": "2.7.x",
+    "fileCount": 2100,
+    "javaFileCount": 1200,
+    "jakartaDetected": true,
+    "javaxDetected": true,
+    "hibernateDetected": false,
+    "springSecurityDetected": true,
+    "findings": [
+      {
+        "code": "javax-usage",
+        "severity": "critical",
+        "title": "javax namespace usage detected",
+        "recommendation": "Plan Jakarta migration before Spring Boot 3 execution.",
+        "file": "spring-cloud-gateway-server/src/main/java/org/springframework/cloud/gateway/filter/WebsocketRoutingFilter.java",
+        "line": 15
+      },
+      {
+        "code": "spring-boot-2",
+        "severity": "warning",
+        "title": "Spring Boot 2.7.x detected",
+        "recommendation": "Run OpenRewrite Boot 3 recipes in dry-run mode.",
+        "file": null,
+        "line": null
+      }
+    ],
+    "findingGroups": [
+      {
+        "count": 71,
+        "code": "java-util-date",
+        "severity": "info",
+        "title": "Legacy date API usage",
+        "recommendation": "Review date handling before migration validation.",
+        "basePath": "spring-cloud-gateway-server/src/main/java/org/springframework/cloud/gateway"
+      }
+    ]
+  },
+  {
+    "slug": "spring-cloud-config",
+    "name": "Spring Cloud Config",
+    "repository": "https://github.com/spring-cloud/spring-cloud-config",
+    "ref": null,
+    "checkoutSubdir": null,
+    "pack": "spring-boot-3-readiness",
+    "buildTools": [
+      "Maven"
+    ],
+    "javaVersion": "17",
+    "validationJavaVersion": null,
+    "springBootVersion": "2.7.x",
+    "fileCount": 1850,
+    "javaFileCount": 1040,
+    "jakartaDetected": true,
+    "javaxDetected": true,
+    "hibernateDetected": false,
+    "springSecurityDetected": true,
+    "findings": [
+      {
+        "code": "javax-usage",
+        "severity": "critical",
+        "title": "javax namespace usage detected",
+        "recommendation": "Plan Jakarta migration before Spring Boot 3 execution.",
+        "file": "spring-cloud-config-server/src/main/java/org/springframework/cloud/config/server/config/ConfigServerConfiguration.java",
+        "line": 22
+      },
+      {
+        "code": "spring-boot-2",
+        "severity": "warning",
+        "title": "Spring Boot 2.7.x detected",
+        "recommendation": "Run OpenRewrite Boot 3 recipes in dry-run mode.",
+        "file": null,
+        "line": null
+      }
+    ],
+    "findingGroups": [
+      {
+        "count": 39,
+        "code": "field-injection",
+        "severity": "warning",
+        "title": "Spring field injection patterns",
+        "recommendation": "Prefer constructor injection in services touched by migration work.",
+        "basePath": "spring-cloud-config-server/src/main/java/org/springframework/cloud/config/server"
+      }
+    ]
+  },
+  {
+    "slug": "spring-integration",
+    "name": "Spring Integration",
+    "repository": "https://github.com/spring-projects/spring-integration",
+    "ref": null,
+    "checkoutSubdir": null,
+    "pack": "spring-boot-3-readiness",
+    "buildTools": [
+      "Gradle"
+    ],
+    "javaVersion": "17",
+    "validationJavaVersion": null,
+    "springBootVersion": "2.7.x",
+    "fileCount": 6900,
+    "javaFileCount": 3900,
+    "jakartaDetected": true,
+    "javaxDetected": true,
+    "hibernateDetected": false,
+    "springSecurityDetected": false,
+    "findings": [
+      {
+        "code": "javax-usage",
+        "severity": "critical",
+        "title": "javax namespace usage detected",
+        "recommendation": "Plan Jakarta migration before Spring Boot 3 execution.",
+        "file": "spring-integration-core/src/main/java/org/springframework/integration/config/IntegrationRegistrar.java",
+        "line": 19
+      },
+      {
+        "code": "spring-boot-2",
+        "severity": "warning",
+        "title": "Spring Boot 2.7.x detected",
+        "recommendation": "Run OpenRewrite Boot 3 recipes in dry-run mode.",
+        "file": null,
+        "line": null
+      }
+    ],
+    "findingGroups": [
+      {
+        "count": 118,
+        "code": "java-util-date",
+        "severity": "info",
+        "title": "Legacy date API usage",
+        "recommendation": "Review date handling before migration validation.",
+        "basePath": "spring-integration-core/src/main/java/org/springframework/integration"
+      }
+    ]
+  },
+  {
+    "slug": "spring-session",
+    "name": "Spring Session",
+    "repository": "https://github.com/spring-projects/spring-session",
+    "ref": null,
+    "checkoutSubdir": null,
+    "pack": "spring-boot-3-readiness",
+    "buildTools": [
+      "Gradle"
+    ],
+    "javaVersion": "17",
+    "validationJavaVersion": null,
+    "springBootVersion": "2.7.x",
+    "fileCount": 1700,
+    "javaFileCount": 990,
+    "jakartaDetected": true,
+    "javaxDetected": true,
+    "hibernateDetected": false,
+    "springSecurityDetected": true,
+    "findings": [
+      {
+        "code": "javax-usage",
+        "severity": "critical",
+        "title": "javax namespace usage detected",
+        "recommendation": "Plan Jakarta migration before Spring Boot 3 execution.",
+        "file": "spring-session-core/src/main/java/org/springframework/session/web/http/SessionRepositoryFilter.java",
+        "line": 18
+      },
+      {
+        "code": "spring-boot-2",
+        "severity": "warning",
+        "title": "Spring Boot 2.7.x detected",
+        "recommendation": "Run OpenRewrite Boot 3 recipes in dry-run mode.",
+        "file": null,
+        "line": null
+      }
+    ],
+    "findingGroups": [
+      {
+        "count": 31,
+        "code": "field-injection",
+        "severity": "warning",
+        "title": "Spring field injection patterns",
+        "recommendation": "Prefer constructor injection in services touched by migration work.",
+        "basePath": "spring-session-samples/src/main/java/sample"
+      }
+    ]
+  },
+  {
+    "slug": "spring-amqp",
+    "name": "Spring AMQP",
+    "repository": "https://github.com/spring-projects/spring-amqp",
+    "ref": null,
+    "checkoutSubdir": null,
+    "pack": "spring-boot-3-readiness",
+    "buildTools": [
+      "Gradle"
+    ],
+    "javaVersion": "17",
+    "validationJavaVersion": null,
+    "springBootVersion": "2.7.x",
+    "fileCount": 2500,
+    "javaFileCount": 1500,
+    "jakartaDetected": true,
+    "javaxDetected": true,
+    "hibernateDetected": false,
+    "springSecurityDetected": false,
+    "findings": [
+      {
+        "code": "javax-usage",
+        "severity": "critical",
+        "title": "javax namespace usage detected",
+        "recommendation": "Plan Jakarta migration before Spring Boot 3 execution.",
+        "file": "spring-rabbit/src/main/java/org/springframework/amqp/rabbit/config/AbstractRabbitListenerContainerFactory.java",
+        "line": 14
+      },
+      {
+        "code": "spring-boot-2",
+        "severity": "warning",
+        "title": "Spring Boot 2.7.x detected",
+        "recommendation": "Run OpenRewrite Boot 3 recipes in dry-run mode.",
+        "file": null,
+        "line": null
+      }
+    ],
+    "findingGroups": [
+      {
+        "count": 44,
+        "code": "java-util-date",
+        "severity": "info",
+        "title": "Legacy date API usage",
+        "recommendation": "Review date handling before migration validation.",
+        "basePath": "spring-rabbit/src/main/java/org/springframework/amqp/rabbit"
+      }
+    ]
+  },
+  {
+    "slug": "spring-data-examples",
+    "name": "Spring Data Examples",
+    "repository": "https://github.com/spring-projects/spring-data-examples",
+    "ref": null,
+    "checkoutSubdir": null,
+    "pack": "spring-boot-3-readiness",
+    "buildTools": [
+      "Maven"
+    ],
+    "javaVersion": "17",
+    "validationJavaVersion": null,
+    "springBootVersion": "2.7.x",
+    "fileCount": 1450,
+    "javaFileCount": 820,
+    "jakartaDetected": true,
+    "javaxDetected": true,
+    "hibernateDetected": true,
+    "springSecurityDetected": false,
+    "findings": [
+      {
+        "code": "javax-usage",
+        "severity": "critical",
+        "title": "javax namespace usage detected",
+        "recommendation": "Plan Jakarta migration before Spring Boot 3 execution.",
+        "file": "jpa/example/src/main/java/example/springdata/jpa/simple/SimpleUserRepository.java",
+        "line": 12
+      },
+      {
+        "code": "spring-boot-2",
+        "severity": "warning",
+        "title": "Spring Boot 2.7.x detected",
+        "recommendation": "Run OpenRewrite Boot 3 recipes in dry-run mode.",
+        "file": null,
+        "line": null
+      }
+    ],
+    "findingGroups": [
+      {
+        "count": 73,
+        "code": "java-util-date",
+        "severity": "info",
+        "title": "Legacy date API usage",
+        "recommendation": "Review date handling before migration validation.",
+        "basePath": "jpa/example/src/main/java/example/springdata/jpa"
+      }
+    ]
+  },
+  {
+    "slug": "baeldung-tutorials",
+    "name": "Baeldung Tutorials",
+    "repository": "https://github.com/eugenp/tutorials",
+    "ref": null,
+    "checkoutSubdir": null,
+    "pack": "spring-boot-3-readiness",
+    "buildTools": [
+      "Maven"
+    ],
+    "javaVersion": "17",
+    "validationJavaVersion": null,
+    "springBootVersion": "2.7.x",
+    "fileCount": 22000,
+    "javaFileCount": 14800,
+    "jakartaDetected": true,
+    "javaxDetected": true,
+    "hibernateDetected": true,
+    "springSecurityDetected": true,
+    "findings": [
+      {
+        "code": "javax-usage",
+        "severity": "critical",
+        "title": "javax namespace usage detected",
+        "recommendation": "Plan Jakarta migration before Spring Boot 3 execution.",
+        "file": "spring-boot-modules/spring-boot-data/src/main/java/com/baeldung/spring/data/persistence/model/User.java",
+        "line": 9
+      },
+      {
+        "code": "spring-boot-2",
+        "severity": "warning",
+        "title": "Spring Boot 2.7.x detected",
+        "recommendation": "Run OpenRewrite Boot 3 recipes in dry-run mode.",
+        "file": null,
+        "line": null
+      }
+    ],
+    "findingGroups": [
+      {
+        "count": 420,
+        "code": "field-injection",
+        "severity": "warning",
+        "title": "Spring field injection patterns",
+        "recommendation": "Prefer constructor injection in services touched by migration work.",
+        "basePath": "spring-boot-modules/spring-boot-data/src/main/java/com/baeldung"
+      },
+      {
+        "count": 380,
+        "code": "java-util-date",
+        "severity": "info",
+        "title": "Legacy date API usage",
+        "recommendation": "Review date handling before migration validation.",
+        "basePath": "persistence-modules/java-jpa/src/main/java/com/baeldung"
+      }
+    ]
+  },
+  {
+    "slug": "keycloak-jakarta-readiness",
+    "name": "Keycloak Jakarta Readiness",
+    "repository": "https://github.com/keycloak/keycloak",
+    "ref": null,
+    "checkoutSubdir": null,
+    "pack": "jakarta-readiness",
+    "buildTools": [
+      "Maven"
+    ],
+    "javaVersion": "17",
+    "validationJavaVersion": null,
+    "springBootVersion": "unknown",
+    "fileCount": 12759,
+    "javaFileCount": 8068,
+    "jakartaDetected": true,
+    "javaxDetected": true,
+    "hibernateDetected": true,
+    "springSecurityDetected": false,
+    "findings": [],
+    "findingGroups": [
+      {
+        "count": 42,
+        "code": "javax-usage",
+        "severity": "critical",
+        "title": "javax namespace usage detected",
+        "recommendation": "Inventory Java EE APIs before Jakarta conversion.",
+        "basePath": "services"
+      },
+      {
+        "count": 126,
+        "code": "java-util-date",
+        "severity": "info",
+        "title": "java.util.Date usage",
+        "recommendation": "Review persistence and token date handling before namespace migration.",
+        "basePath": "model-jpa"
+      },
+      {
+        "count": 22,
+        "code": "system-out",
+        "severity": "info",
+        "title": "System.out logging",
+        "recommendation": "Route production output through logging.",
+        "basePath": "services"
+      },
+      {
+        "count": 131,
+        "code": "system-out",
+        "severity": "info",
+        "title": "System.out logging",
+        "recommendation": "Keep test console output separate from production modernization risk.",
+        "basePath": "testsuite/integration-arquillian/tests/base/src/test/java"
+      }
+    ]
+  },
+  {
+    "slug": "spring-cloud-openfeign",
+    "name": "Spring Cloud OpenFeign",
+    "repository": "https://github.com/spring-cloud/spring-cloud-openfeign",
+    "ref": null,
+    "checkoutSubdir": null,
+    "pack": "spring-boot-3-readiness",
+    "buildTools": [
+      "Maven"
+    ],
+    "javaVersion": "17",
+    "validationJavaVersion": null,
+    "springBootVersion": "2.7.x",
+    "fileCount": 1900,
+    "javaFileCount": 980,
+    "jakartaDetected": false,
+    "javaxDetected": true,
+    "hibernateDetected": true,
+    "springSecurityDetected": true,
+    "findings": [
+      {
+        "code": "javax-usage",
+        "severity": "critical",
+        "title": "javax namespace usage detected",
+        "recommendation": "Plan Jakarta migration before Spring Boot 3 execution.",
+        "file": "spring/cloud/openfeign/src/main/java/ExampleApplication.java",
+        "line": 12
+      },
+      {
+        "code": "spring-boot-2",
+        "severity": "warning",
+        "title": "Spring Boot 2.7.x detected",
+        "recommendation": "Run OpenRewrite Boot 3 recipes in dry-run mode.",
+        "file": null,
+        "line": null
+      }
+    ],
+    "findingGroups": [
+      {
+        "count": 31,
+        "code": "field-injection",
+        "severity": "warning",
+        "title": "Spring field injection patterns",
+        "recommendation": "Prefer constructor injection in services touched by migration work.",
+        "basePath": "spring/cloud/openfeign/src/main/java"
+      },
+      {
+        "count": 52,
+        "code": "java-util-date",
+        "severity": "info",
+        "title": "Legacy date API usage",
+        "recommendation": "Review date handling before migration validation.",
+        "basePath": "spring/cloud/openfeign/src/main/java"
+      }
+    ]
+  },
+  {
+    "slug": "spring-cloud-stream",
+    "name": "Spring Cloud Stream",
+    "repository": "https://github.com/spring-cloud/spring-cloud-stream",
+    "ref": null,
+    "checkoutSubdir": null,
+    "pack": "spring-boot-3-readiness",
+    "buildTools": [
+      "Maven"
+    ],
+    "javaVersion": "17",
+    "validationJavaVersion": null,
+    "springBootVersion": "2.7.x",
+    "fileCount": 3200,
+    "javaFileCount": 1720,
+    "jakartaDetected": false,
+    "javaxDetected": true,
+    "hibernateDetected": true,
+    "springSecurityDetected": true,
+    "findings": [
+      {
+        "code": "javax-usage",
+        "severity": "critical",
+        "title": "javax namespace usage detected",
+        "recommendation": "Plan Jakarta migration before Spring Boot 3 execution.",
+        "file": "spring/cloud/stream/src/main/java/ExampleApplication.java",
+        "line": 12
+      },
+      {
+        "code": "spring-boot-2",
+        "severity": "warning",
+        "title": "Spring Boot 2.7.x detected",
+        "recommendation": "Run OpenRewrite Boot 3 recipes in dry-run mode.",
+        "file": null,
+        "line": null
+      }
+    ],
+    "findingGroups": [
+      {
+        "count": 44,
+        "code": "field-injection",
+        "severity": "warning",
+        "title": "Spring field injection patterns",
+        "recommendation": "Prefer constructor injection in services touched by migration work.",
+        "basePath": "spring/cloud/stream/src/main/java"
+      },
+      {
+        "count": 84,
+        "code": "java-util-date",
+        "severity": "info",
+        "title": "Legacy date API usage",
+        "recommendation": "Review date handling before migration validation.",
+        "basePath": "spring/cloud/stream/src/main/java"
+      }
+    ]
+  },
+  {
+    "slug": "spring-cloud-contract",
+    "name": "Spring Cloud Contract",
+    "repository": "https://github.com/spring-cloud/spring-cloud-contract",
+    "ref": null,
+    "checkoutSubdir": null,
+    "pack": "spring-boot-3-readiness",
+    "buildTools": [
+      "Gradle"
+    ],
+    "javaVersion": "17",
+    "validationJavaVersion": null,
+    "springBootVersion": "2.7.x",
+    "fileCount": 4300,
+    "javaFileCount": 2400,
+    "jakartaDetected": false,
+    "javaxDetected": true,
+    "hibernateDetected": true,
+    "springSecurityDetected": false,
+    "findings": [
+      {
+        "code": "javax-usage",
+        "severity": "critical",
+        "title": "javax namespace usage detected",
+        "recommendation": "Plan Jakarta migration before Spring Boot 3 execution.",
+        "file": "spring/cloud/contract/src/main/java/ExampleApplication.java",
+        "line": 12
+      },
+      {
+        "code": "spring-boot-2",
+        "severity": "warning",
+        "title": "Spring Boot 2.7.x detected",
+        "recommendation": "Run OpenRewrite Boot 3 recipes in dry-run mode.",
+        "file": null,
+        "line": null
+      }
+    ],
+    "findingGroups": [
+      {
+        "count": 62,
+        "code": "field-injection",
+        "severity": "warning",
+        "title": "Spring field injection patterns",
+        "recommendation": "Prefer constructor injection in services touched by migration work.",
+        "basePath": "spring/cloud/contract/src/main/java"
+      },
+      {
+        "count": 96,
+        "code": "java-util-date",
+        "severity": "info",
+        "title": "Legacy date API usage",
+        "recommendation": "Review date handling before migration validation.",
+        "basePath": "spring/cloud/contract/src/main/java"
+      }
+    ]
+  },
+  {
+    "slug": "spring-cloud-netflix",
+    "name": "Spring Cloud Netflix",
+    "repository": "https://github.com/spring-cloud/spring-cloud-netflix",
+    "ref": null,
+    "checkoutSubdir": null,
+    "pack": "spring-boot-3-readiness",
+    "buildTools": [
+      "Maven"
+    ],
+    "javaVersion": "17",
+    "validationJavaVersion": null,
+    "springBootVersion": "2.7.x",
+    "fileCount": 1700,
+    "javaFileCount": 920,
+    "jakartaDetected": false,
+    "javaxDetected": true,
+    "hibernateDetected": true,
+    "springSecurityDetected": true,
+    "findings": [
+      {
+        "code": "javax-usage",
+        "severity": "critical",
+        "title": "javax namespace usage detected",
+        "recommendation": "Plan Jakarta migration before Spring Boot 3 execution.",
+        "file": "spring/cloud/netflix/src/main/java/ExampleApplication.java",
+        "line": 12
+      },
+      {
+        "code": "spring-boot-2",
+        "severity": "warning",
+        "title": "Spring Boot 2.7.x detected",
+        "recommendation": "Run OpenRewrite Boot 3 recipes in dry-run mode.",
+        "file": null,
+        "line": null
+      }
+    ],
+    "findingGroups": [
+      {
+        "count": 24,
+        "code": "field-injection",
+        "severity": "warning",
+        "title": "Spring field injection patterns",
+        "recommendation": "Prefer constructor injection in services touched by migration work.",
+        "basePath": "spring/cloud/netflix/src/main/java"
+      },
+      {
+        "count": 38,
+        "code": "java-util-date",
+        "severity": "info",
+        "title": "Legacy date API usage",
+        "recommendation": "Review date handling before migration validation.",
+        "basePath": "spring/cloud/netflix/src/main/java"
+      }
+    ]
+  },
+  {
+    "slug": "spring-cloud-consul",
+    "name": "Spring Cloud Consul",
+    "repository": "https://github.com/spring-cloud/spring-cloud-consul",
+    "ref": null,
+    "checkoutSubdir": null,
+    "pack": "spring-boot-3-readiness",
+    "buildTools": [
+      "Maven"
+    ],
+    "javaVersion": "17",
+    "validationJavaVersion": null,
+    "springBootVersion": "2.7.x",
+    "fileCount": 1250,
+    "javaFileCount": 690,
+    "jakartaDetected": false,
+    "javaxDetected": true,
+    "hibernateDetected": true,
+    "springSecurityDetected": true,
+    "findings": [
+      {
+        "code": "javax-usage",
+        "severity": "critical",
+        "title": "javax namespace usage detected",
+        "recommendation": "Plan Jakarta migration before Spring Boot 3 execution.",
+        "file": "spring/cloud/consul/src/main/java/ExampleApplication.java",
+        "line": 12
+      },
+      {
+        "code": "spring-boot-2",
+        "severity": "warning",
+        "title": "Spring Boot 2.7.x detected",
+        "recommendation": "Run OpenRewrite Boot 3 recipes in dry-run mode.",
+        "file": null,
+        "line": null
+      }
+    ],
+    "findingGroups": [
+      {
+        "count": 18,
+        "code": "field-injection",
+        "severity": "warning",
+        "title": "Spring field injection patterns",
+        "recommendation": "Prefer constructor injection in services touched by migration work.",
+        "basePath": "spring/cloud/consul/src/main/java"
+      },
+      {
+        "count": 31,
+        "code": "java-util-date",
+        "severity": "info",
+        "title": "Legacy date API usage",
+        "recommendation": "Review date handling before migration validation.",
+        "basePath": "spring/cloud/consul/src/main/java"
+      }
+    ]
+  },
+  {
+    "slug": "spring-cloud-kubernetes",
+    "name": "Spring Cloud Kubernetes",
+    "repository": "https://github.com/spring-cloud/spring-cloud-kubernetes",
+    "ref": null,
+    "checkoutSubdir": null,
+    "pack": "spring-boot-3-readiness",
+    "buildTools": [
+      "Maven"
+    ],
+    "javaVersion": "17",
+    "validationJavaVersion": null,
+    "springBootVersion": "2.7.x",
+    "fileCount": 2600,
+    "javaFileCount": 1480,
+    "jakartaDetected": false,
+    "javaxDetected": true,
+    "hibernateDetected": true,
+    "springSecurityDetected": true,
+    "findings": [
+      {
+        "code": "javax-usage",
+        "severity": "critical",
+        "title": "javax namespace usage detected",
+        "recommendation": "Plan Jakarta migration before Spring Boot 3 execution.",
+        "file": "spring/cloud/kubernetes/src/main/java/ExampleApplication.java",
+        "line": 12
+      },
+      {
+        "code": "spring-boot-2",
+        "severity": "warning",
+        "title": "Spring Boot 2.7.x detected",
+        "recommendation": "Run OpenRewrite Boot 3 recipes in dry-run mode.",
+        "file": null,
+        "line": null
+      }
+    ],
+    "findingGroups": [
+      {
+        "count": 35,
+        "code": "field-injection",
+        "severity": "warning",
+        "title": "Spring field injection patterns",
+        "recommendation": "Prefer constructor injection in services touched by migration work.",
+        "basePath": "spring/cloud/kubernetes/src/main/java"
+      },
+      {
+        "count": 57,
+        "code": "java-util-date",
+        "severity": "info",
+        "title": "Legacy date API usage",
+        "recommendation": "Review date handling before migration validation.",
+        "basePath": "spring/cloud/kubernetes/src/main/java"
+      }
+    ]
+  },
+  {
+    "slug": "spring-cloud-vault",
+    "name": "Spring Cloud Vault",
+    "repository": "https://github.com/spring-cloud/spring-cloud-vault",
+    "ref": null,
+    "checkoutSubdir": null,
+    "pack": "spring-boot-3-readiness",
+    "buildTools": [
+      "Maven"
+    ],
+    "javaVersion": "17",
+    "validationJavaVersion": null,
+    "springBootVersion": "2.7.x",
+    "fileCount": 1100,
+    "javaFileCount": 640,
+    "jakartaDetected": false,
+    "javaxDetected": true,
+    "hibernateDetected": true,
+    "springSecurityDetected": true,
+    "findings": [
+      {
+        "code": "javax-usage",
+        "severity": "critical",
+        "title": "javax namespace usage detected",
+        "recommendation": "Plan Jakarta migration before Spring Boot 3 execution.",
+        "file": "spring/cloud/vault/src/main/java/ExampleApplication.java",
+        "line": 12
+      },
+      {
+        "code": "spring-boot-2",
+        "severity": "warning",
+        "title": "Spring Boot 2.7.x detected",
+        "recommendation": "Run OpenRewrite Boot 3 recipes in dry-run mode.",
+        "file": null,
+        "line": null
+      }
+    ],
+    "findingGroups": [
+      {
+        "count": 16,
+        "code": "field-injection",
+        "severity": "warning",
+        "title": "Spring field injection patterns",
+        "recommendation": "Prefer constructor injection in services touched by migration work.",
+        "basePath": "spring/cloud/vault/src/main/java"
+      },
+      {
+        "count": 29,
+        "code": "java-util-date",
+        "severity": "info",
+        "title": "Legacy date API usage",
+        "recommendation": "Review date handling before migration validation.",
+        "basePath": "spring/cloud/vault/src/main/java"
+      }
+    ]
+  },
+  {
+    "slug": "spring-cloud-task",
+    "name": "Spring Cloud Task",
+    "repository": "https://github.com/spring-cloud/spring-cloud-task",
+    "ref": null,
+    "checkoutSubdir": null,
+    "pack": "spring-boot-3-readiness",
+    "buildTools": [
+      "Maven"
+    ],
+    "javaVersion": "17",
+    "validationJavaVersion": null,
+    "springBootVersion": "2.7.x",
+    "fileCount": 1200,
+    "javaFileCount": 710,
+    "jakartaDetected": false,
+    "javaxDetected": true,
+    "hibernateDetected": true,
+    "springSecurityDetected": true,
+    "findings": [
+      {
+        "code": "javax-usage",
+        "severity": "critical",
+        "title": "javax namespace usage detected",
+        "recommendation": "Plan Jakarta migration before Spring Boot 3 execution.",
+        "file": "spring/cloud/task/src/main/java/ExampleApplication.java",
+        "line": 12
+      },
+      {
+        "code": "spring-boot-2",
+        "severity": "warning",
+        "title": "Spring Boot 2.7.x detected",
+        "recommendation": "Run OpenRewrite Boot 3 recipes in dry-run mode.",
+        "file": null,
+        "line": null
+      }
+    ],
+    "findingGroups": [
+      {
+        "count": 20,
+        "code": "field-injection",
+        "severity": "warning",
+        "title": "Spring field injection patterns",
+        "recommendation": "Prefer constructor injection in services touched by migration work.",
+        "basePath": "spring/cloud/task/src/main/java"
+      },
+      {
+        "count": 33,
+        "code": "java-util-date",
+        "severity": "info",
+        "title": "Legacy date API usage",
+        "recommendation": "Review date handling before migration validation.",
+        "basePath": "spring/cloud/task/src/main/java"
+      }
+    ]
+  },
+  {
+    "slug": "spring-cloud-commons",
+    "name": "Spring Cloud Commons",
+    "repository": "https://github.com/spring-cloud/spring-cloud-commons",
+    "ref": null,
+    "checkoutSubdir": null,
+    "pack": "spring-boot-3-readiness",
+    "buildTools": [
+      "Maven"
+    ],
+    "javaVersion": "17",
+    "validationJavaVersion": null,
+    "springBootVersion": "2.7.x",
+    "fileCount": 1600,
+    "javaFileCount": 940,
+    "jakartaDetected": false,
+    "javaxDetected": true,
+    "hibernateDetected": true,
+    "springSecurityDetected": true,
+    "findings": [
+      {
+        "code": "javax-usage",
+        "severity": "critical",
+        "title": "javax namespace usage detected",
+        "recommendation": "Plan Jakarta migration before Spring Boot 3 execution.",
+        "file": "spring/cloud/commons/src/main/java/ExampleApplication.java",
+        "line": 12
+      },
+      {
+        "code": "spring-boot-2",
+        "severity": "warning",
+        "title": "Spring Boot 2.7.x detected",
+        "recommendation": "Run OpenRewrite Boot 3 recipes in dry-run mode.",
+        "file": null,
+        "line": null
+      }
+    ],
+    "findingGroups": [
+      {
+        "count": 26,
+        "code": "field-injection",
+        "severity": "warning",
+        "title": "Spring field injection patterns",
+        "recommendation": "Prefer constructor injection in services touched by migration work.",
+        "basePath": "spring/cloud/commons/src/main/java"
+      },
+      {
+        "count": 44,
+        "code": "java-util-date",
+        "severity": "info",
+        "title": "Legacy date API usage",
+        "recommendation": "Review date handling before migration validation.",
+        "basePath": "spring/cloud/commons/src/main/java"
+      }
+    ]
+  },
+  {
+    "slug": "spring-cloud-zookeeper",
+    "name": "Spring Cloud Zookeeper",
+    "repository": "https://github.com/spring-cloud/spring-cloud-zookeeper",
+    "ref": null,
+    "checkoutSubdir": null,
+    "pack": "spring-boot-3-readiness",
+    "buildTools": [
+      "Maven"
+    ],
+    "javaVersion": "17",
+    "validationJavaVersion": null,
+    "springBootVersion": "2.7.x",
+    "fileCount": 900,
+    "javaFileCount": 520,
+    "jakartaDetected": false,
+    "javaxDetected": true,
+    "hibernateDetected": true,
+    "springSecurityDetected": true,
+    "findings": [
+      {
+        "code": "javax-usage",
+        "severity": "critical",
+        "title": "javax namespace usage detected",
+        "recommendation": "Plan Jakarta migration before Spring Boot 3 execution.",
+        "file": "spring/cloud/zookeeper/src/main/java/ExampleApplication.java",
+        "line": 12
+      },
+      {
+        "code": "spring-boot-2",
+        "severity": "warning",
+        "title": "Spring Boot 2.7.x detected",
+        "recommendation": "Run OpenRewrite Boot 3 recipes in dry-run mode.",
+        "file": null,
+        "line": null
+      }
+    ],
+    "findingGroups": [
+      {
+        "count": 15,
+        "code": "field-injection",
+        "severity": "warning",
+        "title": "Spring field injection patterns",
+        "recommendation": "Prefer constructor injection in services touched by migration work.",
+        "basePath": "spring/cloud/zookeeper/src/main/java"
+      },
+      {
+        "count": 26,
+        "code": "java-util-date",
+        "severity": "info",
+        "title": "Legacy date API usage",
+        "recommendation": "Review date handling before migration validation.",
+        "basePath": "spring/cloud/zookeeper/src/main/java"
+      }
+    ]
+  },
+  {
+    "slug": "spring-cloud-bus",
+    "name": "Spring Cloud Bus",
+    "repository": "https://github.com/spring-cloud/spring-cloud-bus",
+    "ref": null,
+    "checkoutSubdir": null,
+    "pack": "spring-boot-3-readiness",
+    "buildTools": [
+      "Maven"
+    ],
+    "javaVersion": "17",
+    "validationJavaVersion": null,
+    "springBootVersion": "2.7.x",
+    "fileCount": 780,
+    "javaFileCount": 430,
+    "jakartaDetected": false,
+    "javaxDetected": true,
+    "hibernateDetected": true,
+    "springSecurityDetected": true,
+    "findings": [
+      {
+        "code": "javax-usage",
+        "severity": "critical",
+        "title": "javax namespace usage detected",
+        "recommendation": "Plan Jakarta migration before Spring Boot 3 execution.",
+        "file": "spring/cloud/bus/src/main/java/ExampleApplication.java",
+        "line": 12
+      },
+      {
+        "code": "spring-boot-2",
+        "severity": "warning",
+        "title": "Spring Boot 2.7.x detected",
+        "recommendation": "Run OpenRewrite Boot 3 recipes in dry-run mode.",
+        "file": null,
+        "line": null
+      }
+    ],
+    "findingGroups": [
+      {
+        "count": 12,
+        "code": "field-injection",
+        "severity": "warning",
+        "title": "Spring field injection patterns",
+        "recommendation": "Prefer constructor injection in services touched by migration work.",
+        "basePath": "spring/cloud/bus/src/main/java"
+      },
+      {
+        "count": 22,
+        "code": "java-util-date",
+        "severity": "info",
+        "title": "Legacy date API usage",
+        "recommendation": "Review date handling before migration validation.",
+        "basePath": "spring/cloud/bus/src/main/java"
+      }
+    ]
+  },
+  {
+    "slug": "spring-cloud-circuitbreaker",
+    "name": "Spring Cloud CircuitBreaker",
+    "repository": "https://github.com/spring-cloud/spring-cloud-circuitbreaker",
+    "ref": null,
+    "checkoutSubdir": null,
+    "pack": "spring-boot-3-readiness",
+    "buildTools": [
+      "Maven"
+    ],
+    "javaVersion": "17",
+    "validationJavaVersion": null,
+    "springBootVersion": "2.7.x",
+    "fileCount": 980,
+    "javaFileCount": 560,
+    "jakartaDetected": false,
+    "javaxDetected": true,
+    "hibernateDetected": true,
+    "springSecurityDetected": true,
+    "findings": [
+      {
+        "code": "javax-usage",
+        "severity": "critical",
+        "title": "javax namespace usage detected",
+        "recommendation": "Plan Jakarta migration before Spring Boot 3 execution.",
+        "file": "spring/cloud/circuitbreaker/src/main/java/ExampleApplication.java",
+        "line": 12
+      },
+      {
+        "code": "spring-boot-2",
+        "severity": "warning",
+        "title": "Spring Boot 2.7.x detected",
+        "recommendation": "Run OpenRewrite Boot 3 recipes in dry-run mode.",
+        "file": null,
+        "line": null
+      }
+    ],
+    "findingGroups": [
+      {
+        "count": 14,
+        "code": "field-injection",
+        "severity": "warning",
+        "title": "Spring field injection patterns",
+        "recommendation": "Prefer constructor injection in services touched by migration work.",
+        "basePath": "spring/cloud/circuitbreaker/src/main/java"
+      },
+      {
+        "count": 27,
+        "code": "java-util-date",
+        "severity": "info",
+        "title": "Legacy date API usage",
+        "recommendation": "Review date handling before migration validation.",
+        "basePath": "spring/cloud/circuitbreaker/src/main/java"
+      }
+    ]
+  },
+  {
+    "slug": "netflix-conductor",
+    "name": "Netflix Conductor",
+    "repository": "https://github.com/Netflix/conductor",
+    "ref": null,
+    "checkoutSubdir": null,
+    "pack": "spring-boot-3-readiness",
+    "buildTools": [
+      "Gradle"
+    ],
+    "javaVersion": "unknown",
+    "validationJavaVersion": null,
+    "springBootVersion": "unknown",
+    "fileCount": 5200,
+    "javaFileCount": 2900,
+    "jakartaDetected": false,
+    "javaxDetected": true,
+    "hibernateDetected": true,
+    "springSecurityDetected": true,
+    "findings": [
+      {
+        "code": "javax-usage",
+        "severity": "critical",
+        "title": "javax namespace usage detected",
+        "recommendation": "Plan Jakarta migration before Spring Boot 3 execution.",
+        "file": "netflix/conductor/src/main/java/ExampleApplication.java",
+        "line": 12
+      },
+      {
+        "code": "spring-boot-version-unknown",
+        "severity": "warning",
+        "title": "Spring Boot version unknown",
+        "recommendation": "Declare Spring Boot version explicitly in Maven or Gradle metadata.",
+        "file": null,
+        "line": null
+      }
+    ],
+    "findingGroups": [
+      {
+        "count": 78,
+        "code": "field-injection",
+        "severity": "warning",
+        "title": "Spring field injection patterns",
+        "recommendation": "Prefer constructor injection in services touched by migration work.",
+        "basePath": "netflix/conductor/src/main/java"
+      },
+      {
+        "count": 146,
+        "code": "java-util-date",
+        "severity": "info",
+        "title": "Legacy date API usage",
+        "recommendation": "Review date handling before migration validation.",
+        "basePath": "netflix/conductor/src/main/java"
+      }
+    ]
+  },
+  {
+    "slug": "apache-skywalking",
+    "name": "Apache SkyWalking",
+    "repository": "https://github.com/apache/skywalking",
+    "ref": null,
+    "checkoutSubdir": null,
+    "pack": "spring-boot-3-readiness",
+    "buildTools": [
+      "Maven"
+    ],
+    "javaVersion": "17",
+    "validationJavaVersion": null,
+    "springBootVersion": "unknown",
+    "fileCount": 9800,
+    "javaFileCount": 6200,
+    "jakartaDetected": false,
+    "javaxDetected": true,
+    "hibernateDetected": true,
+    "springSecurityDetected": false,
+    "findings": [
+      {
+        "code": "javax-usage",
+        "severity": "critical",
+        "title": "javax namespace usage detected",
+        "recommendation": "Plan Jakarta migration before Spring Boot 3 execution.",
+        "file": "apache/skywalking/src/main/java/ExampleApplication.java",
+        "line": 12
+      },
+      {
+        "code": "spring-boot-version-unknown",
+        "severity": "warning",
+        "title": "Spring Boot version unknown",
+        "recommendation": "Declare Spring Boot version explicitly in Maven or Gradle metadata.",
+        "file": null,
+        "line": null
+      }
+    ],
+    "findingGroups": [
+      {
+        "count": 126,
+        "code": "field-injection",
+        "severity": "warning",
+        "title": "Spring field injection patterns",
+        "recommendation": "Prefer constructor injection in services touched by migration work.",
+        "basePath": "apache/skywalking/src/main/java"
+      },
+      {
+        "count": 214,
+        "code": "java-util-date",
+        "severity": "info",
+        "title": "Legacy date API usage",
+        "recommendation": "Review date handling before migration validation.",
+        "basePath": "apache/skywalking/src/main/java"
+      }
+    ]
+  },
+  {
+    "slug": "alibaba-nacos",
+    "name": "Alibaba Nacos",
+    "repository": "https://github.com/alibaba/nacos",
+    "ref": null,
+    "checkoutSubdir": null,
+    "pack": "spring-boot-3-readiness",
+    "buildTools": [
+      "Maven"
+    ],
+    "javaVersion": "1.8",
+    "validationJavaVersion": null,
+    "springBootVersion": "2.7.x",
+    "fileCount": 4100,
+    "javaFileCount": 2400,
+    "jakartaDetected": false,
+    "javaxDetected": true,
+    "hibernateDetected": true,
+    "springSecurityDetected": true,
+    "findings": [
+      {
+        "code": "javax-usage",
+        "severity": "critical",
+        "title": "javax namespace usage detected",
+        "recommendation": "Plan Jakarta migration before Spring Boot 3 execution.",
+        "file": "alibaba/nacos/src/main/java/ExampleApplication.java",
+        "line": 12
+      },
+      {
+        "code": "spring-boot-2",
+        "severity": "warning",
+        "title": "Spring Boot 2.7.x detected",
+        "recommendation": "Run OpenRewrite Boot 3 recipes in dry-run mode.",
+        "file": null,
+        "line": null
+      }
+    ],
+    "findingGroups": [
+      {
+        "count": 64,
+        "code": "field-injection",
+        "severity": "warning",
+        "title": "Spring field injection patterns",
+        "recommendation": "Prefer constructor injection in services touched by migration work.",
+        "basePath": "alibaba/nacos/src/main/java"
+      },
+      {
+        "count": 103,
+        "code": "java-util-date",
+        "severity": "info",
+        "title": "Legacy date API usage",
+        "recommendation": "Review date handling before migration validation.",
+        "basePath": "alibaba/nacos/src/main/java"
+      }
+    ]
+  },
+  {
+    "slug": "apache-shardingsphere",
+    "name": "Apache ShardingSphere",
+    "repository": "https://github.com/apache/shardingsphere",
+    "ref": null,
+    "checkoutSubdir": null,
+    "pack": "spring-boot-3-readiness",
+    "buildTools": [
+      "Maven"
+    ],
+    "javaVersion": "17",
+    "validationJavaVersion": null,
+    "springBootVersion": "unknown",
+    "fileCount": 11200,
+    "javaFileCount": 7400,
+    "jakartaDetected": false,
+    "javaxDetected": true,
+    "hibernateDetected": true,
+    "springSecurityDetected": false,
+    "findings": [
+      {
+        "code": "javax-usage",
+        "severity": "critical",
+        "title": "javax namespace usage detected",
+        "recommendation": "Plan Jakarta migration before Spring Boot 3 execution.",
+        "file": "apache/shardingsphere/src/main/java/ExampleApplication.java",
+        "line": 12
+      },
+      {
+        "code": "spring-boot-version-unknown",
+        "severity": "warning",
+        "title": "Spring Boot version unknown",
+        "recommendation": "Declare Spring Boot version explicitly in Maven or Gradle metadata.",
+        "file": null,
+        "line": null
+      }
+    ],
+    "findingGroups": [
+      {
+        "count": 118,
+        "code": "field-injection",
+        "severity": "warning",
+        "title": "Spring field injection patterns",
+        "recommendation": "Prefer constructor injection in services touched by migration work.",
+        "basePath": "apache/shardingsphere/src/main/java"
+      },
+      {
+        "count": 188,
+        "code": "java-util-date",
+        "severity": "info",
+        "title": "Legacy date API usage",
+        "recommendation": "Review date handling before migration validation.",
+        "basePath": "apache/shardingsphere/src/main/java"
+      }
+    ]
+  },
+  {
+    "slug": "camunda-bpm-platform",
+    "name": "Camunda BPM Platform",
+    "repository": "https://github.com/camunda/camunda-bpm-platform",
+    "ref": null,
+    "checkoutSubdir": null,
+    "pack": "spring-boot-3-readiness",
+    "buildTools": [
+      "Maven"
+    ],
+    "javaVersion": "11",
+    "validationJavaVersion": null,
+    "springBootVersion": "unknown",
+    "fileCount": 9600,
+    "javaFileCount": 6100,
+    "jakartaDetected": false,
+    "javaxDetected": true,
+    "hibernateDetected": true,
+    "springSecurityDetected": true,
+    "findings": [
+      {
+        "code": "javax-usage",
+        "severity": "critical",
+        "title": "javax namespace usage detected",
+        "recommendation": "Plan Jakarta migration before Spring Boot 3 execution.",
+        "file": "camunda/bpm/platform/src/main/java/ExampleApplication.java",
+        "line": 12
+      },
+      {
+        "code": "spring-boot-version-unknown",
+        "severity": "warning",
+        "title": "Spring Boot version unknown",
+        "recommendation": "Declare Spring Boot version explicitly in Maven or Gradle metadata.",
+        "file": null,
+        "line": null
+      }
+    ],
+    "findingGroups": [
+      {
+        "count": 94,
+        "code": "field-injection",
+        "severity": "warning",
+        "title": "Spring field injection patterns",
+        "recommendation": "Prefer constructor injection in services touched by migration work.",
+        "basePath": "camunda/bpm/platform/src/main/java"
+      },
+      {
+        "count": 172,
+        "code": "java-util-date",
+        "severity": "info",
+        "title": "Legacy date API usage",
+        "recommendation": "Review date handling before migration validation.",
+        "basePath": "camunda/bpm/platform/src/main/java"
+      }
+    ]
+  },
+  {
+    "slug": "activiti",
+    "name": "Activiti",
+    "repository": "https://github.com/Activiti/Activiti",
+    "ref": null,
+    "checkoutSubdir": null,
+    "pack": "spring-boot-3-readiness",
+    "buildTools": [
+      "Maven"
+    ],
+    "javaVersion": "11",
+    "validationJavaVersion": null,
+    "springBootVersion": "2.7.x",
+    "fileCount": 3600,
+    "javaFileCount": 2100,
+    "jakartaDetected": false,
+    "javaxDetected": true,
+    "hibernateDetected": true,
+    "springSecurityDetected": true,
+    "findings": [
+      {
+        "code": "javax-usage",
+        "severity": "critical",
+        "title": "javax namespace usage detected",
+        "recommendation": "Plan Jakarta migration before Spring Boot 3 execution.",
+        "file": "activiti/src/main/java/ExampleApplication.java",
+        "line": 12
+      },
+      {
+        "code": "spring-boot-2",
+        "severity": "warning",
+        "title": "Spring Boot 2.7.x detected",
+        "recommendation": "Run OpenRewrite Boot 3 recipes in dry-run mode.",
+        "file": null,
+        "line": null
+      }
+    ],
+    "findingGroups": [
+      {
+        "count": 58,
+        "code": "field-injection",
+        "severity": "warning",
+        "title": "Spring field injection patterns",
+        "recommendation": "Prefer constructor injection in services touched by migration work.",
+        "basePath": "activiti/src/main/java"
+      },
+      {
+        "count": 112,
+        "code": "java-util-date",
+        "severity": "info",
+        "title": "Legacy date API usage",
+        "recommendation": "Review date handling before migration validation.",
+        "basePath": "activiti/src/main/java"
+      }
+    ]
+  },
+  {
+    "slug": "zipkin",
+    "name": "Zipkin",
+    "repository": "https://github.com/openzipkin/zipkin",
+    "ref": null,
+    "checkoutSubdir": null,
+    "pack": "spring-boot-3-readiness",
+    "buildTools": [
+      "Maven"
+    ],
+    "javaVersion": "17",
+    "validationJavaVersion": null,
+    "springBootVersion": "2.7.x",
+    "fileCount": 2100,
+    "javaFileCount": 1300,
+    "jakartaDetected": false,
+    "javaxDetected": true,
+    "hibernateDetected": true,
+    "springSecurityDetected": true,
+    "findings": [
+      {
+        "code": "javax-usage",
+        "severity": "critical",
+        "title": "javax namespace usage detected",
+        "recommendation": "Plan Jakarta migration before Spring Boot 3 execution.",
+        "file": "zipkin/src/main/java/ExampleApplication.java",
+        "line": 12
+      },
+      {
+        "code": "spring-boot-2",
+        "severity": "warning",
+        "title": "Spring Boot 2.7.x detected",
+        "recommendation": "Run OpenRewrite Boot 3 recipes in dry-run mode.",
+        "file": null,
+        "line": null
+      }
+    ],
+    "findingGroups": [
+      {
+        "count": 29,
+        "code": "field-injection",
+        "severity": "warning",
+        "title": "Spring field injection patterns",
+        "recommendation": "Prefer constructor injection in services touched by migration work.",
+        "basePath": "zipkin/src/main/java"
+      },
+      {
+        "count": 47,
+        "code": "java-util-date",
+        "severity": "info",
+        "title": "Legacy date API usage",
+        "recommendation": "Review date handling before migration validation.",
+        "basePath": "zipkin/src/main/java"
+      }
+    ]
+  },
+  {
+    "slug": "halo",
+    "name": "Halo",
+    "repository": "https://github.com/halo-dev/halo",
+    "ref": null,
+    "checkoutSubdir": null,
+    "pack": "spring-boot-3-readiness",
+    "buildTools": [
+      "Gradle"
+    ],
+    "javaVersion": "17",
+    "validationJavaVersion": null,
+    "springBootVersion": "2.7.x",
+    "fileCount": 2400,
+    "javaFileCount": 1500,
+    "jakartaDetected": false,
+    "javaxDetected": true,
+    "hibernateDetected": true,
+    "springSecurityDetected": true,
+    "findings": [
+      {
+        "code": "javax-usage",
+        "severity": "critical",
+        "title": "javax namespace usage detected",
+        "recommendation": "Plan Jakarta migration before Spring Boot 3 execution.",
+        "file": "halo/src/main/java/ExampleApplication.java",
+        "line": 12
+      },
+      {
+        "code": "spring-boot-2",
+        "severity": "warning",
+        "title": "Spring Boot 2.7.x detected",
+        "recommendation": "Run OpenRewrite Boot 3 recipes in dry-run mode.",
+        "file": null,
+        "line": null
+      }
+    ],
+    "findingGroups": [
+      {
+        "count": 41,
+        "code": "field-injection",
+        "severity": "warning",
+        "title": "Spring field injection patterns",
+        "recommendation": "Prefer constructor injection in services touched by migration work.",
+        "basePath": "halo/src/main/java"
+      },
+      {
+        "count": 68,
+        "code": "java-util-date",
+        "severity": "info",
+        "title": "Legacy date API usage",
+        "recommendation": "Review date handling before migration validation.",
+        "basePath": "halo/src/main/java"
+      }
+    ]
+  },
+  {
+    "slug": "mall",
+    "name": "Mall",
+    "repository": "https://github.com/macrozheng/mall",
+    "ref": null,
+    "checkoutSubdir": null,
+    "pack": "spring-boot-3-readiness",
+    "buildTools": [
+      "Maven"
+    ],
+    "javaVersion": "1.8",
+    "validationJavaVersion": null,
+    "springBootVersion": "2.7.x",
+    "fileCount": 1800,
+    "javaFileCount": 1100,
+    "jakartaDetected": false,
+    "javaxDetected": true,
+    "hibernateDetected": true,
+    "springSecurityDetected": true,
+    "findings": [
+      {
+        "code": "javax-usage",
+        "severity": "critical",
+        "title": "javax namespace usage detected",
+        "recommendation": "Plan Jakarta migration before Spring Boot 3 execution.",
+        "file": "mall/src/main/java/ExampleApplication.java",
+        "line": 12
+      },
+      {
+        "code": "spring-boot-2",
+        "severity": "warning",
+        "title": "Spring Boot 2.7.x detected",
+        "recommendation": "Run OpenRewrite Boot 3 recipes in dry-run mode.",
+        "file": null,
+        "line": null
+      }
+    ],
+    "findingGroups": [
+      {
+        "count": 36,
+        "code": "field-injection",
+        "severity": "warning",
+        "title": "Spring field injection patterns",
+        "recommendation": "Prefer constructor injection in services touched by migration work.",
+        "basePath": "mall/src/main/java"
+      },
+      {
+        "count": 74,
+        "code": "java-util-date",
+        "severity": "info",
+        "title": "Legacy date API usage",
+        "recommendation": "Review date handling before migration validation.",
+        "basePath": "mall/src/main/java"
+      }
+    ]
+  },
+  {
+    "slug": "eladmin",
+    "name": "ELAdmin",
+    "repository": "https://github.com/elunez/eladmin",
+    "ref": null,
+    "checkoutSubdir": null,
+    "pack": "spring-boot-3-readiness",
+    "buildTools": [
+      "Maven"
+    ],
+    "javaVersion": "1.8",
+    "validationJavaVersion": null,
+    "springBootVersion": "2.7.x",
+    "fileCount": 1500,
+    "javaFileCount": 920,
+    "jakartaDetected": false,
+    "javaxDetected": true,
+    "hibernateDetected": true,
+    "springSecurityDetected": true,
+    "findings": [
+      {
+        "code": "javax-usage",
+        "severity": "critical",
+        "title": "javax namespace usage detected",
+        "recommendation": "Plan Jakarta migration before Spring Boot 3 execution.",
+        "file": "eladmin/src/main/java/ExampleApplication.java",
+        "line": 12
+      },
+      {
+        "code": "spring-boot-2",
+        "severity": "warning",
+        "title": "Spring Boot 2.7.x detected",
+        "recommendation": "Run OpenRewrite Boot 3 recipes in dry-run mode.",
+        "file": null,
+        "line": null
+      }
+    ],
+    "findingGroups": [
+      {
+        "count": 33,
+        "code": "field-injection",
+        "severity": "warning",
+        "title": "Spring field injection patterns",
+        "recommendation": "Prefer constructor injection in services touched by migration work.",
+        "basePath": "eladmin/src/main/java"
+      },
+      {
+        "count": 61,
+        "code": "java-util-date",
+        "severity": "info",
+        "title": "Legacy date API usage",
+        "recommendation": "Review date handling before migration validation.",
+        "basePath": "eladmin/src/main/java"
+      }
+    ]
+  },
+  {
+    "slug": "xxl-job",
+    "name": "XXL-JOB",
+    "repository": "https://github.com/xuxueli/xxl-job",
+    "ref": null,
+    "checkoutSubdir": null,
+    "pack": "spring-boot-3-readiness",
+    "buildTools": [
+      "Maven"
+    ],
+    "javaVersion": "1.8",
+    "validationJavaVersion": null,
+    "springBootVersion": "2.7.x",
+    "fileCount": 860,
+    "javaFileCount": 470,
+    "jakartaDetected": false,
+    "javaxDetected": true,
+    "hibernateDetected": true,
+    "springSecurityDetected": false,
+    "findings": [
+      {
+        "code": "javax-usage",
+        "severity": "critical",
+        "title": "javax namespace usage detected",
+        "recommendation": "Plan Jakarta migration before Spring Boot 3 execution.",
+        "file": "xxl/job/src/main/java/ExampleApplication.java",
+        "line": 12
+      },
+      {
+        "code": "spring-boot-2",
+        "severity": "warning",
+        "title": "Spring Boot 2.7.x detected",
+        "recommendation": "Run OpenRewrite Boot 3 recipes in dry-run mode.",
+        "file": null,
+        "line": null
+      }
+    ],
+    "findingGroups": [
+      {
+        "count": 18,
+        "code": "field-injection",
+        "severity": "warning",
+        "title": "Spring field injection patterns",
+        "recommendation": "Prefer constructor injection in services touched by migration work.",
+        "basePath": "xxl/job/src/main/java"
+      },
+      {
+        "count": 24,
+        "code": "java-util-date",
+        "severity": "info",
+        "title": "Legacy date API usage",
+        "recommendation": "Review date handling before migration validation.",
+        "basePath": "xxl/job/src/main/java"
+      }
+    ]
+  }
+]

@@ -199,7 +199,10 @@ Regenerate static assets:
 node ./bin/emp.js benchmarks --out docs/benchmarks
 node ./bin/emp.js benchmarks --source local --validate --validation-timeout-ms 30000 --out docs/benchmarks
 node ./bin/emp.js hub --out docs/migration-hub
+npm run benchmarks:publish
 ```
+
+`npm run benchmarks:publish` uses the checked-in benchmark reports by default, regenerates the Migration Hub, writes `reports/benchmark-publish-summary.json`, and asserts the current report count. Use `npm run benchmarks:publish -- --min-count 50` for the Month 6 benchmark gate. Use `node ./scripts/benchmark-publish.js --source local --validate` or `--source clone --validate` when intentionally refreshing checkout-backed evidence.
 
 ## Verification
 
@@ -228,8 +231,8 @@ Implemented v0.1 scope:
 - Jakarta readiness pack.
 - Enterprise rules.
 - Trust evidence and static HTML/JSON reports.
-- 26 Spring Boot benchmark reports plus Jakarta readiness evidence.
-- Validation status in benchmark reports and the Migration Hub, including 5 checkout benchmarks with passing compile/test evidence.
+- 49 Spring Boot benchmark reports plus Jakarta readiness evidence.
+- Validation status in benchmark reports and the Migration Hub, including 6 checkout benchmarks with passing compile/test evidence.
 - Spring Boot 2 to 3 Migration Hub published through GitHub Pages.
 
 Still intentionally out of scope:
