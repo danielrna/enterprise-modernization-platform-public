@@ -149,6 +149,58 @@ public class Demo {
   assert.match(html, /Tests/);
 });
 
+test('benchmark validation can require a specific Java runtime', async () => {
+  const root = await fs.mkdtemp(path.join(os.tmpdir(), 'emp-benchmark-java-runtime-'));
+  const reposDir = path.join(root, 'repos');
+  const checkout = path.join(reposDir, 'spring-boot-realworld');
+  const outDir = path.join(root, 'benchmarks');
+  const javaHome = path.join(root, 'jdk17');
+  const previousJavaHome = process.env.EMP_JAVA_17_HOME;
+
+  await fs.mkdir(path.join(checkout, 'src/main/java/com/example'), { recursive: true });
+  await fs.mkdir(path.join(javaHome, 'bin'), { recursive: true });
+  await fs.writeFile(path.join(checkout, 'build.gradle'), `
+plugins {
+  id 'org.springframework.boot' version '2.6.3'
+}
+`);
+  await fs.writeFile(path.join(checkout, 'gradlew'), `#!/bin/sh
+test "$JAVA_HOME" = "${javaHome}" || exit 42
+echo "fake gradle $*"
+exit 0
+`);
+  await fs.chmod(path.join(checkout, 'gradlew'), 0o755);
+  await fs.writeFile(path.join(checkout, 'src/main/java/com/example/Demo.java'), `package com.example;
+
+import javax.persistence.Entity;
+
+@Entity
+public class Demo {
+}
+`);
+
+  try {
+    process.env.EMP_JAVA_17_HOME = javaHome;
+    const result = await publishBenchmarks({
+      outDir,
+      source: 'local',
+      only: 'spring-boot-realworld',
+      reposDir,
+      validate: true,
+      validationTimeoutMs: 5000
+    });
+    const report = JSON.parse(await fs.readFile(path.join(outDir, 'spring-boot-realworld', 'report.json'), 'utf8'));
+
+    assert.equal(result.reports[0].validation.status, 'passed');
+    assert.equal(report.benchmark.validation.checks.length, 2);
+    assert.equal(report.benchmark.validation.checks.every((check) => check.command.startsWith('JAVA_HOME=<JDK 17>')), true);
+    assert.equal(JSON.stringify(report).includes(javaHome), false);
+  } finally {
+    if (previousJavaHome === undefined) delete process.env.EMP_JAVA_17_HOME;
+    else process.env.EMP_JAVA_17_HOME = previousJavaHome;
+  }
+});
+
 test('Pack mismatch suppresses readiness score for non-applicable Spring Boot report', async () => {
   const root = await makeSpringProject();
   const pom = path.join(root, 'pom.xml');

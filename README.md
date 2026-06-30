@@ -20,7 +20,7 @@ Validated benchmark references:
 - https://danielrna.github.io/enterprise-modernization-platform-public/benchmarks/gs-rest-service-27/index.html
 - https://danielrna.github.io/enterprise-modernization-platform-public/benchmarks/gs-serving-web-content-27/index.html
 - https://danielrna.github.io/enterprise-modernization-platform-public/benchmarks/spring-petclinic-rest-26/index.html
-- https://danielrna.github.io/enterprise-modernization-platform-public/benchmarks/apereo-cas-66/index.html
+- https://danielrna.github.io/enterprise-modernization-platform-public/benchmarks/spring-boot-realworld/index.html
 
 Editions: https://danielrna.github.io/enterprise-modernization-platform-public/editions.html
 
@@ -131,7 +131,7 @@ Use the platform to turn a mandatory upgrade into a client-ready evidence report
 4. Validate compilation and tests.
 5. Sell migration confidence, not a generic migration script.
 
-The public validation set now proves the reference flow on 4 real checkouts, including 1 real application outside Spring Guides. The validated set includes Spring Boot `2.6.2` and `2.7.6` projects with compile `passed`, tests `passed`, and validation confidence `95%`.
+The public validation set now proves the reference flow on 5 real checkouts, including 2 real applications outside Spring Guides. The validated set includes Spring Boot `2.6.2`, `2.6.3`, and `2.7.6` projects with compile `passed`, tests `passed`, and validation confidence `95%`.
 
 ## Editions
 
@@ -191,6 +191,7 @@ Benchmark generation supports:
 - `local`: analyze existing checkouts under `benchmark-repos/<slug>`.
 - `clone`: shallow-clone missing repositories into `benchmark-repos/<slug>` and analyze the real checkout.
 - `--validate`: on checkout-backed benchmarks, run compile and test commands through Maven or Gradle wrappers when available, then capture status, duration, exit code, timeout, and log excerpts.
+- Benchmarks that declare a required Java runtime can resolve it through `EMP_JAVA_<major>_HOME` before validation, for example `EMP_JAVA_17_HOME=/path/to/jdk17`.
 
 Regenerate static assets:
 
@@ -227,8 +228,8 @@ Implemented v0.1 scope:
 - Jakarta readiness pack.
 - Enterprise rules.
 - Trust evidence and static HTML/JSON reports.
-- 25 Spring Boot benchmark reports plus Jakarta readiness evidence.
-- Validation status in benchmark reports and the Migration Hub, including 4 checkout benchmarks with passing compile/test evidence.
+- 26 Spring Boot benchmark reports plus Jakarta readiness evidence.
+- Validation status in benchmark reports and the Migration Hub, including 5 checkout benchmarks with passing compile/test evidence.
 - Spring Boot 2 to 3 Migration Hub published through GitHub Pages.
 
 Still intentionally out of scope:

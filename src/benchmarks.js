@@ -50,6 +50,28 @@ export const BENCHMARKS = [
     ]
   }),
   benchmark({
+    slug: 'spring-boot-realworld',
+    name: 'Spring Boot RealWorld Example App',
+    repository: 'https://github.com/gothinkster/spring-boot-realworld-example-app',
+    pack: 'spring-boot-3-readiness',
+    buildTool: 'Gradle',
+    javaVersion: '11',
+    validationJavaVersion: '17',
+    springBootVersion: '2.6.3',
+    fileCount: 96,
+    javaFileCount: 72,
+    jakartaDetected: false,
+    javaxDetected: true,
+    hibernateDetected: true,
+    springSecurityDetected: true,
+    findings: [
+      finding('javax-usage', 'critical', 'javax namespace usage detected', 'Plan Jakarta migration before Spring Boot 3 execution.', 'build.gradle', 36),
+      finding('spring-boot-2', 'warning', 'Spring Boot 2.6.3 detected', 'Run OpenRewrite Boot 3 recipes in dry-run mode.'),
+      ...repeatFindings(8, 'field-injection', 'warning', 'Spring field injection patterns', 'Prefer constructor injection in services touched by migration work.', 'src/main/java/io/spring'),
+      ...repeatFindings(2, 'java-util-date', 'info', 'Legacy date API usage', 'Review domain date handling.', 'src/main/java/io/spring')
+    ]
+  }),
+  benchmark({
     slug: 'jhipster-sample-app',
     name: 'JHipster Sample App',
     repository: 'https://github.com/jhipster/jhipster-sample-app',
@@ -602,7 +624,11 @@ export async function publishBenchmarks({ outDir, source = 'catalog', only = nul
     scan.project.root = useLocalCheckout ? benchmarkEvidence.analysisPath : item.repository;
     scan.project.source = item.repository;
     if (validate && useLocalCheckout) {
-      benchmarkEvidence.validation = await validateBenchmarkCheckout({ root: analysisRoot, timeoutMs: Number(validationTimeoutMs) || DEFAULT_VALIDATION_TIMEOUT_MS });
+      benchmarkEvidence.validation = await validateBenchmarkCheckout({
+        root: analysisRoot,
+        timeoutMs: Number(validationTimeoutMs) || DEFAULT_VALIDATION_TIMEOUT_MS,
+        javaVersion: item.validationJavaVersion
+      });
     }
     scan.benchmark = benchmarkEvidence;
     const readiness = scoreReadiness(scan);
@@ -692,8 +718,28 @@ async function getGitRevision(root) {
   return result.exitCode === 0 ? result.output.trim() : null;
 }
 
-async function validateBenchmarkCheckout({ root, timeoutMs }) {
+async function validateBenchmarkCheckout({ root, timeoutMs, javaVersion = null }) {
   const plan = await validationPlan(root);
+  const javaRuntime = javaVersion ? await resolveJavaRuntime(javaVersion) : null;
+  if (javaVersion && !javaRuntime) {
+    return {
+      requested: true,
+      status: 'failed',
+      confidence: 25,
+      checks: [
+        {
+          name: `Java ${javaVersion} runtime`,
+          status: 'failed',
+          command: `resolve Java ${javaVersion}`,
+          durationMs: 0,
+          exitCode: 1,
+          output: `Set EMP_JAVA_${javaVersion}_HOME or install a Java ${javaVersion} runtime before validation.`,
+          timedOut: false
+        }
+      ],
+      summary: '1 validation check(s) failed.'
+    };
+  }
   if (!plan.length) {
     return {
       requested: true,
@@ -715,11 +761,11 @@ async function validateBenchmarkCheckout({ root, timeoutMs }) {
 
   const checks = [];
   for (const step of plan) {
-    const result = await runCommand(step.args, { cwd: root, timeoutMs });
+    const result = await runCommand(step.args, { cwd: root, timeoutMs, env: javaRuntime?.env });
     checks.push({
       name: step.name,
       status: statusFromExitCode(result.exitCode, result.timedOut),
-      command: step.args.join(' '),
+      command: [javaRuntime?.label, step.args.join(' ')].filter(Boolean).join(' '),
       durationMs: result.durationMs,
       exitCode: result.exitCode,
       output: validationOutput(result, timeoutMs),
@@ -762,6 +808,26 @@ async function validationPlan(root) {
     ];
   }
   return [];
+}
+
+async function resolveJavaRuntime(version) {
+  const envName = `EMP_JAVA_${version}_HOME`;
+  const javaHome = process.env[envName] || await macosJavaHome(version);
+  if (!javaHome) return null;
+  return {
+    label: `JAVA_HOME=<JDK ${version}>`,
+    env: {
+      ...process.env,
+      JAVA_HOME: javaHome,
+      PATH: `${path.join(javaHome, 'bin')}${path.delimiter}${process.env.PATH || ''}`
+    }
+  };
+}
+
+async function macosJavaHome(version) {
+  if (process.platform !== 'darwin') return null;
+  const result = await runCommand(['/usr/libexec/java_home', '-v', String(version)]);
+  return result.exitCode === 0 ? result.output.trim() : null;
 }
 
 async function isFile(file) {
@@ -825,7 +891,7 @@ function sanitizeCommandOutput(output) {
 function runCommand(args, options = {}) {
   return new Promise((resolve) => {
     const startedAt = Date.now();
-    const child = spawn(args[0], args.slice(1), { cwd: options.cwd, detached: Boolean(options.timeoutMs) });
+    const child = spawn(args[0], args.slice(1), { cwd: options.cwd, detached: Boolean(options.timeoutMs), env: options.env || process.env });
     let output = '';
     let timedOut = false;
     const timeout = options.timeoutMs
@@ -856,7 +922,7 @@ function killProcessTree(child) {
   }
 }
 
-function benchmark({ slug, name, repository, ref = null, checkoutSubdir = null, pack, buildTool, javaVersion, springBootVersion, fileCount, javaFileCount, jakartaDetected, javaxDetected, hibernateDetected, springSecurityDetected, findings }) {
+function benchmark({ slug, name, repository, ref = null, checkoutSubdir = null, pack, buildTool, javaVersion, validationJavaVersion = null, springBootVersion, fileCount, javaFileCount, jakartaDetected, javaxDetected, hibernateDetected, springSecurityDetected, findings }) {
   return {
     slug,
     name,
@@ -866,6 +932,7 @@ function benchmark({ slug, name, repository, ref = null, checkoutSubdir = null, 
     pack,
     buildTools: [buildTool],
     javaVersion,
+    validationJavaVersion,
     springBootVersion,
     fileCount,
     javaFileCount,

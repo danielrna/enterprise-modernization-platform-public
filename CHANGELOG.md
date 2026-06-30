@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+- Added Spring Boot RealWorld Example App as a checkout-backed Spring Boot 2.6.3 benchmark with passing Gradle compile/test validation.
+- Added benchmark validation support for project-specific Java runtime requirements through `EMP_JAVA_<major>_HOME`.
+
 ## v0.1.2
 
 - Added `npm run release:verify` to automate the release checklist across local tests, Docker build, Docker report generation, image-level tests, and report assertions.
