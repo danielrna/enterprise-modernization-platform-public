@@ -396,12 +396,17 @@ test('GitHub Action exposes Docker readiness analysis inputs', async () => {
   assert.match(dockerfile, /COPY scripts \.\/scripts/);
   assert.match(entrypoint, /GITHUB_WORKSPACE:-\/workspace/);
   assert.match(await fs.readFile(path.resolve('package.json'), 'utf8'), /"release:verify"/);
+  assert.match(await fs.readFile(path.resolve('package.json'), 'utf8'), /"ci:verify"/);
+  assert.match(await fs.readFile(path.resolve('scripts/ci-examples-verify.js'), 'utf8'), /command_equivalent_verified/);
   assert.match(await fs.readFile(path.resolve('scripts/release-verify.js'), 'utf8'), /Release verification passed/);
   assert.match(githubDocs, /actions\/upload-artifact@v4/);
   assert.match(githubDocs, /emp-report\/index\.html/);
   assert.match(dockerDocs, /docker run --rm/);
   assert.match(ciDocs, /GitLab CI/);
   assert.match(ciDocs, /Azure DevOps/);
+  assert.match(ciDocs, /command-equivalent Docker runs/);
+  assert.match(ciDocs, /Hosted GitLab\/Jenkins\/Azure validation still requires real projects/);
+  assert.match(releaseDocs, /npm run ci:verify/);
   assert.match(releaseDocs, /Publish the Docker image/);
   assert.match(releaseDocs, /Validate the GitHub Action from a separate .* repository/);
 });

@@ -12,6 +12,12 @@ npm run release:verify
 
 The verifier runs `npm run check`, builds the Docker image, generates the Docker readiness report, runs the image test suite, and checks the generated release report.
 
+Run command-equivalent CI example validation:
+
+```bash
+npm run ci:verify
+```
+
 Manual equivalent:
 
 - Run `npm run check`.
