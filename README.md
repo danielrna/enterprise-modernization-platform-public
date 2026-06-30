@@ -8,6 +8,10 @@ The product is not a Java migration tool. The product is confidence that an appl
 
 ## Try In 5 Minutes
 
+Release: https://github.com/danielrna/enterprise-modernization-platform-public/releases/tag/v0.1.0
+
+Sample smoke-test report: https://github.com/danielrna/enterprise-modernization-platform-public/releases/download/v0.1.0/emp-smoke-report.zip
+
 Run the analyzer on any Java or Spring repository:
 
 ```bash
