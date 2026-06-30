@@ -1,0 +1,38 @@
+name: Enterprise Modernization Readiness
+description: Run an Enterprise Modernization Platform readiness analysis and generate report artifacts.
+author: Enterprise Modernization Platform
+
+inputs:
+  path:
+    description: Repository path to analyze inside the GitHub workspace.
+    required: false
+    default: .
+  pack:
+    description: Readiness pack to execute.
+    required: false
+    default: spring-boot-3-readiness
+  rules:
+    description: Optional enterprise rules file path, relative to the workspace.
+    required: false
+    default: ''
+  out:
+    description: Output directory for HTML and JSON reports.
+    required: false
+    default: emp-report
+
+runs:
+  using: docker
+  image: Dockerfile
+  args:
+    - analyze
+    - ${{ inputs.path }}
+    - --pack
+    - ${{ inputs.pack }}
+    - --rules
+    - ${{ inputs.rules }}
+    - --out
+    - ${{ inputs.out }}
+
+branding:
+  icon: check-circle
+  color: blue

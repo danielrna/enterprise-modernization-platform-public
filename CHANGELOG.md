@@ -11,3 +11,4 @@
 - Added OpenRewrite transform engine support for Maven and Gradle targets, with native rewrite fallback through `--engine auto`.
 - Added the Java 17 to 21 readiness pack, Java target update planning, Trust Engine evidence, compatibility checks, confidence scoring, and Professional report section.
 - Added the enterprise rules engine, `.preflight-rules.yml` loading, rule-aware readiness scoring, report rule sections, and MCP stdio `emp.analyze` interface.
+- Added the Docker-based GitHub Action wrapper, workspace-aware Docker entrypoint, release checklist, and public quickstart documentation for v0.1.

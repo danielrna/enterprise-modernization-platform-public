@@ -4,13 +4,17 @@ WORKDIR /app
 RUN apk add --no-cache git maven openjdk21-jdk
 
 COPY package.json ./
+COPY action.yml ./
 COPY bin ./bin
 COPY src ./src
 COPY test ./test
 COPY packs ./packs
 COPY schemas ./schemas
+COPY docs ./docs
+COPY docker-entrypoint.sh ./docker-entrypoint.sh
 
 RUN npm link
+RUN chmod +x ./docker-entrypoint.sh
 
 WORKDIR /workspace
-ENTRYPOINT ["emp"]
+ENTRYPOINT ["/app/docker-entrypoint.sh"]
