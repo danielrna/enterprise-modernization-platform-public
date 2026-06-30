@@ -45,7 +45,10 @@ test('publishes the benchmark catalog and migration hub', async () => {
 
   assert.equal(result.count, 2);
   assert.match(await fs.readFile(path.join(benchmarksDir, 'index.html'), 'utf8'), /Benchmark Reports/);
-  assert.match(await fs.readFile(path.join(hubDir, 'spring-boot-2-to-3.html'), 'utf8'), /Spring Boot 2 to 3 Migration/);
+  const hub = await fs.readFile(path.join(hubDir, 'spring-boot-2-to-3.html'), 'utf8');
+  assert.match(hub, /Spring Boot 2 to 3 Migration/);
+  assert.match(hub, /Spring Petclinic/);
+  assert.match(hub, /Findings/);
 });
 
 test('Pack mismatch suppresses readiness score for non-applicable Spring Boot report', async () => {

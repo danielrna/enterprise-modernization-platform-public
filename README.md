@@ -182,8 +182,8 @@ Implemented v0.1 scope:
 - Jakarta readiness pack.
 - Enterprise rules.
 - Trust evidence and static HTML/JSON reports.
-- 10 public benchmark reports.
-- Initial Spring Boot 2 to 3 Migration Hub.
+- 20 Spring Boot benchmark reports plus Jakarta readiness evidence.
+- Spring Boot 2 to 3 Migration Hub published through GitHub Pages.
 
 Still intentionally out of scope:
 
