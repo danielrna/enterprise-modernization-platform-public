@@ -1,6 +1,14 @@
 # CI Examples
 
-These examples use Docker as the integration boundary. Replace `emp-cli` with the published image name once releases are published.
+These examples use Docker as the integration boundary.
+
+Validation status:
+
+- GitHub Action: hosted workflow validated from the separate smoke-test repository.
+- GitLab CI, Jenkins, and Azure DevOps: command-equivalent Docker runs can be validated locally with `npm run ci:verify`.
+- Hosted GitLab/Jenkins/Azure validation still requires real projects or agents in those systems.
+
+The local verifier builds `emp-cli`, runs the same readiness analysis command shape used by each CI example, and writes reports under `reports/ci-examples/`.
 
 ## GitLab CI
 
