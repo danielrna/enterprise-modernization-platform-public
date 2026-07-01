@@ -22,7 +22,7 @@ export function scoreReadiness(scan, ruleEvaluation = null) {
     hibernate: categoryScore(scoringFindings, ['hibernate-not-detected', 'hibernate-legacy-criteria', 'hibernate-session-api', 'hibernate-custom-type', 'hibernate-xml-mapping'], scan.dependencies.hibernateDetected ? 84 : 72),
     jakarta: categoryScore(scoringFindings, ['javax-usage'], 95),
     build: categoryScore(scoringFindings, ['build-tool-missing'], 90),
-    security: scan.dependencies.springSecurityDetected ? 82 : 76,
+    security: categoryScore(scoringFindings, ['spring-security-not-detected', 'spring-security-5', 'spring-security-websecurityconfigureradapter', 'spring-security-legacy-matchers', 'spring-security-authorize-requests', 'spring-security-global-method-security'], scan.dependencies.springSecurityDetected ? 84 : 76),
     architecture: categoryScore(scoringFindings, ['field-injection', 'system-out', 'reflection-usage', 'serializable-missing-serial-version'], 84)
   };
   if (ruleEvaluation?.loaded) categories.enterpriseRules = ruleCategoryScore(ruleEvaluation);

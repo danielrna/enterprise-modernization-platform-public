@@ -1,0 +1,82 @@
+{
+  "id": "spring-security-6-readiness",
+  "title": "Spring Security 6 Readiness Knowledge Base",
+  "pack": "spring-security-6-readiness",
+  "summary": "Guidance for using EMP Spring Security 6 readiness evidence during Spring Security 5.x to 6.x modernization planning.",
+  "guide": [
+    "Start with applicability. The Spring Security 6 readiness pack is useful only when Spring Security dependencies or configuration code are detected.",
+    "Separate security migration from general Boot migration. Jakarta namespace work, Spring Boot 3 compatibility, authorization DSL changes, and method security changes should be tracked as related but distinct workstreams.",
+    "Treat static security findings as triage evidence. They identify configuration areas that need review before a consultant promises upgrade execution."
+  ],
+  "risks": [
+    {
+      "name": "WebSecurityConfigurerAdapter usage",
+      "signal": "spring-security-websecurityconfigureradapter",
+      "whyItMatters": "WebSecurityConfigurerAdapter is removed in modern Spring Security configuration styles.",
+      "recommendation": "Replace adapter-based configuration with SecurityFilterChain beans and validate compile/test evidence."
+    },
+    {
+      "name": "Legacy matcher APIs",
+      "signal": "spring-security-legacy-matchers",
+      "whyItMatters": "antMatchers, mvcMatchers, and regexMatchers usage usually needs explicit request matching review.",
+      "recommendation": "Review URL matching semantics before replacing matcher APIs."
+    },
+    {
+      "name": "authorizeRequests configuration",
+      "signal": "spring-security-authorize-requests",
+      "whyItMatters": "Authorization DSL changes can alter request authorization behavior if migrated mechanically.",
+      "recommendation": "Review authorization rules with compile, test, and route-level validation evidence."
+    },
+    {
+      "name": "Global method security",
+      "signal": "spring-security-global-method-security",
+      "whyItMatters": "Method security annotation changes can affect service authorization behavior.",
+      "recommendation": "Review method security configuration and protect it with focused tests."
+    },
+    {
+      "name": "javax and Jakarta overlap",
+      "signal": "javax-usage",
+      "whyItMatters": "Spring Security 6 work usually happens alongside Spring Boot 3 and Jakarta namespace migration.",
+      "recommendation": "Track namespace work separately so security behavior risk is not hidden behind import rewrites."
+    }
+  ],
+  "validationNotes": [
+    "Catalog-backed reports prove the report shape and risk vocabulary, not checkout compile success.",
+    "Security configuration changes need focused tests for authorization behavior, not only successful compilation.",
+    "Passing compile/test validation increases confidence, but route-level and method-level access behavior still needs project-specific review.",
+    "Failed validation evidence is useful when it honestly records build compatibility, runtime, dependency, or test environment blockers."
+  ],
+  "benchmarks": [
+    {
+      "slug": "spring-security-samples-legacy",
+      "name": "Spring Security Samples Legacy",
+      "note": "Security sample material with matcher and authorization configuration patterns."
+    },
+    {
+      "slug": "spring-petclinic-rest-security",
+      "name": "Spring Petclinic REST Security",
+      "note": "Spring Boot 2.x application with Spring Security and Jakarta migration overlap."
+    },
+    {
+      "slug": "spring-boot-realworld-security",
+      "name": "Spring Boot RealWorld Security",
+      "note": "JWT-oriented Spring Security usage in a Spring Boot 2.x application."
+    },
+    {
+      "slug": "jhipster-sample-security",
+      "name": "JHipster Sample Security",
+      "note": "Generated application security configuration with authorization and method security concerns."
+    },
+    {
+      "slug": "keycloak-security-adapter",
+      "name": "Keycloak Security Adapter",
+      "note": "Security integration evidence with framework and Jakarta readiness overlap."
+    }
+  ],
+  "limits": [
+    "The readiness report does not prove authorization behavior is preserved.",
+    "The readiness report does not replace route-level access testing.",
+    "The readiness report does not guarantee method security semantics are unchanged.",
+    "The readiness report does not apply Spring Security source transformations."
+  ]
+}

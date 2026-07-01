@@ -41,6 +41,7 @@ async function analyzeBenchmarkMetadata({ root, pack, benchmarkMetadata }) {
   const manifests = { buildTools: benchmarkMetadata.buildTools, javaVersion: benchmarkMetadata.javaVersion, pack };
   const dependencies = {
     springBootVersion: benchmarkMetadata.springBootVersion,
+    springSecurityVersion: benchmarkMetadata.springSecurityVersion || 'unknown',
     jakartaDetected: benchmarkMetadata.jakartaDetected,
     javaxDetected: benchmarkMetadata.javaxDetected,
     hibernateDetected: benchmarkMetadata.hibernateDetected,
@@ -118,6 +119,11 @@ function detectDependencies(contents) {
       findFirst(joined, /org\.springframework\.boot['"]:spring-boot-gradle-plugin['"]?\s+version\s+['"]([^'"]+)/) ||
       findFirst(joined, /id ['"]org\.springframework\.boot['"] version ['"]([^'"]+)/) ||
       'unknown',
+    springSecurityVersion:
+      findFirst(joined, /spring-security-bom[\s\S]{0,300}?<version>([^<]+)<\/version>/) ||
+      findFirst(joined, /spring-security-[\w-]+<\/artifactId>\s*<version>([^<]+)<\/version>/) ||
+      findFirst(joined, /org\.springframework\.security['"]:spring-security-[\w-]+['"]?\s+version\s+['"]([^'"]+)/) ||
+      'unknown',
     jakartaDetected: /\bjakarta\./.test(joined),
     javaxDetected: /\bjavax\./.test(joined),
     hibernateDetected: /hibernate-core|org\.hibernate|hibernate-mapping/.test(joined),
@@ -145,6 +151,12 @@ function detectFindings(contents, dependencies, manifests) {
     findings.push(finding('hibernate-not-detected', 'warning', 'Hibernate usage not detected', 'Confirm Hibernate ORM is present before using the Hibernate readiness pack.'));
   }
 
+  if (manifests.pack === 'spring-security-6-readiness' && !dependencies.springSecurityDetected) {
+    findings.push(finding('spring-security-not-detected', 'warning', 'Spring Security usage not detected', 'Confirm Spring Security is present before using the Spring Security 6 readiness pack.'));
+  } else if (manifests.pack === 'spring-security-6-readiness' && /^5\./.test(dependencies.springSecurityVersion)) {
+    findings.push(finding('spring-security-5', 'warning', `Spring Security ${dependencies.springSecurityVersion} detected`, 'Plan Spring Security 6 authorization and configuration validation.'));
+  }
+
   if (manifests.pack === 'java-17-to-21-readiness' && manifests.javaVersion !== '21') {
     findings.push(finding('java-21-target-missing', 'warning', `Java ${manifests.javaVersion} target detected`, 'Set the project release, sourceCompatibility, or toolchain target to Java 21 before final validation.'));
   }
@@ -158,6 +170,10 @@ function detectFindings(contents, dependencies, manifests) {
     addPatternFindings(findings, entry, /\borg\.hibernate\.Session\b|\bSessionFactory\b/g, 'hibernate-session-api', 'warning', 'Direct Hibernate Session API usage');
     addPatternFindings(findings, entry, /\bUserType\b|\bBasicType\b|\bCompositeUserType\b/g, 'hibernate-custom-type', 'warning', 'Hibernate custom type integration');
     addPatternFindings(findings, entry, /hibernate-mapping|\.hbm\.xml/g, 'hibernate-xml-mapping', 'warning', 'Hibernate XML mapping');
+    addPatternFindings(findings, entry, /\bWebSecurityConfigurerAdapter\b/g, 'spring-security-websecurityconfigureradapter', 'critical', 'WebSecurityConfigurerAdapter usage');
+    addPatternFindings(findings, entry, /\bantMatchers\s*\(|\bmvcMatchers\s*\(|\bregexMatchers\s*\(/g, 'spring-security-legacy-matchers', 'warning', 'Legacy Spring Security matcher API');
+    addPatternFindings(findings, entry, /\.authorizeRequests\s*\(/g, 'spring-security-authorize-requests', 'warning', 'authorizeRequests configuration');
+    addPatternFindings(findings, entry, /@EnableGlobalMethodSecurity\b/g, 'spring-security-global-method-security', 'warning', 'Global method security annotation');
     addSerializableFindings(findings, entry);
     addPublicReflectionFindings(findings, entry);
   }
@@ -190,6 +206,7 @@ function buildEvidence(findings, manifests, dependencies) {
     { name: 'Spring Boot version detection', status: dependencies.springBootVersion && dependencies.springBootVersion !== 'unknown' ? 'passed' : 'warning' },
     { name: 'Jakarta namespace readiness', status: dependencies.javaxDetected ? 'failed' : 'passed' },
     { name: 'Hibernate usage detection', status: dependencies.hibernateDetected ? 'passed' : 'warning' },
+    { name: 'Spring Security usage detection', status: dependencies.springSecurityDetected ? 'passed' : 'warning' },
     { name: 'Static source checks', status: findings.length ? 'warning' : 'passed' },
     { name: 'OpenRewrite dry-run readiness', status: 'pending', note: 'OpenRewrite execution is available through transform --engine openrewrite when Maven or Gradle execution is available.' }
   ];
@@ -263,6 +280,18 @@ function evaluatePackApplicability({ pack, manifests, dependencies }) {
         ? 'Hibernate ORM usage was detected. This pack targets Hibernate 5.x to 6.x readiness.'
         : 'Hibernate ORM usage was not detected. This pack is only useful for persistence modernization work that includes Hibernate.',
       ...(!applicable ? { recommendedPack: dependencies.javaxDetected ? 'jakarta-readiness' : 'java-17-to-21-readiness' } : {})
+    };
+  }
+
+  if (pack === 'spring-security-6-readiness') {
+    const applicable = Boolean(dependencies.springSecurityDetected);
+    return {
+      applicable,
+      confidence: applicable ? 0.9 : 0.78,
+      reason: applicable
+        ? 'Spring Security usage was detected. This pack targets Spring Security 5.x to 6.x readiness.'
+        : 'Spring Security usage was not detected. This pack is only useful for applications with Spring Security configuration or dependencies.',
+      ...(!applicable ? { recommendedPack: dependencies.javaxDetected ? 'jakarta-readiness' : 'spring-boot-3-readiness' } : {})
     };
   }
 

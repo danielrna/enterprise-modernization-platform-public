@@ -2,6 +2,77 @@
   "schemaVersion": "emp.features.v1",
   "releases": [
     {
+      "id": "v0.1.8",
+      "title": "v0.1.8",
+      "date": "2026-07-01",
+      "summary": "Spring Security 6 readiness pack with security migration findings, Knowledge Base guidance, and first public benchmark evidence.",
+      "features": [
+        {
+          "id": "spring-security-6-readiness-pack",
+          "type": "pack",
+          "name": "Spring Security 6 readiness pack",
+          "audience": "Consultants and enterprise Java teams planning Spring Security 5.x to 6.x migrations",
+          "summary": "Add a dedicated readiness pack for Spring Security 6 migration planning.",
+          "evidence": [
+            "Adds `packs/spring-security-6-readiness.json`.",
+            "Detects Spring Security usage and explicit Spring Security 5.x versions when metadata is available.",
+            "Finds WebSecurityConfigurerAdapter, legacy matcher APIs, authorizeRequests configuration, and global method security annotations.",
+            "Adds report next actions for Spring Security 6 configuration risks."
+          ],
+          "links": [
+            {
+              "label": "Spring Security 6 pack docs",
+              "href": "docs/packs/spring-security-6-readiness.html"
+            },
+            {
+              "label": "Spring Security 6 Knowledge Base",
+              "href": "docs/knowledge-base/spring-security-6-readiness.html"
+            }
+          ]
+        },
+        {
+          "id": "spring-security-benchmark-evidence",
+          "type": "evidence",
+          "name": "Spring Security benchmark evidence",
+          "audience": "Consultants building public proof for security modernization work",
+          "summary": "Add the first catalog-backed Spring Security readiness benchmark batch.",
+          "evidence": [
+            "Adds five Spring Security readiness reports.",
+            "Raises the public benchmark catalog from 60 to 65 reports.",
+            "Keeps checkout-backed evidence unchanged while establishing the public report shape for the new pack."
+          ],
+          "links": [
+            {
+              "label": "Benchmark index",
+              "href": "docs/benchmarks/index.html"
+            },
+            {
+              "label": "Spring Security Samples Legacy report",
+              "href": "docs/benchmarks/spring-security-samples-legacy/index.html"
+            }
+          ]
+        },
+        {
+          "id": "spring-security-knowledge-base",
+          "type": "documentation",
+          "name": "Spring Security 6 Knowledge Base",
+          "audience": "Consultants explaining Spring Security migration risk",
+          "summary": "Add Knowledge Base guidance for interpreting Spring Security 6 readiness findings.",
+          "evidence": [
+            "Adds `knowledge/spring-security-6-readiness.json`.",
+            "Documents risks around removed adapters, matcher APIs, authorization DSL changes, method security, and Jakarta overlap.",
+            "Clarifies validation limits for security behavior."
+          ],
+          "links": [
+            {
+              "label": "Spring Security 6 Knowledge Base",
+              "href": "docs/knowledge-base/spring-security-6-readiness.html"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "v0.1.7",
       "title": "v0.1.7",
       "date": "2026-07-01",

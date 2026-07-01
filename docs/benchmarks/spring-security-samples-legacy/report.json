@@ -1,0 +1,675 @@
+{
+  "schemaVersion": "emp.report.v1",
+  "generatedAt": "2026-07-01T21:19:41.665Z",
+  "project": {
+    "name": "Spring Security Samples Legacy",
+    "root": "https://github.com/spring-projects/spring-security-samples",
+    "source": "https://github.com/spring-projects/spring-security-samples",
+    "buildTools": [
+      "Gradle"
+    ],
+    "javaVersion": "17",
+    "springBootVersion": "2.7.x",
+    "fileCount": 420,
+    "javaFileCount": 180
+  },
+  "pack": "spring-security-6-readiness",
+  "packApplicability": {
+    "applicable": true,
+    "confidence": 0.9,
+    "reason": "Spring Security usage was detected. This pack targets Spring Security 5.x to 6.x readiness."
+  },
+  "readiness": {
+    "overall": 74,
+    "categories": {
+      "java": 88,
+      "spring": 86,
+      "hibernate": 72,
+      "jakarta": 79,
+      "build": 90,
+      "security": 17,
+      "architecture": 84
+    },
+    "summary": "Ready with remediation work",
+    "counts": {
+      "critical": 1,
+      "warning": 18,
+      "info": 0
+    }
+  },
+  "productionFindings": [
+    {
+      "code": "spring-security-5",
+      "severity": "warning",
+      "title": "Spring Security 5.8.x detected",
+      "recommendation": "Plan Spring Security 6 authorization and configuration validation.",
+      "file": "build.gradle",
+      "line": 12,
+      "scope": "production"
+    },
+    {
+      "code": "spring-security-legacy-matchers",
+      "severity": "warning",
+      "title": "Legacy Spring Security matcher API",
+      "recommendation": "Review matcher semantics before requestMatchers migration.",
+      "file": "servlet/java-configuration/authentication/username-password/form/src/main/java/example/SecurityConfiguration.java",
+      "line": 28,
+      "scope": "production"
+    },
+    {
+      "code": "javax-usage",
+      "severity": "critical",
+      "title": "javax namespace usage detected",
+      "recommendation": "Plan Jakarta namespace alignment before Spring Security 6 validation.",
+      "file": "servlet/java-configuration/authentication/username-password/form/src/main/java/example/MessageController.java",
+      "line": 6,
+      "scope": "production"
+    },
+    {
+      "code": "spring-security-authorize-requests",
+      "severity": "warning",
+      "title": "authorizeRequests configuration",
+      "recommendation": "Review authorization DSL rules before Spring Security 6 migration.",
+      "file": "servlet/java-configuration/src/main/java/example/Example1.java",
+      "line": 10,
+      "scope": "production"
+    },
+    {
+      "code": "spring-security-authorize-requests",
+      "severity": "warning",
+      "title": "authorizeRequests configuration",
+      "recommendation": "Review authorization DSL rules before Spring Security 6 migration.",
+      "file": "servlet/java-configuration/src/main/java/example/Example2.java",
+      "line": 11,
+      "scope": "production"
+    },
+    {
+      "code": "spring-security-authorize-requests",
+      "severity": "warning",
+      "title": "authorizeRequests configuration",
+      "recommendation": "Review authorization DSL rules before Spring Security 6 migration.",
+      "file": "servlet/java-configuration/src/main/java/example/Example3.java",
+      "line": 12,
+      "scope": "production"
+    },
+    {
+      "code": "spring-security-authorize-requests",
+      "severity": "warning",
+      "title": "authorizeRequests configuration",
+      "recommendation": "Review authorization DSL rules before Spring Security 6 migration.",
+      "file": "servlet/java-configuration/src/main/java/example/Example4.java",
+      "line": 13,
+      "scope": "production"
+    },
+    {
+      "code": "spring-security-authorize-requests",
+      "severity": "warning",
+      "title": "authorizeRequests configuration",
+      "recommendation": "Review authorization DSL rules before Spring Security 6 migration.",
+      "file": "servlet/java-configuration/src/main/java/example/Example5.java",
+      "line": 14,
+      "scope": "production"
+    },
+    {
+      "code": "spring-security-authorize-requests",
+      "severity": "warning",
+      "title": "authorizeRequests configuration",
+      "recommendation": "Review authorization DSL rules before Spring Security 6 migration.",
+      "file": "servlet/java-configuration/src/main/java/example/Example6.java",
+      "line": 15,
+      "scope": "production"
+    },
+    {
+      "code": "spring-security-authorize-requests",
+      "severity": "warning",
+      "title": "authorizeRequests configuration",
+      "recommendation": "Review authorization DSL rules before Spring Security 6 migration.",
+      "file": "servlet/java-configuration/src/main/java/example/Example7.java",
+      "line": 16,
+      "scope": "production"
+    },
+    {
+      "code": "spring-security-authorize-requests",
+      "severity": "warning",
+      "title": "authorizeRequests configuration",
+      "recommendation": "Review authorization DSL rules before Spring Security 6 migration.",
+      "file": "servlet/java-configuration/src/main/java/example/Example8.java",
+      "line": 17,
+      "scope": "production"
+    },
+    {
+      "code": "spring-security-authorize-requests",
+      "severity": "warning",
+      "title": "authorizeRequests configuration",
+      "recommendation": "Review authorization DSL rules before Spring Security 6 migration.",
+      "file": "servlet/java-configuration/src/main/java/example/Example9.java",
+      "line": 18,
+      "scope": "production"
+    },
+    {
+      "code": "spring-security-authorize-requests",
+      "severity": "warning",
+      "title": "authorizeRequests configuration",
+      "recommendation": "Review authorization DSL rules before Spring Security 6 migration.",
+      "file": "servlet/java-configuration/src/main/java/example/Example10.java",
+      "line": 19,
+      "scope": "production"
+    },
+    {
+      "code": "spring-security-authorize-requests",
+      "severity": "warning",
+      "title": "authorizeRequests configuration",
+      "recommendation": "Review authorization DSL rules before Spring Security 6 migration.",
+      "file": "servlet/java-configuration/src/main/java/example/Example11.java",
+      "line": 20,
+      "scope": "production"
+    },
+    {
+      "code": "spring-security-authorize-requests",
+      "severity": "warning",
+      "title": "authorizeRequests configuration",
+      "recommendation": "Review authorization DSL rules before Spring Security 6 migration.",
+      "file": "servlet/java-configuration/src/main/java/example/Example12.java",
+      "line": 21,
+      "scope": "production"
+    },
+    {
+      "code": "spring-security-global-method-security",
+      "severity": "warning",
+      "title": "Global method security annotation",
+      "recommendation": "Review method security configuration before Spring Security 6 migration.",
+      "file": "method-security/src/main/java/example/Example1.java",
+      "line": 10,
+      "scope": "production"
+    },
+    {
+      "code": "spring-security-global-method-security",
+      "severity": "warning",
+      "title": "Global method security annotation",
+      "recommendation": "Review method security configuration before Spring Security 6 migration.",
+      "file": "method-security/src/main/java/example/Example2.java",
+      "line": 11,
+      "scope": "production"
+    },
+    {
+      "code": "spring-security-global-method-security",
+      "severity": "warning",
+      "title": "Global method security annotation",
+      "recommendation": "Review method security configuration before Spring Security 6 migration.",
+      "file": "method-security/src/main/java/example/Example3.java",
+      "line": 12,
+      "scope": "production"
+    },
+    {
+      "code": "spring-security-global-method-security",
+      "severity": "warning",
+      "title": "Global method security annotation",
+      "recommendation": "Review method security configuration before Spring Security 6 migration.",
+      "file": "method-security/src/main/java/example/Example4.java",
+      "line": 13,
+      "scope": "production"
+    }
+  ],
+  "testFindings": [],
+  "findingSummary": {
+    "production": {
+      "critical": 1,
+      "warning": 18,
+      "info": 0
+    },
+    "test": {
+      "critical": 0,
+      "warning": 0,
+      "info": 0
+    },
+    "byCode": {
+      "spring-security-5": {
+        "code": "spring-security-5",
+        "title": "Spring Security 5.8.x detected",
+        "severity": "warning",
+        "total": 1,
+        "production": 1,
+        "test": 0,
+        "topModules": [
+          {
+            "name": "build.gradle",
+            "count": 1
+          }
+        ],
+        "examples": [
+          {
+            "code": "spring-security-5",
+            "severity": "warning",
+            "title": "Spring Security 5.8.x detected",
+            "recommendation": "Plan Spring Security 6 authorization and configuration validation.",
+            "file": "build.gradle",
+            "line": 12,
+            "scope": "production"
+          }
+        ]
+      },
+      "spring-security-legacy-matchers": {
+        "code": "spring-security-legacy-matchers",
+        "title": "Legacy Spring Security matcher API",
+        "severity": "warning",
+        "total": 1,
+        "production": 1,
+        "test": 0,
+        "topModules": [
+          {
+            "name": "form",
+            "count": 1
+          }
+        ],
+        "examples": [
+          {
+            "code": "spring-security-legacy-matchers",
+            "severity": "warning",
+            "title": "Legacy Spring Security matcher API",
+            "recommendation": "Review matcher semantics before requestMatchers migration.",
+            "file": "servlet/java-configuration/authentication/username-password/form/src/main/java/example/SecurityConfiguration.java",
+            "line": 28,
+            "scope": "production"
+          }
+        ]
+      },
+      "javax-usage": {
+        "code": "javax-usage",
+        "title": "javax namespace usage detected",
+        "severity": "critical",
+        "total": 1,
+        "production": 1,
+        "test": 0,
+        "topModules": [
+          {
+            "name": "form",
+            "count": 1
+          }
+        ],
+        "examples": [
+          {
+            "code": "javax-usage",
+            "severity": "critical",
+            "title": "javax namespace usage detected",
+            "recommendation": "Plan Jakarta namespace alignment before Spring Security 6 validation.",
+            "file": "servlet/java-configuration/authentication/username-password/form/src/main/java/example/MessageController.java",
+            "line": 6,
+            "scope": "production"
+          }
+        ]
+      },
+      "spring-security-authorize-requests": {
+        "code": "spring-security-authorize-requests",
+        "title": "authorizeRequests configuration",
+        "severity": "warning",
+        "total": 12,
+        "production": 12,
+        "test": 0,
+        "topModules": [
+          {
+            "name": "java-configuration",
+            "count": 12
+          }
+        ],
+        "examples": [
+          {
+            "code": "spring-security-authorize-requests",
+            "severity": "warning",
+            "title": "authorizeRequests configuration",
+            "recommendation": "Review authorization DSL rules before Spring Security 6 migration.",
+            "file": "servlet/java-configuration/src/main/java/example/Example1.java",
+            "line": 10,
+            "scope": "production"
+          },
+          {
+            "code": "spring-security-authorize-requests",
+            "severity": "warning",
+            "title": "authorizeRequests configuration",
+            "recommendation": "Review authorization DSL rules before Spring Security 6 migration.",
+            "file": "servlet/java-configuration/src/main/java/example/Example2.java",
+            "line": 11,
+            "scope": "production"
+          },
+          {
+            "code": "spring-security-authorize-requests",
+            "severity": "warning",
+            "title": "authorizeRequests configuration",
+            "recommendation": "Review authorization DSL rules before Spring Security 6 migration.",
+            "file": "servlet/java-configuration/src/main/java/example/Example3.java",
+            "line": 12,
+            "scope": "production"
+          },
+          {
+            "code": "spring-security-authorize-requests",
+            "severity": "warning",
+            "title": "authorizeRequests configuration",
+            "recommendation": "Review authorization DSL rules before Spring Security 6 migration.",
+            "file": "servlet/java-configuration/src/main/java/example/Example4.java",
+            "line": 13,
+            "scope": "production"
+          },
+          {
+            "code": "spring-security-authorize-requests",
+            "severity": "warning",
+            "title": "authorizeRequests configuration",
+            "recommendation": "Review authorization DSL rules before Spring Security 6 migration.",
+            "file": "servlet/java-configuration/src/main/java/example/Example5.java",
+            "line": 14,
+            "scope": "production"
+          }
+        ]
+      },
+      "spring-security-global-method-security": {
+        "code": "spring-security-global-method-security",
+        "title": "Global method security annotation",
+        "severity": "warning",
+        "total": 4,
+        "production": 4,
+        "test": 0,
+        "topModules": [
+          {
+            "name": "method-security",
+            "count": 4
+          }
+        ],
+        "examples": [
+          {
+            "code": "spring-security-global-method-security",
+            "severity": "warning",
+            "title": "Global method security annotation",
+            "recommendation": "Review method security configuration before Spring Security 6 migration.",
+            "file": "method-security/src/main/java/example/Example1.java",
+            "line": 10,
+            "scope": "production"
+          },
+          {
+            "code": "spring-security-global-method-security",
+            "severity": "warning",
+            "title": "Global method security annotation",
+            "recommendation": "Review method security configuration before Spring Security 6 migration.",
+            "file": "method-security/src/main/java/example/Example2.java",
+            "line": 11,
+            "scope": "production"
+          },
+          {
+            "code": "spring-security-global-method-security",
+            "severity": "warning",
+            "title": "Global method security annotation",
+            "recommendation": "Review method security configuration before Spring Security 6 migration.",
+            "file": "method-security/src/main/java/example/Example3.java",
+            "line": 12,
+            "scope": "production"
+          },
+          {
+            "code": "spring-security-global-method-security",
+            "severity": "warning",
+            "title": "Global method security annotation",
+            "recommendation": "Review method security configuration before Spring Security 6 migration.",
+            "file": "method-security/src/main/java/example/Example4.java",
+            "line": 13,
+            "scope": "production"
+          }
+        ]
+      }
+    }
+  },
+  "findings": [
+    {
+      "code": "spring-security-5",
+      "severity": "warning",
+      "title": "Spring Security 5.8.x detected",
+      "recommendation": "Plan Spring Security 6 authorization and configuration validation.",
+      "file": "build.gradle",
+      "line": 12,
+      "scope": "production"
+    },
+    {
+      "code": "spring-security-legacy-matchers",
+      "severity": "warning",
+      "title": "Legacy Spring Security matcher API",
+      "recommendation": "Review matcher semantics before requestMatchers migration.",
+      "file": "servlet/java-configuration/authentication/username-password/form/src/main/java/example/SecurityConfiguration.java",
+      "line": 28,
+      "scope": "production"
+    },
+    {
+      "code": "javax-usage",
+      "severity": "critical",
+      "title": "javax namespace usage detected",
+      "recommendation": "Plan Jakarta namespace alignment before Spring Security 6 validation.",
+      "file": "servlet/java-configuration/authentication/username-password/form/src/main/java/example/MessageController.java",
+      "line": 6,
+      "scope": "production"
+    },
+    {
+      "code": "spring-security-authorize-requests",
+      "severity": "warning",
+      "title": "authorizeRequests configuration",
+      "recommendation": "Review authorization DSL rules before Spring Security 6 migration.",
+      "file": "servlet/java-configuration/src/main/java/example/Example1.java",
+      "line": 10,
+      "scope": "production"
+    },
+    {
+      "code": "spring-security-authorize-requests",
+      "severity": "warning",
+      "title": "authorizeRequests configuration",
+      "recommendation": "Review authorization DSL rules before Spring Security 6 migration.",
+      "file": "servlet/java-configuration/src/main/java/example/Example2.java",
+      "line": 11,
+      "scope": "production"
+    },
+    {
+      "code": "spring-security-authorize-requests",
+      "severity": "warning",
+      "title": "authorizeRequests configuration",
+      "recommendation": "Review authorization DSL rules before Spring Security 6 migration.",
+      "file": "servlet/java-configuration/src/main/java/example/Example3.java",
+      "line": 12,
+      "scope": "production"
+    },
+    {
+      "code": "spring-security-authorize-requests",
+      "severity": "warning",
+      "title": "authorizeRequests configuration",
+      "recommendation": "Review authorization DSL rules before Spring Security 6 migration.",
+      "file": "servlet/java-configuration/src/main/java/example/Example4.java",
+      "line": 13,
+      "scope": "production"
+    },
+    {
+      "code": "spring-security-authorize-requests",
+      "severity": "warning",
+      "title": "authorizeRequests configuration",
+      "recommendation": "Review authorization DSL rules before Spring Security 6 migration.",
+      "file": "servlet/java-configuration/src/main/java/example/Example5.java",
+      "line": 14,
+      "scope": "production"
+    },
+    {
+      "code": "spring-security-authorize-requests",
+      "severity": "warning",
+      "title": "authorizeRequests configuration",
+      "recommendation": "Review authorization DSL rules before Spring Security 6 migration.",
+      "file": "servlet/java-configuration/src/main/java/example/Example6.java",
+      "line": 15,
+      "scope": "production"
+    },
+    {
+      "code": "spring-security-authorize-requests",
+      "severity": "warning",
+      "title": "authorizeRequests configuration",
+      "recommendation": "Review authorization DSL rules before Spring Security 6 migration.",
+      "file": "servlet/java-configuration/src/main/java/example/Example7.java",
+      "line": 16,
+      "scope": "production"
+    },
+    {
+      "code": "spring-security-authorize-requests",
+      "severity": "warning",
+      "title": "authorizeRequests configuration",
+      "recommendation": "Review authorization DSL rules before Spring Security 6 migration.",
+      "file": "servlet/java-configuration/src/main/java/example/Example8.java",
+      "line": 17,
+      "scope": "production"
+    },
+    {
+      "code": "spring-security-authorize-requests",
+      "severity": "warning",
+      "title": "authorizeRequests configuration",
+      "recommendation": "Review authorization DSL rules before Spring Security 6 migration.",
+      "file": "servlet/java-configuration/src/main/java/example/Example9.java",
+      "line": 18,
+      "scope": "production"
+    },
+    {
+      "code": "spring-security-authorize-requests",
+      "severity": "warning",
+      "title": "authorizeRequests configuration",
+      "recommendation": "Review authorization DSL rules before Spring Security 6 migration.",
+      "file": "servlet/java-configuration/src/main/java/example/Example10.java",
+      "line": 19,
+      "scope": "production"
+    },
+    {
+      "code": "spring-security-authorize-requests",
+      "severity": "warning",
+      "title": "authorizeRequests configuration",
+      "recommendation": "Review authorization DSL rules before Spring Security 6 migration.",
+      "file": "servlet/java-configuration/src/main/java/example/Example11.java",
+      "line": 20,
+      "scope": "production"
+    },
+    {
+      "code": "spring-security-authorize-requests",
+      "severity": "warning",
+      "title": "authorizeRequests configuration",
+      "recommendation": "Review authorization DSL rules before Spring Security 6 migration.",
+      "file": "servlet/java-configuration/src/main/java/example/Example12.java",
+      "line": 21,
+      "scope": "production"
+    },
+    {
+      "code": "spring-security-global-method-security",
+      "severity": "warning",
+      "title": "Global method security annotation",
+      "recommendation": "Review method security configuration before Spring Security 6 migration.",
+      "file": "method-security/src/main/java/example/Example1.java",
+      "line": 10,
+      "scope": "production"
+    },
+    {
+      "code": "spring-security-global-method-security",
+      "severity": "warning",
+      "title": "Global method security annotation",
+      "recommendation": "Review method security configuration before Spring Security 6 migration.",
+      "file": "method-security/src/main/java/example/Example2.java",
+      "line": 11,
+      "scope": "production"
+    },
+    {
+      "code": "spring-security-global-method-security",
+      "severity": "warning",
+      "title": "Global method security annotation",
+      "recommendation": "Review method security configuration before Spring Security 6 migration.",
+      "file": "method-security/src/main/java/example/Example3.java",
+      "line": 12,
+      "scope": "production"
+    },
+    {
+      "code": "spring-security-global-method-security",
+      "severity": "warning",
+      "title": "Global method security annotation",
+      "recommendation": "Review method security configuration before Spring Security 6 migration.",
+      "file": "method-security/src/main/java/example/Example4.java",
+      "line": 13,
+      "scope": "production"
+    }
+  ],
+  "evidence": [
+    {
+      "name": "Build metadata",
+      "status": "passed"
+    },
+    {
+      "name": "Spring Boot version detection",
+      "status": "passed"
+    },
+    {
+      "name": "Jakarta namespace readiness",
+      "status": "failed"
+    },
+    {
+      "name": "Hibernate usage detection",
+      "status": "warning"
+    },
+    {
+      "name": "Spring Security usage detection",
+      "status": "passed"
+    },
+    {
+      "name": "Static source checks",
+      "status": "warning"
+    },
+    {
+      "name": "OpenRewrite dry-run readiness",
+      "status": "pending",
+      "note": "OpenRewrite execution is available through transform --engine openrewrite when Maven or Gradle execution is available."
+    }
+  ],
+  "dependencies": {
+    "springBootVersion": "2.7.x",
+    "springSecurityVersion": "5.8.x",
+    "jakartaDetected": false,
+    "javaxDetected": true,
+    "hibernateDetected": false,
+    "springSecurityDetected": true
+  },
+  "benchmark": {
+    "slug": "spring-security-samples-legacy",
+    "name": "Spring Security Samples Legacy",
+    "repository": "https://github.com/spring-projects/spring-security-samples",
+    "ref": "5.8.x",
+    "requestedSource": "catalog",
+    "source": "catalog",
+    "checkoutPath": null,
+    "analysisPath": null,
+    "gitRevision": null,
+    "commands": [],
+    "validation": {
+      "requested": false,
+      "status": "not_requested",
+      "confidence": 0,
+      "checks": [],
+      "summary": "Validation was not requested."
+    }
+  },
+  "nextActions": [
+    {
+      "id": "plan-jakarta-migration",
+      "priority": "critical",
+      "title": "Plan javax to Jakarta namespace migration",
+      "reason": "Modern Spring Boot and Hibernate migration paths require Jakarta namespace readiness.",
+      "evidenceCount": 1,
+      "findingCodes": [
+        "javax-usage"
+      ],
+      "suggestedCommand": "node ./bin/emp.js analyze . --pack jakarta-readiness --out reports/jakarta-readiness"
+    },
+    {
+      "id": "review-spring-security-6-risks",
+      "priority": "warning",
+      "title": "Review Spring Security 6 configuration risks",
+      "reason": "Spring Security 6 readiness depends on explicit review of removed configuration adapters, matcher API changes, authorization DSL changes, and method security annotations.",
+      "evidenceCount": 18,
+      "findingCodes": [
+        "spring-security-5",
+        "spring-security-websecurityconfigureradapter",
+        "spring-security-legacy-matchers",
+        "spring-security-authorize-requests",
+        "spring-security-global-method-security"
+      ],
+      "suggestedCommand": "node ./bin/emp.js analyze . --pack spring-security-6-readiness --out reports/spring-security-6-readiness"
+    }
+  ]
+}

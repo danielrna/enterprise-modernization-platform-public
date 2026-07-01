@@ -2,6 +2,13 @@
 
 ## Unreleased
 
+## v0.1.8
+
+- Added the Spring Security 6 readiness pack for Spring Security 5.x to 6.x modernization planning.
+- Added Spring Security static risk findings for WebSecurityConfigurerAdapter, legacy matcher APIs, authorizeRequests configuration, and global method security annotations.
+- Added the Spring Security 6 Readiness Knowledge Base article.
+- Added five catalog-backed Spring Security readiness benchmark reports, raising the public benchmark catalog to 65 reports.
+
 ## v0.1.7
 
 - Added a static Consultant Demo page that packages green-path, partial-validation, and advanced Hibernate evidence for client conversations.

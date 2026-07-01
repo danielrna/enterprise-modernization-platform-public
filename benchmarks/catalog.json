@@ -3072,5 +3072,282 @@
         "basePath": "src/main/java/np/com/mshrestha/bookstore"
       }
     ]
+  },
+  {
+    "slug": "spring-security-samples-legacy",
+    "name": "Spring Security Samples Legacy",
+    "repository": "https://github.com/spring-projects/spring-security-samples",
+    "ref": "5.8.x",
+    "checkoutSubdir": null,
+    "pack": "spring-security-6-readiness",
+    "buildTools": [
+      "Gradle"
+    ],
+    "javaVersion": "17",
+    "validationJavaVersion": null,
+    "springBootVersion": "2.7.x",
+    "springSecurityVersion": "5.8.x",
+    "fileCount": 420,
+    "javaFileCount": 180,
+    "jakartaDetected": false,
+    "javaxDetected": true,
+    "hibernateDetected": false,
+    "springSecurityDetected": true,
+    "findings": [
+      {
+        "code": "spring-security-5",
+        "severity": "warning",
+        "title": "Spring Security 5.8.x detected",
+        "recommendation": "Plan Spring Security 6 authorization and configuration validation.",
+        "file": "build.gradle",
+        "line": 12
+      },
+      {
+        "code": "spring-security-legacy-matchers",
+        "severity": "warning",
+        "title": "Legacy Spring Security matcher API",
+        "recommendation": "Review matcher semantics before requestMatchers migration.",
+        "file": "servlet/java-configuration/authentication/username-password/form/src/main/java/example/SecurityConfiguration.java",
+        "line": 28
+      },
+      {
+        "code": "javax-usage",
+        "severity": "critical",
+        "title": "javax namespace usage detected",
+        "recommendation": "Plan Jakarta namespace alignment before Spring Security 6 validation.",
+        "file": "servlet/java-configuration/authentication/username-password/form/src/main/java/example/MessageController.java",
+        "line": 6
+      }
+    ],
+    "findingGroups": [
+      {
+        "count": 12,
+        "code": "spring-security-authorize-requests",
+        "severity": "warning",
+        "title": "authorizeRequests configuration",
+        "recommendation": "Review authorization DSL rules before Spring Security 6 migration.",
+        "basePath": "servlet/java-configuration/src/main/java/example"
+      },
+      {
+        "count": 4,
+        "code": "spring-security-global-method-security",
+        "severity": "warning",
+        "title": "Global method security annotation",
+        "recommendation": "Review method security configuration before Spring Security 6 migration.",
+        "basePath": "method-security/src/main/java/example"
+      }
+    ]
+  },
+  {
+    "slug": "spring-petclinic-rest-security",
+    "name": "Spring Petclinic REST Security",
+    "repository": "https://github.com/spring-petclinic/spring-petclinic-rest",
+    "ref": "v2.6.2",
+    "checkoutSubdir": null,
+    "pack": "spring-security-6-readiness",
+    "buildTools": [
+      "Maven"
+    ],
+    "javaVersion": "unknown",
+    "validationJavaVersion": null,
+    "springBootVersion": "2.6.2",
+    "springSecurityVersion": "5.6.x",
+    "fileCount": 359,
+    "javaFileCount": 83,
+    "jakartaDetected": false,
+    "javaxDetected": true,
+    "hibernateDetected": true,
+    "springSecurityDetected": true,
+    "findings": [
+      {
+        "code": "spring-security-5",
+        "severity": "warning",
+        "title": "Spring Security 5.6.x detected",
+        "recommendation": "Plan Spring Security 6 authorization and configuration validation.",
+        "file": "pom.xml",
+        "line": 32
+      },
+      {
+        "code": "spring-security-authorize-requests",
+        "severity": "warning",
+        "title": "authorizeRequests configuration",
+        "recommendation": "Review authorization DSL rules before Spring Security 6 migration.",
+        "file": "src/main/java/org/springframework/samples/petclinic/security/SecurityConfig.java",
+        "line": 31
+      },
+      {
+        "code": "javax-usage",
+        "severity": "critical",
+        "title": "javax namespace usage detected",
+        "recommendation": "Plan Jakarta namespace alignment before Spring Security 6 validation.",
+        "file": "src/main/java/org/springframework/samples/petclinic/model/BaseEntity.java",
+        "line": 18
+      }
+    ],
+    "findingGroups": [
+      {
+        "count": 3,
+        "code": "spring-security-legacy-matchers",
+        "severity": "warning",
+        "title": "Legacy Spring Security matcher API",
+        "recommendation": "Review matcher semantics before requestMatchers migration.",
+        "basePath": "src/main/java/org/springframework/samples/petclinic/security"
+      }
+    ]
+  },
+  {
+    "slug": "spring-boot-realworld-security",
+    "name": "Spring Boot RealWorld Security",
+    "repository": "https://github.com/gothinkster/spring-boot-realworld-example-app",
+    "ref": null,
+    "checkoutSubdir": null,
+    "pack": "spring-security-6-readiness",
+    "buildTools": [
+      "Gradle"
+    ],
+    "javaVersion": "11",
+    "validationJavaVersion": "17",
+    "springBootVersion": "2.6.3",
+    "springSecurityVersion": "5.6.x",
+    "fileCount": 96,
+    "javaFileCount": 72,
+    "jakartaDetected": false,
+    "javaxDetected": true,
+    "hibernateDetected": true,
+    "springSecurityDetected": true,
+    "findings": [
+      {
+        "code": "spring-security-5",
+        "severity": "warning",
+        "title": "Spring Security 5.6.x detected",
+        "recommendation": "Plan Spring Security 6 authorization and configuration validation.",
+        "file": "build.gradle",
+        "line": 42
+      },
+      {
+        "code": "spring-security-legacy-matchers",
+        "severity": "warning",
+        "title": "Legacy Spring Security matcher API",
+        "recommendation": "Review matcher semantics before requestMatchers migration.",
+        "file": "src/main/java/io/spring/api/security/WebSecurityConfig.java",
+        "line": 35
+      },
+      {
+        "code": "javax-usage",
+        "severity": "critical",
+        "title": "javax namespace usage detected",
+        "recommendation": "Plan Jakarta namespace alignment before Spring Security 6 validation.",
+        "file": "build.gradle",
+        "line": 36
+      }
+    ],
+    "findingGroups": [
+      {
+        "count": 2,
+        "code": "spring-security-authorize-requests",
+        "severity": "warning",
+        "title": "authorizeRequests configuration",
+        "recommendation": "Review authorization DSL rules before Spring Security 6 migration.",
+        "basePath": "src/main/java/io/spring/api/security"
+      }
+    ]
+  },
+  {
+    "slug": "jhipster-sample-security",
+    "name": "JHipster Sample Security",
+    "repository": "https://github.com/jhipster/jhipster-sample-app",
+    "ref": null,
+    "checkoutSubdir": null,
+    "pack": "spring-security-6-readiness",
+    "buildTools": [
+      "Maven"
+    ],
+    "javaVersion": "21",
+    "validationJavaVersion": null,
+    "springBootVersion": "4.0.6",
+    "springSecurityVersion": "6.x",
+    "fileCount": 609,
+    "javaFileCount": 136,
+    "jakartaDetected": true,
+    "javaxDetected": true,
+    "hibernateDetected": true,
+    "springSecurityDetected": true,
+    "findings": [
+      {
+        "code": "spring-security-global-method-security",
+        "severity": "warning",
+        "title": "Global method security annotation",
+        "recommendation": "Review method security configuration before Spring Security 6 migration.",
+        "file": "src/main/java/io/github/jhipster/sample/config/SecurityConfiguration.java",
+        "line": 18
+      },
+      {
+        "code": "javax-usage",
+        "severity": "critical",
+        "title": "javax namespace usage detected",
+        "recommendation": "Plan Jakarta namespace alignment before Spring Security validation.",
+        "file": "src/main/java/io/github/jhipster/sample/domain/Operation.java",
+        "line": 8
+      }
+    ],
+    "findingGroups": [
+      {
+        "count": 4,
+        "code": "spring-security-authorize-requests",
+        "severity": "warning",
+        "title": "authorizeRequests configuration",
+        "recommendation": "Review authorization DSL rules before Spring Security 6 validation.",
+        "basePath": "src/main/java/io/github/jhipster/sample/config"
+      }
+    ]
+  },
+  {
+    "slug": "keycloak-security-adapter",
+    "name": "Keycloak Security Adapter",
+    "repository": "https://github.com/keycloak/keycloak",
+    "ref": null,
+    "checkoutSubdir": null,
+    "pack": "spring-security-6-readiness",
+    "buildTools": [
+      "Maven"
+    ],
+    "javaVersion": "17",
+    "validationJavaVersion": null,
+    "springBootVersion": "unknown",
+    "springSecurityVersion": "unknown",
+    "fileCount": 12800,
+    "javaFileCount": 6900,
+    "jakartaDetected": true,
+    "javaxDetected": true,
+    "hibernateDetected": true,
+    "springSecurityDetected": true,
+    "findings": [
+      {
+        "code": "spring-security-legacy-matchers",
+        "severity": "warning",
+        "title": "Legacy Spring Security matcher API",
+        "recommendation": "Review matcher semantics before requestMatchers migration.",
+        "file": "testsuite/integration-arquillian/tests/base/src/test/java/org/keycloak/testsuite/spring/SecurityConfig.java",
+        "line": 42
+      },
+      {
+        "code": "javax-usage",
+        "severity": "critical",
+        "title": "javax namespace usage detected",
+        "recommendation": "Plan Jakarta namespace alignment before Spring Security validation.",
+        "file": "services/src/main/java/org/keycloak/services/resources/admin/AdminRoot.java",
+        "line": 7
+      }
+    ],
+    "findingGroups": [
+      {
+        "count": 5,
+        "code": "spring-security-authorize-requests",
+        "severity": "warning",
+        "title": "authorizeRequests configuration",
+        "recommendation": "Review authorization DSL rules before Spring Security 6 validation.",
+        "basePath": "testsuite/integration-arquillian/tests/base/src/test/java/org/keycloak/testsuite/spring"
+      }
+    ]
   }
 ]

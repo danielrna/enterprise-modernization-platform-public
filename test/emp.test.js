@@ -79,6 +79,15 @@ test('benchmark catalog includes Hibernate readiness evidence', () => {
   assert.equal(hibernateBenchmarks.every((benchmark) => benchmark.hibernateDetected), true);
 });
 
+test('benchmark catalog includes Spring Security readiness evidence', () => {
+  const securityBenchmarks = BENCHMARKS.filter((benchmark) => benchmark.pack === 'spring-security-6-readiness');
+
+  assert.equal(securityBenchmarks.length, 5);
+  assert.equal(securityBenchmarks.some((benchmark) => benchmark.slug === 'spring-security-samples-legacy'), true);
+  assert.equal(securityBenchmarks.some((benchmark) => benchmark.slug === 'spring-petclinic-rest-security'), true);
+  assert.equal(securityBenchmarks.every((benchmark) => benchmark.springSecurityDetected), true);
+});
+
 test('generates documentation pages from pack metadata', async () => {
   const root = await fs.mkdtemp(path.join(os.tmpdir(), 'emp-pack-docs-'));
   const outDir = path.join(root, 'packs');
@@ -88,16 +97,19 @@ test('generates documentation pages from pack metadata', async () => {
   const springBoot = await fs.readFile(path.join(outDir, 'spring-boot-3-readiness.html'), 'utf8');
   const java = await fs.readFile(path.join(outDir, 'java-17-to-21-readiness.html'), 'utf8');
   const hibernate = await fs.readFile(path.join(outDir, 'hibernate-readiness.html'), 'utf8');
+  const security = await fs.readFile(path.join(outDir, 'spring-security-6-readiness.html'), 'utf8');
 
-  assert.equal(result.count, 4);
+  assert.equal(result.count, 5);
   assert.match(index, /Migration Packs/);
   assert.match(index, /Spring Boot 3 Readiness/);
   assert.match(index, /Hibernate Readiness/);
+  assert.match(index, /Spring Security 6 Readiness/);
   assert.match(springBoot, /Spring Boot 2\.x to 3\.x/);
   assert.match(springBoot, /openrewrite-dry-run/);
   assert.match(springBoot, /node \.\/bin\/emp\.js analyze \/path\/to\/app --pack spring-boot-3-readiness/);
   assert.match(java, /binary compatibility/);
   assert.match(hibernate, /Hibernate 5\.x to 6\.x readiness/);
+  assert.match(security, /Spring Security 5\.x to 6\.x readiness/);
 });
 
 test('generates Knowledge Base pages from structured guidance', async () => {
@@ -107,14 +119,17 @@ test('generates Knowledge Base pages from structured guidance', async () => {
   const result = await generateKnowledgeBase({ knowledgeDir: path.resolve('knowledge'), outDir });
   const index = await fs.readFile(path.join(outDir, 'index.html'), 'utf8');
   const hibernate = await fs.readFile(path.join(outDir, 'hibernate-readiness.html'), 'utf8');
+  const security = await fs.readFile(path.join(outDir, 'spring-security-6-readiness.html'), 'utf8');
 
-  assert.equal(result.count, 2);
+  assert.equal(result.count, 3);
   assert.match(index, /Knowledge Base/);
   assert.match(index, /Hibernate Readiness Knowledge Base/);
   assert.match(index, /Hibernate Validation Failure Patterns/);
+  assert.match(index, /Spring Security 6 Readiness Knowledge Base/);
   assert.match(hibernate, /Legacy Criteria API/);
   assert.match(hibernate, /What This Does Not Prove/);
   assert.match(hibernate, /hibernate-demos/);
+  assert.match(security, /WebSecurityConfigurerAdapter/);
 });
 
 test('generates release notes from feature metadata', async () => {
@@ -127,14 +142,14 @@ test('generates release notes from feature metadata', async () => {
   const html = await fs.readFile(path.join(outDir, `${releaseId}.html`), 'utf8');
   const markdown = await fs.readFile(path.join(outDir, `${releaseId}.md`), 'utf8');
 
-  assert.equal(result.count, 5);
+  assert.equal(result.count, 6);
   assert.equal(result.featureCount >= 4, true);
   assert.match(index, /Release Notes/);
-  assert.match(index, /v0\.1\.7/);
-  assert.match(html, /Consultant Demo page/);
-  assert.match(html, /client walkthrough/);
+  assert.match(index, /v0\.1\.8/);
+  assert.match(html, /Spring Security 6 readiness pack/);
+  assert.match(html, /security migration findings/);
   assert.match(markdown, new RegExp(`# ${releaseId}`));
-  assert.match(markdown, /## Consultant Demo page/);
+  assert.match(markdown, /## Spring Security 6 readiness pack/);
 });
 
 test('generates Consultant Demo page and bundle', async () => {
@@ -510,6 +525,78 @@ test('Hibernate readiness pack reports mismatch when Hibernate is absent', async
   assert.equal(scan.packApplicability.applicable, false);
   assert.equal(readiness.status, 'not_applicable');
   assert.match(readiness.summary, /Hibernate ORM usage was not detected/);
+});
+
+test('Spring Security 6 readiness pack detects security configuration risks', async () => {
+  const root = await makeSpringProject();
+  const outDir = path.join(root, 'report');
+  await fs.writeFile(path.join(root, 'pom.xml'), `<?xml version="1.0" encoding="UTF-8"?>
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <dependencies>
+    <dependency>
+      <groupId>org.springframework.security</groupId>
+      <artifactId>spring-security-config</artifactId>
+      <version>5.8.11</version>
+    </dependency>
+  </dependencies>
+  <properties>
+    <java.version>17</java.version>
+  </properties>
+</project>
+`);
+  await fs.writeFile(path.join(root, 'src/main/java/com/example/SecurityConfig.java'), `package com.example;
+
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+
+@EnableGlobalMethodSecurity(prePostEnabled = true)
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
+  void configure() {
+    http().authorizeRequests().antMatchers("/admin/**").hasRole("ADMIN");
+  }
+  Http http() {
+    return new Http();
+  }
+  static class Http {
+    Http authorizeRequests() { return this; }
+    Http antMatchers(String pattern) { return this; }
+    Http hasRole(String role) { return this; }
+  }
+}
+`);
+
+  const scan = await analyzeProject({ root, pack: 'spring-security-6-readiness' });
+  const readiness = scoreReadiness(scan);
+  const bundle = await writeReportBundle({ outDir, scan, readiness });
+  const report = JSON.parse(await fs.readFile(bundle.jsonPath, 'utf8'));
+  const html = await fs.readFile(bundle.htmlPath, 'utf8');
+
+  assert.equal(scan.packApplicability.applicable, true);
+  assert.equal(scan.dependencies.springSecurityDetected, true);
+  assert.equal(scan.dependencies.springSecurityVersion, '5.8.11');
+  assert.equal(scan.findings.some((finding) => finding.code === 'spring-security-5'), true);
+  assert.equal(scan.findings.some((finding) => finding.code === 'spring-security-websecurityconfigureradapter'), true);
+  assert.equal(scan.findings.some((finding) => finding.code === 'spring-security-legacy-matchers'), true);
+  assert.equal(scan.findings.some((finding) => finding.code === 'spring-security-authorize-requests'), true);
+  assert.equal(scan.findings.some((finding) => finding.code === 'spring-security-global-method-security'), true);
+  assert.equal(Object.hasOwn(readiness.categories, 'security'), true);
+  assert.equal(report.nextActions.some((action) => action.id === 'review-spring-security-6-risks'), true);
+  assert.match(html, /Review Spring Security 6 configuration risks/);
+});
+
+test('Spring Security 6 readiness pack reports mismatch when Spring Security is absent', async () => {
+  const root = await makeSpringProject();
+  const sourceFile = path.join(root, 'src/main/java/com/example/Demo.java');
+  await fs.writeFile(sourceFile, 'package com.example;\npublic class Demo {}\n');
+
+  const scan = await analyzeProject({ root, pack: 'spring-security-6-readiness' });
+  const readiness = scoreReadiness(scan);
+
+  assert.equal(scan.dependencies.springSecurityDetected, false);
+  assert.equal(scan.packApplicability.applicable, false);
+  assert.equal(readiness.status, 'not_applicable');
+  assert.match(readiness.summary, /Spring Security usage was not detected/);
 });
 
 test('enterprise rules affect readiness and appear in reports', async () => {

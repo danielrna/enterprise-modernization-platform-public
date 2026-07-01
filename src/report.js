@@ -245,6 +245,18 @@ export function buildNextActions(report) {
     });
   }
 
+  const springSecurityCodes = ['spring-security-5', 'spring-security-websecurityconfigureradapter', 'spring-security-legacy-matchers', 'spring-security-authorize-requests', 'spring-security-global-method-security'];
+  if (springSecurityCodes.some((code) => hasFinding(productionFindings, code))) {
+    addAction({
+      id: 'review-spring-security-6-risks',
+      priority: hasFinding(productionFindings, 'spring-security-websecurityconfigureradapter') ? 'critical' : 'warning',
+      title: 'Review Spring Security 6 configuration risks',
+      reason: 'Spring Security 6 readiness depends on explicit review of removed configuration adapters, matcher API changes, authorization DSL changes, and method security annotations.',
+      findingCodes: springSecurityCodes,
+      suggestedCommand: 'node ./bin/emp.js analyze . --pack spring-security-6-readiness --out reports/spring-security-6-readiness'
+    });
+  }
+
   if (report.rules?.violations?.some((violation) => violation.severity === 'critical')) {
     addAction({
       id: 'resolve-critical-enterprise-rules',

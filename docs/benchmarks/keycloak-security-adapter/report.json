@@ -1,0 +1,368 @@
+{
+  "schemaVersion": "emp.report.v1",
+  "generatedAt": "2026-07-01T21:19:41.697Z",
+  "project": {
+    "name": "Keycloak Security Adapter",
+    "root": "https://github.com/keycloak/keycloak",
+    "source": "https://github.com/keycloak/keycloak",
+    "buildTools": [
+      "Maven"
+    ],
+    "javaVersion": "17",
+    "springBootVersion": "unknown",
+    "fileCount": 12800,
+    "javaFileCount": 6900
+  },
+  "pack": "spring-security-6-readiness",
+  "packApplicability": {
+    "applicable": true,
+    "confidence": 0.9,
+    "reason": "Spring Security usage was detected. This pack targets Spring Security 5.x to 6.x readiness."
+  },
+  "readiness": {
+    "overall": 85,
+    "categories": {
+      "java": 88,
+      "spring": 86,
+      "hibernate": 84,
+      "jakarta": 79,
+      "build": 90,
+      "security": 84,
+      "architecture": 84
+    },
+    "summary": "Ready for controlled migration planning",
+    "counts": {
+      "critical": 1,
+      "warning": 6,
+      "info": 0
+    }
+  },
+  "productionFindings": [
+    {
+      "code": "javax-usage",
+      "severity": "critical",
+      "title": "javax namespace usage detected",
+      "recommendation": "Plan Jakarta namespace alignment before Spring Security validation.",
+      "file": "services/src/main/java/org/keycloak/services/resources/admin/AdminRoot.java",
+      "line": 7,
+      "scope": "production"
+    }
+  ],
+  "testFindings": [
+    {
+      "code": "spring-security-legacy-matchers",
+      "severity": "warning",
+      "title": "Legacy Spring Security matcher API",
+      "recommendation": "Review matcher semantics before requestMatchers migration.",
+      "file": "testsuite/integration-arquillian/tests/base/src/test/java/org/keycloak/testsuite/spring/SecurityConfig.java",
+      "line": 42,
+      "scope": "test"
+    },
+    {
+      "code": "spring-security-authorize-requests",
+      "severity": "warning",
+      "title": "authorizeRequests configuration",
+      "recommendation": "Review authorization DSL rules before Spring Security 6 validation.",
+      "file": "testsuite/integration-arquillian/tests/base/src/test/java/org/keycloak/testsuite/spring/Example1Test.java",
+      "line": 10,
+      "scope": "test"
+    },
+    {
+      "code": "spring-security-authorize-requests",
+      "severity": "warning",
+      "title": "authorizeRequests configuration",
+      "recommendation": "Review authorization DSL rules before Spring Security 6 validation.",
+      "file": "testsuite/integration-arquillian/tests/base/src/test/java/org/keycloak/testsuite/spring/Example2Test.java",
+      "line": 11,
+      "scope": "test"
+    },
+    {
+      "code": "spring-security-authorize-requests",
+      "severity": "warning",
+      "title": "authorizeRequests configuration",
+      "recommendation": "Review authorization DSL rules before Spring Security 6 validation.",
+      "file": "testsuite/integration-arquillian/tests/base/src/test/java/org/keycloak/testsuite/spring/Example3Test.java",
+      "line": 12,
+      "scope": "test"
+    },
+    {
+      "code": "spring-security-authorize-requests",
+      "severity": "warning",
+      "title": "authorizeRequests configuration",
+      "recommendation": "Review authorization DSL rules before Spring Security 6 validation.",
+      "file": "testsuite/integration-arquillian/tests/base/src/test/java/org/keycloak/testsuite/spring/Example4Test.java",
+      "line": 13,
+      "scope": "test"
+    },
+    {
+      "code": "spring-security-authorize-requests",
+      "severity": "warning",
+      "title": "authorizeRequests configuration",
+      "recommendation": "Review authorization DSL rules before Spring Security 6 validation.",
+      "file": "testsuite/integration-arquillian/tests/base/src/test/java/org/keycloak/testsuite/spring/Example5Test.java",
+      "line": 14,
+      "scope": "test"
+    }
+  ],
+  "findingSummary": {
+    "production": {
+      "critical": 1,
+      "warning": 0,
+      "info": 0
+    },
+    "test": {
+      "critical": 0,
+      "warning": 6,
+      "info": 0
+    },
+    "byCode": {
+      "spring-security-legacy-matchers": {
+        "code": "spring-security-legacy-matchers",
+        "title": "Legacy Spring Security matcher API",
+        "severity": "warning",
+        "total": 1,
+        "production": 0,
+        "test": 1,
+        "topModules": [
+          {
+            "name": "base",
+            "count": 1
+          }
+        ],
+        "examples": [
+          {
+            "code": "spring-security-legacy-matchers",
+            "severity": "warning",
+            "title": "Legacy Spring Security matcher API",
+            "recommendation": "Review matcher semantics before requestMatchers migration.",
+            "file": "testsuite/integration-arquillian/tests/base/src/test/java/org/keycloak/testsuite/spring/SecurityConfig.java",
+            "line": 42,
+            "scope": "test"
+          }
+        ]
+      },
+      "javax-usage": {
+        "code": "javax-usage",
+        "title": "javax namespace usage detected",
+        "severity": "critical",
+        "total": 1,
+        "production": 1,
+        "test": 0,
+        "topModules": [
+          {
+            "name": "services",
+            "count": 1
+          }
+        ],
+        "examples": [
+          {
+            "code": "javax-usage",
+            "severity": "critical",
+            "title": "javax namespace usage detected",
+            "recommendation": "Plan Jakarta namespace alignment before Spring Security validation.",
+            "file": "services/src/main/java/org/keycloak/services/resources/admin/AdminRoot.java",
+            "line": 7,
+            "scope": "production"
+          }
+        ]
+      },
+      "spring-security-authorize-requests": {
+        "code": "spring-security-authorize-requests",
+        "title": "authorizeRequests configuration",
+        "severity": "warning",
+        "total": 5,
+        "production": 0,
+        "test": 5,
+        "topModules": [
+          {
+            "name": "base",
+            "count": 5
+          }
+        ],
+        "examples": [
+          {
+            "code": "spring-security-authorize-requests",
+            "severity": "warning",
+            "title": "authorizeRequests configuration",
+            "recommendation": "Review authorization DSL rules before Spring Security 6 validation.",
+            "file": "testsuite/integration-arquillian/tests/base/src/test/java/org/keycloak/testsuite/spring/Example1Test.java",
+            "line": 10,
+            "scope": "test"
+          },
+          {
+            "code": "spring-security-authorize-requests",
+            "severity": "warning",
+            "title": "authorizeRequests configuration",
+            "recommendation": "Review authorization DSL rules before Spring Security 6 validation.",
+            "file": "testsuite/integration-arquillian/tests/base/src/test/java/org/keycloak/testsuite/spring/Example2Test.java",
+            "line": 11,
+            "scope": "test"
+          },
+          {
+            "code": "spring-security-authorize-requests",
+            "severity": "warning",
+            "title": "authorizeRequests configuration",
+            "recommendation": "Review authorization DSL rules before Spring Security 6 validation.",
+            "file": "testsuite/integration-arquillian/tests/base/src/test/java/org/keycloak/testsuite/spring/Example3Test.java",
+            "line": 12,
+            "scope": "test"
+          },
+          {
+            "code": "spring-security-authorize-requests",
+            "severity": "warning",
+            "title": "authorizeRequests configuration",
+            "recommendation": "Review authorization DSL rules before Spring Security 6 validation.",
+            "file": "testsuite/integration-arquillian/tests/base/src/test/java/org/keycloak/testsuite/spring/Example4Test.java",
+            "line": 13,
+            "scope": "test"
+          },
+          {
+            "code": "spring-security-authorize-requests",
+            "severity": "warning",
+            "title": "authorizeRequests configuration",
+            "recommendation": "Review authorization DSL rules before Spring Security 6 validation.",
+            "file": "testsuite/integration-arquillian/tests/base/src/test/java/org/keycloak/testsuite/spring/Example5Test.java",
+            "line": 14,
+            "scope": "test"
+          }
+        ]
+      }
+    }
+  },
+  "findings": [
+    {
+      "code": "spring-security-legacy-matchers",
+      "severity": "warning",
+      "title": "Legacy Spring Security matcher API",
+      "recommendation": "Review matcher semantics before requestMatchers migration.",
+      "file": "testsuite/integration-arquillian/tests/base/src/test/java/org/keycloak/testsuite/spring/SecurityConfig.java",
+      "line": 42,
+      "scope": "test"
+    },
+    {
+      "code": "javax-usage",
+      "severity": "critical",
+      "title": "javax namespace usage detected",
+      "recommendation": "Plan Jakarta namespace alignment before Spring Security validation.",
+      "file": "services/src/main/java/org/keycloak/services/resources/admin/AdminRoot.java",
+      "line": 7,
+      "scope": "production"
+    },
+    {
+      "code": "spring-security-authorize-requests",
+      "severity": "warning",
+      "title": "authorizeRequests configuration",
+      "recommendation": "Review authorization DSL rules before Spring Security 6 validation.",
+      "file": "testsuite/integration-arquillian/tests/base/src/test/java/org/keycloak/testsuite/spring/Example1Test.java",
+      "line": 10,
+      "scope": "test"
+    },
+    {
+      "code": "spring-security-authorize-requests",
+      "severity": "warning",
+      "title": "authorizeRequests configuration",
+      "recommendation": "Review authorization DSL rules before Spring Security 6 validation.",
+      "file": "testsuite/integration-arquillian/tests/base/src/test/java/org/keycloak/testsuite/spring/Example2Test.java",
+      "line": 11,
+      "scope": "test"
+    },
+    {
+      "code": "spring-security-authorize-requests",
+      "severity": "warning",
+      "title": "authorizeRequests configuration",
+      "recommendation": "Review authorization DSL rules before Spring Security 6 validation.",
+      "file": "testsuite/integration-arquillian/tests/base/src/test/java/org/keycloak/testsuite/spring/Example3Test.java",
+      "line": 12,
+      "scope": "test"
+    },
+    {
+      "code": "spring-security-authorize-requests",
+      "severity": "warning",
+      "title": "authorizeRequests configuration",
+      "recommendation": "Review authorization DSL rules before Spring Security 6 validation.",
+      "file": "testsuite/integration-arquillian/tests/base/src/test/java/org/keycloak/testsuite/spring/Example4Test.java",
+      "line": 13,
+      "scope": "test"
+    },
+    {
+      "code": "spring-security-authorize-requests",
+      "severity": "warning",
+      "title": "authorizeRequests configuration",
+      "recommendation": "Review authorization DSL rules before Spring Security 6 validation.",
+      "file": "testsuite/integration-arquillian/tests/base/src/test/java/org/keycloak/testsuite/spring/Example5Test.java",
+      "line": 14,
+      "scope": "test"
+    }
+  ],
+  "evidence": [
+    {
+      "name": "Build metadata",
+      "status": "passed"
+    },
+    {
+      "name": "Spring Boot version detection",
+      "status": "warning"
+    },
+    {
+      "name": "Jakarta namespace readiness",
+      "status": "failed"
+    },
+    {
+      "name": "Hibernate usage detection",
+      "status": "passed"
+    },
+    {
+      "name": "Spring Security usage detection",
+      "status": "passed"
+    },
+    {
+      "name": "Static source checks",
+      "status": "warning"
+    },
+    {
+      "name": "OpenRewrite dry-run readiness",
+      "status": "pending",
+      "note": "OpenRewrite execution is available through transform --engine openrewrite when Maven or Gradle execution is available."
+    }
+  ],
+  "dependencies": {
+    "springBootVersion": "unknown",
+    "springSecurityVersion": "unknown",
+    "jakartaDetected": true,
+    "javaxDetected": true,
+    "hibernateDetected": true,
+    "springSecurityDetected": true
+  },
+  "benchmark": {
+    "slug": "keycloak-security-adapter",
+    "name": "Keycloak Security Adapter",
+    "repository": "https://github.com/keycloak/keycloak",
+    "ref": null,
+    "requestedSource": "catalog",
+    "source": "catalog",
+    "checkoutPath": null,
+    "analysisPath": null,
+    "gitRevision": null,
+    "commands": [],
+    "validation": {
+      "requested": false,
+      "status": "not_requested",
+      "confidence": 0,
+      "checks": [],
+      "summary": "Validation was not requested."
+    }
+  },
+  "nextActions": [
+    {
+      "id": "plan-jakarta-migration",
+      "priority": "critical",
+      "title": "Plan javax to Jakarta namespace migration",
+      "reason": "Modern Spring Boot and Hibernate migration paths require Jakarta namespace readiness.",
+      "evidenceCount": 1,
+      "findingCodes": [
+        "javax-usage"
+      ],
+      "suggestedCommand": "node ./bin/emp.js analyze . --pack jakarta-readiness --out reports/jakarta-readiness"
+    }
+  ]
+}

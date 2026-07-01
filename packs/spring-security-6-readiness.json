@@ -1,0 +1,72 @@
+{
+  "id": "spring-security-6-readiness",
+  "name": "Spring Security 6 Readiness",
+  "vertical": "Enterprise Java Security Modernization",
+  "migration": "Spring Security 5.x to 6.x readiness",
+  "version": "0.1.0",
+  "categories": [
+    "java",
+    "spring",
+    "jakarta",
+    "build",
+    "security",
+    "architecture",
+    "validation"
+  ],
+  "checks": [
+    {
+      "id": "spring-security-dependency",
+      "engine": "scanner",
+      "description": "Detect Spring Security usage from Maven, Gradle, and source configuration."
+    },
+    {
+      "id": "spring-security-version",
+      "engine": "scanner",
+      "description": "Detect explicit Spring Security 5.x versions when dependency metadata is available."
+    },
+    {
+      "id": "websecurityconfigureradapter",
+      "engine": "static-source-scan",
+      "description": "Find WebSecurityConfigurerAdapter usage that must be replaced before Spring Security 6 migration."
+    },
+    {
+      "id": "legacy-request-matchers",
+      "engine": "static-source-scan",
+      "description": "Find antMatchers, mvcMatchers, and regexMatchers usage that should be reviewed for requestMatchers migration."
+    },
+    {
+      "id": "authorization-dsl",
+      "engine": "static-source-scan",
+      "description": "Find authorizeRequests configuration that should be reviewed for the Spring Security 6 authorization DSL."
+    },
+    {
+      "id": "method-security",
+      "engine": "static-source-scan",
+      "description": "Find EnableGlobalMethodSecurity usage that should be reviewed for modern method security configuration."
+    },
+    {
+      "id": "jakarta-namespace",
+      "engine": "static-source-scan",
+      "description": "Find javax namespace usage that often overlaps with Spring Boot 3 and Spring Security 6 migration work."
+    },
+    {
+      "id": "compile-test-validation",
+      "engine": "build-tool",
+      "description": "Capture Maven or Gradle compile and test validation after security configuration changes."
+    },
+    {
+      "id": "trust-confidence",
+      "engine": "emp-trust",
+      "description": "Summarize compile, test, rollback, compatibility, and confidence evidence for Professional packaging."
+    }
+  ],
+  "reportSections": [
+    "executive-summary",
+    "readiness",
+    "evidence",
+    "validation",
+    "trust-engine",
+    "enterprise-rules",
+    "risks-and-recommendations"
+  ]
+}
