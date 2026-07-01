@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Promoted Hibernate ORM Demos to checkout-backed Hibernate readiness evidence with passing Maven-wrapper compile/test validation.
+
 ## v0.1.3
 
 - Added Trust Engine factors with confidence impacts and explicit evidence reasons.

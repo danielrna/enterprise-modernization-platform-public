@@ -2597,10 +2597,10 @@
     "name": "Hibernate ORM Demos",
     "repository": "https://github.com/hibernate/hibernate-demos",
     "ref": null,
-    "checkoutSubdir": null,
+    "checkoutSubdir": "hibernate-search/hsearch-with-elasticsearch",
     "pack": "hibernate-readiness",
     "buildTools": [
-      "Gradle"
+      "Maven"
     ],
     "javaVersion": "17",
     "validationJavaVersion": null,

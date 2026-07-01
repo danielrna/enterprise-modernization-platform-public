@@ -65,6 +65,7 @@ test('benchmark catalog includes Hibernate readiness evidence', () => {
   assert.equal(hibernateBenchmarks.length >= 5, true);
   assert.equal(hibernateBenchmarks.some((benchmark) => benchmark.slug === 'hibernate-demos'), true);
   assert.equal(hibernateBenchmarks.some((benchmark) => benchmark.slug === 'hypersistence-utils'), true);
+  assert.equal(hibernateBenchmarks.find((benchmark) => benchmark.slug === 'hibernate-demos')?.checkoutSubdir, 'hibernate-search/hsearch-with-elasticsearch');
   assert.equal(hibernateBenchmarks.every((benchmark) => benchmark.hibernateDetected), true);
 });
 
