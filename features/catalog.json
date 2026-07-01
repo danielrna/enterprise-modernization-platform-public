@@ -2,6 +2,41 @@
   "schemaVersion": "emp.features.v1",
   "releases": [
     {
+      "id": "v0.2.1",
+      "title": "v0.2.1",
+      "date": "2026-07-02",
+      "summary": "First checkout-backed JUnit readiness validation evidence with Spring Petclinic REST and AssertJ examples.",
+      "features": [
+        {
+          "id": "junit-checkout-evidence-batch-one",
+          "type": "evidence",
+          "name": "JUnit checkout evidence batch one",
+          "audience": "Consultants validating JUnit 4 to JUnit 5 modernization evidence",
+          "summary": "Promote Spring Petclinic REST JUnit and AssertJ Examples JUnit 4 from catalog-backed examples to checkout-backed validation evidence.",
+          "evidence": [
+            "Promotes Spring Petclinic REST JUnit to checkout-backed evidence at git revision `517a399cabe4dd7a40c07a81facd599df3cbf9cd`.",
+            "Adds passing Maven compile and test validation evidence with 95% validation confidence.",
+            "Promotes AssertJ Examples JUnit 4 to checkout-backed module evidence at git revision `301fc0360dfe3cfbacb2fe7e63d4e32fb01798a0`, with passing Maven compilation and honest Neo4j-related test failure evidence.",
+            "Raises checkout-backed evidence from 30 to 32 reports and passing validation evidence from 13 to 14 reports while preserving the 75-report public catalog."
+          ],
+          "links": [
+            {
+              "label": "Spring Petclinic REST JUnit report",
+              "href": "docs/benchmarks/spring-petclinic-rest-junit/index.html"
+            },
+            {
+              "label": "AssertJ Examples JUnit 4 report",
+              "href": "docs/benchmarks/assertj-examples-junit4/index.html"
+            },
+            {
+              "label": "JUnit 5 Evidence Hub",
+              "href": "docs/migration-hub/junit-5-readiness.html"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "v0.2.0",
       "title": "v0.2.0",
       "date": "2026-07-01",

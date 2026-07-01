@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+## v0.2.1
+
+- Promoted Spring Petclinic REST JUnit to checkout-backed JUnit readiness evidence with passing Maven compile/test validation.
+- Promoted AssertJ Examples JUnit 4 to checkout-backed module evidence with passing Maven compile validation and honest Neo4j-related test failure evidence.
+- Raised checkout-backed benchmark evidence to 32 reports and passing validation evidence to 14 reports while preserving the 75-report public catalog.
+
 ## v0.2.0
 
 - Promoted JHipster Sample Security and Keycloak Security Adapter to checkout-backed Spring Security readiness evidence, completing the initial Spring Security checkout batch.

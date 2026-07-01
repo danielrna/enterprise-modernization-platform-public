@@ -3681,7 +3681,7 @@
     "name": "AssertJ Examples JUnit 4",
     "repository": "https://github.com/assertj/assertj-examples",
     "ref": null,
-    "checkoutSubdir": null,
+    "checkoutSubdir": "assertions-examples",
     "pack": "junit-5-readiness",
     "buildTools": [
       "Maven"

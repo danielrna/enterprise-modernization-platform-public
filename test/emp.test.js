@@ -158,14 +158,14 @@ test('generates release notes from feature metadata', async () => {
   const html = await fs.readFile(path.join(outDir, `${releaseId}.html`), 'utf8');
   const markdown = await fs.readFile(path.join(outDir, `${releaseId}.md`), 'utf8');
 
-  assert.equal(result.count, 8);
+  assert.equal(result.count, 9);
   assert.equal(result.featureCount >= 4, true);
   assert.match(index, /Release Notes/);
-  assert.match(index, /v0\.2\.0/);
-  assert.match(html, /JUnit 5 readiness pack/);
-  assert.match(html, /pack-specific Migration Hub/);
+  assert.match(index, /v0\.2\.1/);
+  assert.match(html, /JUnit checkout evidence batch one/);
+  assert.match(html, /Spring Petclinic REST JUnit/);
   assert.match(markdown, new RegExp(`# ${releaseId}`));
-  assert.match(markdown, /## JUnit 5 readiness pack/);
+  assert.match(markdown, /## JUnit checkout evidence batch one/);
 });
 
 test('generates Consultant Demo page and bundle', async () => {
