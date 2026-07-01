@@ -1,10 +1,10 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 
-const RELEASE_URL = 'https://github.com/danielrna/enterprise-modernization-platform-public/releases/tag/v0.1.3';
-const SAMPLE_REPORT_URL = 'https://github.com/danielrna/enterprise-modernization-platform-public/releases/download/v0.1.3/emp-smoke-report.zip';
+const RELEASE_URL = 'https://github.com/danielrna/enterprise-modernization-platform/releases/tag/v0.1.3';
+const SAMPLE_REPORT_URL = 'https://github.com/danielrna/enterprise-modernization-platform/releases/download/v0.1.3/emp-smoke-report.zip';
 const DOCKER_IMAGE = 'danielrna/enterprise-modernization-platform:v0.1.3';
-const GITHUB_ACTION = 'danielrna/enterprise-modernization-platform-public@v0.1.3';
+const GITHUB_ACTION = 'danielrna/enterprise-modernization-platform@v0.1.3';
 
 export async function generateMigrationHub({ outDir, benchmarks = [], benchmarksDir = path.resolve(outDir, '..', 'benchmarks') }) {
   await fs.mkdir(outDir, { recursive: true });

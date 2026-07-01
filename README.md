@@ -8,35 +8,35 @@ The product is not a Java migration tool. The product is confidence that an appl
 
 ## Try In 5 Minutes
 
-Release: https://github.com/danielrna/enterprise-modernization-platform-public/releases/tag/v0.1.3
+Release: https://github.com/danielrna/enterprise-modernization-platform/releases/tag/v0.1.3
 
-Sample smoke-test report: https://github.com/danielrna/enterprise-modernization-platform-public/releases/download/v0.1.3/emp-smoke-report.zip
+Sample smoke-test report: https://github.com/danielrna/enterprise-modernization-platform/releases/download/v0.1.3/emp-smoke-report.zip
 
-Spring Boot 2 to 3 Migration Hub: https://danielrna.github.io/enterprise-modernization-platform-public/migration-hub/spring-boot-2-to-3.html
+Spring Boot 2 to 3 Migration Hub: https://danielrna.github.io/enterprise-modernization-platform/migration-hub/spring-boot-2-to-3.html
 
-Migration pack docs: https://danielrna.github.io/enterprise-modernization-platform-public/packs/
+Migration pack docs: https://danielrna.github.io/enterprise-modernization-platform/packs/
 
-Knowledge Base: https://danielrna.github.io/enterprise-modernization-platform-public/knowledge-base/
+Knowledge Base: https://danielrna.github.io/enterprise-modernization-platform/knowledge-base/
 
-Release notes: https://danielrna.github.io/enterprise-modernization-platform-public/release-notes/
+Release notes: https://danielrna.github.io/enterprise-modernization-platform/release-notes/
 
 Validated benchmark references:
 
-- https://danielrna.github.io/enterprise-modernization-platform-public/benchmarks/gs-spring-boot-27/index.html
-- https://danielrna.github.io/enterprise-modernization-platform-public/benchmarks/gs-rest-service-27/index.html
-- https://danielrna.github.io/enterprise-modernization-platform-public/benchmarks/gs-serving-web-content-27/index.html
-- https://danielrna.github.io/enterprise-modernization-platform-public/benchmarks/spring-petclinic-rest-26/index.html
-- https://danielrna.github.io/enterprise-modernization-platform-public/benchmarks/spring-boot-realworld/index.html
+- https://danielrna.github.io/enterprise-modernization-platform/benchmarks/gs-spring-boot-27/index.html
+- https://danielrna.github.io/enterprise-modernization-platform/benchmarks/gs-rest-service-27/index.html
+- https://danielrna.github.io/enterprise-modernization-platform/benchmarks/gs-serving-web-content-27/index.html
+- https://danielrna.github.io/enterprise-modernization-platform/benchmarks/spring-petclinic-rest-26/index.html
+- https://danielrna.github.io/enterprise-modernization-platform/benchmarks/spring-boot-realworld/index.html
 
-Editions: https://danielrna.github.io/enterprise-modernization-platform-public/editions.html
+Editions: https://danielrna.github.io/enterprise-modernization-platform/editions.html
 
-Contact: https://danielrna.github.io/enterprise-modernization-platform-public/contact.html
+Contact: https://danielrna.github.io/enterprise-modernization-platform/contact.html
 
 Run the analyzer on any Java or Spring repository:
 
 ```bash
-git clone https://github.com/danielrna/enterprise-modernization-platform-public.git
-cd enterprise-modernization-platform-public
+git clone https://github.com/danielrna/enterprise-modernization-platform.git
+cd enterprise-modernization-platform
 npm run check
 node ./bin/emp.js analyze /path/to/spring-app --out reports/readiness
 ```
@@ -91,7 +91,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Run EMP readiness
-        uses: danielrna/enterprise-modernization-platform-public@v0.1.3
+        uses: danielrna/enterprise-modernization-platform@v0.1.3
         with:
           path: .
           pack: spring-boot-3-readiness
@@ -146,7 +146,7 @@ The public validation set now proves the reference flow on 5 real checkouts, inc
 - Consultant: repeated client usage, enterprise rules workflow, and reusable reporting assets.
 - Organization: team usage, shared rules workflow, and CI-ready evidence reports.
 
-Access requests are handled through the static contact page: https://danielrna.github.io/enterprise-modernization-platform-public/contact.html
+Access requests are handled through the static contact page: https://danielrna.github.io/enterprise-modernization-platform/contact.html
 
 ## Enterprise Rules
 
