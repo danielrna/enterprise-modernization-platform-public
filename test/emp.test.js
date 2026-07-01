@@ -110,16 +110,17 @@ test('generates release notes from feature metadata', async () => {
   const outDir = path.join(root, 'release-notes');
 
   const result = await generateReleaseNotes({ featuresFile: path.resolve('features/catalog.json'), outDir });
+  const releaseId = result.releases[0].id;
   const index = await fs.readFile(path.join(outDir, 'index.html'), 'utf8');
-  const html = await fs.readFile(path.join(outDir, 'unreleased.html'), 'utf8');
-  const markdown = await fs.readFile(path.join(outDir, 'unreleased.md'), 'utf8');
+  const html = await fs.readFile(path.join(outDir, `${releaseId}.html`), 'utf8');
+  const markdown = await fs.readFile(path.join(outDir, `${releaseId}.md`), 'utf8');
 
   assert.equal(result.count, 1);
   assert.equal(result.featureCount >= 4, true);
   assert.match(index, /Release Notes/);
   assert.match(html, /Release notes from feature metadata/);
   assert.match(html, /Pack documentation generation/);
-  assert.match(markdown, /# Unreleased/);
+  assert.match(markdown, new RegExp(`# ${releaseId}`));
   assert.match(markdown, /## Release notes from feature metadata/);
 });
 
