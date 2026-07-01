@@ -2,6 +2,45 @@
   "schemaVersion": "emp.features.v1",
   "releases": [
     {
+      "id": "v0.1.5",
+      "title": "v0.1.5",
+      "date": "2026-07-01",
+      "summary": "Hibernate evidence expansion with additional checkout-backed validation outcomes.",
+      "features": [
+        {
+          "id": "hibernate-validation-evidence-batch",
+          "type": "evidence",
+          "name": "Hibernate checkout validation evidence batch",
+          "audience": "Consultants and persistence modernization reviewers",
+          "summary": "Promote three more Hibernate readiness benchmarks from catalog-only examples to checkout-backed validation evidence with honest pass, failure, and timeout results.",
+          "evidence": [
+            "Promotes Hypersistence Utils to checkout-backed Hibernate readiness evidence with Maven toolchain failure evidence for the required JDK 8 toolchain.",
+            "Promotes High Performance Java Persistence to checkout-backed Hibernate readiness evidence with validation timeout evidence under the current 120-second check budget.",
+            "Promotes Hibernate Test Case Templates to checkout-backed Hibernate readiness evidence with passing Maven compile validation and Docker-dependent reactive test failure evidence.",
+            "Raises the public evidence set to 20 checkout-backed reports while preserving 55 total benchmark reports."
+          ],
+          "links": [
+            {
+              "label": "Hypersistence Utils report",
+              "href": "docs/benchmarks/hypersistence-utils/index.html"
+            },
+            {
+              "label": "High Performance Java Persistence report",
+              "href": "docs/benchmarks/high-performance-java-persistence/index.html"
+            },
+            {
+              "label": "Hibernate Test Case Templates report",
+              "href": "docs/benchmarks/hibernate-test-case-templates/index.html"
+            },
+            {
+              "label": "Benchmark index",
+              "href": "docs/benchmarks/index.html"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "v0.1.4",
       "title": "v0.1.4",
       "date": "2026-07-01",

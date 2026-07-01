@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import { spawn } from 'node:child_process';
 import fs from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
@@ -14,6 +15,14 @@ import { generateReleaseNotes } from '../src/release-notes.js';
 import { transformProject } from '../src/transform.js';
 import { loadEnterpriseRules, evaluateEnterpriseRules } from '../src/rules.js';
 import { handleMcpRequest } from '../src/mcp.js';
+
+test('CLI version matches package metadata', async () => {
+  const packageJson = JSON.parse(await fs.readFile(path.resolve('package.json'), 'utf8'));
+  const result = await runNode(['./bin/emp.js', '--version']);
+
+  assert.equal(result.exitCode, 0);
+  assert.equal(result.stdout.trim(), packageJson.version);
+});
 
 test('analyzes a Spring Boot project and writes HTML/JSON reports', async () => {
   const root = await makeSpringProject();
@@ -116,14 +125,14 @@ test('generates release notes from feature metadata', async () => {
   const html = await fs.readFile(path.join(outDir, `${releaseId}.html`), 'utf8');
   const markdown = await fs.readFile(path.join(outDir, `${releaseId}.md`), 'utf8');
 
-  assert.equal(result.count, 2);
+  assert.equal(result.count, 3);
   assert.equal(result.featureCount >= 4, true);
   assert.match(index, /Release Notes/);
-  assert.match(index, /v0\.1\.4/);
-  assert.match(html, /Hibernate ORM Demos checkout validation/);
-  assert.match(html, /checkout-backed evidence/);
+  assert.match(index, /v0\.1\.5/);
+  assert.match(html, /Hibernate checkout validation evidence batch/);
+  assert.match(html, /checkout-backed validation evidence/);
   assert.match(markdown, new RegExp(`# ${releaseId}`));
-  assert.match(markdown, /## Hibernate ORM Demos checkout validation/);
+  assert.match(markdown, /## Hibernate checkout validation evidence batch/);
 });
 
 test('local benchmark reports include checkout evidence', async () => {
@@ -678,4 +687,21 @@ public class Demo {
 }
 `);
   return root;
+}
+
+async function runNode(args) {
+  return new Promise((resolve) => {
+    const child = spawn(process.execPath, args, { cwd: process.cwd() });
+    let stdout = '';
+    let stderr = '';
+    child.stdout.on('data', (chunk) => {
+      stdout += chunk;
+    });
+    child.stderr.on('data', (chunk) => {
+      stderr += chunk;
+    });
+    child.on('close', (exitCode) => {
+      resolve({ exitCode, stdout, stderr });
+    });
+  });
 }
