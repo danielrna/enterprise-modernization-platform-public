@@ -1,17 +1,17 @@
 {
   "schemaVersion": "emp.report.v1",
-  "generatedAt": "2026-07-01T06:16:31.251Z",
+  "generatedAt": "2026-07-01T16:39:23.676Z",
   "project": {
     "name": "Hibernate ORM Demos",
-    "root": "https://github.com/hibernate/hibernate-demos",
+    "root": "benchmark-repos/hibernate-demos/hibernate-search/hsearch-with-elasticsearch",
     "source": "https://github.com/hibernate/hibernate-demos",
     "buildTools": [
-      "Gradle"
+      "Maven"
     ],
     "javaVersion": "17",
     "springBootVersion": "unknown",
-    "fileCount": 420,
-    "javaFileCount": 260
+    "fileCount": 10,
+    "javaFileCount": 6
   },
   "pack": "hibernate-readiness",
   "packApplicability": {
@@ -20,11 +20,11 @@
     "reason": "Hibernate ORM usage was detected. This pack targets Hibernate 5.x to 6.x readiness."
   },
   "readiness": {
-    "overall": 80,
+    "overall": 83,
     "categories": {
-      "java": 88,
+      "java": 84,
       "spring": 86,
-      "hibernate": 56,
+      "hibernate": 84,
       "jakarta": 79,
       "build": 90,
       "security": 76,
@@ -33,167 +33,62 @@
     "summary": "Ready with remediation work",
     "counts": {
       "critical": 1,
-      "warning": 8,
-      "info": 0
+      "warning": 0,
+      "info": 3
     }
   },
   "productionFindings": [
     {
-      "code": "hibernate-session-api",
-      "severity": "warning",
-      "title": "Direct Hibernate Session API usage",
-      "recommendation": "Validate Session and SessionFactory usage against the Hibernate 6 migration guide.",
-      "file": "basic/src/main/java/org/hibernate/demos/Demo.java",
-      "line": 18,
-      "scope": "production"
-    },
-    {
       "code": "javax-usage",
       "severity": "critical",
       "title": "javax namespace usage detected",
-      "recommendation": "Plan Jakarta namespace alignment before Hibernate 6 validation.",
-      "file": "basic/src/main/java/org/hibernate/demos/Entity.java",
-      "line": 5,
+      "recommendation": "Migrate Java EE imports to Jakarta equivalents for Spring Boot 3.",
+      "file": null,
+      "line": null,
       "scope": "production"
     },
     {
-      "code": "hibernate-session-api",
-      "severity": "warning",
-      "title": "Direct Hibernate Session API usage",
-      "recommendation": "Review direct ORM API usage before Hibernate 6 migration.",
-      "file": "basic/src/main/java/org/hibernate/demos/Example1.java",
-      "line": 10,
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "src/main/java/org/hibernate/demos/hswithes/dto/VideoGameDto.java",
+      "line": 3,
       "scope": "production"
     },
     {
-      "code": "hibernate-session-api",
-      "severity": "warning",
-      "title": "Direct Hibernate Session API usage",
-      "recommendation": "Review direct ORM API usage before Hibernate 6 migration.",
-      "file": "basic/src/main/java/org/hibernate/demos/Example2.java",
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "src/main/java/org/hibernate/demos/hswithes/model/VideoGame.java",
       "line": 11,
-      "scope": "production"
-    },
-    {
-      "code": "hibernate-session-api",
-      "severity": "warning",
-      "title": "Direct Hibernate Session API usage",
-      "recommendation": "Review direct ORM API usage before Hibernate 6 migration.",
-      "file": "basic/src/main/java/org/hibernate/demos/Example3.java",
-      "line": 12,
-      "scope": "production"
-    },
-    {
-      "code": "hibernate-session-api",
-      "severity": "warning",
-      "title": "Direct Hibernate Session API usage",
-      "recommendation": "Review direct ORM API usage before Hibernate 6 migration.",
-      "file": "basic/src/main/java/org/hibernate/demos/Example4.java",
-      "line": 13,
-      "scope": "production"
-    },
-    {
-      "code": "hibernate-session-api",
-      "severity": "warning",
-      "title": "Direct Hibernate Session API usage",
-      "recommendation": "Review direct ORM API usage before Hibernate 6 migration.",
-      "file": "basic/src/main/java/org/hibernate/demos/Example5.java",
-      "line": 14,
-      "scope": "production"
-    },
-    {
-      "code": "hibernate-session-api",
-      "severity": "warning",
-      "title": "Direct Hibernate Session API usage",
-      "recommendation": "Review direct ORM API usage before Hibernate 6 migration.",
-      "file": "basic/src/main/java/org/hibernate/demos/Example6.java",
-      "line": 15,
-      "scope": "production"
-    },
-    {
-      "code": "hibernate-session-api",
-      "severity": "warning",
-      "title": "Direct Hibernate Session API usage",
-      "recommendation": "Review direct ORM API usage before Hibernate 6 migration.",
-      "file": "basic/src/main/java/org/hibernate/demos/Example7.java",
-      "line": 16,
       "scope": "production"
     }
   ],
-  "testFindings": [],
+  "testFindings": [
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "src/test/java/org/hibernate/demos/HibernateSearchWithElasticsearchIT.java",
+      "line": 211,
+      "scope": "test"
+    }
+  ],
   "findingSummary": {
     "production": {
       "critical": 1,
-      "warning": 8,
-      "info": 0
+      "warning": 0,
+      "info": 2
     },
     "test": {
       "critical": 0,
       "warning": 0,
-      "info": 0
+      "info": 1
     },
     "byCode": {
-      "hibernate-session-api": {
-        "code": "hibernate-session-api",
-        "title": "Direct Hibernate Session API usage",
-        "severity": "warning",
-        "total": 8,
-        "production": 8,
-        "test": 0,
-        "topModules": [
-          {
-            "name": "basic",
-            "count": 8
-          }
-        ],
-        "examples": [
-          {
-            "code": "hibernate-session-api",
-            "severity": "warning",
-            "title": "Direct Hibernate Session API usage",
-            "recommendation": "Validate Session and SessionFactory usage against the Hibernate 6 migration guide.",
-            "file": "basic/src/main/java/org/hibernate/demos/Demo.java",
-            "line": 18,
-            "scope": "production"
-          },
-          {
-            "code": "hibernate-session-api",
-            "severity": "warning",
-            "title": "Direct Hibernate Session API usage",
-            "recommendation": "Review direct ORM API usage before Hibernate 6 migration.",
-            "file": "basic/src/main/java/org/hibernate/demos/Example1.java",
-            "line": 10,
-            "scope": "production"
-          },
-          {
-            "code": "hibernate-session-api",
-            "severity": "warning",
-            "title": "Direct Hibernate Session API usage",
-            "recommendation": "Review direct ORM API usage before Hibernate 6 migration.",
-            "file": "basic/src/main/java/org/hibernate/demos/Example2.java",
-            "line": 11,
-            "scope": "production"
-          },
-          {
-            "code": "hibernate-session-api",
-            "severity": "warning",
-            "title": "Direct Hibernate Session API usage",
-            "recommendation": "Review direct ORM API usage before Hibernate 6 migration.",
-            "file": "basic/src/main/java/org/hibernate/demos/Example3.java",
-            "line": 12,
-            "scope": "production"
-          },
-          {
-            "code": "hibernate-session-api",
-            "severity": "warning",
-            "title": "Direct Hibernate Session API usage",
-            "recommendation": "Review direct ORM API usage before Hibernate 6 migration.",
-            "file": "basic/src/main/java/org/hibernate/demos/Example4.java",
-            "line": 13,
-            "scope": "production"
-          }
-        ]
-      },
       "javax-usage": {
         "code": "javax-usage",
         "title": "javax namespace usage detected",
@@ -203,7 +98,7 @@
         "test": 0,
         "topModules": [
           {
-            "name": "basic",
+            "name": "project",
             "count": 1
           }
         ],
@@ -212,10 +107,69 @@
             "code": "javax-usage",
             "severity": "critical",
             "title": "javax namespace usage detected",
-            "recommendation": "Plan Jakarta namespace alignment before Hibernate 6 validation.",
-            "file": "basic/src/main/java/org/hibernate/demos/Entity.java",
-            "line": 5,
+            "recommendation": "Migrate Java EE imports to Jakarta equivalents for Spring Boot 3.",
+            "file": null,
+            "line": null,
             "scope": "production"
+          }
+        ]
+      },
+      "java-util-date": {
+        "code": "java-util-date",
+        "title": "java.util.Date usage",
+        "severity": "info",
+        "total": 2,
+        "production": 2,
+        "test": 0,
+        "topModules": [
+          {
+            "name": "src",
+            "count": 2
+          }
+        ],
+        "examples": [
+          {
+            "code": "java-util-date",
+            "severity": "info",
+            "title": "java.util.Date usage",
+            "recommendation": "Review java.util.Date usage before modernization.",
+            "file": "src/main/java/org/hibernate/demos/hswithes/dto/VideoGameDto.java",
+            "line": 3,
+            "scope": "production"
+          },
+          {
+            "code": "java-util-date",
+            "severity": "info",
+            "title": "java.util.Date usage",
+            "recommendation": "Review java.util.Date usage before modernization.",
+            "file": "src/main/java/org/hibernate/demos/hswithes/model/VideoGame.java",
+            "line": 11,
+            "scope": "production"
+          }
+        ]
+      },
+      "system-out": {
+        "code": "system-out",
+        "title": "System.out logging",
+        "severity": "info",
+        "total": 1,
+        "production": 0,
+        "test": 1,
+        "topModules": [
+          {
+            "name": "src",
+            "count": 1
+          }
+        ],
+        "examples": [
+          {
+            "code": "system-out",
+            "severity": "info",
+            "title": "System.out logging",
+            "recommendation": "Review System.out logging before modernization.",
+            "file": "src/test/java/org/hibernate/demos/HibernateSearchWithElasticsearchIT.java",
+            "line": 211,
+            "scope": "test"
           }
         ]
       }
@@ -223,85 +177,40 @@
   },
   "findings": [
     {
-      "code": "hibernate-session-api",
-      "severity": "warning",
-      "title": "Direct Hibernate Session API usage",
-      "recommendation": "Validate Session and SessionFactory usage against the Hibernate 6 migration guide.",
-      "file": "basic/src/main/java/org/hibernate/demos/Demo.java",
-      "line": 18,
-      "scope": "production"
-    },
-    {
       "code": "javax-usage",
       "severity": "critical",
       "title": "javax namespace usage detected",
-      "recommendation": "Plan Jakarta namespace alignment before Hibernate 6 validation.",
-      "file": "basic/src/main/java/org/hibernate/demos/Entity.java",
-      "line": 5,
+      "recommendation": "Migrate Java EE imports to Jakarta equivalents for Spring Boot 3.",
+      "file": null,
+      "line": null,
       "scope": "production"
     },
     {
-      "code": "hibernate-session-api",
-      "severity": "warning",
-      "title": "Direct Hibernate Session API usage",
-      "recommendation": "Review direct ORM API usage before Hibernate 6 migration.",
-      "file": "basic/src/main/java/org/hibernate/demos/Example1.java",
-      "line": 10,
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "src/main/java/org/hibernate/demos/hswithes/dto/VideoGameDto.java",
+      "line": 3,
       "scope": "production"
     },
     {
-      "code": "hibernate-session-api",
-      "severity": "warning",
-      "title": "Direct Hibernate Session API usage",
-      "recommendation": "Review direct ORM API usage before Hibernate 6 migration.",
-      "file": "basic/src/main/java/org/hibernate/demos/Example2.java",
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "src/main/java/org/hibernate/demos/hswithes/model/VideoGame.java",
       "line": 11,
       "scope": "production"
     },
     {
-      "code": "hibernate-session-api",
-      "severity": "warning",
-      "title": "Direct Hibernate Session API usage",
-      "recommendation": "Review direct ORM API usage before Hibernate 6 migration.",
-      "file": "basic/src/main/java/org/hibernate/demos/Example3.java",
-      "line": 12,
-      "scope": "production"
-    },
-    {
-      "code": "hibernate-session-api",
-      "severity": "warning",
-      "title": "Direct Hibernate Session API usage",
-      "recommendation": "Review direct ORM API usage before Hibernate 6 migration.",
-      "file": "basic/src/main/java/org/hibernate/demos/Example4.java",
-      "line": 13,
-      "scope": "production"
-    },
-    {
-      "code": "hibernate-session-api",
-      "severity": "warning",
-      "title": "Direct Hibernate Session API usage",
-      "recommendation": "Review direct ORM API usage before Hibernate 6 migration.",
-      "file": "basic/src/main/java/org/hibernate/demos/Example5.java",
-      "line": 14,
-      "scope": "production"
-    },
-    {
-      "code": "hibernate-session-api",
-      "severity": "warning",
-      "title": "Direct Hibernate Session API usage",
-      "recommendation": "Review direct ORM API usage before Hibernate 6 migration.",
-      "file": "basic/src/main/java/org/hibernate/demos/Example6.java",
-      "line": 15,
-      "scope": "production"
-    },
-    {
-      "code": "hibernate-session-api",
-      "severity": "warning",
-      "title": "Direct Hibernate Session API usage",
-      "recommendation": "Review direct ORM API usage before Hibernate 6 migration.",
-      "file": "basic/src/main/java/org/hibernate/demos/Example7.java",
-      "line": 16,
-      "scope": "production"
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "src/test/java/org/hibernate/demos/HibernateSearchWithElasticsearchIT.java",
+      "line": 211,
+      "scope": "test"
     }
   ],
   "evidence": [
@@ -333,7 +242,7 @@
   ],
   "dependencies": {
     "springBootVersion": "unknown",
-    "jakartaDetected": true,
+    "jakartaDetected": false,
     "javaxDetected": true,
     "hibernateDetected": true,
     "springSecurityDetected": false
@@ -343,18 +252,37 @@
     "name": "Hibernate ORM Demos",
     "repository": "https://github.com/hibernate/hibernate-demos",
     "ref": null,
-    "requestedSource": "catalog",
-    "source": "catalog",
-    "checkoutPath": null,
-    "analysisPath": null,
-    "gitRevision": null,
+    "requestedSource": "local",
+    "source": "checkout",
+    "checkoutPath": "benchmark-repos/hibernate-demos",
+    "analysisPath": "benchmark-repos/hibernate-demos/hibernate-search/hsearch-with-elasticsearch",
+    "gitRevision": "2e7c24ec92ad872635ecdaa59a86fef4c90ab2da",
     "commands": [],
     "validation": {
-      "requested": false,
-      "status": "not_requested",
-      "confidence": 0,
-      "checks": [],
-      "summary": "Validation was not requested."
+      "requested": true,
+      "status": "passed",
+      "confidence": 95,
+      "checks": [
+        {
+          "name": "Compilation",
+          "status": "passed",
+          "command": "./mvnw -q -DskipTests compile",
+          "durationMs": 4728,
+          "exitCode": 0,
+          "output": "WARNING: A restricted method in java.lang.System has been called\nWARNING: java.lang.System::load has been called by org.fusesource.jansi.internal.JansiLoader in an unnamed module (file:~/.m2/wrapper/dists/apache-maven-3.9.5-bin/32db9c34/apache-maven-3.9.5/lib/jansi-2.4.0.jar)\nWARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module\nWARNING: Restricted methods will be blocked in a future release unless native access is enabled\n\nWARNING: A terminally deprecated method in sun.misc.Unsafe has been called\nWARNING: sun.misc.Unsafe::objectFieldOffset has been called by com.google.common.util.concurrent.AbstractFuture$UnsafeAtomicHelper (file:~/.m2/wrapper/dists/apache-maven-3.9.5-bin/32db9c34/apache-maven-3.9.5/lib/guava-32.0.1-jre.jar)\nWARNING: Please consider reporting this to the maintainers of class com.google.common.util.concurrent.AbstractFuture$UnsafeAtomicHelper\nWARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release",
+          "timedOut": false
+        },
+        {
+          "name": "Tests",
+          "status": "passed",
+          "command": "./mvnw -q test",
+          "durationMs": 10683,
+          "exitCode": 0,
+          "output": "WARNING: A restricted method in java.lang.System has been called\nWARNING: java.lang.System::load has been called by org.fusesource.jansi.internal.JansiLoader in an unnamed module (file:~/.m2/wrapper/dists/apache-maven-3.9.5-bin/32db9c34/apache-maven-3.9.5/lib/jansi-2.4.0.jar)\nWARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module\nWARNING: Restricted methods will be blocked in a future release unless native access is enabled\n\nWARNING: A terminally deprecated method in sun.misc.Unsafe has been called\nWARNING: sun.misc.Unsafe::objectFieldOffset has been called by com.google.common.util.concurrent.AbstractFuture$UnsafeAtomicHelper (file:~/.m2/wrapper/dists/apache-maven-3.9.5-bin/32db9c34/apache-maven-3.9.5/lib/guava-32.0.1-jre.jar)\nWARNING: Please consider reporting this to the maintainers of class com.google.common.util.concurrent.AbstractFuture$UnsafeAtomicHelper\nWARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release",
+          "timedOut": false
+        }
+      ],
+      "summary": "Compilation and tests completed successfully."
     }
   },
   "nextActions": [
@@ -368,20 +296,6 @@
         "javax-usage"
       ],
       "suggestedCommand": "node ./bin/emp.js analyze . --pack jakarta-readiness --out reports/jakarta-readiness"
-    },
-    {
-      "id": "review-hibernate-upgrade-risks",
-      "priority": "warning",
-      "title": "Review Hibernate API and mapping upgrade risks",
-      "reason": "Hibernate 6 readiness depends on explicit review of legacy Criteria usage, Session API assumptions, custom types, and XML mappings.",
-      "evidenceCount": 8,
-      "findingCodes": [
-        "hibernate-legacy-criteria",
-        "hibernate-session-api",
-        "hibernate-custom-type",
-        "hibernate-xml-mapping"
-      ],
-      "suggestedCommand": "node ./bin/emp.js analyze . --pack hibernate-readiness --out reports/hibernate-readiness"
     }
   ]
 }
