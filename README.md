@@ -14,6 +14,8 @@ Sample smoke-test report: https://github.com/danielrna/enterprise-modernization-
 
 Spring Boot 2 to 3 Migration Hub: https://danielrna.github.io/enterprise-modernization-platform-public/migration-hub/spring-boot-2-to-3.html
 
+Migration pack docs: https://danielrna.github.io/enterprise-modernization-platform-public/packs/
+
 Validated benchmark references:
 
 - https://danielrna.github.io/enterprise-modernization-platform-public/benchmarks/gs-spring-boot-27/index.html
@@ -199,10 +201,11 @@ Regenerate static assets:
 node ./bin/emp.js benchmarks --out docs/benchmarks
 node ./bin/emp.js benchmarks --source local --validate --validation-timeout-ms 30000 --out docs/benchmarks
 node ./bin/emp.js hub --out docs/migration-hub
+npm run docs:generate
 npm run benchmarks:publish
 ```
 
-`npm run benchmarks:publish` uses the checked-in benchmark reports by default, regenerates the Migration Hub, writes `reports/benchmark-publish-summary.json`, and asserts the current report count. Use `npm run benchmarks:publish -- --min-count 50` for the Month 6 benchmark gate. Use `node ./scripts/benchmark-publish.js --source local --validate` or `--source clone --validate` when intentionally refreshing checkout-backed evidence.
+`npm run docs:generate` generates static pack documentation from `packs/*.json`. `npm run benchmarks:publish` uses the checked-in benchmark reports by default, regenerates the Migration Hub and pack docs, writes `reports/benchmark-publish-summary.json`, and asserts the current report count. Use `npm run benchmarks:publish -- --min-count 50` for the Month 6 benchmark gate. Use `node ./scripts/benchmark-publish.js --source local --validate` or `--source clone --validate` when intentionally refreshing checkout-backed evidence.
 
 ## Verification
 
@@ -215,6 +218,7 @@ docker run --rm --entrypoint npm -w /app emp-cli run check
 Current automated coverage verifies:
 
 - Readiness analysis, report generation, benchmark publishing, and hub generation.
+- Pack documentation generation from pack metadata.
 - Checkout benchmark validation evidence for compilation and tests.
 - Transformation dry-run, apply, rollback, validation evidence, and OpenRewrite engine selection.
 - Java 17 to 21 target update planning and Trust Engine evidence.

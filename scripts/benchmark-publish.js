@@ -3,12 +3,14 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { BENCHMARKS, publishBenchmarks } from '../src/benchmarks.js';
 import { generateMigrationHub } from '../src/hub.js';
+import { generatePackDocs } from '../src/pack-docs.js';
 
 const DEFAULT_MIN_COUNT = BENCHMARKS.length;
 
 const { options } = parseOptions(process.argv.slice(2));
 const outDir = path.resolve(options.out || 'docs/benchmarks');
 const hubDir = path.resolve(options.hub || 'docs/migration-hub');
+const packDocsDir = path.resolve(options['pack-docs'] || 'docs/packs');
 const source = options.source || 'existing';
 const minCount = Number(options['min-count'] || DEFAULT_MIN_COUNT);
 
@@ -33,6 +35,7 @@ if (source === 'existing') {
 }
 
 await generateMigrationHub({ outDir: hubDir, benchmarks: reports, benchmarksDir: outDir });
+const packDocs = await generatePackDocs({ outDir: packDocsDir });
 
 const summary = await summarizePublishedReports(outDir);
 if (summary.total < minCount) {
@@ -46,14 +49,17 @@ await fs.writeFile(options.summary || 'reports/benchmark-publish-summary.json', 
   source,
   outDir: path.relative(process.cwd(), outDir),
   hubDir: path.relative(process.cwd(), hubDir),
+  packDocsDir: path.relative(process.cwd(), packDocsDir),
   minCount,
   catalogCount: BENCHMARKS.length,
+  packDocsCount: packDocs.count,
   ...summary
 }, null, 2)}\n`);
 
 console.log(`Published ${summary.total} benchmark reports from ${source} source.`);
 console.log(`Checkout-backed: ${summary.checkoutBacked}; validated passed: ${summary.validationPassed}.`);
 console.log(`Migration Hub: ${path.relative(process.cwd(), hubDir)}`);
+console.log(`Pack docs: ${path.relative(process.cwd(), packDocsDir)}`);
 
 async function loadPublishedReportSummaries(benchmarksDir) {
   const entries = await fs.readdir(benchmarksDir, { withFileTypes: true }).catch(() => []);

@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Added pack documentation generation from `packs/*.json`, including static GitHub Pages output under `docs/packs/`.
 - Moved benchmark catalog data to `benchmarks/catalog.json`.
 - Added `npm run benchmarks:publish` to regenerate the Migration Hub from published benchmark evidence and enforce benchmark report counts.
 - Expanded the public benchmark catalog to 50 reports, including 49 Spring Boot readiness reports and one Jakarta readiness report.

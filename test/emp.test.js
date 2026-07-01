@@ -8,6 +8,7 @@ import { scoreReadiness } from '../src/readiness.js';
 import { writeReportBundle } from '../src/report.js';
 import { publishBenchmarks } from '../src/benchmarks.js';
 import { generateMigrationHub } from '../src/hub.js';
+import { generatePackDocs } from '../src/pack-docs.js';
 import { transformProject } from '../src/transform.js';
 import { loadEnterpriseRules, evaluateEnterpriseRules } from '../src/rules.js';
 import { handleMcpRequest } from '../src/mcp.js';
@@ -52,6 +53,24 @@ test('publishes the benchmark catalog and migration hub', async () => {
   assert.match(hub, /Findings/);
   assert.match(hub, /Validated Benchmark/);
   assert.match(hub, /Compile \+ tests/);
+});
+
+test('generates documentation pages from pack metadata', async () => {
+  const root = await fs.mkdtemp(path.join(os.tmpdir(), 'emp-pack-docs-'));
+  const outDir = path.join(root, 'packs');
+
+  const result = await generatePackDocs({ packsDir: path.resolve('packs'), outDir });
+  const index = await fs.readFile(path.join(outDir, 'index.html'), 'utf8');
+  const springBoot = await fs.readFile(path.join(outDir, 'spring-boot-3-readiness.html'), 'utf8');
+  const java = await fs.readFile(path.join(outDir, 'java-17-to-21-readiness.html'), 'utf8');
+
+  assert.equal(result.count, 3);
+  assert.match(index, /Migration Packs/);
+  assert.match(index, /Spring Boot 3 Readiness/);
+  assert.match(springBoot, /Spring Boot 2\.x to 3\.x/);
+  assert.match(springBoot, /openrewrite-dry-run/);
+  assert.match(springBoot, /node \.\/bin\/emp\.js analyze \/path\/to\/app --pack spring-boot-3-readiness/);
+  assert.match(java, /binary compatibility/);
 });
 
 test('local benchmark reports include checkout evidence', async () => {
@@ -449,8 +468,11 @@ test('GitHub Action exposes Docker readiness analysis inputs', async () => {
   assert.match(entrypoint, /GITHUB_WORKSPACE:-\/workspace/);
   assert.match(await fs.readFile(path.resolve('package.json'), 'utf8'), /"release:verify"/);
   assert.match(await fs.readFile(path.resolve('package.json'), 'utf8'), /"ci:verify"/);
+  assert.match(await fs.readFile(path.resolve('package.json'), 'utf8'), /"docs:generate"/);
+  assert.match(await fs.readFile(path.resolve('package.json'), 'utf8'), /pack-docs\.js/);
   assert.match(await fs.readFile(path.resolve('scripts/ci-examples-verify.js'), 'utf8'), /command_equivalent_verified/);
   assert.match(await fs.readFile(path.resolve('scripts/release-verify.js'), 'utf8'), /Release verification passed/);
+  assert.match(await fs.readFile(path.resolve('scripts/benchmark-publish.js'), 'utf8'), /generatePackDocs/);
   assert.match(githubDocs, /actions\/upload-artifact@v4/);
   assert.match(githubDocs, /emp-report\/index\.html/);
   assert.match(dockerDocs, /docker run --rm/);
