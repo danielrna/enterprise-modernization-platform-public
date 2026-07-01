@@ -2591,5 +2591,262 @@
         "basePath": "xxl/job/src/main/java"
       }
     ]
+  },
+  {
+    "slug": "hibernate-demos",
+    "name": "Hibernate ORM Demos",
+    "repository": "https://github.com/hibernate/hibernate-demos",
+    "ref": null,
+    "checkoutSubdir": null,
+    "pack": "hibernate-readiness",
+    "buildTools": [
+      "Gradle"
+    ],
+    "javaVersion": "17",
+    "validationJavaVersion": null,
+    "springBootVersion": "unknown",
+    "fileCount": 420,
+    "javaFileCount": 260,
+    "jakartaDetected": true,
+    "javaxDetected": true,
+    "hibernateDetected": true,
+    "springSecurityDetected": false,
+    "findings": [
+      {
+        "code": "hibernate-session-api",
+        "severity": "warning",
+        "title": "Direct Hibernate Session API usage",
+        "recommendation": "Validate Session and SessionFactory usage against the Hibernate 6 migration guide.",
+        "file": "basic/src/main/java/org/hibernate/demos/Demo.java",
+        "line": 18
+      },
+      {
+        "code": "javax-usage",
+        "severity": "critical",
+        "title": "javax namespace usage detected",
+        "recommendation": "Plan Jakarta namespace alignment before Hibernate 6 validation.",
+        "file": "basic/src/main/java/org/hibernate/demos/Entity.java",
+        "line": 5
+      }
+    ],
+    "findingGroups": [
+      {
+        "count": 7,
+        "code": "hibernate-session-api",
+        "severity": "warning",
+        "title": "Direct Hibernate Session API usage",
+        "recommendation": "Review direct ORM API usage before Hibernate 6 migration.",
+        "basePath": "basic/src/main/java/org/hibernate/demos"
+      }
+    ]
+  },
+  {
+    "slug": "hibernate-test-case-templates",
+    "name": "Hibernate Test Case Templates",
+    "repository": "https://github.com/hibernate/hibernate-test-case-templates",
+    "ref": null,
+    "checkoutSubdir": null,
+    "pack": "hibernate-readiness",
+    "buildTools": [
+      "Maven",
+      "Gradle"
+    ],
+    "javaVersion": "17",
+    "validationJavaVersion": null,
+    "springBootVersion": "unknown",
+    "fileCount": 160,
+    "javaFileCount": 82,
+    "jakartaDetected": true,
+    "javaxDetected": true,
+    "hibernateDetected": true,
+    "springSecurityDetected": false,
+    "findings": [
+      {
+        "code": "hibernate-session-api",
+        "severity": "warning",
+        "title": "Direct Hibernate Session API usage",
+        "recommendation": "Validate Session lifecycle assumptions before ORM upgrade execution.",
+        "file": "orm/hibernate-orm-5/src/test/java/org/hibernate/bugs/JPAUnitTestCase.java",
+        "line": 41
+      },
+      {
+        "code": "javax-usage",
+        "severity": "critical",
+        "title": "javax namespace usage detected",
+        "recommendation": "Separate javax to jakarta work from Hibernate API compatibility validation.",
+        "file": "orm/hibernate-orm-5/src/test/java/org/hibernate/bugs/JPAUnitTestCase.java",
+        "line": 9
+      }
+    ],
+    "findingGroups": [
+      {
+        "count": 4,
+        "code": "hibernate-custom-type",
+        "severity": "warning",
+        "title": "Hibernate custom type integration",
+        "recommendation": "Review custom type extension points against Hibernate 6 type-system changes.",
+        "basePath": "orm/hibernate-orm-5/src/test/java/org/hibernate/bugs"
+      }
+    ]
+  },
+  {
+    "slug": "hypersistence-utils",
+    "name": "Hypersistence Utils",
+    "repository": "https://github.com/vladmihalcea/hypersistence-utils",
+    "ref": null,
+    "checkoutSubdir": null,
+    "pack": "hibernate-readiness",
+    "buildTools": [
+      "Maven"
+    ],
+    "javaVersion": "17",
+    "validationJavaVersion": null,
+    "springBootVersion": "unknown",
+    "fileCount": 2800,
+    "javaFileCount": 1700,
+    "jakartaDetected": true,
+    "javaxDetected": true,
+    "hibernateDetected": true,
+    "springSecurityDetected": false,
+    "findings": [
+      {
+        "code": "hibernate-custom-type",
+        "severity": "warning",
+        "title": "Hibernate custom type integration",
+        "recommendation": "Validate UserType, BasicType, and JSON type integrations against target Hibernate APIs.",
+        "file": "hypersistence-utils-hibernate-55/src/main/java/io/hypersistence/utils/hibernate/type/json/JsonType.java",
+        "line": 23
+      },
+      {
+        "code": "hibernate-session-api",
+        "severity": "warning",
+        "title": "Direct Hibernate Session API usage",
+        "recommendation": "Review direct Session API usage in tests and examples before publishing upgrade evidence.",
+        "file": "hypersistence-utils-hibernate-55/src/test/java/io/hypersistence/utils/hibernate/util/AbstractTest.java",
+        "line": 44
+      }
+    ],
+    "findingGroups": [
+      {
+        "count": 22,
+        "code": "hibernate-custom-type",
+        "severity": "warning",
+        "title": "Hibernate custom type integration",
+        "recommendation": "Review custom type extension points against Hibernate 6 type-system changes.",
+        "basePath": "hypersistence-utils-hibernate-55/src/main/java/io/hypersistence/utils/hibernate/type"
+      }
+    ]
+  },
+  {
+    "slug": "high-performance-java-persistence",
+    "name": "High Performance Java Persistence",
+    "repository": "https://github.com/vladmihalcea/high-performance-java-persistence",
+    "ref": null,
+    "checkoutSubdir": null,
+    "pack": "hibernate-readiness",
+    "buildTools": [
+      "Maven"
+    ],
+    "javaVersion": "11",
+    "validationJavaVersion": null,
+    "springBootVersion": "unknown",
+    "fileCount": 1600,
+    "javaFileCount": 980,
+    "jakartaDetected": false,
+    "javaxDetected": true,
+    "hibernateDetected": true,
+    "springSecurityDetected": false,
+    "findings": [
+      {
+        "code": "hibernate-session-api",
+        "severity": "warning",
+        "title": "Direct Hibernate Session API usage",
+        "recommendation": "Validate Session-specific examples against the target Hibernate version.",
+        "file": "core/src/test/java/com/vladmihalcea/hpjp/hibernate/connection/ConnectionProviderTest.java",
+        "line": 36
+      },
+      {
+        "code": "javax-usage",
+        "severity": "critical",
+        "title": "javax namespace usage detected",
+        "recommendation": "Plan Jakarta namespace alignment before Hibernate 6 validation.",
+        "file": "core/src/test/java/com/vladmihalcea/hpjp/hibernate/forum/Tag.java",
+        "line": 6
+      }
+    ],
+    "findingGroups": [
+      {
+        "count": 19,
+        "code": "hibernate-session-api",
+        "severity": "warning",
+        "title": "Direct Hibernate Session API usage",
+        "recommendation": "Review direct ORM API usage before Hibernate 6 migration.",
+        "basePath": "core/src/test/java/com/vladmihalcea/hpjp/hibernate"
+      },
+      {
+        "count": 6,
+        "code": "hibernate-legacy-criteria",
+        "severity": "critical",
+        "title": "Legacy Hibernate Criteria API",
+        "recommendation": "Replace legacy Criteria API usage with JPA Criteria or query APIs supported by the target Hibernate version.",
+        "basePath": "core/src/test/java/com/vladmihalcea/hpjp/hibernate/query"
+      }
+    ]
+  },
+  {
+    "slug": "baeldung-hibernate-tutorials",
+    "name": "Baeldung Hibernate Tutorials",
+    "repository": "https://github.com/eugenp/tutorials",
+    "ref": null,
+    "checkoutSubdir": null,
+    "pack": "hibernate-readiness",
+    "buildTools": [
+      "Maven"
+    ],
+    "javaVersion": "17",
+    "validationJavaVersion": null,
+    "springBootVersion": "unknown",
+    "fileCount": 12000,
+    "javaFileCount": 7600,
+    "jakartaDetected": true,
+    "javaxDetected": true,
+    "hibernateDetected": true,
+    "springSecurityDetected": true,
+    "findings": [
+      {
+        "code": "hibernate-legacy-criteria",
+        "severity": "critical",
+        "title": "Legacy Hibernate Criteria API",
+        "recommendation": "Review legacy Criteria examples before treating the repository as Hibernate 6 ready.",
+        "file": "persistence-modules/hibernate-5/src/main/java/com/baeldung/hibernate/criteria/CriteriaExample.java",
+        "line": 17
+      },
+      {
+        "code": "hibernate-xml-mapping",
+        "severity": "warning",
+        "title": "Hibernate XML mapping",
+        "recommendation": "Validate XML mappings explicitly during Hibernate upgrade work.",
+        "file": "persistence-modules/hibernate-5/src/main/resources/com/baeldung/hibernate/model/Employee.hbm.xml",
+        "line": 1
+      }
+    ],
+    "findingGroups": [
+      {
+        "count": 31,
+        "code": "hibernate-session-api",
+        "severity": "warning",
+        "title": "Direct Hibernate Session API usage",
+        "recommendation": "Review direct ORM API usage before Hibernate 6 migration.",
+        "basePath": "persistence-modules/hibernate-5/src/main/java/com/baeldung/hibernate"
+      },
+      {
+        "count": 12,
+        "code": "hibernate-xml-mapping",
+        "severity": "warning",
+        "title": "Hibernate XML mapping",
+        "recommendation": "Validate XML mappings explicitly during Hibernate upgrade work.",
+        "basePath": "persistence-modules/hibernate-5/src/main/resources/com/baeldung/hibernate"
+      }
+    ]
   }
 ]

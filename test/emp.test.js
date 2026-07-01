@@ -6,7 +6,7 @@ import test from 'node:test';
 import { analyzeProject } from '../src/scanner.js';
 import { scoreReadiness } from '../src/readiness.js';
 import { writeReportBundle } from '../src/report.js';
-import { publishBenchmarks } from '../src/benchmarks.js';
+import { BENCHMARKS, publishBenchmarks } from '../src/benchmarks.js';
 import { generateMigrationHub } from '../src/hub.js';
 import { generatePackDocs } from '../src/pack-docs.js';
 import { generateReleaseNotes } from '../src/release-notes.js';
@@ -54,6 +54,15 @@ test('publishes the benchmark catalog and migration hub', async () => {
   assert.match(hub, /Findings/);
   assert.match(hub, /Validated Benchmark/);
   assert.match(hub, /Compile \+ tests/);
+});
+
+test('benchmark catalog includes Hibernate readiness evidence', () => {
+  const hibernateBenchmarks = BENCHMARKS.filter((benchmark) => benchmark.pack === 'hibernate-readiness');
+
+  assert.equal(hibernateBenchmarks.length >= 5, true);
+  assert.equal(hibernateBenchmarks.some((benchmark) => benchmark.slug === 'hibernate-demos'), true);
+  assert.equal(hibernateBenchmarks.some((benchmark) => benchmark.slug === 'hypersistence-utils'), true);
+  assert.equal(hibernateBenchmarks.every((benchmark) => benchmark.hibernateDetected), true);
 });
 
 test('generates documentation pages from pack metadata', async () => {

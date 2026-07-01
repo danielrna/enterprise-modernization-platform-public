@@ -26,6 +26,28 @@
           ]
         },
         {
+          "id": "hibernate-benchmark-batch",
+          "type": "evidence",
+          "name": "Hibernate benchmark catalog batch",
+          "audience": "Consultants and buyers reviewing persistence modernization evidence",
+          "summary": "Add the first catalog-backed Hibernate readiness benchmark batch so the new pack has public evidence examples immediately.",
+          "evidence": [
+            "Adds 5 Hibernate readiness benchmark reports.",
+            "Covers Hibernate demos, Hibernate test templates, Hypersistence Utils, High Performance Java Persistence, and Baeldung Hibernate tutorial material.",
+            "Raises the public benchmark catalog from 50 to 55 reports."
+          ],
+          "links": [
+            {
+              "label": "Hibernate benchmark example",
+              "href": "docs/benchmarks/hibernate-demos/index.html"
+            },
+            {
+              "label": "Benchmark index",
+              "href": "docs/benchmarks/index.html"
+            }
+          ]
+        },
+        {
           "id": "pack-docs",
           "type": "documentation",
           "name": "Pack documentation generation",

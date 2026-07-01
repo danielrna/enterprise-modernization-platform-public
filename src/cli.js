@@ -168,7 +168,7 @@ Available scope:
   - Professional trust evidence with confidence, compatibility, compile, test, and rollback status
   - Consultant enterprise rules from .preflight-rules.yml
   - MCP stdio interface for AI clients
-  - 49 Spring Boot benchmark reports plus Jakarta readiness evidence
+  - 49 Spring Boot benchmark reports plus Jakarta readiness and 5 Hibernate readiness benchmark reports
   - Checkout benchmark validation evidence, including seven passing compile/test benchmarks
   - Initial Migration Hub
 `);

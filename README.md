@@ -240,7 +240,7 @@ Implemented v0.1 scope:
 - Hibernate readiness pack.
 - Enterprise rules.
 - Trust evidence and static HTML/JSON reports.
-- 49 Spring Boot benchmark reports plus Jakarta readiness evidence.
+- 49 Spring Boot benchmark reports plus Jakarta readiness and 5 Hibernate readiness benchmark reports.
 - Validation status in benchmark reports and the Migration Hub, including 7 checkout benchmarks with passing compile/test evidence.
 - Spring Boot 2 to 3 Migration Hub published through GitHub Pages.
 
