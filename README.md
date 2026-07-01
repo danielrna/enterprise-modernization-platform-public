@@ -232,7 +232,7 @@ Implemented v0.1 scope:
 - Enterprise rules.
 - Trust evidence and static HTML/JSON reports.
 - 49 Spring Boot benchmark reports plus Jakarta readiness evidence.
-- Validation status in benchmark reports and the Migration Hub, including 6 checkout benchmarks with passing compile/test evidence.
+- Validation status in benchmark reports and the Migration Hub, including 7 checkout benchmarks with passing compile/test evidence.
 - Spring Boot 2 to 3 Migration Hub published through GitHub Pages.
 
 Still intentionally out of scope:

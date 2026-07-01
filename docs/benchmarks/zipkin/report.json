@@ -1,787 +1,388 @@
 {
   "schemaVersion": "emp.report.v1",
-  "generatedAt": "2026-06-30T22:51:14.783Z",
+  "generatedAt": "2026-06-30T23:07:47.347Z",
   "project": {
     "name": "Zipkin",
-    "root": "https://github.com/openzipkin/zipkin",
+    "root": "benchmark-repos/zipkin",
     "source": "https://github.com/openzipkin/zipkin",
     "buildTools": [
       "Maven"
     ],
     "javaVersion": "17",
-    "springBootVersion": "2.7.x",
-    "fileCount": 2100,
-    "javaFileCount": 1300
+    "springBootVersion": "unknown",
+    "fileCount": 816,
+    "javaFileCount": 439
   },
   "pack": "spring-boot-3-readiness",
   "packApplicability": {
-    "applicable": true,
-    "confidence": 0.95,
-    "reason": "Spring Boot 2.x was detected. This pack targets Spring Boot 2.x to 3.x migrations.",
-    "targetVersion": "3.x"
+    "applicable": false,
+    "confidence": 0.9,
+    "reason": "Spring Boot 2.x was not detected. This pack targets Spring Boot 2.x to 3.x migrations.",
+    "recommendedPack": "jakarta-readiness"
   },
   "readiness": {
-    "overall": 68,
-    "categories": {
-      "java": 75,
-      "spring": 38,
-      "jakarta": 79,
-      "build": 90,
-      "security": 82,
-      "architecture": 43
-    },
-    "summary": "Migration risk requires focused cleanup",
+    "overall": null,
+    "categories": {},
+    "summary": "Pack mismatch: Spring Boot 2.x was not detected. This pack targets Spring Boot 2.x to 3.x migrations.",
+    "status": "not_applicable",
     "counts": {
       "critical": 1,
-      "warning": 30,
-      "info": 47
+      "warning": 14,
+      "info": 22
     }
   },
   "productionFindings": [
     {
-      "code": "javax-usage",
-      "severity": "critical",
-      "title": "javax namespace usage detected",
-      "recommendation": "Plan Jakarta migration before Spring Boot 3 execution.",
-      "file": "zipkin/src/main/java/ExampleApplication.java",
-      "line": 12,
-      "scope": "production"
-    },
-    {
-      "code": "spring-boot-2",
+      "code": "spring-boot-version-unknown",
       "severity": "warning",
-      "title": "Spring Boot 2.7.x detected",
-      "recommendation": "Run OpenRewrite Boot 3 recipes in dry-run mode.",
+      "title": "Spring Boot version unknown",
+      "recommendation": "Declare Spring Boot version explicitly in Maven or Gradle metadata.",
       "file": null,
       "line": null,
       "scope": "production"
     },
     {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "zipkin/src/main/java/Example1.java",
-      "line": 10,
+      "code": "javax-usage",
+      "severity": "critical",
+      "title": "javax namespace usage detected",
+      "recommendation": "Migrate Java EE imports to Jakarta equivalents for Spring Boot 3.",
+      "file": null,
+      "line": null,
       "scope": "production"
     },
     {
-      "code": "field-injection",
+      "code": "java-internal-api",
       "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "zipkin/src/main/java/Example2.java",
-      "line": 11,
+      "title": "JDK internal API usage",
+      "recommendation": "Review JDK internal API usage before modernization.",
+      "file": "pom.xml",
+      "line": 260,
       "scope": "production"
     },
     {
-      "code": "field-injection",
+      "code": "java-internal-api",
       "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "zipkin/src/main/java/Example3.java",
-      "line": 12,
+      "title": "JDK internal API usage",
+      "recommendation": "Review JDK internal API usage before modernization.",
+      "file": "pom.xml",
+      "line": 261,
       "scope": "production"
     },
     {
-      "code": "field-injection",
+      "code": "java-internal-api",
       "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "zipkin/src/main/java/Example4.java",
-      "line": 13,
+      "title": "JDK internal API usage",
+      "recommendation": "Review JDK internal API usage before modernization.",
+      "file": "pom.xml",
+      "line": 262,
       "scope": "production"
     },
     {
-      "code": "field-injection",
+      "code": "java-internal-api",
       "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "zipkin/src/main/java/Example5.java",
-      "line": 14,
+      "title": "JDK internal API usage",
+      "recommendation": "Review JDK internal API usage before modernization.",
+      "file": "pom.xml",
+      "line": 263,
       "scope": "production"
     },
     {
-      "code": "field-injection",
+      "code": "java-internal-api",
       "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "zipkin/src/main/java/Example6.java",
-      "line": 15,
+      "title": "JDK internal API usage",
+      "recommendation": "Review JDK internal API usage before modernization.",
+      "file": "pom.xml",
+      "line": 264,
       "scope": "production"
     },
     {
-      "code": "field-injection",
+      "code": "java-internal-api",
       "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "zipkin/src/main/java/Example7.java",
-      "line": 16,
+      "title": "JDK internal API usage",
+      "recommendation": "Review JDK internal API usage before modernization.",
+      "file": "pom.xml",
+      "line": 265,
       "scope": "production"
     },
     {
-      "code": "field-injection",
+      "code": "java-internal-api",
       "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "zipkin/src/main/java/Example8.java",
-      "line": 17,
+      "title": "JDK internal API usage",
+      "recommendation": "Review JDK internal API usage before modernization.",
+      "file": "pom.xml",
+      "line": 266,
       "scope": "production"
     },
     {
-      "code": "field-injection",
+      "code": "java-internal-api",
       "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "zipkin/src/main/java/Example9.java",
-      "line": 18,
+      "title": "JDK internal API usage",
+      "recommendation": "Review JDK internal API usage before modernization.",
+      "file": "pom.xml",
+      "line": 267,
       "scope": "production"
     },
     {
-      "code": "field-injection",
+      "code": "java-internal-api",
       "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "zipkin/src/main/java/Example10.java",
-      "line": 19,
+      "title": "JDK internal API usage",
+      "recommendation": "Review JDK internal API usage before modernization.",
+      "file": "pom.xml",
+      "line": 268,
       "scope": "production"
     },
     {
-      "code": "field-injection",
+      "code": "java-internal-api",
       "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "zipkin/src/main/java/Example11.java",
-      "line": 20,
+      "title": "JDK internal API usage",
+      "recommendation": "Review JDK internal API usage before modernization.",
+      "file": "pom.xml",
+      "line": 269,
       "scope": "production"
     },
     {
-      "code": "field-injection",
+      "code": "serializable-missing-serial-version",
       "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "zipkin/src/main/java/Example12.java",
-      "line": 21,
+      "title": "Serializable type without serialVersionUID",
+      "recommendation": "Add an explicit serialVersionUID before Java runtime migration validation.",
+      "file": "zipkin-collector/scribe/src/main/java/zipkin2/collector/scribe/generated/LogEntry.java",
+      "line": 1,
       "scope": "production"
     },
     {
-      "code": "field-injection",
+      "code": "serializable-missing-serial-version",
       "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "zipkin/src/main/java/Example13.java",
-      "line": 22,
+      "title": "Serializable type without serialVersionUID",
+      "recommendation": "Add an explicit serialVersionUID before Java runtime migration validation.",
+      "file": "zipkin-collector/scribe/src/main/java/zipkin2/collector/scribe/generated/Scribe.java",
+      "line": 1,
       "scope": "production"
     },
     {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "zipkin/src/main/java/Example14.java",
-      "line": 23,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "zipkin/src/main/java/Example15.java",
-      "line": 24,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "zipkin/src/main/java/Example16.java",
-      "line": 25,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "zipkin/src/main/java/Example17.java",
-      "line": 26,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "zipkin/src/main/java/Example18.java",
-      "line": 27,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "zipkin/src/main/java/Example19.java",
-      "line": 28,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "zipkin/src/main/java/Example20.java",
-      "line": 29,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "zipkin/src/main/java/Example21.java",
-      "line": 30,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "zipkin/src/main/java/Example22.java",
-      "line": 31,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "zipkin/src/main/java/Example23.java",
-      "line": 32,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "zipkin/src/main/java/Example24.java",
-      "line": 33,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "zipkin/src/main/java/Example25.java",
-      "line": 34,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "zipkin/src/main/java/Example26.java",
-      "line": 35,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "zipkin/src/main/java/Example27.java",
-      "line": 36,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "zipkin/src/main/java/Example28.java",
-      "line": 37,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "zipkin/src/main/java/Example29.java",
+      "code": "reflection-usage",
+      "severity": "info",
+      "title": "Reflection usage",
+      "recommendation": "Review Reflection usage before modernization.",
+      "file": "zipkin-server/src/main/java/zipkin2/server/internal/ConditionalOnSelfTracing.java",
       "line": 38,
       "scope": "production"
     },
     {
-      "code": "java-util-date",
+      "code": "reflection-usage",
       "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example1.java",
-      "line": 10,
+      "title": "Reflection usage",
+      "recommendation": "Review Reflection usage before modernization.",
+      "file": "zipkin-server/src/main/java/zipkin2/server/internal/ZipkinActuatorImporter.java",
+      "line": 71,
       "scope": "production"
     },
     {
-      "code": "java-util-date",
+      "code": "reflection-usage",
       "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example2.java",
-      "line": 11,
+      "title": "Reflection usage",
+      "recommendation": "Review Reflection usage before modernization.",
+      "file": "zipkin-server/src/main/java/zipkin2/server/internal/ZipkinActuatorImporter.java",
+      "line": 79,
       "scope": "production"
     },
     {
-      "code": "java-util-date",
+      "code": "reflection-usage",
       "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example3.java",
-      "line": 12,
+      "title": "Reflection usage",
+      "recommendation": "Review Reflection usage before modernization.",
+      "file": "zipkin-server/src/main/java/zipkin2/server/internal/ZipkinModuleImporter.java",
+      "line": 61,
       "scope": "production"
     },
     {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example4.java",
-      "line": 13,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example5.java",
-      "line": 14,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example6.java",
-      "line": 15,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example7.java",
-      "line": 16,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example8.java",
-      "line": 17,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example9.java",
-      "line": 18,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example10.java",
-      "line": 19,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example11.java",
-      "line": 20,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example12.java",
-      "line": 21,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example13.java",
-      "line": 22,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example14.java",
-      "line": 23,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example15.java",
-      "line": 24,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example16.java",
-      "line": 25,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example17.java",
-      "line": 26,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example18.java",
-      "line": 27,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example19.java",
-      "line": 28,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example20.java",
-      "line": 29,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example21.java",
-      "line": 30,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example22.java",
-      "line": 31,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example23.java",
-      "line": 32,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example24.java",
-      "line": 33,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example25.java",
-      "line": 34,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example26.java",
-      "line": 35,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example27.java",
-      "line": 36,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example28.java",
-      "line": 37,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example29.java",
-      "line": 38,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example30.java",
-      "line": 39,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example31.java",
-      "line": 40,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example32.java",
-      "line": 41,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example33.java",
-      "line": 42,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example34.java",
-      "line": 43,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example35.java",
-      "line": 44,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example36.java",
-      "line": 45,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example37.java",
-      "line": 46,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example38.java",
-      "line": 47,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example39.java",
-      "line": 48,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example40.java",
-      "line": 49,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example41.java",
-      "line": 50,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example42.java",
-      "line": 51,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example43.java",
-      "line": 52,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example44.java",
-      "line": 53,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example45.java",
-      "line": 54,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example46.java",
-      "line": 55,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example47.java",
-      "line": 56,
+      "code": "serializable-missing-serial-version",
+      "severity": "warning",
+      "title": "Serializable type without serialVersionUID",
+      "recommendation": "Add an explicit serialVersionUID before Java runtime migration validation.",
+      "file": "zipkin-server/src/main/java/zipkin2/server/internal/eureka/ZipkinEurekaDiscoveryProperties.java",
+      "line": 1,
       "scope": "production"
     }
   ],
-  "testFindings": [],
+  "testFindings": [
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "benchmarks/src/test/java/zipkin2/server/ServerIntegratedBenchmark.java",
+      "line": 195,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "benchmarks/src/test/java/zipkin2/server/ServerIntegratedBenchmark.java",
+      "line": 210,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "benchmarks/src/test/java/zipkin2/server/ServerIntegratedBenchmark.java",
+      "line": 211,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "benchmarks/src/test/java/zipkin2/server/ServerIntegratedBenchmark.java",
+      "line": 216,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "benchmarks/src/test/java/zipkin2/server/ServerIntegratedBenchmark.java",
+      "line": 218,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "benchmarks/src/test/java/zipkin2/server/ServerIntegratedBenchmark.java",
+      "line": 220,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "benchmarks/src/test/java/zipkin2/server/ServerIntegratedBenchmark.java",
+      "line": 223,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "benchmarks/src/test/java/zipkin2/server/ServerIntegratedBenchmark.java",
+      "line": 227,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "benchmarks/src/test/java/zipkin2/server/ServerIntegratedBenchmark.java",
+      "line": 230,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "benchmarks/src/test/java/zipkin2/server/ServerIntegratedBenchmark.java",
+      "line": 233,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "benchmarks/src/test/java/zipkin2/server/ServerIntegratedBenchmark.java",
+      "line": 240,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "benchmarks/src/test/java/zipkin2/server/ServerIntegratedBenchmark.java",
+      "line": 325,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "benchmarks/src/test/java/zipkin2/server/ServerIntegratedBenchmark.java",
+      "line": 336,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "benchmarks/src/test/java/zipkin2/server/ServerIntegratedBenchmark.java",
+      "line": 344,
+      "scope": "test"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "zipkin/src/test/java/zipkin2/internal/DateUtilTest.java",
+      "line": 10,
+      "scope": "test"
+    },
+    {
+      "code": "reflection-usage",
+      "severity": "info",
+      "title": "Reflection usage",
+      "recommendation": "Review Reflection usage before modernization.",
+      "file": "zipkin/src/test/java/zipkin2/storage/ForwardingStorageComponentTest.java",
+      "line": 30,
+      "scope": "test"
+    },
+    {
+      "code": "reflection-usage",
+      "severity": "info",
+      "title": "Reflection usage",
+      "recommendation": "Review Reflection usage before modernization.",
+      "file": "zipkin/src/test/java/zipkin2/storage/ForwardingStorageComponentTest.java",
+      "line": 33,
+      "scope": "test"
+    },
+    {
+      "code": "reflection-usage",
+      "severity": "info",
+      "title": "Reflection usage",
+      "recommendation": "Review Reflection usage before modernization.",
+      "file": "zipkin/src/test/java/zipkin2/storage/ForwardingStorageComponentTest.java",
+      "line": 34,
+      "scope": "test"
+    }
+  ],
   "findingSummary": {
     "production": {
       "critical": 1,
-      "warning": 30,
-      "info": 47
+      "warning": 14,
+      "info": 4
     },
     "test": {
       "critical": 0,
       "warning": 0,
-      "info": 0
+      "info": 18
     },
     "byCode": {
-      "javax-usage": {
-        "code": "javax-usage",
-        "title": "javax namespace usage detected",
-        "severity": "critical",
-        "total": 1,
-        "production": 1,
-        "test": 0,
-        "topModules": [
-          {
-            "name": "zipkin",
-            "count": 1
-          }
-        ],
-        "examples": [
-          {
-            "code": "javax-usage",
-            "severity": "critical",
-            "title": "javax namespace usage detected",
-            "recommendation": "Plan Jakarta migration before Spring Boot 3 execution.",
-            "file": "zipkin/src/main/java/ExampleApplication.java",
-            "line": 12,
-            "scope": "production"
-          }
-        ]
-      },
-      "spring-boot-2": {
-        "code": "spring-boot-2",
-        "title": "Spring Boot 2.7.x detected",
+      "spring-boot-version-unknown": {
+        "code": "spring-boot-version-unknown",
+        "title": "Spring Boot version unknown",
         "severity": "warning",
         "total": 1,
         "production": 1,
@@ -794,134 +395,296 @@
         ],
         "examples": [
           {
-            "code": "spring-boot-2",
+            "code": "spring-boot-version-unknown",
             "severity": "warning",
-            "title": "Spring Boot 2.7.x detected",
-            "recommendation": "Run OpenRewrite Boot 3 recipes in dry-run mode.",
+            "title": "Spring Boot version unknown",
+            "recommendation": "Declare Spring Boot version explicitly in Maven or Gradle metadata.",
             "file": null,
             "line": null,
             "scope": "production"
           }
         ]
       },
-      "field-injection": {
-        "code": "field-injection",
-        "title": "Spring field injection patterns",
-        "severity": "warning",
-        "total": 29,
-        "production": 29,
+      "javax-usage": {
+        "code": "javax-usage",
+        "title": "javax namespace usage detected",
+        "severity": "critical",
+        "total": 1,
+        "production": 1,
         "test": 0,
         "topModules": [
           {
-            "name": "zipkin",
-            "count": 29
+            "name": "project",
+            "count": 1
           }
         ],
         "examples": [
           {
-            "code": "field-injection",
+            "code": "javax-usage",
+            "severity": "critical",
+            "title": "javax namespace usage detected",
+            "recommendation": "Migrate Java EE imports to Jakarta equivalents for Spring Boot 3.",
+            "file": null,
+            "line": null,
+            "scope": "production"
+          }
+        ]
+      },
+      "system-out": {
+        "code": "system-out",
+        "title": "System.out logging",
+        "severity": "info",
+        "total": 14,
+        "production": 0,
+        "test": 14,
+        "topModules": [
+          {
+            "name": "benchmarks",
+            "count": 14
+          }
+        ],
+        "examples": [
+          {
+            "code": "system-out",
+            "severity": "info",
+            "title": "System.out logging",
+            "recommendation": "Review System.out logging before modernization.",
+            "file": "benchmarks/src/test/java/zipkin2/server/ServerIntegratedBenchmark.java",
+            "line": 195,
+            "scope": "test"
+          },
+          {
+            "code": "system-out",
+            "severity": "info",
+            "title": "System.out logging",
+            "recommendation": "Review System.out logging before modernization.",
+            "file": "benchmarks/src/test/java/zipkin2/server/ServerIntegratedBenchmark.java",
+            "line": 210,
+            "scope": "test"
+          },
+          {
+            "code": "system-out",
+            "severity": "info",
+            "title": "System.out logging",
+            "recommendation": "Review System.out logging before modernization.",
+            "file": "benchmarks/src/test/java/zipkin2/server/ServerIntegratedBenchmark.java",
+            "line": 211,
+            "scope": "test"
+          },
+          {
+            "code": "system-out",
+            "severity": "info",
+            "title": "System.out logging",
+            "recommendation": "Review System.out logging before modernization.",
+            "file": "benchmarks/src/test/java/zipkin2/server/ServerIntegratedBenchmark.java",
+            "line": 216,
+            "scope": "test"
+          },
+          {
+            "code": "system-out",
+            "severity": "info",
+            "title": "System.out logging",
+            "recommendation": "Review System.out logging before modernization.",
+            "file": "benchmarks/src/test/java/zipkin2/server/ServerIntegratedBenchmark.java",
+            "line": 218,
+            "scope": "test"
+          }
+        ]
+      },
+      "java-internal-api": {
+        "code": "java-internal-api",
+        "title": "JDK internal API usage",
+        "severity": "warning",
+        "total": 10,
+        "production": 10,
+        "test": 0,
+        "topModules": [
+          {
+            "name": "pom.xml",
+            "count": 10
+          }
+        ],
+        "examples": [
+          {
+            "code": "java-internal-api",
             "severity": "warning",
-            "title": "Spring field injection patterns",
-            "recommendation": "Prefer constructor injection in services touched by migration work.",
-            "file": "zipkin/src/main/java/Example1.java",
-            "line": 10,
+            "title": "JDK internal API usage",
+            "recommendation": "Review JDK internal API usage before modernization.",
+            "file": "pom.xml",
+            "line": 260,
             "scope": "production"
           },
           {
-            "code": "field-injection",
+            "code": "java-internal-api",
             "severity": "warning",
-            "title": "Spring field injection patterns",
-            "recommendation": "Prefer constructor injection in services touched by migration work.",
-            "file": "zipkin/src/main/java/Example2.java",
-            "line": 11,
+            "title": "JDK internal API usage",
+            "recommendation": "Review JDK internal API usage before modernization.",
+            "file": "pom.xml",
+            "line": 261,
             "scope": "production"
           },
           {
-            "code": "field-injection",
+            "code": "java-internal-api",
             "severity": "warning",
-            "title": "Spring field injection patterns",
-            "recommendation": "Prefer constructor injection in services touched by migration work.",
-            "file": "zipkin/src/main/java/Example3.java",
-            "line": 12,
+            "title": "JDK internal API usage",
+            "recommendation": "Review JDK internal API usage before modernization.",
+            "file": "pom.xml",
+            "line": 262,
             "scope": "production"
           },
           {
-            "code": "field-injection",
+            "code": "java-internal-api",
             "severity": "warning",
-            "title": "Spring field injection patterns",
-            "recommendation": "Prefer constructor injection in services touched by migration work.",
-            "file": "zipkin/src/main/java/Example4.java",
-            "line": 13,
+            "title": "JDK internal API usage",
+            "recommendation": "Review JDK internal API usage before modernization.",
+            "file": "pom.xml",
+            "line": 263,
             "scope": "production"
           },
           {
-            "code": "field-injection",
+            "code": "java-internal-api",
             "severity": "warning",
-            "title": "Spring field injection patterns",
-            "recommendation": "Prefer constructor injection in services touched by migration work.",
-            "file": "zipkin/src/main/java/Example5.java",
-            "line": 14,
+            "title": "JDK internal API usage",
+            "recommendation": "Review JDK internal API usage before modernization.",
+            "file": "pom.xml",
+            "line": 264,
             "scope": "production"
           }
         ]
       },
       "java-util-date": {
         "code": "java-util-date",
-        "title": "Legacy date API usage",
+        "title": "java.util.Date usage",
         "severity": "info",
-        "total": 47,
-        "production": 47,
-        "test": 0,
+        "total": 1,
+        "production": 0,
+        "test": 1,
         "topModules": [
           {
             "name": "zipkin",
-            "count": 47
+            "count": 1
           }
         ],
         "examples": [
           {
             "code": "java-util-date",
             "severity": "info",
-            "title": "Legacy date API usage",
-            "recommendation": "Review date handling before migration validation.",
-            "file": "zipkin/src/main/java/Example1.java",
+            "title": "java.util.Date usage",
+            "recommendation": "Review java.util.Date usage before modernization.",
+            "file": "zipkin/src/test/java/zipkin2/internal/DateUtilTest.java",
             "line": 10,
+            "scope": "test"
+          }
+        ]
+      },
+      "reflection-usage": {
+        "code": "reflection-usage",
+        "title": "Reflection usage",
+        "severity": "info",
+        "total": 7,
+        "production": 4,
+        "test": 3,
+        "topModules": [
+          {
+            "name": "zipkin-server",
+            "count": 4
+          },
+          {
+            "name": "zipkin",
+            "count": 3
+          }
+        ],
+        "examples": [
+          {
+            "code": "reflection-usage",
+            "severity": "info",
+            "title": "Reflection usage",
+            "recommendation": "Review Reflection usage before modernization.",
+            "file": "zipkin/src/test/java/zipkin2/storage/ForwardingStorageComponentTest.java",
+            "line": 30,
+            "scope": "test"
+          },
+          {
+            "code": "reflection-usage",
+            "severity": "info",
+            "title": "Reflection usage",
+            "recommendation": "Review Reflection usage before modernization.",
+            "file": "zipkin/src/test/java/zipkin2/storage/ForwardingStorageComponentTest.java",
+            "line": 33,
+            "scope": "test"
+          },
+          {
+            "code": "reflection-usage",
+            "severity": "info",
+            "title": "Reflection usage",
+            "recommendation": "Review Reflection usage before modernization.",
+            "file": "zipkin/src/test/java/zipkin2/storage/ForwardingStorageComponentTest.java",
+            "line": 34,
+            "scope": "test"
+          },
+          {
+            "code": "reflection-usage",
+            "severity": "info",
+            "title": "Reflection usage",
+            "recommendation": "Review Reflection usage before modernization.",
+            "file": "zipkin-server/src/main/java/zipkin2/server/internal/ConditionalOnSelfTracing.java",
+            "line": 38,
             "scope": "production"
           },
           {
-            "code": "java-util-date",
+            "code": "reflection-usage",
             "severity": "info",
-            "title": "Legacy date API usage",
-            "recommendation": "Review date handling before migration validation.",
-            "file": "zipkin/src/main/java/Example2.java",
-            "line": 11,
+            "title": "Reflection usage",
+            "recommendation": "Review Reflection usage before modernization.",
+            "file": "zipkin-server/src/main/java/zipkin2/server/internal/ZipkinActuatorImporter.java",
+            "line": 71,
+            "scope": "production"
+          }
+        ]
+      },
+      "serializable-missing-serial-version": {
+        "code": "serializable-missing-serial-version",
+        "title": "Serializable type without serialVersionUID",
+        "severity": "warning",
+        "total": 3,
+        "production": 3,
+        "test": 0,
+        "topModules": [
+          {
+            "name": "scribe",
+            "count": 2
+          },
+          {
+            "name": "zipkin-server",
+            "count": 1
+          }
+        ],
+        "examples": [
+          {
+            "code": "serializable-missing-serial-version",
+            "severity": "warning",
+            "title": "Serializable type without serialVersionUID",
+            "recommendation": "Add an explicit serialVersionUID before Java runtime migration validation.",
+            "file": "zipkin-collector/scribe/src/main/java/zipkin2/collector/scribe/generated/LogEntry.java",
+            "line": 1,
             "scope": "production"
           },
           {
-            "code": "java-util-date",
-            "severity": "info",
-            "title": "Legacy date API usage",
-            "recommendation": "Review date handling before migration validation.",
-            "file": "zipkin/src/main/java/Example3.java",
-            "line": 12,
+            "code": "serializable-missing-serial-version",
+            "severity": "warning",
+            "title": "Serializable type without serialVersionUID",
+            "recommendation": "Add an explicit serialVersionUID before Java runtime migration validation.",
+            "file": "zipkin-collector/scribe/src/main/java/zipkin2/collector/scribe/generated/Scribe.java",
+            "line": 1,
             "scope": "production"
           },
           {
-            "code": "java-util-date",
-            "severity": "info",
-            "title": "Legacy date API usage",
-            "recommendation": "Review date handling before migration validation.",
-            "file": "zipkin/src/main/java/Example4.java",
-            "line": 13,
-            "scope": "production"
-          },
-          {
-            "code": "java-util-date",
-            "severity": "info",
-            "title": "Legacy date API usage",
-            "recommendation": "Review date handling before migration validation.",
-            "file": "zipkin/src/main/java/Example5.java",
-            "line": 14,
+            "code": "serializable-missing-serial-version",
+            "severity": "warning",
+            "title": "Serializable type without serialVersionUID",
+            "recommendation": "Add an explicit serialVersionUID before Java runtime migration validation.",
+            "file": "zipkin-server/src/main/java/zipkin2/server/internal/eureka/ZipkinEurekaDiscoveryProperties.java",
+            "line": 1,
             "scope": "production"
           }
         ]
@@ -930,705 +693,336 @@
   },
   "findings": [
     {
-      "code": "javax-usage",
-      "severity": "critical",
-      "title": "javax namespace usage detected",
-      "recommendation": "Plan Jakarta migration before Spring Boot 3 execution.",
-      "file": "zipkin/src/main/java/ExampleApplication.java",
-      "line": 12,
-      "scope": "production"
-    },
-    {
-      "code": "spring-boot-2",
+      "code": "spring-boot-version-unknown",
       "severity": "warning",
-      "title": "Spring Boot 2.7.x detected",
-      "recommendation": "Run OpenRewrite Boot 3 recipes in dry-run mode.",
+      "title": "Spring Boot version unknown",
+      "recommendation": "Declare Spring Boot version explicitly in Maven or Gradle metadata.",
       "file": null,
       "line": null,
       "scope": "production"
     },
     {
-      "code": "field-injection",
+      "code": "javax-usage",
+      "severity": "critical",
+      "title": "javax namespace usage detected",
+      "recommendation": "Migrate Java EE imports to Jakarta equivalents for Spring Boot 3.",
+      "file": null,
+      "line": null,
+      "scope": "production"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "benchmarks/src/test/java/zipkin2/server/ServerIntegratedBenchmark.java",
+      "line": 195,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "benchmarks/src/test/java/zipkin2/server/ServerIntegratedBenchmark.java",
+      "line": 210,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "benchmarks/src/test/java/zipkin2/server/ServerIntegratedBenchmark.java",
+      "line": 211,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "benchmarks/src/test/java/zipkin2/server/ServerIntegratedBenchmark.java",
+      "line": 216,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "benchmarks/src/test/java/zipkin2/server/ServerIntegratedBenchmark.java",
+      "line": 218,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "benchmarks/src/test/java/zipkin2/server/ServerIntegratedBenchmark.java",
+      "line": 220,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "benchmarks/src/test/java/zipkin2/server/ServerIntegratedBenchmark.java",
+      "line": 223,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "benchmarks/src/test/java/zipkin2/server/ServerIntegratedBenchmark.java",
+      "line": 227,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "benchmarks/src/test/java/zipkin2/server/ServerIntegratedBenchmark.java",
+      "line": 230,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "benchmarks/src/test/java/zipkin2/server/ServerIntegratedBenchmark.java",
+      "line": 233,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "benchmarks/src/test/java/zipkin2/server/ServerIntegratedBenchmark.java",
+      "line": 240,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "benchmarks/src/test/java/zipkin2/server/ServerIntegratedBenchmark.java",
+      "line": 325,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "benchmarks/src/test/java/zipkin2/server/ServerIntegratedBenchmark.java",
+      "line": 336,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "benchmarks/src/test/java/zipkin2/server/ServerIntegratedBenchmark.java",
+      "line": 344,
+      "scope": "test"
+    },
+    {
+      "code": "java-internal-api",
       "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "zipkin/src/main/java/Example1.java",
+      "title": "JDK internal API usage",
+      "recommendation": "Review JDK internal API usage before modernization.",
+      "file": "pom.xml",
+      "line": 260,
+      "scope": "production"
+    },
+    {
+      "code": "java-internal-api",
+      "severity": "warning",
+      "title": "JDK internal API usage",
+      "recommendation": "Review JDK internal API usage before modernization.",
+      "file": "pom.xml",
+      "line": 261,
+      "scope": "production"
+    },
+    {
+      "code": "java-internal-api",
+      "severity": "warning",
+      "title": "JDK internal API usage",
+      "recommendation": "Review JDK internal API usage before modernization.",
+      "file": "pom.xml",
+      "line": 262,
+      "scope": "production"
+    },
+    {
+      "code": "java-internal-api",
+      "severity": "warning",
+      "title": "JDK internal API usage",
+      "recommendation": "Review JDK internal API usage before modernization.",
+      "file": "pom.xml",
+      "line": 263,
+      "scope": "production"
+    },
+    {
+      "code": "java-internal-api",
+      "severity": "warning",
+      "title": "JDK internal API usage",
+      "recommendation": "Review JDK internal API usage before modernization.",
+      "file": "pom.xml",
+      "line": 264,
+      "scope": "production"
+    },
+    {
+      "code": "java-internal-api",
+      "severity": "warning",
+      "title": "JDK internal API usage",
+      "recommendation": "Review JDK internal API usage before modernization.",
+      "file": "pom.xml",
+      "line": 265,
+      "scope": "production"
+    },
+    {
+      "code": "java-internal-api",
+      "severity": "warning",
+      "title": "JDK internal API usage",
+      "recommendation": "Review JDK internal API usage before modernization.",
+      "file": "pom.xml",
+      "line": 266,
+      "scope": "production"
+    },
+    {
+      "code": "java-internal-api",
+      "severity": "warning",
+      "title": "JDK internal API usage",
+      "recommendation": "Review JDK internal API usage before modernization.",
+      "file": "pom.xml",
+      "line": 267,
+      "scope": "production"
+    },
+    {
+      "code": "java-internal-api",
+      "severity": "warning",
+      "title": "JDK internal API usage",
+      "recommendation": "Review JDK internal API usage before modernization.",
+      "file": "pom.xml",
+      "line": 268,
+      "scope": "production"
+    },
+    {
+      "code": "java-internal-api",
+      "severity": "warning",
+      "title": "JDK internal API usage",
+      "recommendation": "Review JDK internal API usage before modernization.",
+      "file": "pom.xml",
+      "line": 269,
+      "scope": "production"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "zipkin/src/test/java/zipkin2/internal/DateUtilTest.java",
       "line": 10,
-      "scope": "production"
+      "scope": "test"
     },
     {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "zipkin/src/main/java/Example2.java",
-      "line": 11,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "zipkin/src/main/java/Example3.java",
-      "line": 12,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "zipkin/src/main/java/Example4.java",
-      "line": 13,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "zipkin/src/main/java/Example5.java",
-      "line": 14,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "zipkin/src/main/java/Example6.java",
-      "line": 15,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "zipkin/src/main/java/Example7.java",
-      "line": 16,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "zipkin/src/main/java/Example8.java",
-      "line": 17,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "zipkin/src/main/java/Example9.java",
-      "line": 18,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "zipkin/src/main/java/Example10.java",
-      "line": 19,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "zipkin/src/main/java/Example11.java",
-      "line": 20,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "zipkin/src/main/java/Example12.java",
-      "line": 21,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "zipkin/src/main/java/Example13.java",
-      "line": 22,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "zipkin/src/main/java/Example14.java",
-      "line": 23,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "zipkin/src/main/java/Example15.java",
-      "line": 24,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "zipkin/src/main/java/Example16.java",
-      "line": 25,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "zipkin/src/main/java/Example17.java",
-      "line": 26,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "zipkin/src/main/java/Example18.java",
-      "line": 27,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "zipkin/src/main/java/Example19.java",
-      "line": 28,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "zipkin/src/main/java/Example20.java",
-      "line": 29,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "zipkin/src/main/java/Example21.java",
+      "code": "reflection-usage",
+      "severity": "info",
+      "title": "Reflection usage",
+      "recommendation": "Review Reflection usage before modernization.",
+      "file": "zipkin/src/test/java/zipkin2/storage/ForwardingStorageComponentTest.java",
       "line": 30,
-      "scope": "production"
+      "scope": "test"
     },
     {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "zipkin/src/main/java/Example22.java",
-      "line": 31,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "zipkin/src/main/java/Example23.java",
-      "line": 32,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "zipkin/src/main/java/Example24.java",
+      "code": "reflection-usage",
+      "severity": "info",
+      "title": "Reflection usage",
+      "recommendation": "Review Reflection usage before modernization.",
+      "file": "zipkin/src/test/java/zipkin2/storage/ForwardingStorageComponentTest.java",
       "line": 33,
-      "scope": "production"
+      "scope": "test"
     },
     {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "zipkin/src/main/java/Example25.java",
+      "code": "reflection-usage",
+      "severity": "info",
+      "title": "Reflection usage",
+      "recommendation": "Review Reflection usage before modernization.",
+      "file": "zipkin/src/test/java/zipkin2/storage/ForwardingStorageComponentTest.java",
       "line": 34,
+      "scope": "test"
+    },
+    {
+      "code": "serializable-missing-serial-version",
+      "severity": "warning",
+      "title": "Serializable type without serialVersionUID",
+      "recommendation": "Add an explicit serialVersionUID before Java runtime migration validation.",
+      "file": "zipkin-collector/scribe/src/main/java/zipkin2/collector/scribe/generated/LogEntry.java",
+      "line": 1,
       "scope": "production"
     },
     {
-      "code": "field-injection",
+      "code": "serializable-missing-serial-version",
       "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "zipkin/src/main/java/Example26.java",
-      "line": 35,
+      "title": "Serializable type without serialVersionUID",
+      "recommendation": "Add an explicit serialVersionUID before Java runtime migration validation.",
+      "file": "zipkin-collector/scribe/src/main/java/zipkin2/collector/scribe/generated/Scribe.java",
+      "line": 1,
       "scope": "production"
     },
     {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "zipkin/src/main/java/Example27.java",
-      "line": 36,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "zipkin/src/main/java/Example28.java",
-      "line": 37,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "zipkin/src/main/java/Example29.java",
+      "code": "reflection-usage",
+      "severity": "info",
+      "title": "Reflection usage",
+      "recommendation": "Review Reflection usage before modernization.",
+      "file": "zipkin-server/src/main/java/zipkin2/server/internal/ConditionalOnSelfTracing.java",
       "line": 38,
       "scope": "production"
     },
     {
-      "code": "java-util-date",
+      "code": "reflection-usage",
       "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example1.java",
-      "line": 10,
+      "title": "Reflection usage",
+      "recommendation": "Review Reflection usage before modernization.",
+      "file": "zipkin-server/src/main/java/zipkin2/server/internal/ZipkinActuatorImporter.java",
+      "line": 71,
       "scope": "production"
     },
     {
-      "code": "java-util-date",
+      "code": "reflection-usage",
       "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example2.java",
-      "line": 11,
+      "title": "Reflection usage",
+      "recommendation": "Review Reflection usage before modernization.",
+      "file": "zipkin-server/src/main/java/zipkin2/server/internal/ZipkinActuatorImporter.java",
+      "line": 79,
       "scope": "production"
     },
     {
-      "code": "java-util-date",
+      "code": "reflection-usage",
       "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example3.java",
-      "line": 12,
+      "title": "Reflection usage",
+      "recommendation": "Review Reflection usage before modernization.",
+      "file": "zipkin-server/src/main/java/zipkin2/server/internal/ZipkinModuleImporter.java",
+      "line": 61,
       "scope": "production"
     },
     {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example4.java",
-      "line": 13,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example5.java",
-      "line": 14,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example6.java",
-      "line": 15,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example7.java",
-      "line": 16,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example8.java",
-      "line": 17,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example9.java",
-      "line": 18,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example10.java",
-      "line": 19,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example11.java",
-      "line": 20,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example12.java",
-      "line": 21,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example13.java",
-      "line": 22,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example14.java",
-      "line": 23,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example15.java",
-      "line": 24,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example16.java",
-      "line": 25,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example17.java",
-      "line": 26,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example18.java",
-      "line": 27,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example19.java",
-      "line": 28,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example20.java",
-      "line": 29,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example21.java",
-      "line": 30,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example22.java",
-      "line": 31,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example23.java",
-      "line": 32,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example24.java",
-      "line": 33,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example25.java",
-      "line": 34,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example26.java",
-      "line": 35,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example27.java",
-      "line": 36,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example28.java",
-      "line": 37,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example29.java",
-      "line": 38,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example30.java",
-      "line": 39,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example31.java",
-      "line": 40,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example32.java",
-      "line": 41,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example33.java",
-      "line": 42,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example34.java",
-      "line": 43,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example35.java",
-      "line": 44,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example36.java",
-      "line": 45,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example37.java",
-      "line": 46,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example38.java",
-      "line": 47,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example39.java",
-      "line": 48,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example40.java",
-      "line": 49,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example41.java",
-      "line": 50,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example42.java",
-      "line": 51,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example43.java",
-      "line": 52,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example44.java",
-      "line": 53,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example45.java",
-      "line": 54,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example46.java",
-      "line": 55,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "zipkin/src/main/java/Example47.java",
-      "line": 56,
+      "code": "serializable-missing-serial-version",
+      "severity": "warning",
+      "title": "Serializable type without serialVersionUID",
+      "recommendation": "Add an explicit serialVersionUID before Java runtime migration validation.",
+      "file": "zipkin-server/src/main/java/zipkin2/server/internal/eureka/ZipkinEurekaDiscoveryProperties.java",
+      "line": 1,
       "scope": "production"
     }
   ],
@@ -1639,7 +1033,7 @@
     },
     {
       "name": "Spring Boot version detection",
-      "status": "passed"
+      "status": "warning"
     },
     {
       "name": "Jakarta namespace readiness",
@@ -1656,10 +1050,10 @@
     }
   ],
   "dependencies": {
-    "springBootVersion": "2.7.x",
-    "jakartaDetected": false,
+    "springBootVersion": "unknown",
+    "jakartaDetected": true,
     "javaxDetected": true,
-    "hibernateDetected": true,
+    "hibernateDetected": false,
     "springSecurityDetected": true
   },
   "benchmark": {
@@ -1667,12 +1061,19 @@
     "name": "Zipkin",
     "repository": "https://github.com/openzipkin/zipkin",
     "ref": null,
-    "requestedSource": "catalog",
-    "source": "catalog",
-    "checkoutPath": null,
-    "analysisPath": null,
-    "gitRevision": null,
-    "commands": [],
+    "requestedSource": "clone",
+    "source": "checkout",
+    "checkoutPath": "benchmark-repos/zipkin",
+    "analysisPath": "benchmark-repos/zipkin",
+    "gitRevision": "878ce2a1fad54ca941d17fdcf2e1d924b148eb1f",
+    "commands": [
+      {
+        "command": "git clone --depth 1 https://github.com/openzipkin/zipkin benchmark-repos/zipkin",
+        "exitCode": 0,
+        "status": "passed",
+        "output": "Cloning into '~/<workspace>"
+      }
+    ],
     "validation": {
       "requested": false,
       "status": "not_requested",

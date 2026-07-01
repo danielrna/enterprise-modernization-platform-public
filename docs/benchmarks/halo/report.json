@@ -1,17 +1,17 @@
 {
   "schemaVersion": "emp.report.v1",
-  "generatedAt": "2026-06-30T22:51:14.789Z",
+  "generatedAt": "2026-07-01T05:44:45.852Z",
   "project": {
     "name": "Halo",
-    "root": "https://github.com/halo-dev/halo",
+    "root": "benchmark-repos/halo",
     "source": "https://github.com/halo-dev/halo",
     "buildTools": [
       "Gradle"
     ],
-    "javaVersion": "17",
-    "springBootVersion": "2.7.x",
-    "fileCount": 2400,
-    "javaFileCount": 1500
+    "javaVersion": "11",
+    "springBootVersion": "2.5.12",
+    "fileCount": 751,
+    "javaFileCount": 605
   },
   "pack": "spring-boot-3-readiness",
   "packApplicability": {
@@ -21,1064 +21,644 @@
     "targetVersion": "3.x"
   },
   "readiness": {
-    "overall": 66,
+    "overall": 68,
     "categories": {
-      "java": 74,
-      "spring": 34,
+      "java": 62,
+      "spring": 54,
       "jakarta": 79,
       "build": 90,
       "security": 82,
-      "architecture": 39
+      "architecture": 42
     },
     "summary": "Migration risk requires focused cleanup",
     "counts": {
       "critical": 1,
-      "warning": 42,
-      "info": 68
+      "warning": 23,
+      "info": 43
     }
   },
   "productionFindings": [
     {
-      "code": "javax-usage",
-      "severity": "critical",
-      "title": "javax namespace usage detected",
-      "recommendation": "Plan Jakarta migration before Spring Boot 3 execution.",
-      "file": "halo/src/main/java/ExampleApplication.java",
-      "line": 12,
-      "scope": "production"
-    },
-    {
       "code": "spring-boot-2",
       "severity": "warning",
-      "title": "Spring Boot 2.7.x detected",
-      "recommendation": "Run OpenRewrite Boot 3 recipes in dry-run mode.",
+      "title": "Spring Boot 2.5.12 detected",
+      "recommendation": "Plan Spring Boot 3 and Jakarta compatibility validation.",
       "file": null,
       "line": null,
       "scope": "production"
     },
     {
-      "code": "field-injection",
+      "code": "javax-usage",
+      "severity": "critical",
+      "title": "javax namespace usage detected",
+      "recommendation": "Migrate Java EE imports to Jakarta equivalents for Spring Boot 3.",
+      "file": null,
+      "line": null,
+      "scope": "production"
+    },
+    {
+      "code": "java-internal-api",
       "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "halo/src/main/java/Example1.java",
-      "line": 10,
+      "title": "JDK internal API usage",
+      "recommendation": "Review JDK internal API usage before modernization.",
+      "file": "build.gradle",
+      "line": 90,
       "scope": "production"
     },
     {
-      "code": "field-injection",
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "src/main/java/run/halo/app/cache/AbstractCacheStore.java",
+      "line": 3,
+      "scope": "production"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "src/main/java/run/halo/app/cache/CacheWrapper.java",
+      "line": 4,
+      "scope": "production"
+    },
+    {
+      "code": "serializable-missing-serial-version",
       "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "halo/src/main/java/Example2.java",
-      "line": 11,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "halo/src/main/java/Example3.java",
-      "line": 12,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "halo/src/main/java/Example4.java",
-      "line": 13,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "halo/src/main/java/Example5.java",
-      "line": 14,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "halo/src/main/java/Example6.java",
-      "line": 15,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "halo/src/main/java/Example7.java",
-      "line": 16,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "halo/src/main/java/Example8.java",
-      "line": 17,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "halo/src/main/java/Example9.java",
-      "line": 18,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "halo/src/main/java/Example10.java",
-      "line": 19,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "halo/src/main/java/Example11.java",
-      "line": 20,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "halo/src/main/java/Example12.java",
-      "line": 21,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "halo/src/main/java/Example13.java",
-      "line": 22,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "halo/src/main/java/Example14.java",
-      "line": 23,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "halo/src/main/java/Example15.java",
-      "line": 24,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "halo/src/main/java/Example16.java",
-      "line": 25,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "halo/src/main/java/Example17.java",
-      "line": 26,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "halo/src/main/java/Example18.java",
-      "line": 27,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "halo/src/main/java/Example19.java",
-      "line": 28,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "halo/src/main/java/Example20.java",
-      "line": 29,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "halo/src/main/java/Example21.java",
-      "line": 30,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "halo/src/main/java/Example22.java",
-      "line": 31,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "halo/src/main/java/Example23.java",
-      "line": 32,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "halo/src/main/java/Example24.java",
-      "line": 33,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "halo/src/main/java/Example25.java",
-      "line": 34,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "halo/src/main/java/Example26.java",
-      "line": 35,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "halo/src/main/java/Example27.java",
-      "line": 36,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "halo/src/main/java/Example28.java",
-      "line": 37,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "halo/src/main/java/Example29.java",
-      "line": 38,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "halo/src/main/java/Example30.java",
-      "line": 39,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "halo/src/main/java/Example31.java",
-      "line": 40,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "halo/src/main/java/Example32.java",
-      "line": 41,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "halo/src/main/java/Example33.java",
-      "line": 42,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "halo/src/main/java/Example34.java",
-      "line": 43,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "halo/src/main/java/Example35.java",
-      "line": 44,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "halo/src/main/java/Example36.java",
-      "line": 45,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "halo/src/main/java/Example37.java",
-      "line": 46,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "halo/src/main/java/Example38.java",
-      "line": 47,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "halo/src/main/java/Example39.java",
-      "line": 48,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "halo/src/main/java/Example40.java",
-      "line": 49,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "halo/src/main/java/Example41.java",
-      "line": 50,
+      "title": "Serializable type without serialVersionUID",
+      "recommendation": "Add an explicit serialVersionUID before Java runtime migration validation.",
+      "file": "src/main/java/run/halo/app/cache/CacheWrapper.java",
+      "line": 1,
       "scope": "production"
     },
     {
       "code": "java-util-date",
       "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example1.java",
-      "line": 10,
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "src/main/java/run/halo/app/cache/LevelCacheStore.java",
+      "line": 7,
       "scope": "production"
     },
     {
-      "code": "java-util-date",
+      "code": "reflection-usage",
       "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example2.java",
-      "line": 11,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example3.java",
-      "line": 12,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example4.java",
-      "line": 13,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example5.java",
-      "line": 14,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example6.java",
-      "line": 15,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example7.java",
-      "line": 16,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example8.java",
-      "line": 17,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example9.java",
-      "line": 18,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example10.java",
-      "line": 19,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example11.java",
-      "line": 20,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example12.java",
-      "line": 21,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example13.java",
-      "line": 22,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example14.java",
-      "line": 23,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example15.java",
-      "line": 24,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example16.java",
-      "line": 25,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example17.java",
-      "line": 26,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example18.java",
-      "line": 27,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example19.java",
-      "line": 28,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example20.java",
-      "line": 29,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example21.java",
-      "line": 30,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example22.java",
-      "line": 31,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example23.java",
-      "line": 32,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example24.java",
-      "line": 33,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example25.java",
-      "line": 34,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example26.java",
-      "line": 35,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example27.java",
-      "line": 36,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example28.java",
-      "line": 37,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example29.java",
-      "line": 38,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example30.java",
-      "line": 39,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example31.java",
-      "line": 40,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example32.java",
-      "line": 41,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example33.java",
-      "line": 42,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example34.java",
-      "line": 43,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example35.java",
-      "line": 44,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example36.java",
-      "line": 45,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example37.java",
-      "line": 46,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example38.java",
-      "line": 47,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example39.java",
-      "line": 48,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example40.java",
-      "line": 49,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example41.java",
-      "line": 50,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example42.java",
+      "title": "Reflection usage",
+      "recommendation": "Review Reflection usage before modernization.",
+      "file": "src/main/java/run/halo/app/config/attributeconverter/AttributeConverterAutoGenerator.java",
       "line": 51,
       "scope": "production"
     },
     {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example43.java",
+      "code": "java-internal-api",
+      "severity": "warning",
+      "title": "JDK internal API usage",
+      "recommendation": "Review JDK internal API usage before modernization.",
+      "file": "src/main/java/run/halo/app/core/ControllerExceptionHandler.java",
+      "line": 152,
+      "scope": "production"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "src/main/java/run/halo/app/handler/file/FileHandlers.java",
+      "line": 34,
+      "scope": "production"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "src/main/java/run/halo/app/handler/prehandler/PictureExifRemovalPreHandler.java",
+      "line": 34,
+      "scope": "production"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "src/main/java/run/halo/app/listener/StartedListener.java",
       "line": 52,
       "scope": "production"
     },
     {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example44.java",
-      "line": 53,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example45.java",
-      "line": 54,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example46.java",
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "src/main/java/run/halo/app/listener/StartedListener.java",
       "line": 55,
       "scope": "production"
     },
     {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example47.java",
-      "line": 56,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example48.java",
-      "line": 57,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example49.java",
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "src/main/java/run/halo/app/listener/StartedListener.java",
       "line": 58,
       "scope": "production"
     },
     {
       "code": "java-util-date",
       "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example50.java",
-      "line": 59,
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "src/main/java/run/halo/app/model/dto/AttachmentDTO.java",
+      "line": 3,
       "scope": "production"
     },
     {
       "code": "java-util-date",
       "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example51.java",
-      "line": 60,
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "src/main/java/run/halo/app/model/dto/BaseCommentDTO.java",
+      "line": 3,
       "scope": "production"
     },
     {
       "code": "java-util-date",
       "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example52.java",
-      "line": 61,
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "src/main/java/run/halo/app/model/dto/BaseMetaDTO.java",
+      "line": 3,
       "scope": "production"
     },
     {
       "code": "java-util-date",
       "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example53.java",
-      "line": 62,
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "src/main/java/run/halo/app/model/dto/CategoryDTO.java",
+      "line": 3,
       "scope": "production"
     },
     {
       "code": "java-util-date",
       "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example54.java",
-      "line": 63,
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "src/main/java/run/halo/app/model/dto/JournalDTO.java",
+      "line": 3,
       "scope": "production"
     },
     {
       "code": "java-util-date",
       "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example55.java",
-      "line": 64,
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "src/main/java/run/halo/app/model/dto/LogDTO.java",
+      "line": 3,
       "scope": "production"
     },
     {
       "code": "java-util-date",
       "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example56.java",
-      "line": 65,
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "src/main/java/run/halo/app/model/dto/OptionSimpleDTO.java",
+      "line": 3,
       "scope": "production"
     },
     {
       "code": "java-util-date",
       "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example57.java",
-      "line": 66,
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "src/main/java/run/halo/app/model/dto/PhotoDTO.java",
+      "line": 3,
       "scope": "production"
     },
     {
       "code": "java-util-date",
       "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example58.java",
-      "line": 67,
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "src/main/java/run/halo/app/model/dto/TagDTO.java",
+      "line": 3,
       "scope": "production"
     },
     {
       "code": "java-util-date",
       "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example59.java",
-      "line": 68,
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "src/main/java/run/halo/app/model/dto/UserDTO.java",
+      "line": 3,
       "scope": "production"
     },
     {
       "code": "java-util-date",
       "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example60.java",
-      "line": 69,
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "src/main/java/run/halo/app/model/dto/post/BasePostMinimalDTO.java",
+      "line": 3,
       "scope": "production"
     },
     {
       "code": "java-util-date",
       "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example61.java",
-      "line": 70,
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "src/main/java/run/halo/app/model/entity/BaseEntity.java",
+      "line": 3,
       "scope": "production"
     },
     {
       "code": "java-util-date",
       "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example62.java",
-      "line": 71,
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "src/main/java/run/halo/app/model/entity/BasePost.java",
+      "line": 3,
       "scope": "production"
     },
     {
       "code": "java-util-date",
       "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example63.java",
-      "line": 72,
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "src/main/java/run/halo/app/model/entity/CommentBlackList.java",
+      "line": 3,
       "scope": "production"
     },
     {
       "code": "java-util-date",
       "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example64.java",
-      "line": 73,
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "src/main/java/run/halo/app/model/entity/ContentPatchLog.java",
+      "line": 3,
       "scope": "production"
     },
     {
       "code": "java-util-date",
       "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example65.java",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "src/main/java/run/halo/app/model/entity/Photo.java",
+      "line": 3,
+      "scope": "production"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "src/main/java/run/halo/app/model/entity/User.java",
+      "line": 3,
+      "scope": "production"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "src/main/java/run/halo/app/model/params/BasePostParam.java",
+      "line": 3,
+      "scope": "production"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "src/main/java/run/halo/app/model/params/PhotoParam.java",
+      "line": 3,
+      "scope": "production"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "src/main/java/run/halo/app/repository/PostCommentRepository.java",
+      "line": 4,
+      "scope": "production"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "src/main/java/run/halo/app/repository/base/BasePostRepository.java",
+      "line": 3,
+      "scope": "production"
+    },
+    {
+      "code": "reflection-usage",
+      "severity": "info",
+      "title": "Reflection usage",
+      "recommendation": "Review Reflection usage before modernization.",
+      "file": "src/main/java/run/halo/app/service/impl/BackupServiceImpl.java",
+      "line": 270,
+      "scope": "production"
+    },
+    {
+      "code": "reflection-usage",
+      "severity": "info",
+      "title": "Reflection usage",
+      "recommendation": "Review Reflection usage before modernization.",
+      "file": "src/main/java/run/halo/app/service/impl/BackupServiceImpl.java",
+      "line": 300,
+      "scope": "production"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "src/main/java/run/halo/app/service/impl/CommentBlackListServiceImpl.java",
+      "line": 4,
+      "scope": "production"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "src/main/java/run/halo/app/service/impl/ContentServiceImpl.java",
+      "line": 3,
+      "scope": "production"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "src/main/java/run/halo/app/service/impl/PostCategoryServiceImpl.java",
       "line": 74,
       "scope": "production"
     },
     {
       "code": "java-util-date",
       "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example66.java",
-      "line": 75,
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "src/main/java/run/halo/app/service/impl/UserServiceImpl.java",
+      "line": 3,
+      "scope": "production"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "src/main/java/run/halo/app/utils/BCrypt.java",
+      "line": 29,
+      "scope": "production"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "src/main/java/run/halo/app/utils/BCrypt.java",
+      "line": 31,
       "scope": "production"
     },
     {
       "code": "java-util-date",
       "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example67.java",
-      "line": 76,
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "src/main/java/run/halo/app/utils/DateTimeUtils.java",
+      "line": 13,
       "scope": "production"
     },
     {
       "code": "java-util-date",
       "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example68.java",
-      "line": 77,
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "src/main/java/run/halo/app/utils/DateUtils.java",
+      "line": 5,
+      "scope": "production"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "src/main/java/run/halo/app/utils/GitUtils.java",
+      "line": 7,
+      "scope": "production"
+    },
+    {
+      "code": "reflection-usage",
+      "severity": "info",
+      "title": "Reflection usage",
+      "recommendation": "Review Reflection usage before modernization.",
+      "file": "src/main/java/run/halo/app/utils/SwaggerUtils.java",
+      "line": 101,
       "scope": "production"
     }
   ],
-  "testFindings": [],
+  "testFindings": [
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "src/test/java/run/halo/app/cache/RedisCacheStoreTest.java",
+      "line": 33,
+      "scope": "test"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "src/test/java/run/halo/app/listener/PostRefreshStatusListenerTest.java",
+      "line": 31,
+      "scope": "test"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "src/test/java/run/halo/app/listener/PostRefreshStatusListenerTest.java",
+      "line": 34,
+      "scope": "test"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "src/test/java/run/halo/app/listener/PostRefreshStatusListenerTest.java",
+      "line": 37,
+      "scope": "test"
+    },
+    {
+      "code": "serializable-missing-serial-version",
+      "severity": "warning",
+      "title": "Serializable type without serialVersionUID",
+      "recommendation": "Add an explicit serialVersionUID before Java runtime migration validation.",
+      "file": "src/test/java/run/halo/app/model/dto/base/InputConverterTest.java",
+      "line": 1,
+      "scope": "test"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "src/test/java/run/halo/app/repository/ContentPatchLogRepositoryTest.java",
+      "line": 6,
+      "scope": "test"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "src/test/java/run/halo/app/repository/ContentPatchLogRepositoryTest.java",
+      "line": 25,
+      "scope": "test"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "src/test/java/run/halo/app/service/impl/CategoryIntegrationTest.java",
+      "line": 34,
+      "scope": "test"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "src/test/java/run/halo/app/service/impl/CategoryIntegrationTest.java",
+      "line": 36,
+      "scope": "test"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "src/test/java/run/halo/app/service/impl/CategoryIntegrationTest.java",
+      "line": 38,
+      "scope": "test"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "src/test/java/run/halo/app/service/impl/CategoryServiceTest.java",
+      "line": 31,
+      "scope": "test"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "src/test/java/run/halo/app/service/impl/ContentPatchLogServiceImplTest.java",
+      "line": 6,
+      "scope": "test"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "src/test/java/run/halo/app/service/impl/PostCategoryServiceImplTest.java",
+      "line": 25,
+      "scope": "test"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "src/test/java/run/halo/app/service/impl/PostCategoryServiceImplTest.java",
+      "line": 28,
+      "scope": "test"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "src/test/java/run/halo/app/service/impl/PostCategoryServiceImplTest.java",
+      "line": 31,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "src/test/java/run/halo/app/utils/BcryptTest.java",
+      "line": 46,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "src/test/java/run/halo/app/utils/BcryptTest.java",
+      "line": 50,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "src/test/java/run/halo/app/utils/FootnoteTest.java",
+      "line": 57,
+      "scope": "test"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "src/test/java/run/halo/app/utils/GitTest.java",
+      "line": 12,
+      "scope": "test"
+    },
+    {
+      "code": "reflection-usage",
+      "severity": "info",
+      "title": "Reflection usage",
+      "recommendation": "Review Reflection usage before modernization.",
+      "file": "src/test/java/run/halo/app/utils/HttpClientUtilsTest.java",
+      "line": 14,
+      "scope": "test"
+    }
+  ],
   "findingSummary": {
     "production": {
       "critical": 1,
-      "warning": 42,
-      "info": 68
+      "warning": 10,
+      "info": 36
     },
     "test": {
       "critical": 0,
-      "warning": 0,
-      "info": 0
+      "warning": 13,
+      "info": 7
     },
     "byCode": {
-      "javax-usage": {
-        "code": "javax-usage",
-        "title": "javax namespace usage detected",
-        "severity": "critical",
-        "total": 1,
-        "production": 1,
-        "test": 0,
-        "topModules": [
-          {
-            "name": "halo",
-            "count": 1
-          }
-        ],
-        "examples": [
-          {
-            "code": "javax-usage",
-            "severity": "critical",
-            "title": "javax namespace usage detected",
-            "recommendation": "Plan Jakarta migration before Spring Boot 3 execution.",
-            "file": "halo/src/main/java/ExampleApplication.java",
-            "line": 12,
-            "scope": "production"
-          }
-        ]
-      },
       "spring-boot-2": {
         "code": "spring-boot-2",
-        "title": "Spring Boot 2.7.x detected",
+        "title": "Spring Boot 2.5.12 detected",
         "severity": "warning",
         "total": 1,
         "production": 1,
@@ -1093,133 +673,352 @@
           {
             "code": "spring-boot-2",
             "severity": "warning",
-            "title": "Spring Boot 2.7.x detected",
-            "recommendation": "Run OpenRewrite Boot 3 recipes in dry-run mode.",
+            "title": "Spring Boot 2.5.12 detected",
+            "recommendation": "Plan Spring Boot 3 and Jakarta compatibility validation.",
             "file": null,
             "line": null,
             "scope": "production"
           }
         ]
       },
-      "field-injection": {
-        "code": "field-injection",
-        "title": "Spring field injection patterns",
-        "severity": "warning",
-        "total": 41,
-        "production": 41,
+      "javax-usage": {
+        "code": "javax-usage",
+        "title": "javax namespace usage detected",
+        "severity": "critical",
+        "total": 1,
+        "production": 1,
         "test": 0,
         "topModules": [
           {
-            "name": "halo",
-            "count": 41
+            "name": "project",
+            "count": 1
           }
         ],
         "examples": [
           {
-            "code": "field-injection",
+            "code": "javax-usage",
+            "severity": "critical",
+            "title": "javax namespace usage detected",
+            "recommendation": "Migrate Java EE imports to Jakarta equivalents for Spring Boot 3.",
+            "file": null,
+            "line": null,
+            "scope": "production"
+          }
+        ]
+      },
+      "java-internal-api": {
+        "code": "java-internal-api",
+        "title": "JDK internal API usage",
+        "severity": "warning",
+        "total": 2,
+        "production": 2,
+        "test": 0,
+        "topModules": [
+          {
+            "name": "build.gradle",
+            "count": 1
+          },
+          {
+            "name": "src",
+            "count": 1
+          }
+        ],
+        "examples": [
+          {
+            "code": "java-internal-api",
             "severity": "warning",
-            "title": "Spring field injection patterns",
-            "recommendation": "Prefer constructor injection in services touched by migration work.",
-            "file": "halo/src/main/java/Example1.java",
-            "line": 10,
+            "title": "JDK internal API usage",
+            "recommendation": "Review JDK internal API usage before modernization.",
+            "file": "build.gradle",
+            "line": 90,
             "scope": "production"
           },
           {
-            "code": "field-injection",
+            "code": "java-internal-api",
             "severity": "warning",
-            "title": "Spring field injection patterns",
-            "recommendation": "Prefer constructor injection in services touched by migration work.",
-            "file": "halo/src/main/java/Example2.java",
-            "line": 11,
-            "scope": "production"
-          },
-          {
-            "code": "field-injection",
-            "severity": "warning",
-            "title": "Spring field injection patterns",
-            "recommendation": "Prefer constructor injection in services touched by migration work.",
-            "file": "halo/src/main/java/Example3.java",
-            "line": 12,
-            "scope": "production"
-          },
-          {
-            "code": "field-injection",
-            "severity": "warning",
-            "title": "Spring field injection patterns",
-            "recommendation": "Prefer constructor injection in services touched by migration work.",
-            "file": "halo/src/main/java/Example4.java",
-            "line": 13,
-            "scope": "production"
-          },
-          {
-            "code": "field-injection",
-            "severity": "warning",
-            "title": "Spring field injection patterns",
-            "recommendation": "Prefer constructor injection in services touched by migration work.",
-            "file": "halo/src/main/java/Example5.java",
-            "line": 14,
+            "title": "JDK internal API usage",
+            "recommendation": "Review JDK internal API usage before modernization.",
+            "file": "src/main/java/run/halo/app/core/ControllerExceptionHandler.java",
+            "line": 152,
             "scope": "production"
           }
         ]
       },
       "java-util-date": {
         "code": "java-util-date",
-        "title": "Legacy date API usage",
+        "title": "java.util.Date usage",
         "severity": "info",
-        "total": 68,
-        "production": 68,
-        "test": 0,
+        "total": 33,
+        "production": 30,
+        "test": 3,
         "topModules": [
           {
-            "name": "halo",
-            "count": 68
+            "name": "src",
+            "count": 33
           }
         ],
         "examples": [
           {
             "code": "java-util-date",
             "severity": "info",
-            "title": "Legacy date API usage",
-            "recommendation": "Review date handling before migration validation.",
-            "file": "halo/src/main/java/Example1.java",
-            "line": 10,
+            "title": "java.util.Date usage",
+            "recommendation": "Review java.util.Date usage before modernization.",
+            "file": "src/main/java/run/halo/app/cache/AbstractCacheStore.java",
+            "line": 3,
             "scope": "production"
           },
           {
             "code": "java-util-date",
             "severity": "info",
-            "title": "Legacy date API usage",
-            "recommendation": "Review date handling before migration validation.",
-            "file": "halo/src/main/java/Example2.java",
-            "line": 11,
+            "title": "java.util.Date usage",
+            "recommendation": "Review java.util.Date usage before modernization.",
+            "file": "src/main/java/run/halo/app/cache/CacheWrapper.java",
+            "line": 4,
             "scope": "production"
           },
           {
             "code": "java-util-date",
             "severity": "info",
-            "title": "Legacy date API usage",
-            "recommendation": "Review date handling before migration validation.",
-            "file": "halo/src/main/java/Example3.java",
-            "line": 12,
+            "title": "java.util.Date usage",
+            "recommendation": "Review java.util.Date usage before modernization.",
+            "file": "src/main/java/run/halo/app/cache/LevelCacheStore.java",
+            "line": 7,
             "scope": "production"
           },
           {
             "code": "java-util-date",
             "severity": "info",
-            "title": "Legacy date API usage",
-            "recommendation": "Review date handling before migration validation.",
-            "file": "halo/src/main/java/Example4.java",
-            "line": 13,
+            "title": "java.util.Date usage",
+            "recommendation": "Review java.util.Date usage before modernization.",
+            "file": "src/main/java/run/halo/app/model/dto/AttachmentDTO.java",
+            "line": 3,
             "scope": "production"
           },
           {
             "code": "java-util-date",
             "severity": "info",
-            "title": "Legacy date API usage",
-            "recommendation": "Review date handling before migration validation.",
-            "file": "halo/src/main/java/Example5.java",
+            "title": "java.util.Date usage",
+            "recommendation": "Review java.util.Date usage before modernization.",
+            "file": "src/main/java/run/halo/app/model/dto/BaseCommentDTO.java",
+            "line": 3,
+            "scope": "production"
+          }
+        ]
+      },
+      "serializable-missing-serial-version": {
+        "code": "serializable-missing-serial-version",
+        "title": "Serializable type without serialVersionUID",
+        "severity": "warning",
+        "total": 2,
+        "production": 1,
+        "test": 1,
+        "topModules": [
+          {
+            "name": "src",
+            "count": 2
+          }
+        ],
+        "examples": [
+          {
+            "code": "serializable-missing-serial-version",
+            "severity": "warning",
+            "title": "Serializable type without serialVersionUID",
+            "recommendation": "Add an explicit serialVersionUID before Java runtime migration validation.",
+            "file": "src/main/java/run/halo/app/cache/CacheWrapper.java",
+            "line": 1,
+            "scope": "production"
+          },
+          {
+            "code": "serializable-missing-serial-version",
+            "severity": "warning",
+            "title": "Serializable type without serialVersionUID",
+            "recommendation": "Add an explicit serialVersionUID before Java runtime migration validation.",
+            "file": "src/test/java/run/halo/app/model/dto/base/InputConverterTest.java",
+            "line": 1,
+            "scope": "test"
+          }
+        ]
+      },
+      "reflection-usage": {
+        "code": "reflection-usage",
+        "title": "Reflection usage",
+        "severity": "info",
+        "total": 5,
+        "production": 4,
+        "test": 1,
+        "topModules": [
+          {
+            "name": "src",
+            "count": 5
+          }
+        ],
+        "examples": [
+          {
+            "code": "reflection-usage",
+            "severity": "info",
+            "title": "Reflection usage",
+            "recommendation": "Review Reflection usage before modernization.",
+            "file": "src/main/java/run/halo/app/config/attributeconverter/AttributeConverterAutoGenerator.java",
+            "line": 51,
+            "scope": "production"
+          },
+          {
+            "code": "reflection-usage",
+            "severity": "info",
+            "title": "Reflection usage",
+            "recommendation": "Review Reflection usage before modernization.",
+            "file": "src/main/java/run/halo/app/service/impl/BackupServiceImpl.java",
+            "line": 270,
+            "scope": "production"
+          },
+          {
+            "code": "reflection-usage",
+            "severity": "info",
+            "title": "Reflection usage",
+            "recommendation": "Review Reflection usage before modernization.",
+            "file": "src/main/java/run/halo/app/service/impl/BackupServiceImpl.java",
+            "line": 300,
+            "scope": "production"
+          },
+          {
+            "code": "reflection-usage",
+            "severity": "info",
+            "title": "Reflection usage",
+            "recommendation": "Review Reflection usage before modernization.",
+            "file": "src/main/java/run/halo/app/utils/SwaggerUtils.java",
+            "line": 101,
+            "scope": "production"
+          },
+          {
+            "code": "reflection-usage",
+            "severity": "info",
+            "title": "Reflection usage",
+            "recommendation": "Review Reflection usage before modernization.",
+            "file": "src/test/java/run/halo/app/utils/HttpClientUtilsTest.java",
             "line": 14,
+            "scope": "test"
+          }
+        ]
+      },
+      "field-injection": {
+        "code": "field-injection",
+        "title": "Spring field injection",
+        "severity": "warning",
+        "total": 18,
+        "production": 6,
+        "test": 12,
+        "topModules": [
+          {
+            "name": "src",
+            "count": 18
+          }
+        ],
+        "examples": [
+          {
+            "code": "field-injection",
+            "severity": "warning",
+            "title": "Spring field injection",
+            "recommendation": "Review Spring field injection before modernization.",
+            "file": "src/main/java/run/halo/app/handler/file/FileHandlers.java",
+            "line": 34,
             "scope": "production"
+          },
+          {
+            "code": "field-injection",
+            "severity": "warning",
+            "title": "Spring field injection",
+            "recommendation": "Review Spring field injection before modernization.",
+            "file": "src/main/java/run/halo/app/handler/prehandler/PictureExifRemovalPreHandler.java",
+            "line": 34,
+            "scope": "production"
+          },
+          {
+            "code": "field-injection",
+            "severity": "warning",
+            "title": "Spring field injection",
+            "recommendation": "Review Spring field injection before modernization.",
+            "file": "src/main/java/run/halo/app/listener/StartedListener.java",
+            "line": 52,
+            "scope": "production"
+          },
+          {
+            "code": "field-injection",
+            "severity": "warning",
+            "title": "Spring field injection",
+            "recommendation": "Review Spring field injection before modernization.",
+            "file": "src/main/java/run/halo/app/listener/StartedListener.java",
+            "line": 55,
+            "scope": "production"
+          },
+          {
+            "code": "field-injection",
+            "severity": "warning",
+            "title": "Spring field injection",
+            "recommendation": "Review Spring field injection before modernization.",
+            "file": "src/main/java/run/halo/app/listener/StartedListener.java",
+            "line": 58,
+            "scope": "production"
+          }
+        ]
+      },
+      "system-out": {
+        "code": "system-out",
+        "title": "System.out logging",
+        "severity": "info",
+        "total": 5,
+        "production": 2,
+        "test": 3,
+        "topModules": [
+          {
+            "name": "src",
+            "count": 5
+          }
+        ],
+        "examples": [
+          {
+            "code": "system-out",
+            "severity": "info",
+            "title": "System.out logging",
+            "recommendation": "Review System.out logging before modernization.",
+            "file": "src/main/java/run/halo/app/utils/BCrypt.java",
+            "line": 29,
+            "scope": "production"
+          },
+          {
+            "code": "system-out",
+            "severity": "info",
+            "title": "System.out logging",
+            "recommendation": "Review System.out logging before modernization.",
+            "file": "src/main/java/run/halo/app/utils/BCrypt.java",
+            "line": 31,
+            "scope": "production"
+          },
+          {
+            "code": "system-out",
+            "severity": "info",
+            "title": "System.out logging",
+            "recommendation": "Review System.out logging before modernization.",
+            "file": "src/test/java/run/halo/app/utils/BcryptTest.java",
+            "line": 46,
+            "scope": "test"
+          },
+          {
+            "code": "system-out",
+            "severity": "info",
+            "title": "System.out logging",
+            "recommendation": "Review System.out logging before modernization.",
+            "file": "src/test/java/run/halo/app/utils/BcryptTest.java",
+            "line": 50,
+            "scope": "test"
+          },
+          {
+            "code": "system-out",
+            "severity": "info",
+            "title": "System.out logging",
+            "recommendation": "Review System.out logging before modernization.",
+            "file": "src/test/java/run/halo/app/utils/FootnoteTest.java",
+            "line": 57,
+            "scope": "test"
           }
         ]
       }
@@ -1227,1003 +1026,607 @@
   },
   "findings": [
     {
-      "code": "javax-usage",
-      "severity": "critical",
-      "title": "javax namespace usage detected",
-      "recommendation": "Plan Jakarta migration before Spring Boot 3 execution.",
-      "file": "halo/src/main/java/ExampleApplication.java",
-      "line": 12,
-      "scope": "production"
-    },
-    {
       "code": "spring-boot-2",
       "severity": "warning",
-      "title": "Spring Boot 2.7.x detected",
-      "recommendation": "Run OpenRewrite Boot 3 recipes in dry-run mode.",
+      "title": "Spring Boot 2.5.12 detected",
+      "recommendation": "Plan Spring Boot 3 and Jakarta compatibility validation.",
       "file": null,
       "line": null,
       "scope": "production"
     },
     {
-      "code": "field-injection",
+      "code": "javax-usage",
+      "severity": "critical",
+      "title": "javax namespace usage detected",
+      "recommendation": "Migrate Java EE imports to Jakarta equivalents for Spring Boot 3.",
+      "file": null,
+      "line": null,
+      "scope": "production"
+    },
+    {
+      "code": "java-internal-api",
       "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "halo/src/main/java/Example1.java",
-      "line": 10,
+      "title": "JDK internal API usage",
+      "recommendation": "Review JDK internal API usage before modernization.",
+      "file": "build.gradle",
+      "line": 90,
       "scope": "production"
     },
     {
-      "code": "field-injection",
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "src/main/java/run/halo/app/cache/AbstractCacheStore.java",
+      "line": 3,
+      "scope": "production"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "src/main/java/run/halo/app/cache/CacheWrapper.java",
+      "line": 4,
+      "scope": "production"
+    },
+    {
+      "code": "serializable-missing-serial-version",
       "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "halo/src/main/java/Example2.java",
-      "line": 11,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "halo/src/main/java/Example3.java",
-      "line": 12,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "halo/src/main/java/Example4.java",
-      "line": 13,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "halo/src/main/java/Example5.java",
-      "line": 14,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "halo/src/main/java/Example6.java",
-      "line": 15,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "halo/src/main/java/Example7.java",
-      "line": 16,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "halo/src/main/java/Example8.java",
-      "line": 17,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "halo/src/main/java/Example9.java",
-      "line": 18,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "halo/src/main/java/Example10.java",
-      "line": 19,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "halo/src/main/java/Example11.java",
-      "line": 20,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "halo/src/main/java/Example12.java",
-      "line": 21,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "halo/src/main/java/Example13.java",
-      "line": 22,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "halo/src/main/java/Example14.java",
-      "line": 23,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "halo/src/main/java/Example15.java",
-      "line": 24,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "halo/src/main/java/Example16.java",
-      "line": 25,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "halo/src/main/java/Example17.java",
-      "line": 26,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "halo/src/main/java/Example18.java",
-      "line": 27,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "halo/src/main/java/Example19.java",
-      "line": 28,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "halo/src/main/java/Example20.java",
-      "line": 29,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "halo/src/main/java/Example21.java",
-      "line": 30,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "halo/src/main/java/Example22.java",
-      "line": 31,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "halo/src/main/java/Example23.java",
-      "line": 32,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "halo/src/main/java/Example24.java",
-      "line": 33,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "halo/src/main/java/Example25.java",
-      "line": 34,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "halo/src/main/java/Example26.java",
-      "line": 35,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "halo/src/main/java/Example27.java",
-      "line": 36,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "halo/src/main/java/Example28.java",
-      "line": 37,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "halo/src/main/java/Example29.java",
-      "line": 38,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "halo/src/main/java/Example30.java",
-      "line": 39,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "halo/src/main/java/Example31.java",
-      "line": 40,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "halo/src/main/java/Example32.java",
-      "line": 41,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "halo/src/main/java/Example33.java",
-      "line": 42,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "halo/src/main/java/Example34.java",
-      "line": 43,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "halo/src/main/java/Example35.java",
-      "line": 44,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "halo/src/main/java/Example36.java",
-      "line": 45,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "halo/src/main/java/Example37.java",
-      "line": 46,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "halo/src/main/java/Example38.java",
-      "line": 47,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "halo/src/main/java/Example39.java",
-      "line": 48,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "halo/src/main/java/Example40.java",
-      "line": 49,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "halo/src/main/java/Example41.java",
-      "line": 50,
+      "title": "Serializable type without serialVersionUID",
+      "recommendation": "Add an explicit serialVersionUID before Java runtime migration validation.",
+      "file": "src/main/java/run/halo/app/cache/CacheWrapper.java",
+      "line": 1,
       "scope": "production"
     },
     {
       "code": "java-util-date",
       "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example1.java",
-      "line": 10,
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "src/main/java/run/halo/app/cache/LevelCacheStore.java",
+      "line": 7,
       "scope": "production"
     },
     {
-      "code": "java-util-date",
+      "code": "reflection-usage",
       "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example2.java",
-      "line": 11,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example3.java",
-      "line": 12,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example4.java",
-      "line": 13,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example5.java",
-      "line": 14,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example6.java",
-      "line": 15,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example7.java",
-      "line": 16,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example8.java",
-      "line": 17,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example9.java",
-      "line": 18,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example10.java",
-      "line": 19,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example11.java",
-      "line": 20,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example12.java",
-      "line": 21,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example13.java",
-      "line": 22,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example14.java",
-      "line": 23,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example15.java",
-      "line": 24,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example16.java",
-      "line": 25,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example17.java",
-      "line": 26,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example18.java",
-      "line": 27,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example19.java",
-      "line": 28,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example20.java",
-      "line": 29,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example21.java",
-      "line": 30,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example22.java",
-      "line": 31,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example23.java",
-      "line": 32,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example24.java",
-      "line": 33,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example25.java",
-      "line": 34,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example26.java",
-      "line": 35,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example27.java",
-      "line": 36,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example28.java",
-      "line": 37,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example29.java",
-      "line": 38,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example30.java",
-      "line": 39,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example31.java",
-      "line": 40,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example32.java",
-      "line": 41,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example33.java",
-      "line": 42,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example34.java",
-      "line": 43,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example35.java",
-      "line": 44,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example36.java",
-      "line": 45,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example37.java",
-      "line": 46,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example38.java",
-      "line": 47,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example39.java",
-      "line": 48,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example40.java",
-      "line": 49,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example41.java",
-      "line": 50,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example42.java",
+      "title": "Reflection usage",
+      "recommendation": "Review Reflection usage before modernization.",
+      "file": "src/main/java/run/halo/app/config/attributeconverter/AttributeConverterAutoGenerator.java",
       "line": 51,
       "scope": "production"
     },
     {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example43.java",
+      "code": "java-internal-api",
+      "severity": "warning",
+      "title": "JDK internal API usage",
+      "recommendation": "Review JDK internal API usage before modernization.",
+      "file": "src/main/java/run/halo/app/core/ControllerExceptionHandler.java",
+      "line": 152,
+      "scope": "production"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "src/main/java/run/halo/app/handler/file/FileHandlers.java",
+      "line": 34,
+      "scope": "production"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "src/main/java/run/halo/app/handler/prehandler/PictureExifRemovalPreHandler.java",
+      "line": 34,
+      "scope": "production"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "src/main/java/run/halo/app/listener/StartedListener.java",
       "line": 52,
       "scope": "production"
     },
     {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example44.java",
-      "line": 53,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example45.java",
-      "line": 54,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example46.java",
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "src/main/java/run/halo/app/listener/StartedListener.java",
       "line": 55,
       "scope": "production"
     },
     {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example47.java",
-      "line": 56,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example48.java",
-      "line": 57,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example49.java",
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "src/main/java/run/halo/app/listener/StartedListener.java",
       "line": 58,
       "scope": "production"
     },
     {
       "code": "java-util-date",
       "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example50.java",
-      "line": 59,
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "src/main/java/run/halo/app/model/dto/AttachmentDTO.java",
+      "line": 3,
       "scope": "production"
     },
     {
       "code": "java-util-date",
       "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example51.java",
-      "line": 60,
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "src/main/java/run/halo/app/model/dto/BaseCommentDTO.java",
+      "line": 3,
       "scope": "production"
     },
     {
       "code": "java-util-date",
       "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example52.java",
-      "line": 61,
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "src/main/java/run/halo/app/model/dto/BaseMetaDTO.java",
+      "line": 3,
       "scope": "production"
     },
     {
       "code": "java-util-date",
       "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example53.java",
-      "line": 62,
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "src/main/java/run/halo/app/model/dto/CategoryDTO.java",
+      "line": 3,
       "scope": "production"
     },
     {
       "code": "java-util-date",
       "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example54.java",
-      "line": 63,
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "src/main/java/run/halo/app/model/dto/JournalDTO.java",
+      "line": 3,
       "scope": "production"
     },
     {
       "code": "java-util-date",
       "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example55.java",
-      "line": 64,
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "src/main/java/run/halo/app/model/dto/LogDTO.java",
+      "line": 3,
       "scope": "production"
     },
     {
       "code": "java-util-date",
       "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example56.java",
-      "line": 65,
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "src/main/java/run/halo/app/model/dto/OptionSimpleDTO.java",
+      "line": 3,
       "scope": "production"
     },
     {
       "code": "java-util-date",
       "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example57.java",
-      "line": 66,
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "src/main/java/run/halo/app/model/dto/PhotoDTO.java",
+      "line": 3,
       "scope": "production"
     },
     {
       "code": "java-util-date",
       "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example58.java",
-      "line": 67,
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "src/main/java/run/halo/app/model/dto/TagDTO.java",
+      "line": 3,
       "scope": "production"
     },
     {
       "code": "java-util-date",
       "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example59.java",
-      "line": 68,
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "src/main/java/run/halo/app/model/dto/UserDTO.java",
+      "line": 3,
       "scope": "production"
     },
     {
       "code": "java-util-date",
       "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example60.java",
-      "line": 69,
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "src/main/java/run/halo/app/model/dto/post/BasePostMinimalDTO.java",
+      "line": 3,
       "scope": "production"
     },
     {
       "code": "java-util-date",
       "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example61.java",
-      "line": 70,
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "src/main/java/run/halo/app/model/entity/BaseEntity.java",
+      "line": 3,
       "scope": "production"
     },
     {
       "code": "java-util-date",
       "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example62.java",
-      "line": 71,
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "src/main/java/run/halo/app/model/entity/BasePost.java",
+      "line": 3,
       "scope": "production"
     },
     {
       "code": "java-util-date",
       "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example63.java",
-      "line": 72,
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "src/main/java/run/halo/app/model/entity/CommentBlackList.java",
+      "line": 3,
       "scope": "production"
     },
     {
       "code": "java-util-date",
       "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example64.java",
-      "line": 73,
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "src/main/java/run/halo/app/model/entity/ContentPatchLog.java",
+      "line": 3,
       "scope": "production"
     },
     {
       "code": "java-util-date",
       "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example65.java",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "src/main/java/run/halo/app/model/entity/Photo.java",
+      "line": 3,
+      "scope": "production"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "src/main/java/run/halo/app/model/entity/User.java",
+      "line": 3,
+      "scope": "production"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "src/main/java/run/halo/app/model/params/BasePostParam.java",
+      "line": 3,
+      "scope": "production"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "src/main/java/run/halo/app/model/params/PhotoParam.java",
+      "line": 3,
+      "scope": "production"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "src/main/java/run/halo/app/repository/PostCommentRepository.java",
+      "line": 4,
+      "scope": "production"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "src/main/java/run/halo/app/repository/base/BasePostRepository.java",
+      "line": 3,
+      "scope": "production"
+    },
+    {
+      "code": "reflection-usage",
+      "severity": "info",
+      "title": "Reflection usage",
+      "recommendation": "Review Reflection usage before modernization.",
+      "file": "src/main/java/run/halo/app/service/impl/BackupServiceImpl.java",
+      "line": 270,
+      "scope": "production"
+    },
+    {
+      "code": "reflection-usage",
+      "severity": "info",
+      "title": "Reflection usage",
+      "recommendation": "Review Reflection usage before modernization.",
+      "file": "src/main/java/run/halo/app/service/impl/BackupServiceImpl.java",
+      "line": 300,
+      "scope": "production"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "src/main/java/run/halo/app/service/impl/CommentBlackListServiceImpl.java",
+      "line": 4,
+      "scope": "production"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "src/main/java/run/halo/app/service/impl/ContentServiceImpl.java",
+      "line": 3,
+      "scope": "production"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "src/main/java/run/halo/app/service/impl/PostCategoryServiceImpl.java",
       "line": 74,
       "scope": "production"
     },
     {
       "code": "java-util-date",
       "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example66.java",
-      "line": 75,
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "src/main/java/run/halo/app/service/impl/UserServiceImpl.java",
+      "line": 3,
+      "scope": "production"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "src/main/java/run/halo/app/utils/BCrypt.java",
+      "line": 29,
+      "scope": "production"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "src/main/java/run/halo/app/utils/BCrypt.java",
+      "line": 31,
       "scope": "production"
     },
     {
       "code": "java-util-date",
       "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example67.java",
-      "line": 76,
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "src/main/java/run/halo/app/utils/DateTimeUtils.java",
+      "line": 13,
       "scope": "production"
     },
     {
       "code": "java-util-date",
       "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "halo/src/main/java/Example68.java",
-      "line": 77,
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "src/main/java/run/halo/app/utils/DateUtils.java",
+      "line": 5,
       "scope": "production"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "src/main/java/run/halo/app/utils/GitUtils.java",
+      "line": 7,
+      "scope": "production"
+    },
+    {
+      "code": "reflection-usage",
+      "severity": "info",
+      "title": "Reflection usage",
+      "recommendation": "Review Reflection usage before modernization.",
+      "file": "src/main/java/run/halo/app/utils/SwaggerUtils.java",
+      "line": 101,
+      "scope": "production"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "src/test/java/run/halo/app/cache/RedisCacheStoreTest.java",
+      "line": 33,
+      "scope": "test"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "src/test/java/run/halo/app/listener/PostRefreshStatusListenerTest.java",
+      "line": 31,
+      "scope": "test"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "src/test/java/run/halo/app/listener/PostRefreshStatusListenerTest.java",
+      "line": 34,
+      "scope": "test"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "src/test/java/run/halo/app/listener/PostRefreshStatusListenerTest.java",
+      "line": 37,
+      "scope": "test"
+    },
+    {
+      "code": "serializable-missing-serial-version",
+      "severity": "warning",
+      "title": "Serializable type without serialVersionUID",
+      "recommendation": "Add an explicit serialVersionUID before Java runtime migration validation.",
+      "file": "src/test/java/run/halo/app/model/dto/base/InputConverterTest.java",
+      "line": 1,
+      "scope": "test"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "src/test/java/run/halo/app/repository/ContentPatchLogRepositoryTest.java",
+      "line": 6,
+      "scope": "test"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "src/test/java/run/halo/app/repository/ContentPatchLogRepositoryTest.java",
+      "line": 25,
+      "scope": "test"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "src/test/java/run/halo/app/service/impl/CategoryIntegrationTest.java",
+      "line": 34,
+      "scope": "test"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "src/test/java/run/halo/app/service/impl/CategoryIntegrationTest.java",
+      "line": 36,
+      "scope": "test"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "src/test/java/run/halo/app/service/impl/CategoryIntegrationTest.java",
+      "line": 38,
+      "scope": "test"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "src/test/java/run/halo/app/service/impl/CategoryServiceTest.java",
+      "line": 31,
+      "scope": "test"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "src/test/java/run/halo/app/service/impl/ContentPatchLogServiceImplTest.java",
+      "line": 6,
+      "scope": "test"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "src/test/java/run/halo/app/service/impl/PostCategoryServiceImplTest.java",
+      "line": 25,
+      "scope": "test"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "src/test/java/run/halo/app/service/impl/PostCategoryServiceImplTest.java",
+      "line": 28,
+      "scope": "test"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "src/test/java/run/halo/app/service/impl/PostCategoryServiceImplTest.java",
+      "line": 31,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "src/test/java/run/halo/app/utils/BcryptTest.java",
+      "line": 46,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "src/test/java/run/halo/app/utils/BcryptTest.java",
+      "line": 50,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "src/test/java/run/halo/app/utils/FootnoteTest.java",
+      "line": 57,
+      "scope": "test"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "src/test/java/run/halo/app/utils/GitTest.java",
+      "line": 12,
+      "scope": "test"
+    },
+    {
+      "code": "reflection-usage",
+      "severity": "info",
+      "title": "Reflection usage",
+      "recommendation": "Review Reflection usage before modernization.",
+      "file": "src/test/java/run/halo/app/utils/HttpClientUtilsTest.java",
+      "line": 14,
+      "scope": "test"
     }
   ],
   "evidence": [
@@ -2250,8 +1653,8 @@
     }
   ],
   "dependencies": {
-    "springBootVersion": "2.7.x",
-    "jakartaDetected": false,
+    "springBootVersion": "2.5.12",
+    "jakartaDetected": true,
     "javaxDetected": true,
     "hibernateDetected": true,
     "springSecurityDetected": true
@@ -2260,19 +1663,38 @@
     "slug": "halo",
     "name": "Halo",
     "repository": "https://github.com/halo-dev/halo",
-    "ref": null,
-    "requestedSource": "catalog",
-    "source": "catalog",
-    "checkoutPath": null,
-    "analysisPath": null,
-    "gitRevision": null,
+    "ref": "v1.6.1",
+    "requestedSource": "local",
+    "source": "checkout",
+    "checkoutPath": "benchmark-repos/halo",
+    "analysisPath": "benchmark-repos/halo",
+    "gitRevision": "72f6a08987073f5120256fa55d11dbe9dea64062",
     "commands": [],
     "validation": {
-      "requested": false,
-      "status": "not_requested",
-      "confidence": 0,
-      "checks": [],
-      "summary": "Validation was not requested."
+      "requested": true,
+      "status": "failed",
+      "confidence": 25,
+      "checks": [
+        {
+          "name": "Compilation",
+          "status": "failed",
+          "command": "./gradlew compileJava --no-daemon",
+          "durationMs": 26229,
+          "exitCode": 1,
+          "output": ".daemon.server.exec.EstablishBuildEnvironment.doBuild(EstablishBuildEnvironment.java:84)\n  \tat org.gradle.launcher.daemon.server.exec.BuildCommandOnly.execute(BuildCommandOnly.java:37)\n  \tat org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:104)\n  \tat org.gradle.launcher.daemon.server.exec.StartBuildOrRespondWithBusy$1.run(StartBuildOrRespondWithBusy.java:52)\n  \tat org.gradle.launcher.daemon.server.DaemonStateCoordinator$1.run(DaemonStateCoordinator.java:297)\n  \tat org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)\n  \tat org.gradle.internal.concurrent.ManagedExecutorImpl$1.run(ManagedExecutorImpl.java:48)\n  \tat java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)\n  \tat java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)\n  \tat java.base/java.lang.Thread.run(Thread.java:1583)\n  \n  1 error\n\n\n* Try:\n> Run with --stacktrace option to get the stack trace.\n> Run with --info or --debug option to get more log output.\n> Run with --scan to get full insights.\n\n* Get more help at https://help.gradle.org\n\nBUILD FAILED in 24s",
+          "timedOut": false
+        },
+        {
+          "name": "Tests",
+          "status": "failed",
+          "command": "./gradlew test --no-daemon",
+          "durationMs": 13757,
+          "exitCode": 1,
+          "output": ".daemon.server.exec.EstablishBuildEnvironment.doBuild(EstablishBuildEnvironment.java:84)\n  \tat org.gradle.launcher.daemon.server.exec.BuildCommandOnly.execute(BuildCommandOnly.java:37)\n  \tat org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:104)\n  \tat org.gradle.launcher.daemon.server.exec.StartBuildOrRespondWithBusy$1.run(StartBuildOrRespondWithBusy.java:52)\n  \tat org.gradle.launcher.daemon.server.DaemonStateCoordinator$1.run(DaemonStateCoordinator.java:297)\n  \tat org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)\n  \tat org.gradle.internal.concurrent.ManagedExecutorImpl$1.run(ManagedExecutorImpl.java:48)\n  \tat java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)\n  \tat java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)\n  \tat java.base/java.lang.Thread.run(Thread.java:1583)\n  \n  1 error\n\n\n* Try:\n> Run with --stacktrace option to get the stack trace.\n> Run with --info or --debug option to get more log output.\n> Run with --scan to get full insights.\n\n* Get more help at https://help.gradle.org\n\nBUILD FAILED in 13s",
+          "timedOut": false
+        }
+      ],
+      "summary": "2 validation check(s) failed."
     }
   }
 }

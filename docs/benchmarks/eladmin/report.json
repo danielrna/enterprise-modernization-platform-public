@@ -1,6 +1,6 @@
 {
   "schemaVersion": "emp.report.v1",
-  "generatedAt": "2026-06-30T23:05:16.990Z",
+  "generatedAt": "2026-06-30T23:05:34.922Z",
   "project": {
     "name": "ELAdmin",
     "root": "benchmark-repos/eladmin",
@@ -2257,25 +2257,37 @@
     "name": "ELAdmin",
     "repository": "https://github.com/elunez/eladmin",
     "ref": null,
-    "requestedSource": "clone",
+    "requestedSource": "local",
     "source": "checkout",
     "checkoutPath": "benchmark-repos/eladmin",
     "analysisPath": "benchmark-repos/eladmin",
     "gitRevision": "55fbf705956949697dbd68bf9003776609d3d029",
-    "commands": [
-      {
-        "command": "git clone --depth 1 https://github.com/elunez/eladmin benchmark-repos/eladmin",
-        "exitCode": 0,
-        "status": "passed",
-        "output": "Cloning into '~/<workspace>"
-      }
-    ],
+    "commands": [],
     "validation": {
-      "requested": false,
-      "status": "not_requested",
-      "confidence": 0,
-      "checks": [],
-      "summary": "Validation was not requested."
+      "requested": true,
+      "status": "passed",
+      "confidence": 95,
+      "checks": [
+        {
+          "name": "Compilation",
+          "status": "passed",
+          "command": "mvn -q -DskipTests compile",
+          "durationMs": 73612,
+          "exitCode": 0,
+          "output": "",
+          "timedOut": false
+        },
+        {
+          "name": "Tests",
+          "status": "passed",
+          "command": "mvn -q test",
+          "durationMs": 23318,
+          "exitCode": 0,
+          "output": "",
+          "timedOut": false
+        }
+      ],
+      "summary": "Compilation and tests completed successfully."
     }
   }
 }

@@ -38,14 +38,14 @@
 <body>
   <header>
     <h1>Mall Readiness Report</h1>
-    <p class="meta">spring-boot-3-readiness · 2026-06-30T22:51:14.793Z · https://github.com/macrozheng/mall</p>
+    <p class="meta">spring-boot-3-readiness · 2026-06-30T23:15:56.980Z · https://github.com/macrozheng/mall</p>
   </header>
   <main>
     <section class="grid">
-      <div class="panel"><div class="metric">67%</div><div class="label">Overall readiness</div></div>
+      <div class="panel"><div class="metric">60%</div><div class="label">Overall readiness</div></div>
       <div class="panel"><div class="metric">1</div><div class="label">Critical findings</div></div>
-      <div class="panel"><div class="metric">1100</div><div class="label">Java files</div></div>
-      <div class="panel"><div class="metric">2.7.x</div><div class="label">Spring Boot</div></div>
+      <div class="panel"><div class="metric">526</div><div class="label">Java files</div></div>
+      <div class="panel"><div class="metric">2.7.5</div><div class="label">Spring Boot</div></div>
     </section>
 
     <h2>Executive Summary</h2>
@@ -56,13 +56,13 @@
     <div class="panel notice">
       <strong>Pack applicable: yes</strong> · confidence 95%
       <div>Spring Boot 2.x was detected. This pack targets Spring Boot 2.x to 3.x migrations.</div>
-      <div class="label">Detected: Spring Boot: 2.7.x · Java: 1.8 · Build: Maven · javax usage: yes · jakarta usage: no</div>
+      <div class="label">Detected: Spring Boot: 2.7.5 · Java: 1.8 · Build: Maven · javax usage: yes · jakarta usage: no</div>
 
     </div>
 
 
     <h2>Readiness</h2>
-    <table><thead><tr><th>Category</th><th>Score</th><th>Signal</th></tr></thead><tbody><tr><td>Java</td><td><strong>74%</strong></td><td><div class="bar"><span style="width:74%"></span></div></td></tr><tr><td>Spring</td><td><strong>36%</strong></td><td><div class="bar"><span style="width:36%"></span></div></td></tr><tr><td>Jakarta</td><td><strong>79%</strong></td><td><div class="bar"><span style="width:79%"></span></div></td></tr><tr><td>Build</td><td><strong>90%</strong></td><td><div class="bar"><span style="width:90%"></span></div></td></tr><tr><td>Security</td><td><strong>82%</strong></td><td><div class="bar"><span style="width:82%"></span></div></td></tr><tr><td>Architecture</td><td><strong>41%</strong></td><td><div class="bar"><span style="width:41%"></span></div></td></tr></tbody></table>
+    <table><thead><tr><th>Category</th><th>Score</th><th>Signal</th></tr></thead><tbody><tr><td>Java</td><td><strong>73%</strong></td><td><div class="bar"><span style="width:73%"></span></div></td></tr><tr><td>Spring</td><td><strong>17%</strong></td><td><div class="bar"><span style="width:17%"></span></div></td></tr><tr><td>Jakarta</td><td><strong>79%</strong></td><td><div class="bar"><span style="width:79%"></span></div></td></tr><tr><td>Build</td><td><strong>90%</strong></td><td><div class="bar"><span style="width:90%"></span></div></td></tr><tr><td>Security</td><td><strong>82%</strong></td><td><div class="bar"><span style="width:82%"></span></div></td></tr><tr><td>Architecture</td><td><strong>20%</strong></td><td><div class="bar"><span style="width:20%"></span></div></td></tr></tbody></table>
 
 
     <h2>Evidence</h2>
@@ -71,15 +71,18 @@
 
     <h2>Benchmark Evidence</h2>
     <div class="panel">
-      <strong>catalog</strong> · https://github.com/macrozheng/mall
+      <strong>checkout</strong> · https://github.com/macrozheng/mall
+      <div class="label">Git ref: dev-v2</div>
+      <div class="label">Checkout: benchmark-repos/mall</div>
+      <div class="label">Git revision: d9501e97a78eb2bb0ae8eaa273eeb1cfc7c5d386</div>
     </div>
     <table><thead><tr><th>Command</th><th>Status</th><th>Output</th></tr></thead><tbody><tr><td colspan="3">No external command was needed for this benchmark source.</td></tr></tbody></table>
 
     <h2>Benchmark Validation</h2>
     <div class="panel">
-      <strong>not_requested</strong> · confidence 0% · Validation was not requested.
+      <strong>failed</strong> · confidence 25% · 2 validation check(s) failed.
     </div>
-    <table><thead><tr><th>Check</th><th>Status</th><th>Command</th><th>Duration</th><th>Log Excerpt</th></tr></thead><tbody><tr><td colspan="5">Validation was not requested.</td></tr></tbody></table>
+    <table><thead><tr><th>Check</th><th>Status</th><th>Command</th><th>Duration</th><th>Log Excerpt</th></tr></thead><tbody><tr><td>Compilation</td><td><span class="pill failed">failed</span></td><td>mvn -q -DskipTests compile</td><td>90.4 s</td><td>Command timed out after 90000 ms.</td></tr><tr><td>Tests</td><td><span class="pill failed">failed</span></td><td>mvn -q test</td><td>90.4 s</td><td>Command timed out after 90000 ms.</td></tr></tbody></table>
 
 
 
@@ -88,12 +91,12 @@
 
     <h2>Finding Summary</h2>
     <section class="grid">
-      <div class="panel"><div class="metric">112</div><div class="label">Production code findings</div></div>
-      <div class="panel"><div class="metric">0</div><div class="label">Test code findings</div></div>
-      <div class="panel"><div class="metric">4</div><div class="label">Finding types</div></div>
-      <div class="panel"><div class="metric">112</div><div class="label">Detailed JSON findings</div></div>
+      <div class="panel"><div class="metric">321</div><div class="label">Production code findings</div></div>
+      <div class="panel"><div class="metric">7</div><div class="label">Test code findings</div></div>
+      <div class="panel"><div class="metric">5</div><div class="label">Finding types</div></div>
+      <div class="panel"><div class="metric">328</div><div class="label">Detailed JSON findings</div></div>
     </section>
-    <table><thead><tr><th>Type</th><th>Total</th><th>Production</th><th>Test</th><th>Top modules</th><th>Examples</th></tr></thead><tbody><tr><td><span class="pill info">info</span><br>Legacy date API usage</td><td>74</td><td>74</td><td>0</td><td>mall (74)</td><td>mall/src/main/java/Example1.java:10 · Review date handling before migration validation.<br>mall/src/main/java/Example2.java:11 · Review date handling before migration validation.<br>mall/src/main/java/Example3.java:12 · Review date handling before migration validation.<br>mall/src/main/java/Example4.java:13 · Review date handling before migration validation.<br>mall/src/main/java/Example5.java:14 · Review date handling before migration validation.</td></tr><tr><td><span class="pill warning">warning</span><br>Spring field injection patterns</td><td>36</td><td>36</td><td>0</td><td>mall (36)</td><td>mall/src/main/java/Example1.java:10 · Prefer constructor injection in services touched by migration work.<br>mall/src/main/java/Example2.java:11 · Prefer constructor injection in services touched by migration work.<br>mall/src/main/java/Example3.java:12 · Prefer constructor injection in services touched by migration work.<br>mall/src/main/java/Example4.java:13 · Prefer constructor injection in services touched by migration work.<br>mall/src/main/java/Example5.java:14 · Prefer constructor injection in services touched by migration work.</td></tr><tr><td><span class="pill critical">critical</span><br>javax namespace usage detected</td><td>1</td><td>1</td><td>0</td><td>mall (1)</td><td>mall/src/main/java/ExampleApplication.java:12 · Plan Jakarta migration before Spring Boot 3 execution.</td></tr><tr><td><span class="pill warning">warning</span><br>Spring Boot 2.7.x detected</td><td>1</td><td>1</td><td>0</td><td>project (1)</td><td>Project metadata · Run OpenRewrite Boot 3 recipes in dry-run mode.</td></tr></tbody></table>
+    <table><thead><tr><th>Type</th><th>Total</th><th>Production</th><th>Test</th><th>Top modules</th><th>Examples</th></tr></thead><tbody><tr><td><span class="pill warning">warning</span><br>Spring field injection</td><td>228</td><td>223</td><td>5</td><td>mall-admin (116)<br>mall-portal (91)<br>mall-security (10)</td><td>mall-admin/src/main/java/com/macro/mall/config/MallSecurityConfig.java:24 · Review Spring field injection before modernization.<br>mall-admin/src/main/java/com/macro/mall/config/MallSecurityConfig.java:26 · Review Spring field injection before modernization.<br>mall-admin/src/main/java/com/macro/mall/controller/CmsPrefrenceAreaController.java:26 · Review Spring field injection before modernization.<br>mall-admin/src/main/java/com/macro/mall/controller/CmsSubjectController.java:28 · Review Spring field injection before modernization.<br>mall-admin/src/main/java/com/macro/mall/controller/OmsCompanyAddressController.java:26 · Review Spring field injection before modernization.</td></tr><tr><td><span class="pill info">info</span><br>java.util.Date usage</td><td>95</td><td>95</td><td>0</td><td>mall-mbg (68)<br>mall-admin (14)<br>mall-portal (12)</td><td>mall-admin/src/main/java/com/macro/mall/controller/MinioController.java:20 · Review java.util.Date usage before modernization.<br>mall-admin/src/main/java/com/macro/mall/service/impl/OmsOrderReturnApplyServiceImpl.java:15 · Review java.util.Date usage before modernization.<br>mall-admin/src/main/java/com/macro/mall/service/impl/OmsOrderReturnReasonServiceImpl.java:11 · Review java.util.Date usage before modernization.<br>mall-admin/src/main/java/com/macro/mall/service/impl/OmsOrderServiceImpl.java:16 · Review java.util.Date usage before modernization.<br>mall-admin/src/main/java/com/macro/mall/service/impl/OssServiceImpl.java:20 · Review java.util.Date usage before modernization.</td></tr><tr><td><span class="pill info">info</span><br>System.out logging</td><td>3</td><td>1</td><td>2</td><td>mall-search (2)<br>mall-mbg (1)</td><td>mall-mbg/src/main/java/com/macro/mall/Generator.java:35 · Review System.out logging before modernization.<br>mall-search/src/test/java/com/macro/mall/search/MallSearchApplicationTests.java:27 · Review System.out logging before modernization.<br>mall-search/src/test/java/com/macro/mall/search/MallSearchApplicationTests.java:34 · Review System.out logging before modernization.</td></tr><tr><td><span class="pill critical">critical</span><br>javax namespace usage detected</td><td>1</td><td>1</td><td>0</td><td>project (1)</td><td>Project metadata · Migrate Java EE imports to Jakarta equivalents for Spring Boot 3.</td></tr><tr><td><span class="pill warning">warning</span><br>Spring Boot 2.7.5 detected</td><td>1</td><td>1</td><td>0</td><td>project (1)</td><td>Project metadata · Plan Spring Boot 3 and Jakarta compatibility validation.</td></tr></tbody></table>
   </main>
 </body>
 </html>
