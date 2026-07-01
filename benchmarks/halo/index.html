@@ -38,14 +38,14 @@
 <body>
   <header>
     <h1>Halo Readiness Report</h1>
-    <p class="meta">spring-boot-3-readiness · 2026-06-30T22:51:14.789Z · https://github.com/halo-dev/halo</p>
+    <p class="meta">spring-boot-3-readiness · 2026-07-01T05:44:45.852Z · https://github.com/halo-dev/halo</p>
   </header>
   <main>
     <section class="grid">
-      <div class="panel"><div class="metric">66%</div><div class="label">Overall readiness</div></div>
+      <div class="panel"><div class="metric">68%</div><div class="label">Overall readiness</div></div>
       <div class="panel"><div class="metric">1</div><div class="label">Critical findings</div></div>
-      <div class="panel"><div class="metric">1500</div><div class="label">Java files</div></div>
-      <div class="panel"><div class="metric">2.7.x</div><div class="label">Spring Boot</div></div>
+      <div class="panel"><div class="metric">605</div><div class="label">Java files</div></div>
+      <div class="panel"><div class="metric">2.5.12</div><div class="label">Spring Boot</div></div>
     </section>
 
     <h2>Executive Summary</h2>
@@ -56,13 +56,13 @@
     <div class="panel notice">
       <strong>Pack applicable: yes</strong> · confidence 95%
       <div>Spring Boot 2.x was detected. This pack targets Spring Boot 2.x to 3.x migrations.</div>
-      <div class="label">Detected: Spring Boot: 2.7.x · Java: 17 · Build: Gradle · javax usage: yes · jakarta usage: no</div>
+      <div class="label">Detected: Spring Boot: 2.5.12 · Java: 11 · Build: Gradle · javax usage: yes · jakarta usage: yes</div>
 
     </div>
 
 
     <h2>Readiness</h2>
-    <table><thead><tr><th>Category</th><th>Score</th><th>Signal</th></tr></thead><tbody><tr><td>Java</td><td><strong>74%</strong></td><td><div class="bar"><span style="width:74%"></span></div></td></tr><tr><td>Spring</td><td><strong>34%</strong></td><td><div class="bar"><span style="width:34%"></span></div></td></tr><tr><td>Jakarta</td><td><strong>79%</strong></td><td><div class="bar"><span style="width:79%"></span></div></td></tr><tr><td>Build</td><td><strong>90%</strong></td><td><div class="bar"><span style="width:90%"></span></div></td></tr><tr><td>Security</td><td><strong>82%</strong></td><td><div class="bar"><span style="width:82%"></span></div></td></tr><tr><td>Architecture</td><td><strong>39%</strong></td><td><div class="bar"><span style="width:39%"></span></div></td></tr></tbody></table>
+    <table><thead><tr><th>Category</th><th>Score</th><th>Signal</th></tr></thead><tbody><tr><td>Java</td><td><strong>62%</strong></td><td><div class="bar"><span style="width:62%"></span></div></td></tr><tr><td>Spring</td><td><strong>54%</strong></td><td><div class="bar"><span style="width:54%"></span></div></td></tr><tr><td>Jakarta</td><td><strong>79%</strong></td><td><div class="bar"><span style="width:79%"></span></div></td></tr><tr><td>Build</td><td><strong>90%</strong></td><td><div class="bar"><span style="width:90%"></span></div></td></tr><tr><td>Security</td><td><strong>82%</strong></td><td><div class="bar"><span style="width:82%"></span></div></td></tr><tr><td>Architecture</td><td><strong>42%</strong></td><td><div class="bar"><span style="width:42%"></span></div></td></tr></tbody></table>
 
 
     <h2>Evidence</h2>
@@ -71,15 +71,22 @@
 
     <h2>Benchmark Evidence</h2>
     <div class="panel">
-      <strong>catalog</strong> · https://github.com/halo-dev/halo
+      <strong>checkout</strong> · https://github.com/halo-dev/halo
+      <div class="label">Git ref: v1.6.1</div>
+      <div class="label">Checkout: benchmark-repos/halo</div>
+      <div class="label">Git revision: 72f6a08987073f5120256fa55d11dbe9dea64062</div>
     </div>
     <table><thead><tr><th>Command</th><th>Status</th><th>Output</th></tr></thead><tbody><tr><td colspan="3">No external command was needed for this benchmark source.</td></tr></tbody></table>
 
     <h2>Benchmark Validation</h2>
     <div class="panel">
-      <strong>not_requested</strong> · confidence 0% · Validation was not requested.
+      <strong>failed</strong> · confidence 25% · 2 validation check(s) failed.
     </div>
-    <table><thead><tr><th>Check</th><th>Status</th><th>Command</th><th>Duration</th><th>Log Excerpt</th></tr></thead><tbody><tr><td colspan="5">Validation was not requested.</td></tr></tbody></table>
+    <table><thead><tr><th>Check</th><th>Status</th><th>Command</th><th>Duration</th><th>Log Excerpt</th></tr></thead><tbody><tr><td>Compilation</td><td><span class="pill failed">failed</span></td><td>./gradlew compileJava --no-daemon</td><td>26.2 s</td><td>.daemon.server.exec.EstablishBuildEnvironment.doBuild(EstablishBuildEnvironment.java:84)
+  	at org.gradle.launcher.daemon.server.exec.BuildCommandOnly.execute(BuildCommandOnly.java:37)
+  	at org.gradle.launcher.daemon.server.api.DaemonCo...</td></tr><tr><td>Tests</td><td><span class="pill failed">failed</span></td><td>./gradlew test --no-daemon</td><td>13.8 s</td><td>.daemon.server.exec.EstablishBuildEnvironment.doBuild(EstablishBuildEnvironment.java:84)
+  	at org.gradle.launcher.daemon.server.exec.BuildCommandOnly.execute(BuildCommandOnly.java:37)
+  	at org.gradle.launcher.daemon.server.api.DaemonCo...</td></tr></tbody></table>
 
 
 
@@ -88,12 +95,12 @@
 
     <h2>Finding Summary</h2>
     <section class="grid">
-      <div class="panel"><div class="metric">111</div><div class="label">Production code findings</div></div>
-      <div class="panel"><div class="metric">0</div><div class="label">Test code findings</div></div>
-      <div class="panel"><div class="metric">4</div><div class="label">Finding types</div></div>
-      <div class="panel"><div class="metric">111</div><div class="label">Detailed JSON findings</div></div>
+      <div class="panel"><div class="metric">47</div><div class="label">Production code findings</div></div>
+      <div class="panel"><div class="metric">20</div><div class="label">Test code findings</div></div>
+      <div class="panel"><div class="metric">8</div><div class="label">Finding types</div></div>
+      <div class="panel"><div class="metric">67</div><div class="label">Detailed JSON findings</div></div>
     </section>
-    <table><thead><tr><th>Type</th><th>Total</th><th>Production</th><th>Test</th><th>Top modules</th><th>Examples</th></tr></thead><tbody><tr><td><span class="pill info">info</span><br>Legacy date API usage</td><td>68</td><td>68</td><td>0</td><td>halo (68)</td><td>halo/src/main/java/Example1.java:10 · Review date handling before migration validation.<br>halo/src/main/java/Example2.java:11 · Review date handling before migration validation.<br>halo/src/main/java/Example3.java:12 · Review date handling before migration validation.<br>halo/src/main/java/Example4.java:13 · Review date handling before migration validation.<br>halo/src/main/java/Example5.java:14 · Review date handling before migration validation.</td></tr><tr><td><span class="pill warning">warning</span><br>Spring field injection patterns</td><td>41</td><td>41</td><td>0</td><td>halo (41)</td><td>halo/src/main/java/Example1.java:10 · Prefer constructor injection in services touched by migration work.<br>halo/src/main/java/Example2.java:11 · Prefer constructor injection in services touched by migration work.<br>halo/src/main/java/Example3.java:12 · Prefer constructor injection in services touched by migration work.<br>halo/src/main/java/Example4.java:13 · Prefer constructor injection in services touched by migration work.<br>halo/src/main/java/Example5.java:14 · Prefer constructor injection in services touched by migration work.</td></tr><tr><td><span class="pill critical">critical</span><br>javax namespace usage detected</td><td>1</td><td>1</td><td>0</td><td>halo (1)</td><td>halo/src/main/java/ExampleApplication.java:12 · Plan Jakarta migration before Spring Boot 3 execution.</td></tr><tr><td><span class="pill warning">warning</span><br>Spring Boot 2.7.x detected</td><td>1</td><td>1</td><td>0</td><td>project (1)</td><td>Project metadata · Run OpenRewrite Boot 3 recipes in dry-run mode.</td></tr></tbody></table>
+    <table><thead><tr><th>Type</th><th>Total</th><th>Production</th><th>Test</th><th>Top modules</th><th>Examples</th></tr></thead><tbody><tr><td><span class="pill info">info</span><br>java.util.Date usage</td><td>33</td><td>30</td><td>3</td><td>src (33)</td><td>src/main/java/run/halo/app/cache/AbstractCacheStore.java:3 · Review java.util.Date usage before modernization.<br>src/main/java/run/halo/app/cache/CacheWrapper.java:4 · Review java.util.Date usage before modernization.<br>src/main/java/run/halo/app/cache/LevelCacheStore.java:7 · Review java.util.Date usage before modernization.<br>src/main/java/run/halo/app/model/dto/AttachmentDTO.java:3 · Review java.util.Date usage before modernization.<br>src/main/java/run/halo/app/model/dto/BaseCommentDTO.java:3 · Review java.util.Date usage before modernization.</td></tr><tr><td><span class="pill warning">warning</span><br>Spring field injection</td><td>18</td><td>6</td><td>12</td><td>src (18)</td><td>src/main/java/run/halo/app/handler/file/FileHandlers.java:34 · Review Spring field injection before modernization.<br>src/main/java/run/halo/app/handler/prehandler/PictureExifRemovalPreHandler.java:34 · Review Spring field injection before modernization.<br>src/main/java/run/halo/app/listener/StartedListener.java:52 · Review Spring field injection before modernization.<br>src/main/java/run/halo/app/listener/StartedListener.java:55 · Review Spring field injection before modernization.<br>src/main/java/run/halo/app/listener/StartedListener.java:58 · Review Spring field injection before modernization.</td></tr><tr><td><span class="pill info">info</span><br>Reflection usage</td><td>5</td><td>4</td><td>1</td><td>src (5)</td><td>src/main/java/run/halo/app/config/attributeconverter/AttributeConverterAutoGenerator.java:51 · Review Reflection usage before modernization.<br>src/main/java/run/halo/app/service/impl/BackupServiceImpl.java:270 · Review Reflection usage before modernization.<br>src/main/java/run/halo/app/service/impl/BackupServiceImpl.java:300 · Review Reflection usage before modernization.<br>src/main/java/run/halo/app/utils/SwaggerUtils.java:101 · Review Reflection usage before modernization.<br>src/test/java/run/halo/app/utils/HttpClientUtilsTest.java:14 · Review Reflection usage before modernization.</td></tr><tr><td><span class="pill info">info</span><br>System.out logging</td><td>5</td><td>2</td><td>3</td><td>src (5)</td><td>src/main/java/run/halo/app/utils/BCrypt.java:29 · Review System.out logging before modernization.<br>src/main/java/run/halo/app/utils/BCrypt.java:31 · Review System.out logging before modernization.<br>src/test/java/run/halo/app/utils/BcryptTest.java:46 · Review System.out logging before modernization.<br>src/test/java/run/halo/app/utils/BcryptTest.java:50 · Review System.out logging before modernization.<br>src/test/java/run/halo/app/utils/FootnoteTest.java:57 · Review System.out logging before modernization.</td></tr><tr><td><span class="pill warning">warning</span><br>JDK internal API usage</td><td>2</td><td>2</td><td>0</td><td>build.gradle (1)<br>src (1)</td><td>build.gradle:90 · Review JDK internal API usage before modernization.<br>src/main/java/run/halo/app/core/ControllerExceptionHandler.java:152 · Review JDK internal API usage before modernization.</td></tr><tr><td><span class="pill warning">warning</span><br>Serializable type without serialVersionUID</td><td>2</td><td>1</td><td>1</td><td>src (2)</td><td>src/main/java/run/halo/app/cache/CacheWrapper.java:1 · Add an explicit serialVersionUID before Java runtime migration validation.<br>src/test/java/run/halo/app/model/dto/base/InputConverterTest.java:1 · Add an explicit serialVersionUID before Java runtime migration validation.</td></tr><tr><td><span class="pill critical">critical</span><br>javax namespace usage detected</td><td>1</td><td>1</td><td>0</td><td>project (1)</td><td>Project metadata · Migrate Java EE imports to Jakarta equivalents for Spring Boot 3.</td></tr><tr><td><span class="pill warning">warning</span><br>Spring Boot 2.5.12 detected</td><td>1</td><td>1</td><td>0</td><td>project (1)</td><td>Project metadata · Plan Spring Boot 3 and Jakarta compatibility validation.</td></tr></tbody></table>
   </main>
 </body>
 </html>
