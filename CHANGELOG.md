@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## v0.2.2
+
 - Added the MCP `emp.packs` tool so AI clients can discover available modernization packs before running analysis.
 
 ## v0.2.1

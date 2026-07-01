@@ -158,14 +158,14 @@ test('generates release notes from feature metadata', async () => {
   const html = await fs.readFile(path.join(outDir, `${releaseId}.html`), 'utf8');
   const markdown = await fs.readFile(path.join(outDir, `${releaseId}.md`), 'utf8');
 
-  assert.equal(result.count, 9);
+  assert.equal(result.count, 10);
   assert.equal(result.featureCount >= 4, true);
   assert.match(index, /Release Notes/);
-  assert.match(index, /v0\.2\.1/);
-  assert.match(html, /JUnit checkout evidence batch one/);
-  assert.match(html, /Spring Petclinic REST JUnit/);
+  assert.match(index, /v0\.2\.2/);
+  assert.match(html, /MCP pack metadata tool/);
+  assert.match(html, /emp\.packs/);
   assert.match(markdown, new RegExp(`# ${releaseId}`));
-  assert.match(markdown, /## JUnit checkout evidence batch one/);
+  assert.match(markdown, /## MCP pack metadata tool/);
 });
 
 test('generates Consultant Demo page and bundle', async () => {

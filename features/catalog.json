@@ -2,6 +2,37 @@
   "schemaVersion": "emp.features.v1",
   "releases": [
     {
+      "id": "v0.2.2",
+      "title": "v0.2.2",
+      "date": "2026-07-02",
+      "summary": "MCP pack metadata discovery for AI-assisted modernization planning.",
+      "features": [
+        {
+          "id": "mcp-pack-metadata-tool",
+          "type": "interface",
+          "name": "MCP pack metadata tool",
+          "audience": "AI clients and consultants choosing the right modernization workflow",
+          "summary": "Expose modernization pack discovery through MCP before running readiness analysis.",
+          "evidence": [
+            "Adds the MCP `emp.packs` tool alongside `emp.analyze`.",
+            "Lists all available modernization packs with migration, vertical, category, version, and check-count metadata.",
+            "Returns full pack metadata for one requested pack, including checks and report sections.",
+            "Adds automated tests for tool discovery, pack listing, pack detail lookup, and unknown-pack errors."
+          ],
+          "links": [
+            {
+              "label": "MCP usage",
+              "href": "README.md#cli"
+            },
+            {
+              "label": "Pack docs",
+              "href": "docs/packs/index.html"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "v0.2.1",
       "title": "v0.2.1",
       "date": "2026-07-02",
