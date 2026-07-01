@@ -26,3 +26,7 @@ benchmark-repos/
 # Environment
 .env
 .env.*
+/.claude-flow/*
+/.claude/memory.db
+/.swarm/memory.db
+/.swarm/schema.sql
