@@ -236,7 +236,7 @@ Current automated coverage verifies:
 
 ## Current Status
 
-Implemented v0.1 scope:
+Implemented through v0.1.3:
 
 - CLI, Docker, MCP, and GitHub Action interfaces.
 - Spring Boot 2 to 3 readiness and transformation workflow.

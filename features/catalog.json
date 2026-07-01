@@ -157,7 +157,7 @@
           "summary": "Regenerate the Migration Hub from checked-in benchmark evidence, enforce the benchmark count gate, and preserve checkout-backed validation evidence.",
           "evidence": [
             "Adds `npm run benchmarks:publish`.",
-            "Verifies the Month 6 benchmark gate with `--min-count 50`.",
+            "Verifies the current benchmark gate with `--min-count 55`.",
             "Writes `reports/benchmark-publish-summary.json` during publication."
           ],
           "links": [
@@ -178,7 +178,7 @@
           "audience": "Consultants and enterprise reviewers",
           "summary": "Promote additional public repositories from catalog-only reports to checkout-backed evidence, including honest pass, failure, timeout, and applicability results.",
           "evidence": [
-            "Public catalog contains 50 benchmark reports.",
+            "Public catalog contains 55 benchmark reports.",
             "16 reports are checkout-backed.",
             "7 checkout benchmarks currently pass compile and test validation."
           ],
