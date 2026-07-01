@@ -19,6 +19,7 @@ export function scoreReadiness(scan, ruleEvaluation = null) {
   const categories = {
     java: categoryScore(scoringFindings, ['java-util-date', 'java-21-target-missing', 'java-internal-api'], 88),
     spring: categoryScore(scoringFindings, ['spring-boot-2', 'spring-boot-version-unknown', 'field-injection'], 86),
+    hibernate: categoryScore(scoringFindings, ['hibernate-not-detected', 'hibernate-legacy-criteria', 'hibernate-session-api', 'hibernate-custom-type', 'hibernate-xml-mapping'], scan.dependencies.hibernateDetected ? 84 : 72),
     jakarta: categoryScore(scoringFindings, ['javax-usage'], 95),
     build: categoryScore(scoringFindings, ['build-tool-missing'], 90),
     security: scan.dependencies.springSecurityDetected ? 82 : 76,

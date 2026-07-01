@@ -64,14 +64,17 @@ test('generates documentation pages from pack metadata', async () => {
   const index = await fs.readFile(path.join(outDir, 'index.html'), 'utf8');
   const springBoot = await fs.readFile(path.join(outDir, 'spring-boot-3-readiness.html'), 'utf8');
   const java = await fs.readFile(path.join(outDir, 'java-17-to-21-readiness.html'), 'utf8');
+  const hibernate = await fs.readFile(path.join(outDir, 'hibernate-readiness.html'), 'utf8');
 
-  assert.equal(result.count, 3);
+  assert.equal(result.count, 4);
   assert.match(index, /Migration Packs/);
   assert.match(index, /Spring Boot 3 Readiness/);
+  assert.match(index, /Hibernate Readiness/);
   assert.match(springBoot, /Spring Boot 2\.x to 3\.x/);
   assert.match(springBoot, /openrewrite-dry-run/);
   assert.match(springBoot, /node \.\/bin\/emp\.js analyze \/path\/to\/app --pack spring-boot-3-readiness/);
   assert.match(java, /binary compatibility/);
+  assert.match(hibernate, /Hibernate 5\.x to 6\.x readiness/);
 });
 
 test('generates release notes from feature metadata', async () => {
@@ -357,6 +360,67 @@ public class LegacyPayload implements Serializable {
   assert.equal(report.trust.checks.some((check) => check.name === 'Binary compatibility'), true);
   assert.equal(report.trust.checks.some((check) => check.name === 'Public API compatibility'), true);
   assert.match(await fs.readFile(bundle.htmlPath, 'utf8'), /Trust Engine/);
+});
+
+test('Hibernate readiness pack detects ORM upgrade risks', async () => {
+  const root = await makeSpringProject();
+  await fs.writeFile(path.join(root, 'pom.xml'), `<?xml version="1.0" encoding="UTF-8"?>
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <dependencies>
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-core</artifactId>
+      <version>5.6.15.Final</version>
+    </dependency>
+  </dependencies>
+  <properties>
+    <java.version>17</java.version>
+  </properties>
+</project>
+`);
+  await fs.writeFile(path.join(root, 'src/main/java/com/example/Persistence.java'), `package com.example;
+
+import org.hibernate.Criteria;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.usertype.UserType;
+
+public class Persistence {
+  private SessionFactory sessionFactory;
+  Criteria criteria(Session session) {
+    return session.createCriteria(Persistence.class);
+  }
+  UserType type;
+}
+`);
+  await fs.mkdir(path.join(root, 'src/main/resources/com/example'), { recursive: true });
+  await fs.writeFile(path.join(root, 'src/main/resources/com/example/Persistence.hbm.xml'), '<hibernate-mapping></hibernate-mapping>');
+
+  const scan = await analyzeProject({ root, pack: 'hibernate-readiness' });
+  const readiness = scoreReadiness(scan);
+
+  assert.equal(scan.packApplicability.applicable, true);
+  assert.equal(scan.dependencies.hibernateDetected, true);
+  assert.equal(scan.findings.some((finding) => finding.code === 'hibernate-legacy-criteria'), true);
+  assert.equal(scan.findings.some((finding) => finding.code === 'hibernate-session-api'), true);
+  assert.equal(scan.findings.some((finding) => finding.code === 'hibernate-custom-type'), true);
+  assert.equal(scan.findings.some((finding) => finding.code === 'hibernate-xml-mapping'), true);
+  assert.equal(Object.hasOwn(readiness.categories, 'hibernate'), true);
+});
+
+test('Hibernate readiness pack reports mismatch when Hibernate is absent', async () => {
+  const root = await makeSpringProject();
+  const sourceFile = path.join(root, 'src/main/java/com/example/Demo.java');
+  await fs.writeFile(sourceFile, 'package com.example;\npublic class Demo {}\n');
+
+  const scan = await analyzeProject({ root, pack: 'hibernate-readiness' });
+  const readiness = scoreReadiness(scan);
+
+  assert.equal(scan.dependencies.hibernateDetected, false);
+  assert.equal(scan.packApplicability.applicable, false);
+  assert.equal(readiness.status, 'not_applicable');
+  assert.match(readiness.summary, /Hibernate ORM usage was not detected/);
 });
 
 test('enterprise rules affect readiness and appear in reports', async () => {

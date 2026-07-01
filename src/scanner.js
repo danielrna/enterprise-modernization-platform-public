@@ -120,7 +120,7 @@ function detectDependencies(contents) {
       'unknown',
     jakartaDetected: /\bjakarta\./.test(joined),
     javaxDetected: /\bjavax\./.test(joined),
-    hibernateDetected: /hibernate-core|org\.hibernate/.test(joined),
+    hibernateDetected: /hibernate-core|org\.hibernate|hibernate-mapping/.test(joined),
     springSecurityDetected: /spring-boot-starter-security|spring-security/.test(joined)
   };
 }
@@ -141,6 +141,10 @@ function detectFindings(contents, dependencies, manifests) {
     findings.push(finding('javax-usage', 'critical', 'javax namespace usage detected', 'Migrate Java EE imports to Jakarta equivalents for Spring Boot 3.'));
   }
 
+  if (manifests.pack === 'hibernate-readiness' && !dependencies.hibernateDetected) {
+    findings.push(finding('hibernate-not-detected', 'warning', 'Hibernate usage not detected', 'Confirm Hibernate ORM is present before using the Hibernate readiness pack.'));
+  }
+
   if (manifests.pack === 'java-17-to-21-readiness' && manifests.javaVersion !== '21') {
     findings.push(finding('java-21-target-missing', 'warning', `Java ${manifests.javaVersion} target detected`, 'Set the project release, sourceCompatibility, or toolchain target to Java 21 before final validation.'));
   }
@@ -150,6 +154,10 @@ function detectFindings(contents, dependencies, manifests) {
     addPatternFindings(findings, entry, /@Autowired\s+private|@Autowired\s+protected|@Autowired\s+public/g, 'field-injection', 'warning', 'Spring field injection');
     addPatternFindings(findings, entry, /System\.out\.print/g, 'system-out', 'info', 'System.out logging');
     addPatternFindings(findings, entry, /\b(sun\.misc|com\.sun\.|jdk\.internal\.)/g, 'java-internal-api', 'warning', 'JDK internal API usage');
+    addPatternFindings(findings, entry, /\borg\.hibernate\.Criteria\b|\bcreateCriteria\s*\(/g, 'hibernate-legacy-criteria', 'critical', 'Legacy Hibernate Criteria API');
+    addPatternFindings(findings, entry, /\borg\.hibernate\.Session\b|\bSessionFactory\b/g, 'hibernate-session-api', 'warning', 'Direct Hibernate Session API usage');
+    addPatternFindings(findings, entry, /\bUserType\b|\bBasicType\b|\bCompositeUserType\b/g, 'hibernate-custom-type', 'warning', 'Hibernate custom type integration');
+    addPatternFindings(findings, entry, /hibernate-mapping|\.hbm\.xml/g, 'hibernate-xml-mapping', 'warning', 'Hibernate XML mapping');
     addSerializableFindings(findings, entry);
     addPublicReflectionFindings(findings, entry);
   }
@@ -181,6 +189,7 @@ function buildEvidence(findings, manifests, dependencies) {
     { name: 'Build metadata', status: manifests.buildTools?.length ? 'passed' : 'failed' },
     { name: 'Spring Boot version detection', status: dependencies.springBootVersion && dependencies.springBootVersion !== 'unknown' ? 'passed' : 'warning' },
     { name: 'Jakarta namespace readiness', status: dependencies.javaxDetected ? 'failed' : 'passed' },
+    { name: 'Hibernate usage detection', status: dependencies.hibernateDetected ? 'passed' : 'warning' },
     { name: 'Static source checks', status: findings.length ? 'warning' : 'passed' },
     { name: 'OpenRewrite dry-run readiness', status: 'pending', note: 'OpenRewrite execution is available through transform --engine openrewrite when Maven or Gradle execution is available.' }
   ];
@@ -242,6 +251,18 @@ function evaluatePackApplicability({ pack, manifests, dependencies }) {
         ? 'javax namespace usage was detected. This pack targets javax to jakarta readiness.'
         : 'javax namespace usage was not detected. This pack is only useful for Java EE to Jakarta namespace migrations.',
       ...(!applicable ? { recommendedPack: 'java-17-to-21-readiness' } : {})
+    };
+  }
+
+  if (pack === 'hibernate-readiness') {
+    const applicable = Boolean(dependencies.hibernateDetected);
+    return {
+      applicable,
+      confidence: applicable ? 0.9 : 0.78,
+      reason: applicable
+        ? 'Hibernate ORM usage was detected. This pack targets Hibernate 5.x to 6.x readiness.'
+        : 'Hibernate ORM usage was not detected. This pack is only useful for persistence modernization work that includes Hibernate.',
+      ...(!applicable ? { recommendedPack: dependencies.javaxDetected ? 'jakarta-readiness' : 'java-17-to-21-readiness' } : {})
     };
   }
 

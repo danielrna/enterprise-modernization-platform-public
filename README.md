@@ -2,7 +2,7 @@
 
 CLI-first readiness evidence for mandatory enterprise software modernization.
 
-This public MVP starts with Enterprise Java Readiness: Spring Boot 2 to 3, Java 17 to 21, Jakarta namespace readiness, enterprise rules, transformation evidence, and static HTML reports a consultant can share with a client.
+This public MVP starts with Enterprise Java Readiness: Spring Boot 2 to 3, Java 17 to 21, Jakarta namespace readiness, Hibernate readiness, enterprise rules, transformation evidence, and static HTML reports a consultant can share with a client.
 
 The product is not a Java migration tool. The product is confidence that an application is ready for a mandatory technology evolution.
 
@@ -105,8 +105,8 @@ jobs:
 ## CLI
 
 ```bash
-node ./bin/emp.js analyze <path> [--pack spring-boot-3-readiness|java-17-to-21-readiness|jakarta-readiness] [--rules .preflight-rules.yml] [--out reports/latest]
-node ./bin/emp.js transform <path> [--pack spring-boot-3-readiness|java-17-to-21-readiness|jakarta-readiness] [--mode dry-run|apply|rollback] [--engine native|openrewrite|auto] [--validate] [--out reports/transform]
+node ./bin/emp.js analyze <path> [--pack spring-boot-3-readiness|java-17-to-21-readiness|jakarta-readiness|hibernate-readiness] [--rules .preflight-rules.yml] [--out reports/latest]
+node ./bin/emp.js transform <path> [--pack spring-boot-3-readiness|java-17-to-21-readiness|jakarta-readiness|hibernate-readiness] [--mode dry-run|apply|rollback] [--engine native|openrewrite|auto] [--validate] [--out reports/transform]
 node ./bin/emp.js benchmarks [--source catalog|local|clone] [--only slug[,slug]] [--limit n] [--validate] [--validation-timeout-ms 120000] [--out docs/benchmarks]
 node ./bin/emp.js hub [--out docs/migration-hub]
 node ./bin/emp.js mcp
@@ -237,6 +237,7 @@ Implemented v0.1 scope:
 - Spring Boot 2 to 3 readiness and transformation workflow.
 - Java 17 to 21 readiness pack.
 - Jakarta readiness pack.
+- Hibernate readiness pack.
 - Enterprise rules.
 - Trust evidence and static HTML/JSON reports.
 - 49 Spring Boot benchmark reports plus Jakarta readiness evidence.

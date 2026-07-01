@@ -152,8 +152,8 @@ function printHelp() {
   console.log(`Enterprise Modernization Platform CLI ${VERSION}
 
 Usage:
-  emp analyze <path> [--pack spring-boot-3-readiness|java-17-to-21-readiness|jakarta-readiness] [--rules .preflight-rules.yml] [--out reports/latest]
-  emp transform <path> [--pack spring-boot-3-readiness|java-17-to-21-readiness|jakarta-readiness] [--mode dry-run|apply|rollback] [--engine native|openrewrite|auto] [--recipe recipeId] [--recipe-artifact group:artifact:version] [--validate] [--rules .preflight-rules.yml] [--out reports/transform]
+  emp analyze <path> [--pack spring-boot-3-readiness|java-17-to-21-readiness|jakarta-readiness|hibernate-readiness] [--rules .preflight-rules.yml] [--out reports/latest]
+  emp transform <path> [--pack spring-boot-3-readiness|java-17-to-21-readiness|jakarta-readiness|hibernate-readiness] [--mode dry-run|apply|rollback] [--engine native|openrewrite|auto] [--recipe recipeId] [--recipe-artifact group:artifact:version] [--validate] [--rules .preflight-rules.yml] [--out reports/transform]
   emp benchmarks [--source catalog|local|clone] [--only slug[,slug]] [--limit n] [--validate] [--validation-timeout-ms 120000] [--out docs/benchmarks]
   emp hub [--out docs/migration-hub]
   emp mcp
@@ -164,6 +164,7 @@ Available scope:
   - Static HTML report
   - Spring Boot 2 to 3 transformation dry-run, apply, rollback, and validation evidence
   - Java 17 to 21 target update pack
+  - Hibernate readiness pack
   - Professional trust evidence with confidence, compatibility, compile, test, and rollback status
   - Consultant enterprise rules from .preflight-rules.yml
   - MCP stdio interface for AI clients
