@@ -1,0 +1,371 @@
+{
+  "schemaVersion": "emp.report.v1",
+  "generatedAt": "2026-07-01T21:19:41.687Z",
+  "project": {
+    "name": "Spring Petclinic REST Security",
+    "root": "https://github.com/spring-petclinic/spring-petclinic-rest",
+    "source": "https://github.com/spring-petclinic/spring-petclinic-rest",
+    "buildTools": [
+      "Maven"
+    ],
+    "javaVersion": "unknown",
+    "springBootVersion": "2.6.2",
+    "fileCount": 359,
+    "javaFileCount": 83
+  },
+  "pack": "spring-security-6-readiness",
+  "packApplicability": {
+    "applicable": true,
+    "confidence": 0.9,
+    "reason": "Spring Security usage was detected. This pack targets Spring Security 5.x to 6.x readiness."
+  },
+  "readiness": {
+    "overall": 80,
+    "categories": {
+      "java": 88,
+      "spring": 86,
+      "hibernate": 84,
+      "jakarta": 79,
+      "build": 90,
+      "security": 52,
+      "architecture": 84
+    },
+    "summary": "Ready with remediation work",
+    "counts": {
+      "critical": 1,
+      "warning": 5,
+      "info": 0
+    }
+  },
+  "productionFindings": [
+    {
+      "code": "spring-security-5",
+      "severity": "warning",
+      "title": "Spring Security 5.6.x detected",
+      "recommendation": "Plan Spring Security 6 authorization and configuration validation.",
+      "file": "pom.xml",
+      "line": 32,
+      "scope": "production"
+    },
+    {
+      "code": "spring-security-authorize-requests",
+      "severity": "warning",
+      "title": "authorizeRequests configuration",
+      "recommendation": "Review authorization DSL rules before Spring Security 6 migration.",
+      "file": "src/main/java/org/springframework/samples/petclinic/security/SecurityConfig.java",
+      "line": 31,
+      "scope": "production"
+    },
+    {
+      "code": "javax-usage",
+      "severity": "critical",
+      "title": "javax namespace usage detected",
+      "recommendation": "Plan Jakarta namespace alignment before Spring Security 6 validation.",
+      "file": "src/main/java/org/springframework/samples/petclinic/model/BaseEntity.java",
+      "line": 18,
+      "scope": "production"
+    },
+    {
+      "code": "spring-security-legacy-matchers",
+      "severity": "warning",
+      "title": "Legacy Spring Security matcher API",
+      "recommendation": "Review matcher semantics before requestMatchers migration.",
+      "file": "src/main/java/org/springframework/samples/petclinic/security/Example1.java",
+      "line": 10,
+      "scope": "production"
+    },
+    {
+      "code": "spring-security-legacy-matchers",
+      "severity": "warning",
+      "title": "Legacy Spring Security matcher API",
+      "recommendation": "Review matcher semantics before requestMatchers migration.",
+      "file": "src/main/java/org/springframework/samples/petclinic/security/Example2.java",
+      "line": 11,
+      "scope": "production"
+    },
+    {
+      "code": "spring-security-legacy-matchers",
+      "severity": "warning",
+      "title": "Legacy Spring Security matcher API",
+      "recommendation": "Review matcher semantics before requestMatchers migration.",
+      "file": "src/main/java/org/springframework/samples/petclinic/security/Example3.java",
+      "line": 12,
+      "scope": "production"
+    }
+  ],
+  "testFindings": [],
+  "findingSummary": {
+    "production": {
+      "critical": 1,
+      "warning": 5,
+      "info": 0
+    },
+    "test": {
+      "critical": 0,
+      "warning": 0,
+      "info": 0
+    },
+    "byCode": {
+      "spring-security-5": {
+        "code": "spring-security-5",
+        "title": "Spring Security 5.6.x detected",
+        "severity": "warning",
+        "total": 1,
+        "production": 1,
+        "test": 0,
+        "topModules": [
+          {
+            "name": "pom.xml",
+            "count": 1
+          }
+        ],
+        "examples": [
+          {
+            "code": "spring-security-5",
+            "severity": "warning",
+            "title": "Spring Security 5.6.x detected",
+            "recommendation": "Plan Spring Security 6 authorization and configuration validation.",
+            "file": "pom.xml",
+            "line": 32,
+            "scope": "production"
+          }
+        ]
+      },
+      "spring-security-authorize-requests": {
+        "code": "spring-security-authorize-requests",
+        "title": "authorizeRequests configuration",
+        "severity": "warning",
+        "total": 1,
+        "production": 1,
+        "test": 0,
+        "topModules": [
+          {
+            "name": "src",
+            "count": 1
+          }
+        ],
+        "examples": [
+          {
+            "code": "spring-security-authorize-requests",
+            "severity": "warning",
+            "title": "authorizeRequests configuration",
+            "recommendation": "Review authorization DSL rules before Spring Security 6 migration.",
+            "file": "src/main/java/org/springframework/samples/petclinic/security/SecurityConfig.java",
+            "line": 31,
+            "scope": "production"
+          }
+        ]
+      },
+      "javax-usage": {
+        "code": "javax-usage",
+        "title": "javax namespace usage detected",
+        "severity": "critical",
+        "total": 1,
+        "production": 1,
+        "test": 0,
+        "topModules": [
+          {
+            "name": "src",
+            "count": 1
+          }
+        ],
+        "examples": [
+          {
+            "code": "javax-usage",
+            "severity": "critical",
+            "title": "javax namespace usage detected",
+            "recommendation": "Plan Jakarta namespace alignment before Spring Security 6 validation.",
+            "file": "src/main/java/org/springframework/samples/petclinic/model/BaseEntity.java",
+            "line": 18,
+            "scope": "production"
+          }
+        ]
+      },
+      "spring-security-legacy-matchers": {
+        "code": "spring-security-legacy-matchers",
+        "title": "Legacy Spring Security matcher API",
+        "severity": "warning",
+        "total": 3,
+        "production": 3,
+        "test": 0,
+        "topModules": [
+          {
+            "name": "src",
+            "count": 3
+          }
+        ],
+        "examples": [
+          {
+            "code": "spring-security-legacy-matchers",
+            "severity": "warning",
+            "title": "Legacy Spring Security matcher API",
+            "recommendation": "Review matcher semantics before requestMatchers migration.",
+            "file": "src/main/java/org/springframework/samples/petclinic/security/Example1.java",
+            "line": 10,
+            "scope": "production"
+          },
+          {
+            "code": "spring-security-legacy-matchers",
+            "severity": "warning",
+            "title": "Legacy Spring Security matcher API",
+            "recommendation": "Review matcher semantics before requestMatchers migration.",
+            "file": "src/main/java/org/springframework/samples/petclinic/security/Example2.java",
+            "line": 11,
+            "scope": "production"
+          },
+          {
+            "code": "spring-security-legacy-matchers",
+            "severity": "warning",
+            "title": "Legacy Spring Security matcher API",
+            "recommendation": "Review matcher semantics before requestMatchers migration.",
+            "file": "src/main/java/org/springframework/samples/petclinic/security/Example3.java",
+            "line": 12,
+            "scope": "production"
+          }
+        ]
+      }
+    }
+  },
+  "findings": [
+    {
+      "code": "spring-security-5",
+      "severity": "warning",
+      "title": "Spring Security 5.6.x detected",
+      "recommendation": "Plan Spring Security 6 authorization and configuration validation.",
+      "file": "pom.xml",
+      "line": 32,
+      "scope": "production"
+    },
+    {
+      "code": "spring-security-authorize-requests",
+      "severity": "warning",
+      "title": "authorizeRequests configuration",
+      "recommendation": "Review authorization DSL rules before Spring Security 6 migration.",
+      "file": "src/main/java/org/springframework/samples/petclinic/security/SecurityConfig.java",
+      "line": 31,
+      "scope": "production"
+    },
+    {
+      "code": "javax-usage",
+      "severity": "critical",
+      "title": "javax namespace usage detected",
+      "recommendation": "Plan Jakarta namespace alignment before Spring Security 6 validation.",
+      "file": "src/main/java/org/springframework/samples/petclinic/model/BaseEntity.java",
+      "line": 18,
+      "scope": "production"
+    },
+    {
+      "code": "spring-security-legacy-matchers",
+      "severity": "warning",
+      "title": "Legacy Spring Security matcher API",
+      "recommendation": "Review matcher semantics before requestMatchers migration.",
+      "file": "src/main/java/org/springframework/samples/petclinic/security/Example1.java",
+      "line": 10,
+      "scope": "production"
+    },
+    {
+      "code": "spring-security-legacy-matchers",
+      "severity": "warning",
+      "title": "Legacy Spring Security matcher API",
+      "recommendation": "Review matcher semantics before requestMatchers migration.",
+      "file": "src/main/java/org/springframework/samples/petclinic/security/Example2.java",
+      "line": 11,
+      "scope": "production"
+    },
+    {
+      "code": "spring-security-legacy-matchers",
+      "severity": "warning",
+      "title": "Legacy Spring Security matcher API",
+      "recommendation": "Review matcher semantics before requestMatchers migration.",
+      "file": "src/main/java/org/springframework/samples/petclinic/security/Example3.java",
+      "line": 12,
+      "scope": "production"
+    }
+  ],
+  "evidence": [
+    {
+      "name": "Build metadata",
+      "status": "passed"
+    },
+    {
+      "name": "Spring Boot version detection",
+      "status": "passed"
+    },
+    {
+      "name": "Jakarta namespace readiness",
+      "status": "failed"
+    },
+    {
+      "name": "Hibernate usage detection",
+      "status": "passed"
+    },
+    {
+      "name": "Spring Security usage detection",
+      "status": "passed"
+    },
+    {
+      "name": "Static source checks",
+      "status": "warning"
+    },
+    {
+      "name": "OpenRewrite dry-run readiness",
+      "status": "pending",
+      "note": "OpenRewrite execution is available through transform --engine openrewrite when Maven or Gradle execution is available."
+    }
+  ],
+  "dependencies": {
+    "springBootVersion": "2.6.2",
+    "springSecurityVersion": "5.6.x",
+    "jakartaDetected": false,
+    "javaxDetected": true,
+    "hibernateDetected": true,
+    "springSecurityDetected": true
+  },
+  "benchmark": {
+    "slug": "spring-petclinic-rest-security",
+    "name": "Spring Petclinic REST Security",
+    "repository": "https://github.com/spring-petclinic/spring-petclinic-rest",
+    "ref": "v2.6.2",
+    "requestedSource": "catalog",
+    "source": "catalog",
+    "checkoutPath": null,
+    "analysisPath": null,
+    "gitRevision": null,
+    "commands": [],
+    "validation": {
+      "requested": false,
+      "status": "not_requested",
+      "confidence": 0,
+      "checks": [],
+      "summary": "Validation was not requested."
+    }
+  },
+  "nextActions": [
+    {
+      "id": "plan-jakarta-migration",
+      "priority": "critical",
+      "title": "Plan javax to Jakarta namespace migration",
+      "reason": "Modern Spring Boot and Hibernate migration paths require Jakarta namespace readiness.",
+      "evidenceCount": 1,
+      "findingCodes": [
+        "javax-usage"
+      ],
+      "suggestedCommand": "node ./bin/emp.js analyze . --pack jakarta-readiness --out reports/jakarta-readiness"
+    },
+    {
+      "id": "review-spring-security-6-risks",
+      "priority": "warning",
+      "title": "Review Spring Security 6 configuration risks",
+      "reason": "Spring Security 6 readiness depends on explicit review of removed configuration adapters, matcher API changes, authorization DSL changes, and method security annotations.",
+      "evidenceCount": 5,
+      "findingCodes": [
+        "spring-security-5",
+        "spring-security-websecurityconfigureradapter",
+        "spring-security-legacy-matchers",
+        "spring-security-authorize-requests",
+        "spring-security-global-method-security"
+      ],
+      "suggestedCommand": "node ./bin/emp.js analyze . --pack spring-security-6-readiness --out reports/spring-security-6-readiness"
+    }
+  ]
+}
