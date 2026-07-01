@@ -9,6 +9,7 @@ import { writeReportBundle } from '../src/report.js';
 import { publishBenchmarks } from '../src/benchmarks.js';
 import { generateMigrationHub } from '../src/hub.js';
 import { generatePackDocs } from '../src/pack-docs.js';
+import { generateReleaseNotes } from '../src/release-notes.js';
 import { transformProject } from '../src/transform.js';
 import { loadEnterpriseRules, evaluateEnterpriseRules } from '../src/rules.js';
 import { handleMcpRequest } from '../src/mcp.js';
@@ -71,6 +72,24 @@ test('generates documentation pages from pack metadata', async () => {
   assert.match(springBoot, /openrewrite-dry-run/);
   assert.match(springBoot, /node \.\/bin\/emp\.js analyze \/path\/to\/app --pack spring-boot-3-readiness/);
   assert.match(java, /binary compatibility/);
+});
+
+test('generates release notes from feature metadata', async () => {
+  const root = await fs.mkdtemp(path.join(os.tmpdir(), 'emp-release-notes-'));
+  const outDir = path.join(root, 'release-notes');
+
+  const result = await generateReleaseNotes({ featuresFile: path.resolve('features/catalog.json'), outDir });
+  const index = await fs.readFile(path.join(outDir, 'index.html'), 'utf8');
+  const html = await fs.readFile(path.join(outDir, 'unreleased.html'), 'utf8');
+  const markdown = await fs.readFile(path.join(outDir, 'unreleased.md'), 'utf8');
+
+  assert.equal(result.count, 1);
+  assert.equal(result.featureCount >= 4, true);
+  assert.match(index, /Release Notes/);
+  assert.match(html, /Release notes from feature metadata/);
+  assert.match(html, /Pack documentation generation/);
+  assert.match(markdown, /# Unreleased/);
+  assert.match(markdown, /## Release notes from feature metadata/);
 });
 
 test('local benchmark reports include checkout evidence', async () => {
@@ -465,14 +484,18 @@ test('GitHub Action exposes Docker readiness analysis inputs', async () => {
   assert.match(action, /--rules/);
   assert.match(dockerfile, /docker-entrypoint\.sh/);
   assert.match(dockerfile, /COPY scripts \.\/scripts/);
+  assert.match(dockerfile, /COPY features \.\/features/);
   assert.match(entrypoint, /GITHUB_WORKSPACE:-\/workspace/);
   assert.match(await fs.readFile(path.resolve('package.json'), 'utf8'), /"release:verify"/);
   assert.match(await fs.readFile(path.resolve('package.json'), 'utf8'), /"ci:verify"/);
   assert.match(await fs.readFile(path.resolve('package.json'), 'utf8'), /"docs:generate"/);
+  assert.match(await fs.readFile(path.resolve('package.json'), 'utf8'), /"release-notes:generate"/);
   assert.match(await fs.readFile(path.resolve('package.json'), 'utf8'), /pack-docs\.js/);
+  assert.match(await fs.readFile(path.resolve('package.json'), 'utf8'), /release-notes\.js/);
   assert.match(await fs.readFile(path.resolve('scripts/ci-examples-verify.js'), 'utf8'), /command_equivalent_verified/);
   assert.match(await fs.readFile(path.resolve('scripts/release-verify.js'), 'utf8'), /Release verification passed/);
   assert.match(await fs.readFile(path.resolve('scripts/benchmark-publish.js'), 'utf8'), /generatePackDocs/);
+  assert.match(await fs.readFile(path.resolve('scripts/benchmark-publish.js'), 'utf8'), /generateReleaseNotes/);
   assert.match(githubDocs, /actions\/upload-artifact@v4/);
   assert.match(githubDocs, /emp-report\/index\.html/);
   assert.match(dockerDocs, /docker run --rm/);

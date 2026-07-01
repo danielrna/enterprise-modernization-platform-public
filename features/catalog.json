@@ -1,0 +1,89 @@
+{
+  "schemaVersion": "emp.features.v1",
+  "releases": [
+    {
+      "id": "unreleased",
+      "title": "Unreleased",
+      "date": null,
+      "summary": "Month 6 content engine improvements for benchmark evidence, generated documentation, and consultant-ready release assets.",
+      "features": [
+        {
+          "id": "pack-docs",
+          "type": "documentation",
+          "name": "Pack documentation generation",
+          "audience": "Consultants and technical evaluators",
+          "summary": "Generate static pack documentation from `packs/*.json`, including supported checks, readiness categories, report sections, and execution commands.",
+          "evidence": [
+            "Adds `npm run docs:generate`.",
+            "Publishes static pages under `docs/packs/`.",
+            "Wires pack docs into the benchmark publishing content workflow."
+          ],
+          "links": [
+            {
+              "label": "Pack docs",
+              "href": "docs/packs/index.html"
+            }
+          ]
+        },
+        {
+          "id": "release-notes",
+          "type": "documentation",
+          "name": "Release notes from feature metadata",
+          "audience": "Maintainers and release operators",
+          "summary": "Generate public release-note pages and a GitHub-ready Markdown draft from structured feature metadata.",
+          "evidence": [
+            "Adds `npm run release-notes:generate`.",
+            "Publishes release-note pages under `docs/release-notes/`.",
+            "Includes the generated Markdown draft in the same static output directory."
+          ],
+          "links": [
+            {
+              "label": "Release notes",
+              "href": "docs/release-notes/index.html"
+            }
+          ]
+        },
+        {
+          "id": "benchmark-publishing",
+          "type": "evidence",
+          "name": "Repeatable benchmark publishing",
+          "audience": "Maintainers and buyers reviewing public proof",
+          "summary": "Regenerate the Migration Hub from checked-in benchmark evidence, enforce the benchmark count gate, and preserve checkout-backed validation evidence.",
+          "evidence": [
+            "Adds `npm run benchmarks:publish`.",
+            "Verifies the Month 6 benchmark gate with `--min-count 50`.",
+            "Writes `reports/benchmark-publish-summary.json` during publication."
+          ],
+          "links": [
+            {
+              "label": "Benchmark reports",
+              "href": "docs/benchmarks/index.html"
+            },
+            {
+              "label": "Migration Hub",
+              "href": "docs/migration-hub/index.html"
+            }
+          ]
+        },
+        {
+          "id": "checkout-benchmark-evidence",
+          "type": "evidence",
+          "name": "Expanded checkout-backed benchmark evidence",
+          "audience": "Consultants and enterprise reviewers",
+          "summary": "Promote additional public repositories from catalog-only reports to checkout-backed evidence, including honest pass, failure, timeout, and applicability results.",
+          "evidence": [
+            "Public catalog contains 50 benchmark reports.",
+            "16 reports are checkout-backed.",
+            "7 checkout benchmarks currently pass compile and test validation."
+          ],
+          "links": [
+            {
+              "label": "Validated benchmark reference",
+              "href": "docs/benchmarks/spring-boot-realworld/index.html"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
