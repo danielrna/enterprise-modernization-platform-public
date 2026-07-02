@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+## v0.2.7
+
+- Added the Trust Engine Evidence Guide Knowledge Base article for explaining confidence factors, validation evidence, pack applicability, and report limits.
+
 ## v0.2.6
 
 - Promoted JUnit 4 Samples to checkout-backed JUnit readiness evidence with passing Maven compile/test validation.

@@ -2,6 +2,37 @@
   "schemaVersion": "emp.features.v1",
   "releases": [
     {
+      "id": "v0.2.7",
+      "title": "v0.2.7",
+      "date": "2026-07-02",
+      "summary": "Trust Engine evidence guidance for consultant modernization conversations.",
+      "features": [
+        {
+          "id": "trust-engine-evidence-knowledge-base",
+          "type": "documentation",
+          "name": "Trust Engine Evidence Guide",
+          "audience": "Consultants explaining confidence factors and validation evidence to enterprise clients",
+          "summary": "Add a Knowledge Base article for interpreting Trust Engine confidence factors, validation evidence, pack applicability, and limits.",
+          "evidence": [
+            "Adds `knowledge/trust-engine-evidence.json`.",
+            "Explains catalog-only evidence, missing validation, partial validation, pack mismatch, and enterprise rule violations.",
+            "Links checkout-backed green-path, timeout, and failed-test benchmark examples so consultants can compare evidence levels.",
+            "Publishes the generated guide under `docs/knowledge-base/trust-engine-evidence.html`."
+          ],
+          "links": [
+            {
+              "label": "Trust Engine Evidence Guide",
+              "href": "docs/knowledge-base/trust-engine-evidence.html"
+            },
+            {
+              "label": "Knowledge Base index",
+              "href": "docs/knowledge-base/index.html"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "v0.2.6",
       "title": "v0.2.6",
       "date": "2026-07-02",

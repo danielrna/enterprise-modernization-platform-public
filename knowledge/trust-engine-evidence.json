@@ -1,0 +1,82 @@
+{
+  "id": "trust-engine-evidence",
+  "title": "Trust Engine Evidence Guide",
+  "pack": "spring-boot-3-readiness",
+  "summary": "Guidance for explaining EMP confidence factors, validation evidence, and report limits during modernization planning.",
+  "guide": [
+    "Start with the confidence score, then explain the factors behind it. A high score should be backed by checkout source, validation status, finding quality, and applicable pack evidence.",
+    "Use factor status and impact to keep the conversation concrete. Positive factors explain what is proven; negative factors explain what must be fixed before execution confidence increases.",
+    "Tie every recommendation to an evidence type. Static findings, dependency metadata, checkout-backed validation, and enterprise rules answer different client questions."
+  ],
+  "risks": [
+    {
+      "name": "Catalog-only evidence",
+      "signal": "benchmark-source",
+      "whyItMatters": "Catalog reports prove repeatable report generation and risk vocabulary, but they do not prove the public checkout still builds.",
+      "recommendation": "Use catalog-only reports for discovery and comparison, then promote serious client references to checkout-backed validation."
+    },
+    {
+      "name": "Validation missing",
+      "signal": "validation-status",
+      "whyItMatters": "Without compile or test evidence, the report cannot distinguish source-level risk from build-system or environment blockers.",
+      "recommendation": "Run validation before treating a modernization estimate as execution-ready."
+    },
+    {
+      "name": "Partial validation",
+      "signal": "validation-failed",
+      "whyItMatters": "A compile pass with failing tests is stronger than no validation, but it still leaves runtime confidence unresolved.",
+      "recommendation": "Preserve the failed test evidence and plan dependency, environment, or service repair as the next paid step."
+    },
+    {
+      "name": "Pack mismatch",
+      "signal": "pack-applicability",
+      "whyItMatters": "A report can be technically valid while not applying to the selected modernization pack.",
+      "recommendation": "Use the mismatch as scoping evidence and switch to the pack that matches detected dependencies and source patterns."
+    },
+    {
+      "name": "Enterprise rule violations",
+      "signal": "enterprise-rules",
+      "whyItMatters": "Client-owned rules can change migration priority even when framework readiness looks acceptable.",
+      "recommendation": "Review owner, severity, rationale, and remediation metadata before agreeing on a migration sequence."
+    }
+  ],
+  "validationNotes": [
+    "Passing compile and test validation increases confidence, but it does not prove production behavior or performance.",
+    "Failed validation evidence should keep command, duration, exit code, timeout status, and a short output excerpt so the blocker can be explained.",
+    "Trust factors are conversation aids, not legal guarantees. They make the evidence model explicit enough for a consultant to defend scope.",
+    "The strongest report combines applicable pack findings, checkout-backed source, passing validation, and client-specific enterprise rules."
+  ],
+  "benchmarks": [
+    {
+      "slug": "junit4-samples",
+      "name": "JUnit 4 Samples",
+      "note": "Checkout-backed JUnit evidence with passing compile and test validation."
+    },
+    {
+      "slug": "spring-petclinic-junit",
+      "name": "Spring Petclinic JUnit",
+      "note": "Checkout-backed JUnit evidence with compile passing and test timeout evidence under the public validation budget."
+    },
+    {
+      "slug": "spring-petclinic-rest-junit",
+      "name": "Spring Petclinic REST JUnit",
+      "note": "Checkout-backed JUnit evidence with passing compile and test validation."
+    },
+    {
+      "slug": "assertj-examples-junit4",
+      "name": "AssertJ Examples JUnit 4",
+      "note": "Checkout-backed module evidence with compile passing and honest Neo4j-related test failure evidence."
+    },
+    {
+      "slug": "spring-javaconfig-sample",
+      "name": "Spring JavaConfig Sample",
+      "note": "Checkout-backed Hibernate evidence with passing compile and test validation for a green-path comparison."
+    }
+  ],
+  "limits": [
+    "Trust Engine evidence does not replace a client repository validation run.",
+    "A passing public benchmark does not prove a different application will migrate cleanly.",
+    "Static findings do not prove runtime behavior, data correctness, or production performance.",
+    "Enterprise rule scoring depends on the client maintaining accurate rule metadata."
+  ]
+}

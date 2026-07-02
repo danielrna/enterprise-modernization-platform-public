@@ -134,18 +134,22 @@ test('generates Knowledge Base pages from structured guidance', async () => {
   const hibernate = await fs.readFile(path.join(outDir, 'hibernate-readiness.html'), 'utf8');
   const security = await fs.readFile(path.join(outDir, 'spring-security-6-readiness.html'), 'utf8');
   const junit = await fs.readFile(path.join(outDir, 'junit-5-readiness.html'), 'utf8');
+  const trust = await fs.readFile(path.join(outDir, 'trust-engine-evidence.html'), 'utf8');
 
-  assert.equal(result.count, 4);
+  assert.equal(result.count, 5);
   assert.match(index, /Knowledge Base/);
   assert.match(index, /Hibernate Readiness Knowledge Base/);
   assert.match(index, /Hibernate Validation Failure Patterns/);
   assert.match(index, /Spring Security 6 Readiness Knowledge Base/);
   assert.match(index, /JUnit 5 Readiness Knowledge Base/);
+  assert.match(index, /Trust Engine Evidence Guide/);
   assert.match(hibernate, /Legacy Criteria API/);
   assert.match(hibernate, /What This Does Not Prove/);
   assert.match(hibernate, /hibernate-demos/);
   assert.match(security, /WebSecurityConfigurerAdapter/);
   assert.match(junit, /JUnit 4 API usage/);
+  assert.match(trust, /Catalog-only evidence/);
+  assert.match(trust, /junit4-samples/);
 });
 
 test('generates release notes from feature metadata', async () => {
@@ -158,14 +162,14 @@ test('generates release notes from feature metadata', async () => {
   const html = await fs.readFile(path.join(outDir, `${releaseId}.html`), 'utf8');
   const markdown = await fs.readFile(path.join(outDir, `${releaseId}.md`), 'utf8');
 
-  assert.equal(result.count, 14);
+  assert.equal(result.count, 15);
   assert.equal(result.featureCount >= 4, true);
   assert.match(index, /Release Notes/);
-  assert.match(index, /v0\.2\.6/);
-  assert.match(html, /JUnit checkout evidence batch two/);
-  assert.match(html, /junit4-samples/);
+  assert.match(index, /v0\.2\.7/);
+  assert.match(html, /Trust Engine Evidence Guide/);
+  assert.match(html, /trust-engine-evidence/);
   assert.match(markdown, new RegExp(`# ${releaseId}`));
-  assert.match(markdown, /## JUnit checkout evidence batch two/);
+  assert.match(markdown, /## Trust Engine Evidence Guide/);
 });
 
 test('generates Consultant Demo page and bundle', async () => {
