@@ -162,14 +162,14 @@ test('generates release notes from feature metadata', async () => {
   const html = await fs.readFile(path.join(outDir, `${releaseId}.html`), 'utf8');
   const markdown = await fs.readFile(path.join(outDir, `${releaseId}.md`), 'utf8');
 
-  assert.equal(result.count, 16);
+  assert.equal(result.count, 17);
   assert.equal(result.featureCount >= 4, true);
   assert.match(index, /Release Notes/);
-  assert.match(index, /v0\.2\.8/);
-  assert.match(html, /JUnit checkout evidence batch three/);
-  assert.match(html, /junit-quickcheck/);
+  assert.match(index, /v0\.2\.9/);
+  assert.match(html, /JUnit checkout evidence batch four/);
+  assert.match(html, /mockito-junit4-samples/);
   assert.match(markdown, new RegExp(`# ${releaseId}`));
-  assert.match(markdown, /## JUnit checkout evidence batch three/);
+  assert.match(markdown, /## JUnit checkout evidence batch four/);
 });
 
 test('generates Consultant Demo page and bundle', async () => {

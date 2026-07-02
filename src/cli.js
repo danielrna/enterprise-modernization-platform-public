@@ -9,7 +9,7 @@ import { transformProject } from './transform.js';
 import { loadEnterpriseRules, evaluateEnterpriseRules } from './rules.js';
 import { runMcpServer } from './mcp.js';
 
-const VERSION = '0.2.8';
+const VERSION = '0.2.9';
 
 export async function runCli(argv) {
   const [command, ...rest] = argv;

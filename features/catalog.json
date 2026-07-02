@@ -2,6 +2,67 @@
   "schemaVersion": "emp.features.v1",
   "releases": [
     {
+      "id": "v0.2.9",
+      "title": "v0.2.9",
+      "date": "2026-07-02",
+      "summary": "Fourth checkout-backed JUnit readiness evidence batch and reusable EMP release-loop skill.",
+      "features": [
+        {
+          "id": "junit-checkout-evidence-batch-four",
+          "type": "evidence",
+          "name": "JUnit checkout evidence batch four",
+          "audience": "Consultants validating JUnit 4 to JUnit 5 modernization evidence",
+          "summary": "Promote Mockito, PowerMock, REST Assured, and Testcontainers JUnit reports from catalog-backed examples to checkout-backed evidence.",
+          "evidence": [
+            "Promotes Mockito JUnit 4 Samples to checkout-backed evidence at git revision `f3cf74c7e1106f7d32299001ca0ecf2c492c468c`, with Docker Gradle timeout evidence under the 120-second public validation budget.",
+            "Promotes PowerMock JUnit 4 to checkout-backed evidence at git revision `a0be5c4bbeb04f13a6aec2653c1f5663cece1316`, with Gradle dependency repository failure evidence.",
+            "Promotes REST Assured JUnit 4 to checkout-backed evidence at git revision `2cdc25872f945f7d3978f73f2c4fb679302ac593`, with Docker Maven Scala compiler failure and test timeout evidence.",
+            "Promotes Testcontainers JUnit 4 to checkout-backed evidence at git revision `deb78e1e6e47675f56e8d7b3f4747093d66f1baa`, with Gradle Java compatibility failure evidence.",
+            "Raises checkout-backed evidence from 36 to 40 reports while preserving the 75-report public catalog and 15 passing validation reports."
+          ],
+          "links": [
+            {
+              "label": "Mockito JUnit 4 report",
+              "href": "docs/benchmarks/mockito-junit4-samples/index.html"
+            },
+            {
+              "label": "PowerMock JUnit 4 report",
+              "href": "docs/benchmarks/powermock-junit4/index.html"
+            },
+            {
+              "label": "REST Assured JUnit 4 report",
+              "href": "docs/benchmarks/rest-assured-junit4/index.html"
+            },
+            {
+              "label": "Testcontainers JUnit 4 report",
+              "href": "docs/benchmarks/testcontainers-junit4/index.html"
+            },
+            {
+              "label": "JUnit 5 Evidence Hub",
+              "href": "docs/migration-hub/junit-5-readiness.html"
+            }
+          ]
+        },
+        {
+          "id": "emp-release-loop-skill",
+          "type": "documentation",
+          "name": "EMP release-loop skill",
+          "audience": "AI agents repeating EMP benchmark, release, and Pages verification work",
+          "summary": "Add a versioned Codex skill for the repetitive EMP benchmark promotion and release workflow.",
+          "evidence": [
+            "Adds `.codex/skills/emp-release-loop/SKILL.md`.",
+            "Documents benchmark promotion, Docker-backed validation, release packaging, public verification, GitHub Pages recovery, and private milestone logging."
+          ],
+          "links": [
+            {
+              "label": "EMP release-loop skill",
+              "href": ".codex/skills/emp-release-loop/SKILL.md"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "v0.2.8",
       "title": "v0.2.8",
       "date": "2026-07-02",

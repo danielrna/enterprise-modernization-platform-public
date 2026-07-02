@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+## v0.2.9
+
+- Promoted Mockito JUnit 4 Samples, PowerMock JUnit 4, REST Assured JUnit 4, and Testcontainers JUnit 4 to checkout-backed JUnit readiness evidence with honest Gradle/Maven timeout, dependency, compiler, and Java compatibility evidence.
+- Added a versioned `emp-release-loop` Codex skill for repetitive EMP benchmark and release workflows.
+- Raised checkout-backed benchmark evidence to 40 reports while preserving the 75-report public catalog and 15 passing validation reports.
+
 ## v0.2.8
 
 - Promoted JUnit Quickcheck and WireMock JUnit 4 to checkout-backed JUnit readiness evidence with honest Maven dependency/test failure and Gradle timeout validation evidence.

@@ -1,0 +1,4 @@
+interface:
+  display_name: "EMP Release Loop"
+  short_description: "Repeat EMP benchmark and release workflow"
+  default_prompt: "Use $emp-release-loop to promote benchmark evidence and publish an EMP release."
