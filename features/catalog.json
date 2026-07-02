@@ -2,6 +2,37 @@
   "schemaVersion": "emp.features.v1",
   "releases": [
     {
+      "id": "v0.2.3",
+      "title": "v0.2.3",
+      "date": "2026-07-02",
+      "summary": "MCP benchmark evidence summaries for AI-assisted modernization planning.",
+      "features": [
+        {
+          "id": "mcp-benchmark-evidence-tool",
+          "type": "interface",
+          "name": "MCP benchmark evidence tool",
+          "audience": "AI clients and consultants comparing public modernization evidence",
+          "summary": "Expose published benchmark evidence summaries through MCP.",
+          "evidence": [
+            "Adds the MCP `emp.benchmarks` tool alongside `emp.analyze` and `emp.packs`.",
+            "Summarizes published benchmark totals, checkout-backed evidence, catalog evidence, and validation pass/fail/skip/not-requested counts.",
+            "Supports filtering by pack, source, validation status, and result limit.",
+            "Returns concise per-report fields with slug, name, pack, readiness, source, validation status, confidence, finding count, report path, and public report URL."
+          ],
+          "links": [
+            {
+              "label": "MCP usage",
+              "href": "README.md#cli"
+            },
+            {
+              "label": "Benchmark evidence",
+              "href": "docs/benchmarks/index.html"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "v0.2.2",
       "title": "v0.2.2",
       "date": "2026-07-02",

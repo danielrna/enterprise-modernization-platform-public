@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## v0.2.3
+
 - Added the MCP `emp.benchmarks` tool so AI clients can summarize published benchmark evidence by pack, source, and validation status.
 
 ## v0.2.2
