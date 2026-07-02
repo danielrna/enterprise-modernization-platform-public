@@ -2,6 +2,59 @@
   "schemaVersion": "emp.features.v1",
   "releases": [
     {
+      "id": "v0.4.0",
+      "title": "v0.4.0",
+      "date": "2026-07-02",
+      "summary": "Balanced checkout-backed evidence batch reaching 50 real repository reports.",
+      "features": [
+        {
+          "id": "balanced-checkout-evidence-batch",
+          "type": "evidence",
+          "name": "Balanced checkout evidence batch",
+          "audience": "Consultants validating modernization readiness evidence across Hibernate and Spring Boot repositories",
+          "summary": "Promote one Hibernate readiness report and four Spring Boot readiness reports from catalog-backed examples to checkout-backed validation evidence.",
+          "evidence": [
+            "Promotes Baeldung Hibernate Tutorials to checkout-backed evidence at git revision `0c2d7e08d2e292cef3e032b06e05eaa8cdfed912`, with passing Docker-backed Maven compile and test validation.",
+            "Promotes Spring Petclinic to checkout-backed evidence at git revision `b3ee2c53e76e9267f03551a7cd36b0983c859c56`, with passing Maven compile evidence and honest test timeout evidence.",
+            "Promotes Spring Cloud Zookeeper to checkout-backed evidence at git revision `9e6a837b975ca2c4ca9d23e1edb0470241de0aac`, with passing Maven compile evidence and honest test timeout evidence.",
+            "Promotes Spring Cloud Vault to checkout-backed evidence at git revision `abd037dc8a71c97136709229f1d4d100e04908b2`, with passing Maven compile evidence and test failure evidence for missing integration-test work directory assumptions.",
+            "Promotes Spring Cloud Commons to checkout-backed evidence at git revision `0774de1eeb7886ac86698ab7053164462f07f975`, with passing Maven compile evidence and honest test timeout evidence.",
+            "Raises checkout-backed evidence from 45 to 50 reports and passing validation evidence from 16 to 17 reports while preserving the 75-report public catalog."
+          ],
+          "links": [
+            {
+              "label": "Baeldung Hibernate Tutorials report",
+              "href": "docs/benchmarks/baeldung-hibernate-tutorials/index.html"
+            },
+            {
+              "label": "Spring Petclinic report",
+              "href": "docs/benchmarks/spring-petclinic/index.html"
+            },
+            {
+              "label": "Spring Cloud Zookeeper report",
+              "href": "docs/benchmarks/spring-cloud-zookeeper/index.html"
+            },
+            {
+              "label": "Spring Cloud Vault report",
+              "href": "docs/benchmarks/spring-cloud-vault/index.html"
+            },
+            {
+              "label": "Spring Cloud Commons report",
+              "href": "docs/benchmarks/spring-cloud-commons/index.html"
+            },
+            {
+              "label": "Hibernate Evidence Hub",
+              "href": "docs/migration-hub/hibernate-readiness.html"
+            },
+            {
+              "label": "Spring Boot 3 Evidence Hub",
+              "href": "docs/migration-hub/spring-boot-3-readiness.html"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "v0.3.1",
       "title": "v0.3.1",
       "date": "2026-07-02",

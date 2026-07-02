@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+## v0.4.0
+
+- Promoted Baeldung Hibernate Tutorials to checkout-backed Hibernate readiness evidence with passing Docker-backed Maven compile/test validation.
+- Promoted Spring Petclinic, Spring Cloud Zookeeper, Spring Cloud Vault, and Spring Cloud Commons to checkout-backed Spring Boot readiness evidence with honest compile-pass, timeout, and test failure evidence.
+- Raised checkout-backed benchmark evidence to 50 reports and passing validation evidence to 17 reports while preserving the 75-report public catalog.
+
 ## v0.3.1
 
 - Restored explicit GitHub Pages deployment with `actions/deploy-pages@v4`, unique Pages artifacts, and the `github-pages` environment after branch-only publishing left the public site on an old snapshot.

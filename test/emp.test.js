@@ -162,14 +162,14 @@ test('generates release notes from feature metadata', async () => {
   const html = await fs.readFile(path.join(outDir, `${releaseId}.html`), 'utf8');
   const markdown = await fs.readFile(path.join(outDir, `${releaseId}.md`), 'utf8');
 
-  assert.equal(result.count, 19);
+  assert.equal(result.count, 20);
   assert.equal(result.featureCount >= 4, true);
   assert.match(index, /Release Notes/);
-  assert.match(index, /v0\.3\.1/);
-  assert.match(html, /Pages workflow recovery/);
-  assert.match(html, /actions\/deploy-pages@v4/);
+  assert.match(index, /v0\.4\.0/);
+  assert.match(html, /Balanced checkout evidence batch/);
+  assert.match(html, /baeldung-hibernate-tutorials/);
   assert.match(markdown, new RegExp(`# ${releaseId}`));
-  assert.match(markdown, /## Pages workflow recovery/);
+  assert.match(markdown, /## Balanced checkout evidence batch/);
 });
 
 test('generates Consultant Demo page and bundle', async () => {
