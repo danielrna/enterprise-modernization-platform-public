@@ -54,7 +54,7 @@
 <body>
   <header>
     <h1>Spring Cloud Task Readiness Report</h1>
-    <p class="meta">spring-boot-3-readiness · 2026-06-30T22:51:14.735Z · https://github.com/spring-cloud/spring-cloud-task</p>
+    <p class="meta">spring-boot-3-readiness · 2026-07-02T18:03:11.154Z · https://github.com/spring-cloud/spring-cloud-task</p>
     <nav class="report-nav">
       <a href="../../index.html">Home</a>
       <a href="../index.html">Benchmarks</a>
@@ -65,64 +65,66 @@
   <main>
     <section class="decision">
       <div class="panel decision-main bad">
-        <strong>Migration is blocked by critical readiness risks</strong>
-        <div>1 critical finding(s) should be resolved before execution planning.</div>
-        <div class="risk-list"><span class="pill critical">1 javax namespace usage detected</span><span class="pill warning">20 Spring field injection patterns</span><span class="pill warning">1 Spring Boot 2.7.x detected</span></div>
+        <strong>Do not use this pack for migration planning yet</strong>
+        <div>Spring Boot 4.0.7 was detected, not Spring Boot 2.x. This pack targets Spring Boot 2.x to 3.x migrations.</div>
+        <div class="risk-list"><span class="pill critical">1 javax namespace usage detected</span><span class="pill warning">42 Spring field injection</span><span class="pill warning">1 Serializable type without serialVersionUID</span></div>
         <div class="actions">
           <a class="primary" href="report.json">Open JSON evidence</a>
           <a href="../../migration-hub/spring-boot-2-to-3.html">Read migration guide</a>
         </div>
       </div>
       <div class="panel decision-list">
-        <div><strong>Recommended next step</strong><div class="label">Triage critical findings, then capture compile and test validation evidence.</div></div>
-        <div><strong>Validation state</strong><div class="label">not_requested at 0% confidence.</div></div>
+        <div><strong>Recommended next step</strong><div class="label">Run jakarta-readiness before using this report for planning.</div></div>
+        <div><strong>Validation state</strong><div class="label">failed at 25% confidence.</div></div>
         <div><strong>Evidence package</strong><div class="label">Static HTML and JSON report, shareable without a backend.</div></div>
       </div>
     </section>
 
     <section class="grid">
-      <div class="panel"><div class="metric">69%</div><div class="label">Overall readiness</div></div>
+      <div class="panel"><div class="metric">N/A</div><div class="label">Overall readiness</div></div>
       <div class="panel"><div class="metric">1</div><div class="label">Critical findings</div></div>
-      <div class="panel"><div class="metric">710</div><div class="label">Java files</div></div>
-      <div class="panel"><div class="metric">2.7.x</div><div class="label">Spring Boot</div></div>
+      <div class="panel"><div class="metric">249</div><div class="label">Java files</div></div>
+      <div class="panel"><div class="metric">4.0.7</div><div class="label">Spring Boot</div></div>
     </section>
 
     <h2>Executive Summary</h2>
-    <div class="panel">Migration risk requires focused cleanup</div>
+    <div class="panel">Pack mismatch: Spring Boot 4.0.7 was detected, not Spring Boot 2.x. This pack targets Spring Boot 2.x to 3.x migrations.</div>
 
 
     <h2>Pack Applicability</h2>
-    <div class="panel notice">
-      <strong>Pack applicable: yes</strong> · confidence 95%
-      <div>Spring Boot 2.x was detected. This pack targets Spring Boot 2.x to 3.x migrations.</div>
-      <div class="label">Detected: Spring Boot: 2.7.x · Java: 17 · Build: Maven · javax usage: yes · jakarta usage: no</div>
-
+    <div class="panel notice bad">
+      <strong>Pack applicable: no</strong> · confidence 94%
+      <div>Spring Boot 4.0.7 was detected, not Spring Boot 2.x. This pack targets Spring Boot 2.x to 3.x migrations.</div>
+      <div class="label">Detected: Spring Boot: 4.0.7 · Java: 17 · Build: Maven · javax usage: yes · jakarta usage: yes</div>
+      <div class="label">Recommended pack: jakarta-readiness</div>
     </div>
 
 
-    <h2>Readiness</h2>
-    <div class="table-scroll"><table><thead><tr><th>Category</th><th>Score</th><th>Signal</th></tr></thead><tbody><tr><td>Java</td><td><strong>76%</strong></td><td><div class="bar"><span style="width:76%"></span></div></td></tr><tr><td>Spring</td><td><strong>42%</strong></td><td><div class="bar"><span style="width:42%"></span></div></td></tr><tr><td>Jakarta</td><td><strong>79%</strong></td><td><div class="bar"><span style="width:79%"></span></div></td></tr><tr><td>Build</td><td><strong>90%</strong></td><td><div class="bar"><span style="width:90%"></span></div></td></tr><tr><td>Security</td><td><strong>82%</strong></td><td><div class="bar"><span style="width:82%"></span></div></td></tr><tr><td>Architecture</td><td><strong>47%</strong></td><td><div class="bar"><span style="width:47%"></span></div></td></tr></tbody></table></div>
+      <h2>Readiness</h2>
+      <div class="panel notice bad">Readiness score was not computed because this pack is not applicable to the project.</div>
 
 
     <h2>Recommended Next Actions</h2>
-    <div class="table-scroll"><table><thead><tr><th>Priority</th><th>Action</th><th>Reason</th><th>Evidence</th><th>Suggested Command</th></tr></thead><tbody><tr><td><span class="pill critical">critical</span></td><td>Plan javax to Jakarta namespace migration</td><td>Modern Spring Boot and Hibernate migration paths require Jakarta namespace readiness.</td><td>1</td><td><code>node ./bin/emp.js analyze . --pack jakarta-readiness --out reports/jakarta-readiness</code></td></tr><tr><td><span class="pill warning">warning</span></td><td>Validate the Spring Boot 3 upgrade path</td><td>Spring Boot version evidence determines whether the Spring Boot 2 to 3 pack can support migration planning.</td><td>1</td><td><code>node ./bin/emp.js transform . --pack spring-boot-3-readiness --mode dry-run --validate --out reports/spring-boot-trust</code></td></tr></tbody></table></div>
+    <div class="table-scroll"><table><thead><tr><th>Priority</th><th>Action</th><th>Reason</th><th>Evidence</th><th>Suggested Command</th></tr></thead><tbody><tr><td><span class="pill critical">critical</span></td><td>Plan javax to Jakarta namespace migration</td><td>Modern Spring Boot and Hibernate migration paths require Jakarta namespace readiness.</td><td>1</td><td><code>node ./bin/emp.js analyze . --pack jakarta-readiness --out reports/jakarta-readiness</code></td></tr><tr><td><span class="pill critical">critical</span></td><td>Select the applicable modernization pack</td><td>Spring Boot 4.0.7 was detected, not Spring Boot 2.x. This pack targets Spring Boot 2.x to 3.x migrations.</td><td>0</td><td><code>node ./bin/emp.js analyze . --pack jakarta-readiness --out reports/jakarta-readiness</code></td></tr></tbody></table></div>
 
 
     <h2>Evidence</h2>
-    <div class="table-scroll"><table><thead><tr><th>Evidence</th><th>Status</th><th>Note</th></tr></thead><tbody><tr><td>Build metadata</td><td><span class="pill passed">passed</span></td><td></td></tr><tr><td>Spring Boot version detection</td><td><span class="pill passed">passed</span></td><td></td></tr><tr><td>Jakarta namespace readiness</td><td><span class="pill failed">failed</span></td><td></td></tr><tr><td>Static source checks</td><td><span class="pill warning">warning</span></td><td></td></tr><tr><td>OpenRewrite dry-run readiness</td><td><span class="pill pending">pending</span></td><td>OpenRewrite execution is available through transform --engine openrewrite when Maven or Gradle execution is available.</td></tr></tbody></table></div>
+    <div class="table-scroll"><table><thead><tr><th>Evidence</th><th>Status</th><th>Note</th></tr></thead><tbody><tr><td>Build metadata</td><td><span class="pill passed">passed</span></td><td></td></tr><tr><td>Spring Boot version detection</td><td><span class="pill passed">passed</span></td><td></td></tr><tr><td>Jakarta namespace readiness</td><td><span class="pill failed">failed</span></td><td></td></tr><tr><td>Hibernate usage detection</td><td><span class="pill passed">passed</span></td><td></td></tr><tr><td>Spring Security usage detection</td><td><span class="pill warning">warning</span></td><td></td></tr><tr><td>JUnit 4 usage detection</td><td><span class="pill warning">warning</span></td><td></td></tr><tr><td>JUnit 5 usage detection</td><td><span class="pill passed">passed</span></td><td></td></tr><tr><td>Static source checks</td><td><span class="pill warning">warning</span></td><td></td></tr><tr><td>OpenRewrite dry-run readiness</td><td><span class="pill pending">pending</span></td><td>OpenRewrite execution is available through transform --engine openrewrite when Maven or Gradle execution is available.</td></tr></tbody></table></div>
 
 
     <h2>Benchmark Evidence</h2>
     <div class="panel">
-      <strong>catalog</strong> · https://github.com/spring-cloud/spring-cloud-task
+      <strong>checkout</strong> · https://github.com/spring-cloud/spring-cloud-task
+      <div class="label">Checkout: benchmark-repos/spring-cloud-task</div>
+      <div class="label">Git revision: 1e77aa5f96bf0604c38b6ce27ec4e11d1a7a8adb</div>
     </div>
-    <div class="table-scroll"><table><thead><tr><th>Command</th><th>Status</th><th>Output</th></tr></thead><tbody><tr><td colspan="3">No external command was needed for this benchmark source.</td></tr></tbody></table></div>
+    <div class="table-scroll"><table><thead><tr><th>Command</th><th>Status</th><th>Output</th></tr></thead><tbody><tr><td>git clone --depth 1 https://github.com/spring-cloud/spring-cloud-task benchmark-repos/spring-cloud-task</td><td><span class="pill passed">passed</span></td><td>Cloning into &#039;~/&lt;workspace&gt;</td></tr></tbody></table></div>
 
     <h2>Benchmark Validation</h2>
     <div class="panel">
-      <strong>not_requested</strong> · confidence 0% · Validation was not requested.
+      <strong>failed</strong> · confidence 25% · 2 validation check(s) failed.
     </div>
-    <div class="table-scroll"><table><thead><tr><th>Check</th><th>Status</th><th>Command</th><th>Duration</th><th>Log Excerpt</th></tr></thead><tbody><tr><td colspan="5">Validation was not requested.</td></tr></tbody></table></div>
+    <div class="table-scroll"><table><thead><tr><th>Check</th><th>Status</th><th>Command</th><th>Duration</th><th>Log Excerpt</th></tr></thead><tbody><tr><td>Compilation</td><td><span class="pill failed">failed</span></td><td>./mvnw -q -DskipTests compile</td><td>120.1 s</td><td>WARNING: A restricted method in java.lang.System has been called WARNING: java.lang.System::load has been called by org.fusesource.jansi.internal.JansiLoader in an unnamed module (file:~/.m2/wrapper/dists/apache-maven-3.9.1-bin/320285b4/...</td></tr><tr><td>Tests</td><td><span class="pill failed">failed</span></td><td>./mvnw -q test</td><td>120.1 s</td><td>her.launch(Launcher.java:225) [ERROR] at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode(Launcher.java:406) [ERROR] at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:347) [ERROR] at java.base/jdk....</td></tr></tbody></table></div>
 
 
 
@@ -131,12 +133,12 @@
 
     <h2>Finding Summary</h2>
     <section class="grid">
-      <div class="panel"><div class="metric">55</div><div class="label">Production code findings</div></div>
-      <div class="panel"><div class="metric">0</div><div class="label">Test code findings</div></div>
-      <div class="panel"><div class="metric">4</div><div class="label">Finding types</div></div>
-      <div class="panel"><div class="metric">55</div><div class="label">Detailed JSON findings</div></div>
+      <div class="panel"><div class="metric">35</div><div class="label">Production code findings</div></div>
+      <div class="panel"><div class="metric">43</div><div class="label">Test code findings</div></div>
+      <div class="panel"><div class="metric">6</div><div class="label">Finding types</div></div>
+      <div class="panel"><div class="metric">78</div><div class="label">Detailed JSON findings</div></div>
     </section>
-    <div class="table-scroll"><table><thead><tr><th>Type</th><th>Total</th><th>Production</th><th>Test</th><th>Top modules</th><th>Examples</th></tr></thead><tbody><tr><td><span class="pill info">info</span><br>Legacy date API usage</td><td>33</td><td>33</td><td>0</td><td>task (33)</td><td>spring/cloud/task/src/main/java/Example1.java:10 · Review date handling before migration validation.<br>spring/cloud/task/src/main/java/Example2.java:11 · Review date handling before migration validation.<br>spring/cloud/task/src/main/java/Example3.java:12 · Review date handling before migration validation.<br>spring/cloud/task/src/main/java/Example4.java:13 · Review date handling before migration validation.<br>spring/cloud/task/src/main/java/Example5.java:14 · Review date handling before migration validation.</td></tr><tr><td><span class="pill warning">warning</span><br>Spring field injection patterns</td><td>20</td><td>20</td><td>0</td><td>task (20)</td><td>spring/cloud/task/src/main/java/Example1.java:10 · Prefer constructor injection in services touched by migration work.<br>spring/cloud/task/src/main/java/Example2.java:11 · Prefer constructor injection in services touched by migration work.<br>spring/cloud/task/src/main/java/Example3.java:12 · Prefer constructor injection in services touched by migration work.<br>spring/cloud/task/src/main/java/Example4.java:13 · Prefer constructor injection in services touched by migration work.<br>spring/cloud/task/src/main/java/Example5.java:14 · Prefer constructor injection in services touched by migration work.</td></tr><tr><td><span class="pill critical">critical</span><br>javax namespace usage detected</td><td>1</td><td>1</td><td>0</td><td>task (1)</td><td>spring/cloud/task/src/main/java/ExampleApplication.java:12 · Plan Jakarta migration before Spring Boot 3 execution.</td></tr><tr><td><span class="pill warning">warning</span><br>Spring Boot 2.7.x detected</td><td>1</td><td>1</td><td>0</td><td>project (1)</td><td>Project metadata · Run OpenRewrite Boot 3 recipes in dry-run mode.</td></tr></tbody></table></div>
+    <div class="table-scroll"><table><thead><tr><th>Type</th><th>Total</th><th>Production</th><th>Test</th><th>Top modules</th><th>Examples</th></tr></thead><tbody><tr><td><span class="pill warning">warning</span><br>Spring field injection</td><td>42</td><td>24</td><td>18</td><td>spring-cloud-task-core (17)<br>spring-cloud-task-batch (6)<br>spring-cloud-task-integration-tests (5)</td><td>spring-cloud-starter-single-step-batch-job/src/main/java/org/springframework/cloud/task/batch/autoconfigure/kafka/KafkaItemReaderAutoConfiguration.java:50 · Review Spring field injection before modernization.<br>spring-cloud-starter-single-step-batch-job/src/main/java/org/springframework/cloud/task/batch/autoconfigure/kafka/KafkaItemWriterAutoConfiguration.java:54 · Review Spring field injection before modernization.<br>spring-cloud-task-batch/src/main/java/org/springframework/cloud/task/batch/configuration/TaskBatchAutoConfiguration.java:62 · Review Spring field injection before modernization.<br>spring-cloud-task-batch/src/main/java/org/springframework/cloud/task/batch/configuration/TaskBatchAutoConfiguration.java:65 · Review Spring field injection before modernization.<br>spring-cloud-task-batch/src/main/java/org/springframework/cloud/task/batch/configuration/TaskBatchExecutionListenerBeanPostProcessor.java:40 · Review Spring field injection before modernization.</td></tr><tr><td><span class="pill info">info</span><br>System.out logging</td><td>27</td><td>5</td><td>22</td><td>spring-cloud-task-batch (12)<br>spring-cloud-task-integration-tests (5)<br>spring-cloud-task-core (3)</td><td>spring-cloud-starter-single-step-batch-job/src/test/java/org/springframework/cloud/task/batch/autoconfigure/jdbc/JdbcBatchItemWriterAutoConfigurationTests.java:103 · Review System.out logging before modernization.<br>spring-cloud-starter-single-step-batch-job/src/test/java/org/springframework/cloud/task/batch/autoconfigure/jdbc/JdbcCursorItemReaderAutoConfigurationTests.java:97 · Review System.out logging before modernization.<br>spring-cloud-task-batch/src/test/java/org/springframework/cloud/task/batch/configuration/TaskJobLauncherAutoConfigurationTests.java:117 · Review System.out logging before modernization.<br>spring-cloud-task-batch/src/test/java/org/springframework/cloud/task/batch/handler/TaskJobLauncherApplicationRunnerTests.java:209 · Review System.out logging before modernization.<br>spring-cloud-task-batch/src/test/java/org/springframework/cloud/task/batch/handler/TaskJobLauncherApplicationRunnerTests.java:274 · Review System.out logging before modernization.</td></tr><tr><td><span class="pill info">info</span><br>java.util.Date usage</td><td>6</td><td>3</td><td>3</td><td>spring-cloud-task-stream (3)<br>jpa-sample (1)<br>spring-cloud-starter-single-step-batch-job (1)</td><td>spring-cloud-starter-single-step-batch-job/src/test/java/org/springframework/cloud/task/batch/autoconfigure/kafka/KafkaItemReaderAutoConfigurationTests.java:20 · Review java.util.Date usage before modernization.<br>spring-cloud-task-samples/jpa-sample/src/main/java/io/spring/configuration/TaskRunComponent.java:20 · Review java.util.Date usage before modernization.<br>spring-cloud-task-samples/timestamp/src/main/java/org/springframework/cloud/task/timestamp/TaskApplication.java:21 · Review java.util.Date usage before modernization.<br>spring-cloud-task-stream/src/main/java/org/springframework/cloud/task/batch/listener/support/JobParameterEvent.java:19 · Review java.util.Date usage before modernization.<br>spring-cloud-task-stream/src/test/java/org/springframework/cloud/task/batch/listener/JobExecutionEventTests.java:21 · Review java.util.Date usage before modernization.</td></tr><tr><td><span class="pill critical">critical</span><br>javax namespace usage detected</td><td>1</td><td>1</td><td>0</td><td>project (1)</td><td>Project metadata · Migrate Java EE imports to Jakarta equivalents for Spring Boot 3.</td></tr><tr><td><span class="pill info">info</span><br>Reflection usage</td><td>1</td><td>1</td><td>0</td><td>spring-cloud-task-core (1)</td><td>spring-cloud-task-core/src/main/java/org/springframework/cloud/task/configuration/DefaultTaskConfigurer.java:200 · Review Reflection usage before modernization.</td></tr><tr><td><span class="pill warning">warning</span><br>Serializable type without serialVersionUID</td><td>1</td><td>1</td><td>0</td><td>spring-cloud-task-core (1)</td><td>spring-cloud-task-core/src/main/java/org/springframework/cloud/task/repository/dao/MapTaskExecutionDao.java:1 · Add an explicit serialVersionUID before Java runtime migration validation.</td></tr></tbody></table></div>
   </main>
 </body>
 </html>
