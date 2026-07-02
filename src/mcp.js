@@ -5,6 +5,7 @@ import { scoreReadiness } from './readiness.js';
 import { loadEnterpriseRules, evaluateEnterpriseRules } from './rules.js';
 
 const PACKS_URL = new URL('../packs/', import.meta.url);
+const BENCHMARKS_URL = new URL('../docs/benchmarks/', import.meta.url);
 
 export async function handleMcpRequest(request) {
   if (request.method === 'initialize') {
@@ -37,6 +38,19 @@ export async function handleMcpRequest(request) {
             type: 'object',
             properties: {
               id: { type: 'string' }
+            }
+          }
+        },
+        {
+          name: 'emp.benchmarks',
+          description: 'Summarize published EMP benchmark evidence with optional filters.',
+          inputSchema: {
+            type: 'object',
+            properties: {
+              pack: { type: 'string' },
+              source: { type: 'string' },
+              validationStatus: { type: 'string' },
+              limit: { type: 'number' }
             }
           }
         }
@@ -96,6 +110,33 @@ export async function handleMcpRequest(request) {
     });
   }
 
+  if (request.method === 'tools/call' && request.params?.name === 'emp.benchmarks') {
+    const args = request.params.arguments || {};
+    const benchmarks = await loadBenchmarkSummaries();
+    const filtered = benchmarks.filter((benchmark) => {
+      if (args.pack && benchmark.pack !== args.pack) return false;
+      if (args.source && benchmark.source !== args.source) return false;
+      if (args.validationStatus && benchmark.validationStatus !== args.validationStatus) return false;
+      return true;
+    });
+    const limit = normalizeLimit(args.limit, filtered.length);
+    return response(request.id, {
+      content: [{
+        type: 'text',
+        text: JSON.stringify({
+          totals: summarizeBenchmarks(filtered),
+          filters: {
+            pack: args.pack || null,
+            source: args.source || null,
+            validationStatus: args.validationStatus || null,
+            limit
+          },
+          benchmarks: filtered.slice(0, limit)
+        }, null, 2)
+      }]
+    });
+  }
+
   return {
     jsonrpc: '2.0',
     id: request.id ?? null,
@@ -111,6 +152,58 @@ async function loadPackCatalog() {
     packs.push(JSON.parse(await fs.readFile(new URL(entry.name, PACKS_URL), 'utf8')));
   }
   return packs.sort((left, right) => left.id.localeCompare(right.id));
+}
+
+async function loadBenchmarkSummaries() {
+  const entries = await fs.readdir(BENCHMARKS_URL, { withFileTypes: true }).catch(() => []);
+  const benchmarks = [];
+  for (const entry of entries) {
+    if (!entry.isDirectory()) continue;
+    const reportUrl = new URL(`${entry.name}/report.json`, BENCHMARKS_URL);
+    const report = await readJson(reportUrl);
+    if (!report) continue;
+    benchmarks.push({
+      slug: entry.name,
+      name: report.project?.name || entry.name,
+      pack: typeof report.pack === 'string' ? report.pack : report.pack?.id || null,
+      readiness: report.readiness?.overall ?? null,
+      readinessStatus: report.readiness?.status || null,
+      source: report.benchmark?.source || 'catalog',
+      validationStatus: report.benchmark?.validation?.status || 'not_requested',
+      validationConfidence: report.benchmark?.validation?.confidence ?? 0,
+      findings: report.findings?.length || 0,
+      reportPath: `docs/benchmarks/${entry.name}/index.html`,
+      reportUrl: `https://danielrna.github.io/enterprise-modernization-platform/benchmarks/${entry.name}/`
+    });
+  }
+  return benchmarks.sort((left, right) => left.name.localeCompare(right.name));
+}
+
+async function readJson(url) {
+  try {
+    return JSON.parse(await fs.readFile(url, 'utf8'));
+  } catch {
+    return null;
+  }
+}
+
+function summarizeBenchmarks(benchmarks) {
+  return {
+    total: benchmarks.length,
+    checkoutBacked: benchmarks.filter((benchmark) => benchmark.source === 'checkout').length,
+    catalogBacked: benchmarks.filter((benchmark) => benchmark.source === 'catalog').length,
+    validationPassed: benchmarks.filter((benchmark) => benchmark.validationStatus === 'passed').length,
+    validationFailed: benchmarks.filter((benchmark) => benchmark.validationStatus === 'failed').length,
+    validationSkipped: benchmarks.filter((benchmark) => benchmark.validationStatus === 'skipped').length,
+    validationNotRequested: benchmarks.filter((benchmark) => benchmark.validationStatus === 'not_requested').length
+  };
+}
+
+function normalizeLimit(value, fallback) {
+  if (value === undefined || value === null) return fallback;
+  const limit = Number(value);
+  if (!Number.isInteger(limit) || limit < 1) return fallback;
+  return Math.min(limit, fallback);
 }
 
 export async function runMcpServer({ input = process.stdin, output = process.stdout } = {}) {

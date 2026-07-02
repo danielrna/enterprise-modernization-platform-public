@@ -843,6 +843,47 @@ test('MCP exposes modernization pack metadata beyond analysis', async () => {
   assert.equal(missingResult.error.code, -32602);
 });
 
+test('MCP exposes published benchmark evidence summaries', async () => {
+  const list = await handleMcpRequest({
+    jsonrpc: '2.0',
+    id: 12,
+    method: 'tools/list'
+  });
+  assert.equal(list.result.tools.some((tool) => tool.name === 'emp.benchmarks'), true);
+
+  const summaryResult = await handleMcpRequest({
+    jsonrpc: '2.0',
+    id: 13,
+    method: 'tools/call',
+    params: {
+      name: 'emp.benchmarks',
+      arguments: { pack: 'junit-5-readiness', source: 'checkout', limit: 3 }
+    }
+  });
+  const summary = JSON.parse(summaryResult.result.content[0].text);
+  assert.equal(summary.filters.pack, 'junit-5-readiness');
+  assert.equal(summary.filters.source, 'checkout');
+  assert.equal(summary.totals.checkoutBacked >= 1, true);
+  assert.equal(summary.filters.limit, summary.benchmarks.length);
+  assert.equal(summary.benchmarks.length <= 3, true);
+  assert.equal(summary.benchmarks.every((benchmark) => benchmark.pack === 'junit-5-readiness'), true);
+  assert.equal(summary.benchmarks.every((benchmark) => benchmark.source === 'checkout'), true);
+  assert.equal(summary.benchmarks.every((benchmark) => benchmark.reportPath.endsWith('/index.html')), true);
+
+  const passedResult = await handleMcpRequest({
+    jsonrpc: '2.0',
+    id: 14,
+    method: 'tools/call',
+    params: {
+      name: 'emp.benchmarks',
+      arguments: { validationStatus: 'passed', limit: 2 }
+    }
+  });
+  const passed = JSON.parse(passedResult.result.content[0].text);
+  assert.equal(passed.benchmarks.every((benchmark) => benchmark.validationStatus === 'passed'), true);
+  assert.equal(passed.totals.validationPassed >= passed.benchmarks.length, true);
+});
+
 test('GitHub Action exposes Docker readiness analysis inputs', async () => {
   const action = await fs.readFile(path.resolve('action.yml'), 'utf8');
   const dockerfile = await fs.readFile(path.resolve('Dockerfile'), 'utf8');

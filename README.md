@@ -120,6 +120,7 @@ The MCP stdio server exposes:
 
 - `emp.analyze`: run readiness analysis with optional enterprise rules.
 - `emp.packs`: list modernization packs or return detailed metadata for one pack.
+- `emp.benchmarks`: summarize published benchmark evidence with optional pack, source, validation-status, and limit filters.
 
 ## What It Does
 
@@ -131,7 +132,7 @@ The MCP stdio server exposes:
 - Runs dry-run, apply, rollback, validation, and OpenRewrite-backed transformation flows.
 - Captures trust evidence for compilation, tests, rollback, binary compatibility, public API compatibility, breaking API count, and confidence.
 - Applies client-owned enterprise rules from `.preflight-rules.yml`.
-- Exposes an MCP stdio interface for AI clients through `emp.analyze` and `emp.packs`.
+- Exposes an MCP stdio interface for AI clients through `emp.analyze`, `emp.packs`, and `emp.benchmarks`.
 - Packages the CLI in Docker with Node, Git, Maven, and Java 21.
 
 ## Consultant Workflow
