@@ -1,40 +1,34 @@
 {
   "schemaVersion": "emp.report.v1",
-  "generatedAt": "2026-06-30T22:51:14.735Z",
+  "generatedAt": "2026-07-02T18:03:11.154Z",
   "project": {
     "name": "Spring Cloud Task",
-    "root": "https://github.com/spring-cloud/spring-cloud-task",
+    "root": "benchmark-repos/spring-cloud-task",
     "source": "https://github.com/spring-cloud/spring-cloud-task",
     "buildTools": [
       "Maven"
     ],
     "javaVersion": "17",
-    "springBootVersion": "2.7.x",
-    "fileCount": 1200,
-    "javaFileCount": 710
+    "springBootVersion": "4.0.7",
+    "fileCount": 442,
+    "javaFileCount": 249
   },
   "pack": "spring-boot-3-readiness",
   "packApplicability": {
-    "applicable": true,
-    "confidence": 0.95,
-    "reason": "Spring Boot 2.x was detected. This pack targets Spring Boot 2.x to 3.x migrations.",
-    "targetVersion": "3.x"
+    "applicable": false,
+    "confidence": 0.94,
+    "reason": "Spring Boot 4.0.7 was detected, not Spring Boot 2.x. This pack targets Spring Boot 2.x to 3.x migrations.",
+    "recommendedPack": "jakarta-readiness"
   },
   "readiness": {
-    "overall": 69,
-    "categories": {
-      "java": 76,
-      "spring": 42,
-      "jakarta": 79,
-      "build": 90,
-      "security": 82,
-      "architecture": 47
-    },
-    "summary": "Migration risk requires focused cleanup",
+    "overall": null,
+    "categories": {},
+    "summary": "Pack mismatch: Spring Boot 4.0.7 was detected, not Spring Boot 2.x. This pack targets Spring Boot 2.x to 3.x migrations.",
+    "status": "not_applicable",
     "counts": {
       "critical": 1,
-      "warning": 21,
-      "info": 33
+      "warning": 43,
+      "info": 34
     }
   },
   "productionFindings": [
@@ -42,16 +36,7 @@
       "code": "javax-usage",
       "severity": "critical",
       "title": "javax namespace usage detected",
-      "recommendation": "Plan Jakarta migration before Spring Boot 3 execution.",
-      "file": "spring/cloud/task/src/main/java/ExampleApplication.java",
-      "line": 12,
-      "scope": "production"
-    },
-    {
-      "code": "spring-boot-2",
-      "severity": "warning",
-      "title": "Spring Boot 2.7.x detected",
-      "recommendation": "Run OpenRewrite Boot 3 recipes in dry-run mode.",
+      "recommendation": "Migrate Java EE imports to Jakarta equivalents for Spring Boot 3.",
       "file": null,
       "line": null,
       "scope": "production"
@@ -59,492 +44,709 @@
     {
       "code": "field-injection",
       "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "spring/cloud/task/src/main/java/Example1.java",
-      "line": 10,
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-starter-single-step-batch-job/src/main/java/org/springframework/cloud/task/batch/autoconfigure/kafka/KafkaItemReaderAutoConfiguration.java",
+      "line": 50,
       "scope": "production"
     },
     {
       "code": "field-injection",
       "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "spring/cloud/task/src/main/java/Example2.java",
-      "line": 11,
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-starter-single-step-batch-job/src/main/java/org/springframework/cloud/task/batch/autoconfigure/kafka/KafkaItemWriterAutoConfiguration.java",
+      "line": 54,
       "scope": "production"
     },
     {
       "code": "field-injection",
       "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "spring/cloud/task/src/main/java/Example3.java",
-      "line": 12,
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-task-batch/src/main/java/org/springframework/cloud/task/batch/configuration/TaskBatchAutoConfiguration.java",
+      "line": 62,
       "scope": "production"
     },
     {
       "code": "field-injection",
       "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "spring/cloud/task/src/main/java/Example4.java",
-      "line": 13,
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-task-batch/src/main/java/org/springframework/cloud/task/batch/configuration/TaskBatchAutoConfiguration.java",
+      "line": 65,
       "scope": "production"
     },
     {
       "code": "field-injection",
       "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "spring/cloud/task/src/main/java/Example5.java",
-      "line": 14,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "spring/cloud/task/src/main/java/Example6.java",
-      "line": 15,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "spring/cloud/task/src/main/java/Example7.java",
-      "line": 16,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "spring/cloud/task/src/main/java/Example8.java",
-      "line": 17,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "spring/cloud/task/src/main/java/Example9.java",
-      "line": 18,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "spring/cloud/task/src/main/java/Example10.java",
-      "line": 19,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "spring/cloud/task/src/main/java/Example11.java",
-      "line": 20,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "spring/cloud/task/src/main/java/Example12.java",
-      "line": 21,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "spring/cloud/task/src/main/java/Example13.java",
-      "line": 22,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "spring/cloud/task/src/main/java/Example14.java",
-      "line": 23,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "spring/cloud/task/src/main/java/Example15.java",
-      "line": 24,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "spring/cloud/task/src/main/java/Example16.java",
-      "line": 25,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "spring/cloud/task/src/main/java/Example17.java",
-      "line": 26,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "spring/cloud/task/src/main/java/Example18.java",
-      "line": 27,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "spring/cloud/task/src/main/java/Example19.java",
-      "line": 28,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "spring/cloud/task/src/main/java/Example20.java",
-      "line": 29,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "spring/cloud/task/src/main/java/Example1.java",
-      "line": 10,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "spring/cloud/task/src/main/java/Example2.java",
-      "line": 11,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "spring/cloud/task/src/main/java/Example3.java",
-      "line": 12,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "spring/cloud/task/src/main/java/Example4.java",
-      "line": 13,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "spring/cloud/task/src/main/java/Example5.java",
-      "line": 14,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "spring/cloud/task/src/main/java/Example6.java",
-      "line": 15,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "spring/cloud/task/src/main/java/Example7.java",
-      "line": 16,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "spring/cloud/task/src/main/java/Example8.java",
-      "line": 17,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "spring/cloud/task/src/main/java/Example9.java",
-      "line": 18,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "spring/cloud/task/src/main/java/Example10.java",
-      "line": 19,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "spring/cloud/task/src/main/java/Example11.java",
-      "line": 20,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "spring/cloud/task/src/main/java/Example12.java",
-      "line": 21,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "spring/cloud/task/src/main/java/Example13.java",
-      "line": 22,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "spring/cloud/task/src/main/java/Example14.java",
-      "line": 23,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "spring/cloud/task/src/main/java/Example15.java",
-      "line": 24,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "spring/cloud/task/src/main/java/Example16.java",
-      "line": 25,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "spring/cloud/task/src/main/java/Example17.java",
-      "line": 26,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "spring/cloud/task/src/main/java/Example18.java",
-      "line": 27,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "spring/cloud/task/src/main/java/Example19.java",
-      "line": 28,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "spring/cloud/task/src/main/java/Example20.java",
-      "line": 29,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "spring/cloud/task/src/main/java/Example21.java",
-      "line": 30,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "spring/cloud/task/src/main/java/Example22.java",
-      "line": 31,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "spring/cloud/task/src/main/java/Example23.java",
-      "line": 32,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "spring/cloud/task/src/main/java/Example24.java",
-      "line": 33,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "spring/cloud/task/src/main/java/Example25.java",
-      "line": 34,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "spring/cloud/task/src/main/java/Example26.java",
-      "line": 35,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "spring/cloud/task/src/main/java/Example27.java",
-      "line": 36,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "spring/cloud/task/src/main/java/Example28.java",
-      "line": 37,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "spring/cloud/task/src/main/java/Example29.java",
-      "line": 38,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "spring/cloud/task/src/main/java/Example30.java",
-      "line": 39,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "spring/cloud/task/src/main/java/Example31.java",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-task-batch/src/main/java/org/springframework/cloud/task/batch/configuration/TaskBatchExecutionListenerBeanPostProcessor.java",
       "line": 40,
       "scope": "production"
     },
     {
-      "code": "java-util-date",
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-task-batch/src/main/java/org/springframework/cloud/task/batch/configuration/TaskJobLauncherAutoConfiguration.java",
+      "line": 47,
+      "scope": "production"
+    },
+    {
+      "code": "reflection-usage",
       "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "spring/cloud/task/src/main/java/Example32.java",
-      "line": 41,
+      "title": "Reflection usage",
+      "recommendation": "Review Reflection usage before modernization.",
+      "file": "spring-cloud-task-core/src/main/java/org/springframework/cloud/task/configuration/DefaultTaskConfigurer.java",
+      "line": 200,
+      "scope": "production"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-task-core/src/main/java/org/springframework/cloud/task/configuration/SimpleTaskAutoConfiguration.java",
+      "line": 72,
+      "scope": "production"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-task-core/src/main/java/org/springframework/cloud/task/configuration/SimpleTaskAutoConfiguration.java",
+      "line": 75,
+      "scope": "production"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-task-core/src/main/java/org/springframework/cloud/task/configuration/SingleTaskConfiguration.java",
+      "line": 42,
+      "scope": "production"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-task-core/src/main/java/org/springframework/cloud/task/configuration/SingleTaskConfiguration.java",
+      "line": 45,
+      "scope": "production"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-task-core/src/main/java/org/springframework/cloud/task/configuration/SingleTaskConfiguration.java",
+      "line": 48,
+      "scope": "production"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-task-core/src/main/java/org/springframework/cloud/task/configuration/TaskLifecycleConfiguration.java",
+      "line": 68,
+      "scope": "production"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-task-core/src/main/java/org/springframework/cloud/task/listener/TaskLifecycleListener.java",
+      "line": 96,
+      "scope": "production"
+    },
+    {
+      "code": "serializable-missing-serial-version",
+      "severity": "warning",
+      "title": "Serializable type without serialVersionUID",
+      "recommendation": "Add an explicit serialVersionUID before Java runtime migration validation.",
+      "file": "spring-cloud-task-core/src/main/java/org/springframework/cloud/task/repository/dao/MapTaskExecutionDao.java",
+      "line": 1,
+      "scope": "production"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-task-samples/batch-events/src/main/java/io/spring/cloud/BatchEventsApplication.java",
+      "line": 55,
+      "scope": "production"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-task-samples/batch-events/src/main/java/io/spring/cloud/BatchEventsApplication.java",
+      "line": 58,
+      "scope": "production"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "spring-cloud-task-samples/batch-events/src/main/java/io/spring/cloud/BatchEventsApplication.java",
+      "line": 66,
+      "scope": "production"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "spring-cloud-task-samples/batch-events/src/main/java/io/spring/cloud/BatchEventsApplication.java",
+      "line": 87,
+      "scope": "production"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-task-samples/batch-job/src/main/java/io/spring/configuration/JobConfiguration.java",
+      "line": 43,
+      "scope": "production"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-task-samples/batch-job/src/main/java/io/spring/configuration/JobConfiguration.java",
+      "line": 46,
       "scope": "production"
     },
     {
       "code": "java-util-date",
       "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "spring/cloud/task/src/main/java/Example33.java",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "spring-cloud-task-samples/jpa-sample/src/main/java/io/spring/configuration/TaskRunComponent.java",
+      "line": 20,
+      "scope": "production"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-task-samples/jpa-sample/src/main/java/io/spring/configuration/TaskRunComponent.java",
+      "line": 41,
+      "scope": "production"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-task-samples/multiple-datasources/src/main/java/io/spring/configuration/CustomTaskConfigurer.java",
+      "line": 32,
+      "scope": "production"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-task-samples/multiple-datasources/src/main/java/io/spring/task/SampleCommandLineRunner.java",
+      "line": 35,
+      "scope": "production"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "spring-cloud-task-samples/multiple-datasources/src/main/java/io/spring/task/SampleCommandLineRunner.java",
       "line": 42,
+      "scope": "production"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "spring-cloud-task-samples/task-events/src/main/java/io/spring/TaskEventsApplication.java",
+      "line": 42,
+      "scope": "production"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-task-samples/task-observations/src/main/java/io/spring/taskobservations/TaskObservationsApplication.java",
+      "line": 39,
+      "scope": "production"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "spring-cloud-task-samples/task-observations/src/main/java/io/spring/taskobservations/TaskObservationsApplication.java",
+      "line": 61,
+      "scope": "production"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "spring-cloud-task-samples/timestamp/src/main/java/org/springframework/cloud/task/timestamp/TaskApplication.java",
+      "line": 21,
+      "scope": "production"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-task-samples/timestamp/src/main/java/org/springframework/cloud/task/timestamp/TaskApplication.java",
+      "line": 58,
+      "scope": "production"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-task-stream/src/main/java/org/springframework/cloud/task/batch/listener/BatchEventAutoConfiguration.java",
+      "line": 121,
+      "scope": "production"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "spring-cloud-task-stream/src/main/java/org/springframework/cloud/task/batch/listener/support/JobParameterEvent.java",
+      "line": 19,
+      "scope": "production"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-task-stream/src/main/java/org/springframework/cloud/task/batch/listener/support/TaskBatchEventListenerBeanPostProcessor.java",
+      "line": 75,
       "scope": "production"
     }
   ],
-  "testFindings": [],
+  "testFindings": [
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "spring-cloud-starter-single-step-batch-job/src/test/java/org/springframework/cloud/task/batch/autoconfigure/jdbc/JdbcBatchItemWriterAutoConfigurationTests.java",
+      "line": 103,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "spring-cloud-starter-single-step-batch-job/src/test/java/org/springframework/cloud/task/batch/autoconfigure/jdbc/JdbcCursorItemReaderAutoConfigurationTests.java",
+      "line": 97,
+      "scope": "test"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "spring-cloud-starter-single-step-batch-job/src/test/java/org/springframework/cloud/task/batch/autoconfigure/kafka/KafkaItemReaderAutoConfigurationTests.java",
+      "line": 20,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "spring-cloud-task-batch/src/test/java/org/springframework/cloud/task/batch/configuration/TaskJobLauncherAutoConfigurationTests.java",
+      "line": 117,
+      "scope": "test"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-task-batch/src/test/java/org/springframework/cloud/task/batch/handler/TaskJobLauncherApplicationRunnerTests.java",
+      "line": 264,
+      "scope": "test"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-task-batch/src/test/java/org/springframework/cloud/task/batch/handler/TaskJobLauncherApplicationRunnerTests.java",
+      "line": 267,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "spring-cloud-task-batch/src/test/java/org/springframework/cloud/task/batch/handler/TaskJobLauncherApplicationRunnerTests.java",
+      "line": 209,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "spring-cloud-task-batch/src/test/java/org/springframework/cloud/task/batch/handler/TaskJobLauncherApplicationRunnerTests.java",
+      "line": 274,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "spring-cloud-task-batch/src/test/java/org/springframework/cloud/task/batch/handler/TaskJobLauncherApplicationRunnerTests.java",
+      "line": 284,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "spring-cloud-task-batch/src/test/java/org/springframework/cloud/task/batch/listener/PrefixTests.java",
+      "line": 81,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "spring-cloud-task-batch/src/test/java/org/springframework/cloud/task/batch/listener/PrimaryKeyTests.java",
+      "line": 80,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "spring-cloud-task-batch/src/test/java/org/springframework/cloud/task/batch/listener/TaskBatchExecutionListenerTests.java",
+      "line": 293,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "spring-cloud-task-batch/src/test/java/org/springframework/cloud/task/batch/listener/TaskBatchExecutionListenerTests.java",
+      "line": 315,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "spring-cloud-task-batch/src/test/java/org/springframework/cloud/task/batch/listener/TaskBatchExecutionListenerTests.java",
+      "line": 340,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "spring-cloud-task-batch/src/test/java/org/springframework/cloud/task/batch/listener/TaskBatchExecutionListenerTests.java",
+      "line": 377,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "spring-cloud-task-batch/src/test/java/org/springframework/cloud/task/batch/listener/TaskBatchExecutionListenerTests.java",
+      "line": 420,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "spring-cloud-task-batch/src/test/java/org/springframework/cloud/task/batch/listener/TaskBatchExecutionListenerTests.java",
+      "line": 430,
+      "scope": "test"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-task-core/src/test/java/org/springframework/cloud/task/SimpleTaskAutoConfigurationTests.java",
+      "line": 284,
+      "scope": "test"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-task-core/src/test/java/org/springframework/cloud/task/TaskRepositoryInitializerDefaultTaskConfigurerTests.java",
+      "line": 50,
+      "scope": "test"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-task-core/src/test/java/org/springframework/cloud/task/TaskRepositoryInitializerNoDataSourceTaskConfigurerTests.java",
+      "line": 51,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "spring-cloud-task-core/src/test/java/org/springframework/cloud/task/configuration/DefaultTaskConfigurerTests.java",
+      "line": 128,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "spring-cloud-task-core/src/test/java/org/springframework/cloud/task/listener/TaskExecutionListenerTests.java",
+      "line": 342,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "spring-cloud-task-core/src/test/java/org/springframework/cloud/task/micrometer/TaskObservationsTests.java",
+      "line": 318,
+      "scope": "test"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-task-core/src/test/java/org/springframework/cloud/task/repository/dao/JdbcTaskExecutionDaoMariaDBIntegrationTests.java",
+      "line": 85,
+      "scope": "test"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-task-core/src/test/java/org/springframework/cloud/task/repository/dao/TaskExecutionDaoTests.java",
+      "line": 69,
+      "scope": "test"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-task-core/src/test/java/org/springframework/cloud/task/repository/support/SimpleTaskExplorerTests.java",
+      "line": 65,
+      "scope": "test"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-task-core/src/test/java/org/springframework/cloud/task/repository/support/SimpleTaskExplorerTests.java",
+      "line": 68,
+      "scope": "test"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-task-core/src/test/java/org/springframework/cloud/task/repository/support/SimpleTaskRepositoryJdbcTests.java",
+      "line": 57,
+      "scope": "test"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-task-core/src/test/java/org/springframework/cloud/task/repository/support/SimpleTaskRepositoryJdbcTests.java",
+      "line": 60,
+      "scope": "test"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-task-core/src/test/java/org/springframework/cloud/task/util/TestDefaultConfiguration.java",
+      "line": 60,
+      "scope": "test"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-task-integration-tests/src/test/java/configuration/JobConfiguration.java",
+      "line": 49,
+      "scope": "test"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-task-integration-tests/src/test/java/configuration/JobConfiguration.java",
+      "line": 52,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "spring-cloud-task-integration-tests/src/test/java/configuration/JobConfiguration.java",
+      "line": 65,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "spring-cloud-task-integration-tests/src/test/java/configuration/JobConfiguration.java",
+      "line": 86,
+      "scope": "test"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-task-integration-tests/src/test/java/configuration/JobSkipConfiguration.java",
+      "line": 42,
+      "scope": "test"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-task-integration-tests/src/test/java/configuration/JobSkipConfiguration.java",
+      "line": 45,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "spring-cloud-task-integration-tests/src/test/java/configuration/JobSkipConfiguration.java",
+      "line": 58,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "spring-cloud-task-integration-tests/src/test/java/configuration/SkipItemWriter.java",
+      "line": 36,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "spring-cloud-task-integration-tests/src/test/java/org/springframework/cloud/task/executionid/TaskStartApplication.java",
+      "line": 42,
+      "scope": "test"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-task-integration-tests/src/test/java/org/springframework/cloud/task/initializer/TaskInitializerTests.java",
+      "line": 84,
+      "scope": "test"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "spring-cloud-task-stream/src/test/java/org/springframework/cloud/task/batch/listener/JobExecutionEventTests.java",
+      "line": 21,
+      "scope": "test"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "spring-cloud-task-stream/src/test/java/org/springframework/cloud/task/batch/listener/JobParametersEventTests.java",
+      "line": 19,
+      "scope": "test"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-task-stream/src/test/java/org/springframework/cloud/task/batch/listener/TaskBatchEventListenerBeanPostProcessorTests.java",
+      "line": 80,
+      "scope": "test"
+    }
+  ],
   "findingSummary": {
     "production": {
       "critical": 1,
-      "warning": 21,
-      "info": 33
+      "warning": 25,
+      "info": 9
     },
     "test": {
       "critical": 0,
-      "warning": 0,
-      "info": 0
+      "warning": 18,
+      "info": 25
     },
     "byCode": {
       "javax-usage": {
@@ -556,7 +758,7 @@
         "test": 0,
         "topModules": [
           {
-            "name": "task",
+            "name": "project",
             "count": 1
           }
         ],
@@ -565,32 +767,7 @@
             "code": "javax-usage",
             "severity": "critical",
             "title": "javax namespace usage detected",
-            "recommendation": "Plan Jakarta migration before Spring Boot 3 execution.",
-            "file": "spring/cloud/task/src/main/java/ExampleApplication.java",
-            "line": 12,
-            "scope": "production"
-          }
-        ]
-      },
-      "spring-boot-2": {
-        "code": "spring-boot-2",
-        "title": "Spring Boot 2.7.x detected",
-        "severity": "warning",
-        "total": 1,
-        "production": 1,
-        "test": 0,
-        "topModules": [
-          {
-            "name": "project",
-            "count": 1
-          }
-        ],
-        "examples": [
-          {
-            "code": "spring-boot-2",
-            "severity": "warning",
-            "title": "Spring Boot 2.7.x detected",
-            "recommendation": "Run OpenRewrite Boot 3 recipes in dry-run mode.",
+            "recommendation": "Migrate Java EE imports to Jakarta equivalents for Spring Boot 3.",
             "file": null,
             "line": null,
             "scope": "production"
@@ -599,122 +776,257 @@
       },
       "field-injection": {
         "code": "field-injection",
-        "title": "Spring field injection patterns",
+        "title": "Spring field injection",
         "severity": "warning",
-        "total": 20,
-        "production": 20,
-        "test": 0,
+        "total": 42,
+        "production": 24,
+        "test": 18,
         "topModules": [
           {
-            "name": "task",
-            "count": 20
+            "name": "spring-cloud-task-core",
+            "count": 17
+          },
+          {
+            "name": "spring-cloud-task-batch",
+            "count": 6
+          },
+          {
+            "name": "spring-cloud-task-integration-tests",
+            "count": 5
           }
         ],
         "examples": [
           {
             "code": "field-injection",
             "severity": "warning",
-            "title": "Spring field injection patterns",
-            "recommendation": "Prefer constructor injection in services touched by migration work.",
-            "file": "spring/cloud/task/src/main/java/Example1.java",
-            "line": 10,
+            "title": "Spring field injection",
+            "recommendation": "Review Spring field injection before modernization.",
+            "file": "spring-cloud-starter-single-step-batch-job/src/main/java/org/springframework/cloud/task/batch/autoconfigure/kafka/KafkaItemReaderAutoConfiguration.java",
+            "line": 50,
             "scope": "production"
           },
           {
             "code": "field-injection",
             "severity": "warning",
-            "title": "Spring field injection patterns",
-            "recommendation": "Prefer constructor injection in services touched by migration work.",
-            "file": "spring/cloud/task/src/main/java/Example2.java",
-            "line": 11,
+            "title": "Spring field injection",
+            "recommendation": "Review Spring field injection before modernization.",
+            "file": "spring-cloud-starter-single-step-batch-job/src/main/java/org/springframework/cloud/task/batch/autoconfigure/kafka/KafkaItemWriterAutoConfiguration.java",
+            "line": 54,
             "scope": "production"
           },
           {
             "code": "field-injection",
             "severity": "warning",
-            "title": "Spring field injection patterns",
-            "recommendation": "Prefer constructor injection in services touched by migration work.",
-            "file": "spring/cloud/task/src/main/java/Example3.java",
-            "line": 12,
+            "title": "Spring field injection",
+            "recommendation": "Review Spring field injection before modernization.",
+            "file": "spring-cloud-task-batch/src/main/java/org/springframework/cloud/task/batch/configuration/TaskBatchAutoConfiguration.java",
+            "line": 62,
             "scope": "production"
           },
           {
             "code": "field-injection",
             "severity": "warning",
-            "title": "Spring field injection patterns",
-            "recommendation": "Prefer constructor injection in services touched by migration work.",
-            "file": "spring/cloud/task/src/main/java/Example4.java",
-            "line": 13,
+            "title": "Spring field injection",
+            "recommendation": "Review Spring field injection before modernization.",
+            "file": "spring-cloud-task-batch/src/main/java/org/springframework/cloud/task/batch/configuration/TaskBatchAutoConfiguration.java",
+            "line": 65,
             "scope": "production"
           },
           {
             "code": "field-injection",
             "severity": "warning",
-            "title": "Spring field injection patterns",
-            "recommendation": "Prefer constructor injection in services touched by migration work.",
-            "file": "spring/cloud/task/src/main/java/Example5.java",
-            "line": 14,
+            "title": "Spring field injection",
+            "recommendation": "Review Spring field injection before modernization.",
+            "file": "spring-cloud-task-batch/src/main/java/org/springframework/cloud/task/batch/configuration/TaskBatchExecutionListenerBeanPostProcessor.java",
+            "line": 40,
             "scope": "production"
+          }
+        ]
+      },
+      "system-out": {
+        "code": "system-out",
+        "title": "System.out logging",
+        "severity": "info",
+        "total": 27,
+        "production": 5,
+        "test": 22,
+        "topModules": [
+          {
+            "name": "spring-cloud-task-batch",
+            "count": 12
+          },
+          {
+            "name": "spring-cloud-task-integration-tests",
+            "count": 5
+          },
+          {
+            "name": "spring-cloud-task-core",
+            "count": 3
+          }
+        ],
+        "examples": [
+          {
+            "code": "system-out",
+            "severity": "info",
+            "title": "System.out logging",
+            "recommendation": "Review System.out logging before modernization.",
+            "file": "spring-cloud-starter-single-step-batch-job/src/test/java/org/springframework/cloud/task/batch/autoconfigure/jdbc/JdbcBatchItemWriterAutoConfigurationTests.java",
+            "line": 103,
+            "scope": "test"
+          },
+          {
+            "code": "system-out",
+            "severity": "info",
+            "title": "System.out logging",
+            "recommendation": "Review System.out logging before modernization.",
+            "file": "spring-cloud-starter-single-step-batch-job/src/test/java/org/springframework/cloud/task/batch/autoconfigure/jdbc/JdbcCursorItemReaderAutoConfigurationTests.java",
+            "line": 97,
+            "scope": "test"
+          },
+          {
+            "code": "system-out",
+            "severity": "info",
+            "title": "System.out logging",
+            "recommendation": "Review System.out logging before modernization.",
+            "file": "spring-cloud-task-batch/src/test/java/org/springframework/cloud/task/batch/configuration/TaskJobLauncherAutoConfigurationTests.java",
+            "line": 117,
+            "scope": "test"
+          },
+          {
+            "code": "system-out",
+            "severity": "info",
+            "title": "System.out logging",
+            "recommendation": "Review System.out logging before modernization.",
+            "file": "spring-cloud-task-batch/src/test/java/org/springframework/cloud/task/batch/handler/TaskJobLauncherApplicationRunnerTests.java",
+            "line": 209,
+            "scope": "test"
+          },
+          {
+            "code": "system-out",
+            "severity": "info",
+            "title": "System.out logging",
+            "recommendation": "Review System.out logging before modernization.",
+            "file": "spring-cloud-task-batch/src/test/java/org/springframework/cloud/task/batch/handler/TaskJobLauncherApplicationRunnerTests.java",
+            "line": 274,
+            "scope": "test"
           }
         ]
       },
       "java-util-date": {
         "code": "java-util-date",
-        "title": "Legacy date API usage",
+        "title": "java.util.Date usage",
         "severity": "info",
-        "total": 33,
-        "production": 33,
-        "test": 0,
+        "total": 6,
+        "production": 3,
+        "test": 3,
         "topModules": [
           {
-            "name": "task",
-            "count": 33
+            "name": "spring-cloud-task-stream",
+            "count": 3
+          },
+          {
+            "name": "jpa-sample",
+            "count": 1
+          },
+          {
+            "name": "spring-cloud-starter-single-step-batch-job",
+            "count": 1
           }
         ],
         "examples": [
           {
             "code": "java-util-date",
             "severity": "info",
-            "title": "Legacy date API usage",
-            "recommendation": "Review date handling before migration validation.",
-            "file": "spring/cloud/task/src/main/java/Example1.java",
-            "line": 10,
+            "title": "java.util.Date usage",
+            "recommendation": "Review java.util.Date usage before modernization.",
+            "file": "spring-cloud-starter-single-step-batch-job/src/test/java/org/springframework/cloud/task/batch/autoconfigure/kafka/KafkaItemReaderAutoConfigurationTests.java",
+            "line": 20,
+            "scope": "test"
+          },
+          {
+            "code": "java-util-date",
+            "severity": "info",
+            "title": "java.util.Date usage",
+            "recommendation": "Review java.util.Date usage before modernization.",
+            "file": "spring-cloud-task-samples/jpa-sample/src/main/java/io/spring/configuration/TaskRunComponent.java",
+            "line": 20,
             "scope": "production"
           },
           {
             "code": "java-util-date",
             "severity": "info",
-            "title": "Legacy date API usage",
-            "recommendation": "Review date handling before migration validation.",
-            "file": "spring/cloud/task/src/main/java/Example2.java",
-            "line": 11,
+            "title": "java.util.Date usage",
+            "recommendation": "Review java.util.Date usage before modernization.",
+            "file": "spring-cloud-task-samples/timestamp/src/main/java/org/springframework/cloud/task/timestamp/TaskApplication.java",
+            "line": 21,
             "scope": "production"
           },
           {
             "code": "java-util-date",
             "severity": "info",
-            "title": "Legacy date API usage",
-            "recommendation": "Review date handling before migration validation.",
-            "file": "spring/cloud/task/src/main/java/Example3.java",
-            "line": 12,
+            "title": "java.util.Date usage",
+            "recommendation": "Review java.util.Date usage before modernization.",
+            "file": "spring-cloud-task-stream/src/main/java/org/springframework/cloud/task/batch/listener/support/JobParameterEvent.java",
+            "line": 19,
             "scope": "production"
           },
           {
             "code": "java-util-date",
             "severity": "info",
-            "title": "Legacy date API usage",
-            "recommendation": "Review date handling before migration validation.",
-            "file": "spring/cloud/task/src/main/java/Example4.java",
-            "line": 13,
-            "scope": "production"
-          },
+            "title": "java.util.Date usage",
+            "recommendation": "Review java.util.Date usage before modernization.",
+            "file": "spring-cloud-task-stream/src/test/java/org/springframework/cloud/task/batch/listener/JobExecutionEventTests.java",
+            "line": 21,
+            "scope": "test"
+          }
+        ]
+      },
+      "reflection-usage": {
+        "code": "reflection-usage",
+        "title": "Reflection usage",
+        "severity": "info",
+        "total": 1,
+        "production": 1,
+        "test": 0,
+        "topModules": [
           {
-            "code": "java-util-date",
+            "name": "spring-cloud-task-core",
+            "count": 1
+          }
+        ],
+        "examples": [
+          {
+            "code": "reflection-usage",
             "severity": "info",
-            "title": "Legacy date API usage",
-            "recommendation": "Review date handling before migration validation.",
-            "file": "spring/cloud/task/src/main/java/Example5.java",
-            "line": 14,
+            "title": "Reflection usage",
+            "recommendation": "Review Reflection usage before modernization.",
+            "file": "spring-cloud-task-core/src/main/java/org/springframework/cloud/task/configuration/DefaultTaskConfigurer.java",
+            "line": 200,
+            "scope": "production"
+          }
+        ]
+      },
+      "serializable-missing-serial-version": {
+        "code": "serializable-missing-serial-version",
+        "title": "Serializable type without serialVersionUID",
+        "severity": "warning",
+        "total": 1,
+        "production": 1,
+        "test": 0,
+        "topModules": [
+          {
+            "name": "spring-cloud-task-core",
+            "count": 1
+          }
+        ],
+        "examples": [
+          {
+            "code": "serializable-missing-serial-version",
+            "severity": "warning",
+            "title": "Serializable type without serialVersionUID",
+            "recommendation": "Add an explicit serialVersionUID before Java runtime migration validation.",
+            "file": "spring-cloud-task-core/src/main/java/org/springframework/cloud/task/repository/dao/MapTaskExecutionDao.java",
+            "line": 1,
             "scope": "production"
           }
         ]
@@ -726,16 +1038,7 @@
       "code": "javax-usage",
       "severity": "critical",
       "title": "javax namespace usage detected",
-      "recommendation": "Plan Jakarta migration before Spring Boot 3 execution.",
-      "file": "spring/cloud/task/src/main/java/ExampleApplication.java",
-      "line": 12,
-      "scope": "production"
-    },
-    {
-      "code": "spring-boot-2",
-      "severity": "warning",
-      "title": "Spring Boot 2.7.x detected",
-      "recommendation": "Run OpenRewrite Boot 3 recipes in dry-run mode.",
+      "recommendation": "Migrate Java EE imports to Jakarta equivalents for Spring Boot 3.",
       "file": null,
       "line": null,
       "scope": "production"
@@ -743,479 +1046,695 @@
     {
       "code": "field-injection",
       "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "spring/cloud/task/src/main/java/Example1.java",
-      "line": 10,
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-starter-single-step-batch-job/src/main/java/org/springframework/cloud/task/batch/autoconfigure/kafka/KafkaItemReaderAutoConfiguration.java",
+      "line": 50,
       "scope": "production"
     },
     {
       "code": "field-injection",
       "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "spring/cloud/task/src/main/java/Example2.java",
-      "line": 11,
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-starter-single-step-batch-job/src/main/java/org/springframework/cloud/task/batch/autoconfigure/kafka/KafkaItemWriterAutoConfiguration.java",
+      "line": 54,
       "scope": "production"
     },
     {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "spring/cloud/task/src/main/java/Example3.java",
-      "line": 12,
-      "scope": "production"
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "spring-cloud-starter-single-step-batch-job/src/test/java/org/springframework/cloud/task/batch/autoconfigure/jdbc/JdbcBatchItemWriterAutoConfigurationTests.java",
+      "line": 103,
+      "scope": "test"
     },
     {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "spring/cloud/task/src/main/java/Example4.java",
-      "line": 13,
-      "scope": "production"
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "spring-cloud-starter-single-step-batch-job/src/test/java/org/springframework/cloud/task/batch/autoconfigure/jdbc/JdbcCursorItemReaderAutoConfigurationTests.java",
+      "line": 97,
+      "scope": "test"
     },
     {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "spring/cloud/task/src/main/java/Example5.java",
-      "line": 14,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "spring/cloud/task/src/main/java/Example6.java",
-      "line": 15,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "spring/cloud/task/src/main/java/Example7.java",
-      "line": 16,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "spring/cloud/task/src/main/java/Example8.java",
-      "line": 17,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "spring/cloud/task/src/main/java/Example9.java",
-      "line": 18,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "spring/cloud/task/src/main/java/Example10.java",
-      "line": 19,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "spring/cloud/task/src/main/java/Example11.java",
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "spring-cloud-starter-single-step-batch-job/src/test/java/org/springframework/cloud/task/batch/autoconfigure/kafka/KafkaItemReaderAutoConfigurationTests.java",
       "line": 20,
+      "scope": "test"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-task-batch/src/main/java/org/springframework/cloud/task/batch/configuration/TaskBatchAutoConfiguration.java",
+      "line": 62,
       "scope": "production"
     },
     {
       "code": "field-injection",
       "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "spring/cloud/task/src/main/java/Example12.java",
-      "line": 21,
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-task-batch/src/main/java/org/springframework/cloud/task/batch/configuration/TaskBatchAutoConfiguration.java",
+      "line": 65,
       "scope": "production"
     },
     {
       "code": "field-injection",
       "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "spring/cloud/task/src/main/java/Example13.java",
-      "line": 22,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "spring/cloud/task/src/main/java/Example14.java",
-      "line": 23,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "spring/cloud/task/src/main/java/Example15.java",
-      "line": 24,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "spring/cloud/task/src/main/java/Example16.java",
-      "line": 25,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "spring/cloud/task/src/main/java/Example17.java",
-      "line": 26,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "spring/cloud/task/src/main/java/Example18.java",
-      "line": 27,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "spring/cloud/task/src/main/java/Example19.java",
-      "line": 28,
-      "scope": "production"
-    },
-    {
-      "code": "field-injection",
-      "severity": "warning",
-      "title": "Spring field injection patterns",
-      "recommendation": "Prefer constructor injection in services touched by migration work.",
-      "file": "spring/cloud/task/src/main/java/Example20.java",
-      "line": 29,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "spring/cloud/task/src/main/java/Example1.java",
-      "line": 10,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "spring/cloud/task/src/main/java/Example2.java",
-      "line": 11,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "spring/cloud/task/src/main/java/Example3.java",
-      "line": 12,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "spring/cloud/task/src/main/java/Example4.java",
-      "line": 13,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "spring/cloud/task/src/main/java/Example5.java",
-      "line": 14,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "spring/cloud/task/src/main/java/Example6.java",
-      "line": 15,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "spring/cloud/task/src/main/java/Example7.java",
-      "line": 16,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "spring/cloud/task/src/main/java/Example8.java",
-      "line": 17,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "spring/cloud/task/src/main/java/Example9.java",
-      "line": 18,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "spring/cloud/task/src/main/java/Example10.java",
-      "line": 19,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "spring/cloud/task/src/main/java/Example11.java",
-      "line": 20,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "spring/cloud/task/src/main/java/Example12.java",
-      "line": 21,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "spring/cloud/task/src/main/java/Example13.java",
-      "line": 22,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "spring/cloud/task/src/main/java/Example14.java",
-      "line": 23,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "spring/cloud/task/src/main/java/Example15.java",
-      "line": 24,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "spring/cloud/task/src/main/java/Example16.java",
-      "line": 25,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "spring/cloud/task/src/main/java/Example17.java",
-      "line": 26,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "spring/cloud/task/src/main/java/Example18.java",
-      "line": 27,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "spring/cloud/task/src/main/java/Example19.java",
-      "line": 28,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "spring/cloud/task/src/main/java/Example20.java",
-      "line": 29,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "spring/cloud/task/src/main/java/Example21.java",
-      "line": 30,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "spring/cloud/task/src/main/java/Example22.java",
-      "line": 31,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "spring/cloud/task/src/main/java/Example23.java",
-      "line": 32,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "spring/cloud/task/src/main/java/Example24.java",
-      "line": 33,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "spring/cloud/task/src/main/java/Example25.java",
-      "line": 34,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "spring/cloud/task/src/main/java/Example26.java",
-      "line": 35,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "spring/cloud/task/src/main/java/Example27.java",
-      "line": 36,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "spring/cloud/task/src/main/java/Example28.java",
-      "line": 37,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "spring/cloud/task/src/main/java/Example29.java",
-      "line": 38,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "spring/cloud/task/src/main/java/Example30.java",
-      "line": 39,
-      "scope": "production"
-    },
-    {
-      "code": "java-util-date",
-      "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "spring/cloud/task/src/main/java/Example31.java",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-task-batch/src/main/java/org/springframework/cloud/task/batch/configuration/TaskBatchExecutionListenerBeanPostProcessor.java",
       "line": 40,
       "scope": "production"
     },
     {
-      "code": "java-util-date",
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-task-batch/src/main/java/org/springframework/cloud/task/batch/configuration/TaskJobLauncherAutoConfiguration.java",
+      "line": 47,
+      "scope": "production"
+    },
+    {
+      "code": "system-out",
       "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "spring/cloud/task/src/main/java/Example32.java",
-      "line": 41,
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "spring-cloud-task-batch/src/test/java/org/springframework/cloud/task/batch/configuration/TaskJobLauncherAutoConfigurationTests.java",
+      "line": 117,
+      "scope": "test"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-task-batch/src/test/java/org/springframework/cloud/task/batch/handler/TaskJobLauncherApplicationRunnerTests.java",
+      "line": 264,
+      "scope": "test"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-task-batch/src/test/java/org/springframework/cloud/task/batch/handler/TaskJobLauncherApplicationRunnerTests.java",
+      "line": 267,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "spring-cloud-task-batch/src/test/java/org/springframework/cloud/task/batch/handler/TaskJobLauncherApplicationRunnerTests.java",
+      "line": 209,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "spring-cloud-task-batch/src/test/java/org/springframework/cloud/task/batch/handler/TaskJobLauncherApplicationRunnerTests.java",
+      "line": 274,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "spring-cloud-task-batch/src/test/java/org/springframework/cloud/task/batch/handler/TaskJobLauncherApplicationRunnerTests.java",
+      "line": 284,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "spring-cloud-task-batch/src/test/java/org/springframework/cloud/task/batch/listener/PrefixTests.java",
+      "line": 81,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "spring-cloud-task-batch/src/test/java/org/springframework/cloud/task/batch/listener/PrimaryKeyTests.java",
+      "line": 80,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "spring-cloud-task-batch/src/test/java/org/springframework/cloud/task/batch/listener/TaskBatchExecutionListenerTests.java",
+      "line": 293,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "spring-cloud-task-batch/src/test/java/org/springframework/cloud/task/batch/listener/TaskBatchExecutionListenerTests.java",
+      "line": 315,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "spring-cloud-task-batch/src/test/java/org/springframework/cloud/task/batch/listener/TaskBatchExecutionListenerTests.java",
+      "line": 340,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "spring-cloud-task-batch/src/test/java/org/springframework/cloud/task/batch/listener/TaskBatchExecutionListenerTests.java",
+      "line": 377,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "spring-cloud-task-batch/src/test/java/org/springframework/cloud/task/batch/listener/TaskBatchExecutionListenerTests.java",
+      "line": 420,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "spring-cloud-task-batch/src/test/java/org/springframework/cloud/task/batch/listener/TaskBatchExecutionListenerTests.java",
+      "line": 430,
+      "scope": "test"
+    },
+    {
+      "code": "reflection-usage",
+      "severity": "info",
+      "title": "Reflection usage",
+      "recommendation": "Review Reflection usage before modernization.",
+      "file": "spring-cloud-task-core/src/main/java/org/springframework/cloud/task/configuration/DefaultTaskConfigurer.java",
+      "line": 200,
+      "scope": "production"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-task-core/src/main/java/org/springframework/cloud/task/configuration/SimpleTaskAutoConfiguration.java",
+      "line": 72,
+      "scope": "production"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-task-core/src/main/java/org/springframework/cloud/task/configuration/SimpleTaskAutoConfiguration.java",
+      "line": 75,
+      "scope": "production"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-task-core/src/main/java/org/springframework/cloud/task/configuration/SingleTaskConfiguration.java",
+      "line": 42,
+      "scope": "production"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-task-core/src/main/java/org/springframework/cloud/task/configuration/SingleTaskConfiguration.java",
+      "line": 45,
+      "scope": "production"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-task-core/src/main/java/org/springframework/cloud/task/configuration/SingleTaskConfiguration.java",
+      "line": 48,
+      "scope": "production"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-task-core/src/main/java/org/springframework/cloud/task/configuration/TaskLifecycleConfiguration.java",
+      "line": 68,
+      "scope": "production"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-task-core/src/main/java/org/springframework/cloud/task/listener/TaskLifecycleListener.java",
+      "line": 96,
+      "scope": "production"
+    },
+    {
+      "code": "serializable-missing-serial-version",
+      "severity": "warning",
+      "title": "Serializable type without serialVersionUID",
+      "recommendation": "Add an explicit serialVersionUID before Java runtime migration validation.",
+      "file": "spring-cloud-task-core/src/main/java/org/springframework/cloud/task/repository/dao/MapTaskExecutionDao.java",
+      "line": 1,
+      "scope": "production"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-task-core/src/test/java/org/springframework/cloud/task/SimpleTaskAutoConfigurationTests.java",
+      "line": 284,
+      "scope": "test"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-task-core/src/test/java/org/springframework/cloud/task/TaskRepositoryInitializerDefaultTaskConfigurerTests.java",
+      "line": 50,
+      "scope": "test"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-task-core/src/test/java/org/springframework/cloud/task/TaskRepositoryInitializerNoDataSourceTaskConfigurerTests.java",
+      "line": 51,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "spring-cloud-task-core/src/test/java/org/springframework/cloud/task/configuration/DefaultTaskConfigurerTests.java",
+      "line": 128,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "spring-cloud-task-core/src/test/java/org/springframework/cloud/task/listener/TaskExecutionListenerTests.java",
+      "line": 342,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "spring-cloud-task-core/src/test/java/org/springframework/cloud/task/micrometer/TaskObservationsTests.java",
+      "line": 318,
+      "scope": "test"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-task-core/src/test/java/org/springframework/cloud/task/repository/dao/JdbcTaskExecutionDaoMariaDBIntegrationTests.java",
+      "line": 85,
+      "scope": "test"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-task-core/src/test/java/org/springframework/cloud/task/repository/dao/TaskExecutionDaoTests.java",
+      "line": 69,
+      "scope": "test"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-task-core/src/test/java/org/springframework/cloud/task/repository/support/SimpleTaskExplorerTests.java",
+      "line": 65,
+      "scope": "test"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-task-core/src/test/java/org/springframework/cloud/task/repository/support/SimpleTaskExplorerTests.java",
+      "line": 68,
+      "scope": "test"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-task-core/src/test/java/org/springframework/cloud/task/repository/support/SimpleTaskRepositoryJdbcTests.java",
+      "line": 57,
+      "scope": "test"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-task-core/src/test/java/org/springframework/cloud/task/repository/support/SimpleTaskRepositoryJdbcTests.java",
+      "line": 60,
+      "scope": "test"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-task-core/src/test/java/org/springframework/cloud/task/util/TestDefaultConfiguration.java",
+      "line": 60,
+      "scope": "test"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-task-integration-tests/src/test/java/configuration/JobConfiguration.java",
+      "line": 49,
+      "scope": "test"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-task-integration-tests/src/test/java/configuration/JobConfiguration.java",
+      "line": 52,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "spring-cloud-task-integration-tests/src/test/java/configuration/JobConfiguration.java",
+      "line": 65,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "spring-cloud-task-integration-tests/src/test/java/configuration/JobConfiguration.java",
+      "line": 86,
+      "scope": "test"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-task-integration-tests/src/test/java/configuration/JobSkipConfiguration.java",
+      "line": 42,
+      "scope": "test"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-task-integration-tests/src/test/java/configuration/JobSkipConfiguration.java",
+      "line": 45,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "spring-cloud-task-integration-tests/src/test/java/configuration/JobSkipConfiguration.java",
+      "line": 58,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "spring-cloud-task-integration-tests/src/test/java/configuration/SkipItemWriter.java",
+      "line": 36,
+      "scope": "test"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "spring-cloud-task-integration-tests/src/test/java/org/springframework/cloud/task/executionid/TaskStartApplication.java",
+      "line": 42,
+      "scope": "test"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-task-integration-tests/src/test/java/org/springframework/cloud/task/initializer/TaskInitializerTests.java",
+      "line": 84,
+      "scope": "test"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-task-samples/batch-events/src/main/java/io/spring/cloud/BatchEventsApplication.java",
+      "line": 55,
+      "scope": "production"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-task-samples/batch-events/src/main/java/io/spring/cloud/BatchEventsApplication.java",
+      "line": 58,
+      "scope": "production"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "spring-cloud-task-samples/batch-events/src/main/java/io/spring/cloud/BatchEventsApplication.java",
+      "line": 66,
+      "scope": "production"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "spring-cloud-task-samples/batch-events/src/main/java/io/spring/cloud/BatchEventsApplication.java",
+      "line": 87,
+      "scope": "production"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-task-samples/batch-job/src/main/java/io/spring/configuration/JobConfiguration.java",
+      "line": 43,
+      "scope": "production"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-task-samples/batch-job/src/main/java/io/spring/configuration/JobConfiguration.java",
+      "line": 46,
       "scope": "production"
     },
     {
       "code": "java-util-date",
       "severity": "info",
-      "title": "Legacy date API usage",
-      "recommendation": "Review date handling before migration validation.",
-      "file": "spring/cloud/task/src/main/java/Example33.java",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "spring-cloud-task-samples/jpa-sample/src/main/java/io/spring/configuration/TaskRunComponent.java",
+      "line": 20,
+      "scope": "production"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-task-samples/jpa-sample/src/main/java/io/spring/configuration/TaskRunComponent.java",
+      "line": 41,
+      "scope": "production"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-task-samples/multiple-datasources/src/main/java/io/spring/configuration/CustomTaskConfigurer.java",
+      "line": 32,
+      "scope": "production"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-task-samples/multiple-datasources/src/main/java/io/spring/task/SampleCommandLineRunner.java",
+      "line": 35,
+      "scope": "production"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "spring-cloud-task-samples/multiple-datasources/src/main/java/io/spring/task/SampleCommandLineRunner.java",
       "line": 42,
       "scope": "production"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "spring-cloud-task-samples/task-events/src/main/java/io/spring/TaskEventsApplication.java",
+      "line": 42,
+      "scope": "production"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-task-samples/task-observations/src/main/java/io/spring/taskobservations/TaskObservationsApplication.java",
+      "line": 39,
+      "scope": "production"
+    },
+    {
+      "code": "system-out",
+      "severity": "info",
+      "title": "System.out logging",
+      "recommendation": "Review System.out logging before modernization.",
+      "file": "spring-cloud-task-samples/task-observations/src/main/java/io/spring/taskobservations/TaskObservationsApplication.java",
+      "line": 61,
+      "scope": "production"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "spring-cloud-task-samples/timestamp/src/main/java/org/springframework/cloud/task/timestamp/TaskApplication.java",
+      "line": 21,
+      "scope": "production"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-task-samples/timestamp/src/main/java/org/springframework/cloud/task/timestamp/TaskApplication.java",
+      "line": 58,
+      "scope": "production"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-task-stream/src/main/java/org/springframework/cloud/task/batch/listener/BatchEventAutoConfiguration.java",
+      "line": 121,
+      "scope": "production"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "spring-cloud-task-stream/src/main/java/org/springframework/cloud/task/batch/listener/support/JobParameterEvent.java",
+      "line": 19,
+      "scope": "production"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-task-stream/src/main/java/org/springframework/cloud/task/batch/listener/support/TaskBatchEventListenerBeanPostProcessor.java",
+      "line": 75,
+      "scope": "production"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "spring-cloud-task-stream/src/test/java/org/springframework/cloud/task/batch/listener/JobExecutionEventTests.java",
+      "line": 21,
+      "scope": "test"
+    },
+    {
+      "code": "java-util-date",
+      "severity": "info",
+      "title": "java.util.Date usage",
+      "recommendation": "Review java.util.Date usage before modernization.",
+      "file": "spring-cloud-task-stream/src/test/java/org/springframework/cloud/task/batch/listener/JobParametersEventTests.java",
+      "line": 19,
+      "scope": "test"
+    },
+    {
+      "code": "field-injection",
+      "severity": "warning",
+      "title": "Spring field injection",
+      "recommendation": "Review Spring field injection before modernization.",
+      "file": "spring-cloud-task-stream/src/test/java/org/springframework/cloud/task/batch/listener/TaskBatchEventListenerBeanPostProcessorTests.java",
+      "line": 80,
+      "scope": "test"
     }
   ],
   "evidence": [
@@ -1232,6 +1751,22 @@
       "status": "failed"
     },
     {
+      "name": "Hibernate usage detection",
+      "status": "passed"
+    },
+    {
+      "name": "Spring Security usage detection",
+      "status": "warning"
+    },
+    {
+      "name": "JUnit 4 usage detection",
+      "status": "warning"
+    },
+    {
+      "name": "JUnit 5 usage detection",
+      "status": "passed"
+    },
+    {
       "name": "Static source checks",
       "status": "warning"
     },
@@ -1242,29 +1777,58 @@
     }
   ],
   "dependencies": {
-    "springBootVersion": "2.7.x",
-    "jakartaDetected": false,
+    "springBootVersion": "4.0.7",
+    "springSecurityVersion": "unknown",
+    "jakartaDetected": true,
     "javaxDetected": true,
     "hibernateDetected": true,
-    "springSecurityDetected": true
+    "springSecurityDetected": false,
+    "junit4Detected": false,
+    "junit5Detected": true
   },
   "benchmark": {
     "slug": "spring-cloud-task",
     "name": "Spring Cloud Task",
     "repository": "https://github.com/spring-cloud/spring-cloud-task",
     "ref": null,
-    "requestedSource": "catalog",
-    "source": "catalog",
-    "checkoutPath": null,
-    "analysisPath": null,
-    "gitRevision": null,
-    "commands": [],
+    "requestedSource": "clone",
+    "source": "checkout",
+    "checkoutPath": "benchmark-repos/spring-cloud-task",
+    "analysisPath": "benchmark-repos/spring-cloud-task",
+    "gitRevision": "1e77aa5f96bf0604c38b6ce27ec4e11d1a7a8adb",
+    "commands": [
+      {
+        "command": "git clone --depth 1 https://github.com/spring-cloud/spring-cloud-task benchmark-repos/spring-cloud-task",
+        "exitCode": 0,
+        "status": "passed",
+        "output": "Cloning into '~/<workspace>"
+      }
+    ],
     "validation": {
-      "requested": false,
-      "status": "not_requested",
-      "confidence": 0,
-      "checks": [],
-      "summary": "Validation was not requested."
+      "requested": true,
+      "status": "failed",
+      "confidence": 25,
+      "checks": [
+        {
+          "name": "Compilation",
+          "status": "failed",
+          "command": "./mvnw -q -DskipTests compile",
+          "durationMs": 120118,
+          "exitCode": 143,
+          "output": "WARNING: A restricted method in java.lang.System has been called\nWARNING: java.lang.System::load has been called by org.fusesource.jansi.internal.JansiLoader in an unnamed module (file:~/.m2/wrapper/dists/apache-maven-3.9.1-bin/320285b4/apache-maven-3.9.1/lib/jansi-2.4.0.jar)\nWARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module\nWARNING: Restricted methods will be blocked in a future release unless native access is enabled\n\nWARNING: A terminally deprecated method in sun.misc.Unsafe has been called\nWARNING: sun.misc.Unsafe::objectFieldOffset has been called by com.google.common.util.concurrent.AbstractFuture$UnsafeAtomicHelper (file:~/.m2/wrapper/dists/apache-maven-3.9.1-bin/320285b4/apache-maven-3.9.1/lib/guava-30.1-jre.jar)\nWARNING: Please consider reporting this to the maintainers of class com.google.common.util.concurrent.AbstractFuture$UnsafeAtomicHelper\nWARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release\nCommand timed out after 120000 ms.",
+          "timedOut": true
+        },
+        {
+          "name": "Tests",
+          "status": "failed",
+          "command": "./mvnw -q test",
+          "durationMs": 120119,
+          "exitCode": 143,
+          "output": "her.launch(Launcher.java:225)\n[ERROR] \tat org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode(Launcher.java:406)\n[ERROR] \tat org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:347)\n[ERROR] \tat java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)\n[ERROR] \tat java.base/java.lang.reflect.Method.invoke(Method.java:565)\n[ERROR] \tat org.apache.maven.wrapper.BootstrapMainStarter.start(BootstrapMainStarter.java:52)\n[ERROR] \tat org.apache.maven.wrapper.WrapperExecutor.execute(WrapperExecutor.java:161)\n[ERROR] \tat org.apache.maven.wrapper.MavenWrapperMain.main(MavenWrapperMain.java:73)\n[ERROR] \n[ERROR] -> [Help 1]\n[ERROR] \n[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.\n[ERROR] Re-run Maven using the -X switch to enable full debug logging.\n[ERROR] \n[ERROR] For more information about the errors and possible solutions, please read the following articles:\n[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException\n[ERROR] \n[ERROR] After correcting the problems, you can resume the build with the command\n[ERROR]   mvn <args> -rf :spring-cloud-task-core\nCommand timed out after 120000 ms.",
+          "timedOut": true
+        }
+      ],
+      "summary": "2 validation check(s) failed."
     }
   },
   "nextActions": [
@@ -1280,16 +1844,13 @@
       "suggestedCommand": "node ./bin/emp.js analyze . --pack jakarta-readiness --out reports/jakarta-readiness"
     },
     {
-      "id": "validate-spring-boot-upgrade-path",
-      "priority": "warning",
-      "title": "Validate the Spring Boot 3 upgrade path",
-      "reason": "Spring Boot version evidence determines whether the Spring Boot 2 to 3 pack can support migration planning.",
-      "evidenceCount": 1,
-      "findingCodes": [
-        "spring-boot-2",
-        "spring-boot-version-unknown"
-      ],
-      "suggestedCommand": "node ./bin/emp.js transform . --pack spring-boot-3-readiness --mode dry-run --validate --out reports/spring-boot-trust"
+      "id": "select-applicable-pack",
+      "priority": "critical",
+      "title": "Select the applicable modernization pack",
+      "reason": "Spring Boot 4.0.7 was detected, not Spring Boot 2.x. This pack targets Spring Boot 2.x to 3.x migrations.",
+      "evidenceCount": 0,
+      "findingCodes": [],
+      "suggestedCommand": "node ./bin/emp.js analyze . --pack jakarta-readiness --out reports/jakarta-readiness"
     }
   ]
 }

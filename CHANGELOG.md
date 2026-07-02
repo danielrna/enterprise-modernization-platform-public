@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+## v0.3.0
+
+- Promoted JHipster Sample App, Spring Cloud Config, Spring Cloud Consul, Spring Cloud Task, and Spring Cloud OpenFeign to checkout-backed Spring Boot readiness evidence with honest Java compatibility, timeout, and passing validation evidence.
+- Raised checkout-backed benchmark evidence to 45 reports and passing validation evidence to 16 reports while preserving the 75-report public catalog.
+
 ## v0.2.9
 
 - Promoted Mockito JUnit 4 Samples, PowerMock JUnit 4, REST Assured JUnit 4, and Testcontainers JUnit 4 to checkout-backed JUnit readiness evidence with honest Gradle/Maven timeout, dependency, compiler, and Java compatibility evidence.
